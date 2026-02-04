@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — ASCRI</title>
+  <meta name="description" content="Collaboration enquiries and contact information for ASCRI.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/ascri.css">
+</head>
+<body class="has-nav">
+
+  <nav class="site-nav">
+    <div class="site-nav__inner">
+      <a href="/" class="site-nav__brand">ASCRI</a>
+      <button class="site-nav__toggle" onclick="document.querySelector('.site-nav__links').classList.toggle('is-open')" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="site-nav__links">
+        <a href="/framework" class="site-nav__link">Framework</a>
+        <a href="/programmes/" class="site-nav__link">Programmes</a>
+        <a href="/papers/" class="site-nav__link">Papers</a>
+        <a href="/people" class="site-nav__link">People</a>
+        <a href="/about" class="site-nav__link">About</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <section class="hero">
+    <div class="container">
+      <span class="hero__label">Contact</span>
+      <h1 class="hero__title">Collaboration &amp; Enquiries</h1>
+      <p class="hero__subtitle">We are actively seeking collaborators who want to stress-test, extend, or dismantle the framework.</p>
+    </div>
+  </section>
+
+  <!-- Email -->
+  <section>
+    <div class="container">
+      <span class="section-label">Email</span>
+      <h2 class="section-title">Get in Touch</h2>
+
+      <div class="equation" style="font-size: 1.125rem; text-align: center; border-left-width: 3px;">
+        <a href="mailto:research@dissensus.ai" style="text-decoration: none; color: var(--accent); font-weight: 500;">research@dissensus.ai</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Collaboration Types -->
+  <section class="section--alt">
+    <div class="container">
+      <span class="section-label">Open Problems</span>
+      <h2 class="section-title">Collaborations Sought</h2>
+      <p class="section-desc">We are looking for researchers who can attack specific open problems in the framework.</p>
+
+      <div style="display: flex; flex-direction: column; gap: 2rem; margin-top: 1rem;">
+
+        <div style="padding: 1.5rem 0; border-bottom: 1px solid var(--border);">
+          <div style="display: flex; align-items: baseline; gap: 0.75rem; margin-bottom: 0.5rem;">
+            <span class="tag">Category Theory</span>
+          </div>
+          <h3 style="margin-bottom: 0.5rem;">Formalizing the Replicator-Optimization Homomorphism</h3>
+          <p style="font-size: 0.9375rem;">The mapping between replicator dynamics and optimization processes has been described informally. We need category theorists to formalize the structure-preserving maps between these domains and determine whether ROM constitutes a genuine functor or something weaker.</p>
+        </div>
+
+        <div style="padding: 1.5rem 0; border-bottom: 1px solid var(--border);">
+          <div style="display: flex; align-items: baseline; gap: 0.75rem; margin-bottom: 0.5rem;">
+            <span class="tag">Political Science</span>
+          </div>
+          <h3 style="margin-bottom: 0.5rem;">Stress-Testing Consent-Legitimacy Mappings</h3>
+          <p style="font-size: 0.9375rem;">The framework derives governance legitimacy as a function of consent alignment. This needs adversarial testing against real-world political systems&mdash;particularly edge cases where high-alignment regimes are illegitimate or low-alignment systems persist stably.</p>
+        </div>
+
+        <div style="padding: 1.5rem 0; border-bottom: 1px solid var(--border);">
+          <div style="display: flex; align-items: baseline; gap: 0.75rem; margin-bottom: 0.5rem;">
+            <span class="tag">AI Safety</span>
+          </div>
+          <h3 style="margin-bottom: 0.5rem;">Attacking the Substrate-Independence Thesis</h3>
+          <p style="font-size: 0.9375rem;">The framework claims friction dynamics are substrate-independent&mdash;that the same formal machinery applies to biological, institutional, and computational systems. AI safety researchers are uniquely positioned to identify where this claim breaks down in artificial agent architectures.</p>
+        </div>
+
+        <div style="padding: 1.5rem 0; border-bottom: 1px solid var(--border);">
+          <div style="display: flex; align-items: baseline; gap: 0.75rem; margin-bottom: 0.5rem;">
+            <span class="tag">Economics</span>
+          </div>
+          <h3 style="margin-bottom: 0.5rem;">Finding Where the Hedging Paradox Breaks Down</h3>
+          <p style="font-size: 0.9375rem;">The hedging paradox predicts that risk-mitigation instruments eventually generate the systemic risk they were designed to prevent. We need economists to identify market structures where this prediction fails&mdash;where hedging genuinely reduces systemic risk without recursive amplification.</p>
+        </div>
+
+        <div style="padding: 1.5rem 0; border-bottom: 1px solid var(--border);">
+          <div style="display: flex; align-items: baseline; gap: 0.75rem; margin-bottom: 0.5rem;">
+            <span class="tag">Philosophy</span>
+          </div>
+          <h3 style="margin-bottom: 0.5rem;">Dismantling the Eliminative Argument on Consciousness</h3>
+          <p style="font-size: 0.9375rem;">The consciousness monograph argues for eliminative monism&mdash;that phenomenal consciousness is an artefact of optimization rather than a fundamental feature of reality. Philosophers of mind who can identify fatal objections to this position are particularly welcome.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Institutional Note -->
+  <section>
+    <div class="container">
+      <span class="section-label">Organisation</span>
+      <h2 class="section-title">Institutional Note</h2>
+
+      <p style="margin-bottom: 1rem;">ASCRI operates under <a href="https://dissensus.ai">Dissensus AI</a>. For services, consulting, and organizational enquiries, visit <a href="https://dissensus.ai">dissensus.ai</a>.</p>
+
+      <p style="font-size: 0.9375rem; color: var(--text-muted);">For academic correspondence, paper-specific questions, or data requests, use the email above. For press, partnerships, or institutional enquiries, contact Dissensus AI directly.</p>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <div>
+        <div class="site-footer__brand">ASCRI</div>
+        <p class="site-footer__copy">&copy; 2026 ASCRI &middot; Operated by <a href="https://dissensus.ai">Dissensus AI</a></p>
+      </div>
+      <div class="site-footer__links">
+        <a href="/framework">Framework</a>
+        <a href="/programmes/">Programmes</a>
+        <a href="/papers/">Papers</a>
+        <a href="/people">People</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+        <a href="/feed.xml">RSS</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — ASCRI</title>
+  <meta name="description" content="About the Adversarial Systems & Complexity Research Initiative: mission, methodology, and institutional context.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/ascri.css">
+</head>
+<body class="has-nav">
+
+  <nav class="site-nav">
+    <div class="site-nav__inner">
+      <a href="/" class="site-nav__brand">ASCRI</a>
+      <button class="site-nav__toggle" onclick="document.querySelector('.site-nav__links').classList.toggle('is-open')" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="site-nav__links">
+        <a href="/framework" class="site-nav__link">Framework</a>
+        <a href="/programmes/" class="site-nav__link">Programmes</a>
+        <a href="/papers/" class="site-nav__link">Papers</a>
+        <a href="/people" class="site-nav__link">People</a>
+        <a href="/about" class="site-nav__link site-nav__link--active">About</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <section class="hero">
+    <div class="container">
+      <span class="hero__label">About</span>
+      <h1 class="hero__title">Adversarial Systems &amp; Complexity Research Initiative</h1>
+    </div>
+  </section>
+
+  <!-- Mission -->
+  <section>
+    <div class="container">
+      <span class="section-label">Mission</span>
+      <h2 class="section-title">What We Study</h2>
+
+      <p style="margin-bottom: 1.5rem;">ASCRI investigates sufficiently complex dynamic networks of agents where equilibria are impossible to reach due to formalized friction constraints. These systems are adversarial not against external threats but against themselves&mdash;their own coordination costs, delegation failures, and alignment drift generate the structural conflicts that define their behaviour. Yet they persist. Not through consensus, but through dissensus: the ongoing negotiation of competing optimization targets that never fully converge.</p>
+
+      <p>The initiative formalizes this persistence through the Axiom of Consent framework, which provides a measurable friction function over three kernel variables&mdash;alignment, stakes, and entropy. The framework predicts where coordination will fail, why certain institutional arrangements collapse while others endure, and what the minimum viable conditions for delegation are across political, economic, and computational systems. We do not study how systems reach equilibrium. We study why they never do, and what they do instead.</p>
+    </div>
+  </section>
+
+  <!-- Methodology -->
+  <section class="section--alt">
+    <div class="container">
+      <span class="section-label">Approach</span>
+      <h2 class="section-title">Methodology</h2>
+
+      <p style="margin-bottom: 1.5rem;">ASCRI is interdisciplinary by design, not by aspiration. The research programme spans political economy, computational finance, philosophy of mind, and AI safety&mdash;not because these are similar fields, but because friction dynamics are substrate-independent. The same formal machinery that predicts governance legitimacy also predicts cryptocurrency market responses to regulatory shocks. The same alignment function that models principal-agent delegation in democracies models reward misspecification in reinforcement learning systems.</p>
+
+      <p style="margin-bottom: 1.5rem;">This is not metaphor. The friction equation generates quantitative predictions that are testable against empirical data in each domain. Programme IV (Crypto Microstructure) validates the framework against high-frequency financial data. Programme I (Consent Mechanics) derives governance legitimacy as a function of consent alignment. Programme V (Process Philosophy) extends the framework to persistence conditions for any replicating system. Each programme serves as an independent stress-test of the formal apparatus.</p>
+
+      <p>The methodological commitment is to formal generality with empirical accountability. The framework must be abstract enough to apply across substrates and concrete enough to generate falsifiable predictions within each one.</p>
+    </div>
+  </section>
+
+  <!-- Institutional Context -->
+  <section>
+    <div class="container">
+      <span class="section-label">Institution</span>
+      <h2 class="section-title">Institutional Context</h2>
+
+      <p style="margin-bottom: 1.5rem;">ASCRI is the research programme of Dissensus AI, a governance alignment research lab. The initiative publishes independently under its own name while operating within the organizational structure of Dissensus AI. Research outputs are published as preprints on Zenodo, arXiv, and SSRN, and submitted to peer-reviewed journals including Digital Finance (Springer), AI &amp; Ethics (Springer), Synthese, and History and Philosophy of the Life Sciences (Nature). All papers are open access under CC BY 4.0.</p>
+
+      <p>The open-access commitment is non-negotiable. Research on coordination friction in multi-agent systems should not itself be gated behind coordination-friction-generating paywalls. All data, code, and publications produced by ASCRI are made freely available.</p>
+    </div>
+  </section>
+
+  <!-- Related Properties -->
+  <section class="section--alt">
+    <div class="container">
+      <span class="section-label">Network</span>
+      <h2 class="section-title">Related Properties</h2>
+
+      <div style="display: flex; flex-direction: column; gap: 1.5rem; margin-top: 1rem;">
+        <div>
+          <h4 style="margin-bottom: 0.25rem;"><a href="https://dissensus.ai">dissensus.ai</a></h4>
+          <p style="font-size: 0.9375rem;">Dissensus AI &mdash; the parent organization. Governance alignment research lab, organizational information, and services.</p>
+        </div>
+        <div>
+          <h4 style="margin-bottom: 0.25rem;"><a href="https://farzulla.org">farzulla.org</a></h4>
+          <p style="font-size: 0.9375rem;">Farzulla Research &mdash; academic profile of the principal investigator. Paper PDFs, citation information, and ORCID record.</p>
+        </div>
+        <div>
+          <h4 style="margin-bottom: 0.25rem;"><a href="https://resurrexi.io">resurrexi.io</a></h4>
+          <p style="font-size: 0.9375rem;">Resurrexi Labs &mdash; research infrastructure. Cluster dashboards, experimental deployments, and computational resources.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <div>
+        <div class="site-footer__brand">ASCRI</div>
+        <p class="site-footer__copy">&copy; 2026 ASCRI &middot; Operated by <a href="https://dissensus.ai">Dissensus AI</a></p>
+      </div>
+      <div class="site-footer__links">
+        <a href="/framework">Framework</a>
+        <a href="/programmes/">Programmes</a>
+        <a href="/papers/">Papers</a>
+        <a href="/people">People</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+        <a href="/feed.xml">RSS</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

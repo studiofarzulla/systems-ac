@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Framework — ASCRI</title>
+  <meta name="description" content="The Axiom of Consent: a pre-game-theoretic framework for analyzing multi-agent coordination friction.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/ascri.css">
+</head>
+<body class="has-nav">
+
+  <nav class="site-nav">
+    <div class="site-nav__inner">
+      <a href="/" class="site-nav__brand">ASCRI</a>
+      <button class="site-nav__toggle" onclick="document.querySelector('.site-nav__links').classList.toggle('is-open')" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="site-nav__links">
+        <a href="/framework" class="site-nav__link site-nav__link--active">Framework</a>
+        <a href="/programmes/" class="site-nav__link">Programmes</a>
+        <a href="/papers/" class="site-nav__link">Papers</a>
+        <a href="/people" class="site-nav__link">People</a>
+        <a href="/about" class="site-nav__link">About</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <section class="hero">
+    <div class="container">
+      <span class="hero__label">Core Framework</span>
+      <h1 class="hero__title">The Axiom of Consent</h1>
+      <p class="hero__subtitle">A pre-game-theoretic framework for analyzing multi-agent coordination friction.</p>
+    </div>
+  </section>
+
+  <!-- The Problem -->
+  <section>
+    <div class="container">
+      <span class="section-label">Motivation</span>
+      <h2 class="section-title">The Problem</h2>
+
+      <p style="margin-bottom: 1.5rem;">Game theory presupposes participation. It models what happens once agents are seated at the table, but says nothing about how they got there, why the table has the shape it does, or what happens when an agent refuses to sit down. The entire apparatus of Nash equilibria, mechanism design, and auction theory operates downstream of a structural assumption that is never interrogated: that the game is already underway.</p>
+
+      <p style="margin-bottom: 1.5rem;">This omission is not trivial. It means game theory cannot account for why payoff structures take certain forms, why some agents persistently refuse to participate in institutions that claim to represent them, or why coordination fails not because of strategic miscalculation but because the preconditions for strategic interaction were never met. Before strategy, there is delegation. Before delegation, consent. Before consent, stake.</p>
+
+      <p>The Axiom of Consent addresses this structural gap. It formalizes the conditions under which optimization is delegated from one agent to another and defines a measurable friction function that captures the coordination costs arising when those conditions are violated. The framework operates at a layer beneath game theory&mdash;not replacing it, but grounding it in the structural dynamics that determine whether games can form at all.</p>
+    </div>
+  </section>
+
+  <!-- Friction Equation -->
+  <section class="section--alt">
+    <div class="container">
+      <span class="section-label">Formal Apparatus</span>
+      <h2 class="section-title">The Friction Equation</h2>
+
+      <div class="equation">
+        <span class="equation__label">Core Friction Function</span>
+        &phi;(d, t) = &sigma;(d, t) &middot; (1 + &epsilon;(d, t)) / (1 + &alpha;(d, t))
+      </div>
+
+      <table class="notation-table">
+        <thead>
+          <tr>
+            <th>Symbol</th>
+            <th>Name</th>
+            <th>Definition</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="symbol">&phi;</td>
+            <td class="name">Friction</td>
+            <td class="desc">Measurable resistance to coordination. The cost imposed by misalignment, stakes, and entropy on any delegation relationship.</td>
+          </tr>
+          <tr>
+            <td class="symbol">&alpha;</td>
+            <td class="name">Alignment</td>
+            <td class="desc">Convergence of optimization targets between principal and agent. Ranges from total divergence (0) to perfect convergence (1).</td>
+          </tr>
+          <tr>
+            <td class="symbol">&sigma;</td>
+            <td class="name">Stakes</td>
+            <td class="desc">Magnitude of optimization being delegated. The &ldquo;how much is at risk&rdquo; parameter that scales friction proportionally.</td>
+          </tr>
+          <tr>
+            <td class="symbol">&epsilon;</td>
+            <td class="name">Entropy</td>
+            <td class="desc">Efficiency loss in optimization transfer. The irreducible information loss from principal-agent delegation, even under perfect alignment.</td>
+          </tr>
+          <tr>
+            <td class="symbol">&Lambda;</td>
+            <td class="name">Legitimacy</td>
+            <td class="desc">&Lambda;(d, t) = &alpha;(d, t) &mdash; consent alignment as the measure of legitimate governance. Legitimacy collapses to alignment.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Kernel Triple -->
+  <section>
+    <div class="container">
+      <span class="section-label">Components</span>
+      <h2 class="section-title">The Kernel Triple</h2>
+      <p class="section-desc">Three irreducible variables that govern every delegation relationship.</p>
+
+      <div style="margin-bottom: 3rem;">
+        <h3 style="margin-bottom: 0.75rem;"><span style="font-family: var(--font-mono); color: var(--accent);">&alpha;</span> &mdash; Alignment</h3>
+        <p>Alignment measures how closely the optimization targets of principal and agent converge. When a citizen delegates governance to a representative, alignment captures whether the representative&rsquo;s objective function approximates the citizen&rsquo;s. When a trader delegates portfolio management to an algorithm, alignment captures whether the algorithm optimizes the same loss function the trader would. Alignment is not binary&mdash;it is a continuous variable that degrades with institutional distance, information asymmetry, and divergent incentive structures. The framework&rsquo;s central prediction: as alignment decreases, friction increases monotonically, regardless of substrate.</p>
+      </div>
+
+      <div style="margin-bottom: 3rem;">
+        <h3 style="margin-bottom: 0.75rem;"><span style="font-family: var(--font-mono); color: var(--accent);">&sigma;</span> &mdash; Stakes</h3>
+        <p>Stakes quantify the magnitude of what is being delegated. A governance decision affecting tax policy carries different stakes than one affecting military deployment, even if the alignment and entropy parameters are identical. Stakes act as a scaling factor: small misalignments produce trivial friction when stakes are low but catastrophic friction when stakes are high. This explains why citizens tolerate significant misalignment in municipal planning but revolt over military conscription&mdash;the friction function amplifies the same alignment deficit by different stake magnitudes.</p>
+      </div>
+
+      <div style="margin-bottom: 3rem;">
+        <h3 style="margin-bottom: 0.75rem;"><span style="font-family: var(--font-mono); color: var(--accent);">&epsilon;</span> &mdash; Entropy</h3>
+        <p>Entropy captures the irreducible information loss inherent in any delegation. Even when principal and agent share identical optimization targets (&alpha; = 1), the act of delegation itself introduces noise. A perfectly aligned representative still faces information constraints, communication delays, and bounded rationality that prevent perfect replication of the principal&rsquo;s preferences. Entropy is the thermodynamic cost of coordination&mdash;it cannot be eliminated, only minimized. It sets a floor on friction: no delegation relationship achieves zero coordination cost.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROM -->
+  <section class="section--alt">
+    <div class="container">
+      <span class="section-label">Meta-Theory</span>
+      <h2 class="section-title">The Replicator-Optimization Mechanism</h2>
+
+      <p style="margin-bottom: 1.5rem;">The Replicator-Optimization Mechanism (ROM) provides the evolutionary-computational meta-theory that explains why consent-respecting arrangements persist. ROM treats all persistent systems&mdash;biological, institutional, computational&mdash;as configurations in optimization space that are subject to selection pressure. Configurations that generate less friction consume fewer resources resisting their own coordination failures and therefore persist longer than high-friction alternatives.</p>
+
+      <p style="margin-bottom: 1.5rem;">The key insight is dynamical: consent-respecting arrangements are not morally preferred but structurally favored. They are attractors in the optimization landscape because they minimize the coordination costs that drain systems of the resources needed for persistence. Authoritarian regimes, extractive institutions, and misaligned AI systems all generate excess friction that eventually exceeds their capacity to absorb&mdash;not because they are &ldquo;wrong&rdquo; but because they are thermodynamically expensive.</p>
+
+      <p style="margin-bottom: 2rem;">ROM unifies the Axiom of Consent with evolutionary dynamics: the friction function measures local coordination costs, while ROM explains why low-friction configurations accumulate over evolutionary time. Together, they provide a substrate-independent theory of institutional persistence.</p>
+
+      <a href="/papers/replicator-optimization-mechanism" class="btn">Read the ROM Paper</a>
+    </div>
+  </section>
+
+  <!-- Key Papers -->
+  <section>
+    <div class="container">
+      <span class="section-label">Foundation</span>
+      <h2 class="section-title">Key Papers</h2>
+
+      <div class="featured-papers">
+        <a href="/papers/axiom-of-consent" class="paper-card">
+          <div class="paper-card__meta">
+            <span class="status status--preprint">Preprint</span>
+            <span class="paper-card__date">2025</span>
+          </div>
+          <div class="paper-card__title">The Axiom of Consent: A Pre-Game-Theoretic Framework for Multi-Agent Coordination Friction</div>
+          <div class="paper-card__authors">Murad Farzulla</div>
+        </a>
+
+        <a href="/papers/replicator-optimization-mechanism" class="paper-card">
+          <div class="paper-card__meta">
+            <span class="status status--peer-review">Peer Review</span>
+            <span class="tag">Synthese</span>
+            <span class="paper-card__date">2025</span>
+          </div>
+          <div class="paper-card__title">The Replicator-Optimization Mechanism: An Evolutionary-Computational Theory of Persistence</div>
+          <div class="paper-card__authors">Murad Farzulla</div>
+        </a>
+
+        <a href="/papers/consensual-sovereignty" class="paper-card">
+          <div class="paper-card__meta">
+            <span class="status status--preprint">Preprint</span>
+            <span class="paper-card__date">2025</span>
+          </div>
+          <div class="paper-card__title">Consensual Sovereignty: Quantifying Legitimacy Through Consent Alignment</div>
+          <div class="paper-card__authors">Murad Farzulla</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <div>
+        <div class="site-footer__brand">ASCRI</div>
+        <p class="site-footer__copy">&copy; 2026 ASCRI &middot; Operated by <a href="https://dissensus.ai">Dissensus AI</a></p>
+      </div>
+      <div class="site-footer__links">
+        <a href="/framework">Framework</a>
+        <a href="/programmes/">Programmes</a>
+        <a href="/papers/">Papers</a>
+        <a href="/people">People</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+        <a href="/feed.xml">RSS</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
