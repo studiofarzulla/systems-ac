@@ -111,11 +111,11 @@ function doiUrl(paper) {
 }
 
 function paperUrl(paper) {
-  return `/papers/${paper.id}.html`;
+  return `/papers/${paper.id}`;
 }
 
 function programmeUrl(programKey) {
-  return `/programmes/${programKey}.html`;
+  return `/programmes/${programKey}`;
 }
 
 function truncateAbstract(text, maxLen) {
@@ -343,11 +343,11 @@ ${JSON.stringify(jsonLd, null, 2)}
 
 function getNavHtml(activePage) {
   const links = [
-    { href: '/framework.html', label: 'Framework', key: 'framework' },
+    { href: '/framework', label: 'Framework', key: 'framework' },
     { href: '/programmes/', label: 'Programmes', key: 'programmes' },
     { href: '/papers/', label: 'Papers', key: 'papers' },
-    { href: '/people.html', label: 'People', key: 'people' },
-    { href: '/about.html', label: 'About', key: 'about' },
+    { href: '/people', label: 'People', key: 'people' },
+    { href: '/about', label: 'About', key: 'about' },
   ];
 
   const linksHtml = links
@@ -379,12 +379,12 @@ function getFooterHtml() {
           <div class="site-footer__copy">&copy; 2026 ${PUBLISHER} &middot; Operated by ${OPERATOR}</div>
         </div>
         <div class="site-footer__links">
-          <a href="/framework.html">Framework</a>
+          <a href="/framework">Framework</a>
           <a href="/programmes/">Programmes</a>
           <a href="/papers/">Papers</a>
-          <a href="/people.html">People</a>
-          <a href="/about.html">About</a>
-          <a href="/contact.html">Contact</a>
+          <a href="/people">People</a>
+          <a href="/about">About</a>
+          <a href="/contact">Contact</a>
           <a href="/feed.xml">RSS</a>
         </div>
       </div>
