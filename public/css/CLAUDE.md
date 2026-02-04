@@ -7,6 +7,7 @@
 
 | ID | Time | T | Title | Read |
 |----|------|---|-------|------|
+| #1186 | 11:00 PM | 🔵 | ASCRI website has extensive uncommitted changes across build system and all content pages | ~369 |
 | #1177 | 10:53 PM | 🟣 | Added dark/light theme toggle button styling to ASCRI CSS | ~402 |
 | #1174 | " | 🟣 | Dark theme support added to ASCRI website CSS | ~445 |
 </claude-mem-context>

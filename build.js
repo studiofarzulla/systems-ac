@@ -188,6 +188,11 @@ function bibtexEntry(paper) {
   if (paper.pdf) {
     bib += `  url       = {${pdfUrl(paper)}},\n`;
   }
+  if (paper.wpNumber) {
+    const label = paper.wpNumber.startsWith('DP') ? 'Discussion Paper' : 'Working Paper';
+    bib += `  number    = {${paper.wpNumber}},\n`;
+    bib += `  type      = {${label}},\n`;
+  }
   bib += `  note      = {${statusLabel(paper.status)}}\n`;
   bib += `}`;
   return bib;
@@ -201,7 +206,12 @@ function suggestedCitation(paper) {
   if (paper.subtitle) {
     cite += ` ${paper.subtitle}.`;
   }
-  cite += ` ${PUBLISHER}.`;
+  if (paper.wpNumber) {
+    const label = paper.wpNumber.startsWith('DP') ? 'Discussion Paper' : 'Working Paper';
+    cite += ` ${PUBLISHER} ${label} ${paper.wpNumber}.`;
+  } else {
+    cite += ` ${PUBLISHER}.`;
+  }
   if (paper.doi) {
     cite += ` doi:${paper.doi}`;
   }
@@ -279,6 +289,9 @@ function getHeadHtml(meta) {
     }
     if (paper.journal) {
       head += `  <meta name="citation_journal_title" content="${escapeHtml(paper.journal)}">\n`;
+    }
+    if (paper.wpNumber) {
+      head += `  <meta name="citation_technical_report_number" content="${paper.wpNumber}">\n`;
     }
 
     // Dublin Core
@@ -433,8 +446,12 @@ function buildPaperPage(paper) {
   const navHtml = getNavHtml('papers');
 
   // Meta row: date, status, programme
+  const wpBadge = paper.wpNumber
+    ? `<span class="paper-detail__date">${paper.wpNumber}</span>`
+    : '';
   const metaHtml = `
       <div class="paper-detail__meta">
+        ${wpBadge}
         <span class="paper-detail__date">${formatDate(paper.date)}</span>
         <span class="status ${statusClass(paper.status)}">${escapeHtml(statusLabel(paper.status))}</span>
         <a href="${programmeUrl(paper.program)}" class="paper-detail__programme">Programme ${escapeHtml(programIndex(paper.program))}: ${escapeHtml(programTitle(paper.program))}</a>
