@@ -1,6 +1,6 @@
 /* ============================================
    ASCRI — Adversarial Systems & Complexity Research Initiative
-   Light academic theme · systems.ac
+   Light/dark academic theme · systems.ac
    ============================================ */
 
 /* --- Custom Properties --- */
@@ -16,6 +16,14 @@
   --accent-light: rgba(155, 27, 48, 0.08);
   --border: #E0DED9;
   --border-strong: #C5C3BD;
+  --nav-bg: rgba(255, 255, 255, 0.92);
+  --mobile-nav-bg: rgba(255, 255, 255, 0.97);
+  --status-peer-bg: #e8f5e9;
+  --status-peer-fg: #2e7d32;
+  --status-published-bg: #e8f5e9;
+  --status-published-fg: #1b5e20;
+  --status-preprint-bg: #f1f8e9;
+  --status-preprint-fg: #558b2f;
 
   --font-serif: 'Crimson Text', Georgia, 'Times New Roman', serif;
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -26,6 +34,29 @@
   --radius: 2px;
 
   --transition: 200ms ease;
+}
+
+/* --- Dark Theme --- */
+[data-theme="dark"] {
+  --bg-primary: #121212;
+  --bg-secondary: #1A1A1A;
+  --bg-tertiary: #222222;
+  --text-primary: #E8E6E1;
+  --text-secondary: #B0ADA6;
+  --text-muted: #807D76;
+  --accent: #D44A5E;
+  --accent-hover: #E8637A;
+  --accent-light: rgba(212, 74, 94, 0.12);
+  --border: #2A2926;
+  --border-strong: #3A3835;
+  --nav-bg: rgba(18, 18, 18, 0.92);
+  --mobile-nav-bg: rgba(18, 18, 18, 0.97);
+  --status-peer-bg: rgba(46, 125, 50, 0.15);
+  --status-peer-fg: #66bb6a;
+  --status-published-bg: rgba(27, 94, 32, 0.15);
+  --status-published-fg: #4caf50;
+  --status-preprint-bg: rgba(85, 139, 47, 0.15);
+  --status-preprint-fg: #9ccc65;
 }
 
 /* --- Reset & Base --- */
@@ -147,7 +178,7 @@ section + section {
   right: 0;
   z-index: 1000;
   height: 56px;
-  background: rgba(255, 255, 255, 0.92);
+  background: var(--nav-bg);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
@@ -535,18 +566,18 @@ section + section {
 }
 
 .status--peer-review {
-  background: #e8f5e9;
-  color: #2e7d32;
+  background: var(--status-peer-bg);
+  color: var(--status-peer-fg);
 }
 
 .status--published {
-  background: #e8f5e9;
-  color: #1b5e20;
+  background: var(--status-published-bg);
+  color: var(--status-published-fg);
 }
 
 .status--preprint {
-  background: #f1f8e9;
-  color: #558b2f;
+  background: var(--status-preprint-bg);
+  color: var(--status-preprint-fg);
 }
 
 .status--working {
@@ -888,6 +919,51 @@ section + section {
   color: var(--accent);
 }
 
+/* --- Theme Toggle --- */
+.theme-toggle {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  cursor: pointer;
+  padding: 0.35rem 0.5rem;
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  line-height: 1;
+  transition: color var(--transition), border-color var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 1rem;
+  flex-shrink: 0;
+}
+
+.theme-toggle:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.theme-toggle .icon-sun,
+.theme-toggle .icon-moon { display: none; }
+
+[data-theme="light"] .theme-toggle .icon-moon,
+:root:not([data-theme]) .theme-toggle .icon-moon { display: block; }
+
+[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
+
+/* Smooth theme transition on key elements */
+html[data-theme] body,
+html[data-theme] .site-nav,
+html[data-theme] .site-footer,
+html[data-theme] section,
+html[data-theme] .section--alt,
+html[data-theme] .programme-card,
+html[data-theme] .equation,
+html[data-theme] .citation-block,
+html[data-theme] .person-card__avatar,
+html[data-theme] .btn {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
 /* --- Responsive --- */
 @media (max-width: 768px) {
   .site-nav__toggle {
@@ -900,7 +976,7 @@ section + section {
     top: 56px;
     left: 0;
     right: 0;
-    background: rgba(255, 255, 255, 0.97);
+    background: var(--mobile-nav-bg);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border);
