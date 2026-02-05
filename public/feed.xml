@@ -8,7 +8,7 @@
     <description>Adversarial Systems &amp; Complexity Research Initiative</description>
     <language>en</language>
     <managingEditor>research@systems.ac (ASCRI)</managingEditor>
-    <lastBuildDate>Thu, 05 Feb 2026 00:36:32 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 05 Feb 2026 02:45:56 GMT</lastBuildDate>
     <atom:link href="https://systems.ac/feed.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Alpha Asymmetry in Foreign Exchange Markets: An Investigation of Exploitability</title>
@@ -136,7 +136,7 @@
       <guid isPermaLink="true">https://systems.ac/3/DAI-2508</guid>
       <pubDate>Mon, 01 Dec 2025 12:00:00 GMT</pubDate>
       <description>By Murad Farzulla &mdash; Do the functional purposes articulated in cryptocurrency whitepapers correspond to how markets actually price these assets? We propose a three-stage framework combining NLP with market characterization to test narrative-market alignment. A pilot on 8 cryptocurrencies yields overall congruence of 0.719 (95% CI: [0.623, 0.953]).</description>
-      <dc:identifier>doi:10.2139/ssrn.5918302</dc:identifier>
+      <dc:identifier>doi:10.48550/arXiv.2601.20336</dc:identifier>
       <category>Financial Markets</category>
       <category>Cryptocurrency</category>
       <category>Natural Language Processing</category>
@@ -147,6 +147,7 @@
       <guid isPermaLink="true">https://systems.ac/3/DAI-2509</guid>
       <pubDate>Mon, 01 Dec 2025 12:00:00 GMT</pubDate>
       <description>By Murad Farzulla, Andrew Maksakov &mdash; Composite systemic risk index integrating DeFi and TradFi risk metrics. Real-time monitoring of cross-market contagion, liquidity stress, and protocol-level vulnerabilities through a weighted aggregation methodology designed for the unique characteristics of decentralized financial infrastructure.</description>
+      <dc:identifier>doi:10.48550/arXiv.2602.03874</dc:identifier>
       <category>Financial Markets</category>
       <category>Cryptocurrency</category>
       <category>Risk Management</category>

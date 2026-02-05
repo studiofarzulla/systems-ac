@@ -254,7 +254,7 @@
         "Murad Farzulla"
       ],
       "abstract": "Do the functional purposes articulated in cryptocurrency whitepapers correspond to how markets actually price these assets? We propose a three-stage framework combining NLP with market characterization to test narrative-market alignment. A pilot on 8 cryptocurrencies yields overall congruence of 0.719 (95% CI: [0.623, 0.953]).",
-      "doi": "10.2139/ssrn.5918302",
+      "doi": "10.48550/arXiv.2601.20336",
       "zenodo": null,
       "pdf": "Farzulla_2026_Whitepaper_Claims.pdf",
       "github": "https://github.com/studiofarzulla/tensor-defi",
@@ -279,7 +279,7 @@
         "Andrew Maksakov"
       ],
       "abstract": "Composite systemic risk index integrating DeFi and TradFi risk metrics. Real-time monitoring of cross-market contagion, liquidity stress, and protocol-level vulnerabilities through a weighted aggregation methodology designed for the unique characteristics of decentralized financial infrastructure.",
-      "doi": null,
+      "doi": "10.48550/arXiv.2602.03874",
       "zenodo": "10.5281/zenodo.17918239",
       "pdf": "Farzulla_Maksakov_2025_ASRI.pdf",
       "github": null,
