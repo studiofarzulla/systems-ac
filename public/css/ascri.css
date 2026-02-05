@@ -585,6 +585,26 @@ section + section {
   color: var(--text-muted);
 }
 
+.status--with-editor {
+  background: rgba(230, 81, 0, 0.12);
+  color: #e65100;
+}
+
+.status--submitted {
+  background: rgba(21, 101, 192, 0.12);
+  color: #1565c0;
+}
+
+[data-theme="dark"] .status--with-editor {
+  background: rgba(230, 81, 0, 0.15);
+  color: #ff9800;
+}
+
+[data-theme="dark"] .status--submitted {
+  background: rgba(21, 101, 192, 0.15);
+  color: #64b5f6;
+}
+
 /* --- Tag Pills --- */
 .tag {
   font-family: var(--font-mono);

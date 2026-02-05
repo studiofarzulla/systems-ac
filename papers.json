@@ -643,6 +643,8 @@
   },
   "statuses": {
     "peer-review": "In Peer Review",
+    "with-editor": "With Editor",
+    "submitted": "Submitted",
     "published": "Published",
     "preprint": "Preprint",
     "upcoming": "Upcoming",

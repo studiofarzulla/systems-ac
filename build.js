@@ -5,6 +5,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const crypto = require('crypto');
 
 // ---------------------------------------------------------------------------
 // Config
@@ -27,6 +28,10 @@ const DATA_FILE = path.join(ROOT, 'papers.json');
 
 const data = JSON.parse(fs.readFileSync(DATA_FILE, 'utf-8'));
 const { papers, tags, statuses, programs, categories } = data;
+
+// CSS cache-busting hash (first 8 chars of MD5)
+const cssPath = path.join(PUBLIC, 'css', 'ascri.css');
+const CSS_HASH = crypto.createHash('md5').update(fs.readFileSync(cssPath)).digest('hex').slice(0, 8);
 
 // ---------------------------------------------------------------------------
 // Utilities
@@ -176,44 +181,38 @@ function bibtexKey(paper) {
 function bibtexEntry(paper) {
   const key = bibtexKey(paper);
   const year = paper.date.substring(0, 4);
-  const authors = paper.authors.join(' and ');
-  let bib = `@article{${key},\n`;
-  bib += `  title     = {${paper.title}},\n`;
-  bib += `  author    = {${authors}},\n`;
-  bib += `  year      = {${year}},\n`;
-  bib += `  publisher = {${PUBLISHER}},\n`;
-  if (paper.doi) {
-    bib += `  doi       = {${paper.doi}},\n`;
+  const authors = paper.authors.map(a => {
+    const parts = a.split(' ');
+    return parts[parts.length - 1] + ', ' + parts.slice(0, -1).join(' ');
+  }).join(' and ');
+  const doi = paper.doi || paper.zenodo || '';
+  const paperType = paper.wpNumber && paper.wpNumber.startsWith('DP') ? 'Discussion' : 'Working';
+
+  let bib = `@misc{${key},\n`;
+  bib += `  author       = {${authors}},\n`;
+  bib += `  title        = {${paper.title}},\n`;
+  bib += `  year         = {${year}},\n`;
+  bib += `  howpublished = {${PUBLISHER} ${paperType} Paper${paper.wpNumber ? ' ' + paper.wpNumber : ''}},\n`;
+  if (doi) {
+    bib += `  doi          = {${doi}},\n`;
   }
-  if (paper.pdf) {
-    bib += `  url       = {${pdfUrl(paper)}},\n`;
-  }
-  if (paper.wpNumber) {
-    const label = paper.wpNumber.startsWith('DP') ? 'Discussion Paper' : 'Working Paper';
-    bib += `  number    = {${paper.wpNumber}},\n`;
-    bib += `  type      = {${label}},\n`;
-  }
-  bib += `  note      = {${statusLabel(paper.status)}}\n`;
+  bib += `  url          = {${SITE_URL}/papers/${paper.id}}\n`;
   bib += `}`;
   return bib;
 }
 
-// Generate suggested citation string
+// Generate suggested citation string (returns HTML)
 function suggestedCitation(paper) {
   const year = paper.date.substring(0, 4);
   const authors = paper.authors.join(', ');
-  let cite = `${authors} (${year}). "${paper.title}."`;
-  if (paper.subtitle) {
-    cite += ` ${paper.subtitle}.`;
-  }
-  if (paper.wpNumber) {
-    const label = paper.wpNumber.startsWith('DP') ? 'Discussion Paper' : 'Working Paper';
-    cite += ` ${PUBLISHER} ${label} ${paper.wpNumber}.`;
-  } else {
-    cite += ` ${PUBLISHER}.`;
-  }
-  if (paper.doi) {
-    cite += ` doi:${paper.doi}`;
+  const doi = paper.doi || paper.zenodo || '';
+  const paperType = paper.wpNumber && paper.wpNumber.startsWith('DP') ? 'Discussion' : 'Working';
+  let cite = `${escapeHtml(authors)} (${year}). <em>${escapeHtml(paper.title)}</em>.`;
+  cite += paper.wpNumber
+    ? ` ${PUBLISHER} ${paperType} Paper ${paper.wpNumber}.`
+    : ` ${PUBLISHER}.`;
+  if (doi) {
+    cite += ` DOI: ${doi}`;
   }
   return cite;
 }
@@ -243,7 +242,7 @@ function getHeadHtml(meta) {
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
   <!-- CSS -->
-  <link rel="stylesheet" href="/css/ascri.css">
+  <link rel="stylesheet" href="/css/ascri.css?v=${CSS_HASH}">
   <script>(function(){var t=localStorage.getItem('ascri-theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)})()</script>
 
   <!-- Canonical -->
@@ -502,7 +501,7 @@ function buildPaperPage(paper) {
       <div class="paper-detail__section">
         <h2 class="paper-detail__section-title">Suggested Citation</h2>
         <div class="citation-block">
-          ${escapeHtml(suggestedCitation(paper))}
+          ${suggestedCitation(paper)}
         </div>
       </div>`;
 
@@ -879,6 +878,18 @@ function build() {
   const feed = buildRSSFeed();
   fs.writeFileSync(path.join(PUBLIC, 'feed.xml'), feed, 'utf-8');
   console.log(`  Generated RSS feed -> public/feed.xml`);
+
+  // --- Cache-bust CSS in static pages ---
+  const staticPages = ['index.html', 'framework.html', 'people.html', 'about.html', 'contact.html'];
+  for (const page of staticPages) {
+    const pagePath = path.join(PUBLIC, page);
+    if (fs.existsSync(pagePath)) {
+      let html = fs.readFileSync(pagePath, 'utf-8');
+      html = html.replace(/ascri\.css(\?v=[a-f0-9]*)?"/g, `ascri.css?v=${CSS_HASH}"`);
+      fs.writeFileSync(pagePath, html, 'utf-8');
+    }
+  }
+  console.log(`  Cache-busted CSS (v=${CSS_HASH}) in ${staticPages.length} static pages`);
 
   const elapsed = Date.now() - start;
   console.log(`\nDone in ${elapsed}ms.`);

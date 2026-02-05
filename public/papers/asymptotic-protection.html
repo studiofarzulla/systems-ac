@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
   <!-- CSS -->
-  <link rel="stylesheet" href="/css/ascri.css">
+  <link rel="stylesheet" href="/css/ascri.css?v=80068220">
   <script>(function(){var t=localStorage.getItem('ascri-theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)})()</script>
 
   <!-- Canonical -->
@@ -133,22 +133,20 @@
       <div class="paper-detail__section">
         <h2 class="paper-detail__section-title">Suggested Citation</h2>
         <div class="citation-block">
-          Murad Farzulla (2025). &quot;Asymptotic Protection: The Simultaneous Remedy and Poison of Risk Management.&quot; ASCRI Working Paper DAI-2502.
+          Murad Farzulla (2025). <em>Asymptotic Protection: The Simultaneous Remedy and Poison of Risk Management</em>. ASCRI Working Paper DAI-2502. DOI: 10.5281/zenodo.17620448
         </div>
       </div>
 
       <div class="paper-detail__section">
         <h2 class="paper-detail__section-title">BibTeX</h2>
         <div style="position: relative;">
-          <pre class="citation-block" id="bibtex-asymptotic-protection" style="white-space: pre-wrap; font-size: 0.75rem;">@article{farzulla2025_asymptotic_protection,
-  title     = {Asymptotic Protection: The Simultaneous Remedy and Poison of Risk Management},
-  author    = {Murad Farzulla},
-  year      = {2025},
-  publisher = {ASCRI},
-  url       = {https://farzulla.org/papers/Farzulla_2025_Asymptotic_Protection.pdf},
-  number    = {DAI-2502},
-  type      = {Working Paper},
-  note      = {Preprint}
+          <pre class="citation-block" id="bibtex-asymptotic-protection" style="white-space: pre-wrap; font-size: 0.75rem;">@misc{farzulla2025_asymptotic_protection,
+  author       = {Farzulla, Murad},
+  title        = {Asymptotic Protection: The Simultaneous Remedy and Poison of Risk Management},
+  year         = {2025},
+  howpublished = {ASCRI Working Paper DAI-2502},
+  doi          = {10.5281/zenodo.17620448},
+  url          = {https://systems.ac/papers/asymptotic-protection}
 }</pre>
           <button class="btn btn--small" style="position: absolute; top: 0.5rem; right: 0.5rem;" onclick="navigator.clipboard.writeText(document.getElementById('bibtex-asymptotic-protection').textContent).then(() => { this.textContent = 'Copied'; setTimeout(() => { this.textContent = 'Copy'; }, 2000); })">Copy</button>
         </div>
