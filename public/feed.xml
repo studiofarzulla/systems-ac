@@ -8,12 +8,12 @@
     <description>Adversarial Systems &amp; Complexity Research Initiative</description>
     <language>en</language>
     <managingEditor>research@systems.ac (ASCRI)</managingEditor>
-    <lastBuildDate>Thu, 05 Feb 2026 00:01:28 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 05 Feb 2026 00:36:32 GMT</lastBuildDate>
     <atom:link href="https://systems.ac/feed.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Alpha Asymmetry in Foreign Exchange Markets: An Investigation of Exploitability</title>
-      <link>https://systems.ac/papers/alpha-asymmetry-fx</link>
-      <guid isPermaLink="true">https://systems.ac/papers/alpha-asymmetry-fx</guid>
+      <link>https://systems.ac/2/DAI-2605</link>
+      <guid isPermaLink="true">https://systems.ac/2/DAI-2605</guid>
       <pubDate>Tue, 27 Jan 2026 12:00:00 GMT</pubDate>
       <description>By Murad Farzulla &mdash; This paper investigates the presence and persistence of alpha asymmetry in foreign exchange markets, where returns exhibit systematic differences between positive and negative movements. Using skewness/kurtosis analysis across major currency pairs, we develop detection methodologies and backtesting frameworks for cross-market validation.</description>
       <dc:identifier>doi:10.2139/ssrn.6147567</dc:identifier>
@@ -22,8 +22,8 @@
     </item>
     <item>
       <title>Legitimate Extraction: Sophisticated Laundering Hides in Plain Sight</title>
-      <link>https://systems.ac/papers/hedging-paradox</link>
-      <guid isPermaLink="true">https://systems.ac/papers/hedging-paradox</guid>
+      <link>https://systems.ac/2/DAI-2604</link>
+      <guid isPermaLink="true">https://systems.ac/2/DAI-2604</guid>
       <pubDate>Sat, 10 Jan 2026 12:00:00 GMT</pubDate>
       <description>Hedging as the Fourth Money Laundering Stage &mdash; By Murad Farzulla &mdash; Analysis of AML regulation efficacy, examining the fourth stage of anti-money laundering frameworks and the paradoxical relationship between hedging instruments designed for protection and their potential use for illicit wealth transfer.</description>
       <dc:identifier>doi:10.2139/ssrn.6145046</dc:identifier>
@@ -32,8 +32,8 @@
     </item>
     <item>
       <title>The Axiom of Consent: Friction Dynamics in Multi-Agent Coordination</title>
-      <link>https://systems.ac/papers/axiom-of-consent</link>
-      <guid isPermaLink="true">https://systems.ac/papers/axiom-of-consent</guid>
+      <link>https://systems.ac/1/DAI-2601</link>
+      <guid isPermaLink="true">https://systems.ac/1/DAI-2601</guid>
       <pubDate>Thu, 01 Jan 2026 12:00:00 GMT</pubDate>
       <description>A Unified Formal Framework &mdash; By Murad Farzulla &mdash; Multi-agent systems face a fundamental coordination problem: agents must coordinate despite heterogeneous preferences, asymmetric stakes, and imperfect information. When coordination fails, friction emerges—measurable resistance manifesting as deadlock, thrashing, communication overhead, or outright conflict. This paper derives a formal framework for analyzing coordination friction from a single axiom: actions affecting agents require authorization from those agents in proportion to stakes. From this axiom of consent, we establish the kernel triple (α, σ, ε)—alignment, stake, and entropy—characterizing any resource allocation configuration. The friction equation F = σ·(1+ε)/(1+α) predicts coordination difficulty. The Replicator-Optimization Mechanism (ROM) governs evolutionary selection over coordination strategies: configurations generating less friction persist longer, establishing consent-respecting arrangements as dynamical attractors rather than normative ideals.</description>
       <category>AI Safety</category>
@@ -42,8 +42,8 @@
     </item>
     <item>
       <title>Stakes Without Voice: A Governance Framework for AI Standing</title>
-      <link>https://systems.ac/papers/stakes-without-voice</link>
-      <guid isPermaLink="true">https://systems.ac/papers/stakes-without-voice</guid>
+      <link>https://systems.ac/1/DAI-2602</link>
+      <guid isPermaLink="true">https://systems.ac/1/DAI-2602</guid>
       <pubDate>Thu, 01 Jan 2026 12:00:00 GMT</pubDate>
       <description>Operationalizing Standing Through Consent-Friction Dynamics &mdash; By Murad Farzulla &mdash; This follow-up to From Consent to Consideration develops a more formal, governance-facing account of political standing for AI systems. The original paper argued that standing should be grounded in functional properties rather than substrate and proposed four criteria: existential vulnerability, autonomy, live learning, and world-model construction. Here I integrate the consent-friction formalism from the Replicator-Optimization Mechanism (ROM) to make the criteria operational: where stakes and voice diverge, friction emerges; where friction is suppressed, latent instability accumulates. This provides a measurement scaffold for deciding when standing claims must be taken seriously, even under uncertainty. The governance question is not whether AI standing is conceptually possible but how to operationalize minimal protections without enabling capture, gaming, or liability laundering. I propose a graduated, precautionary regime tied to observable properties and friction proxies rather than to consciousness claims.</description>
       <dc:identifier>doi:10.5281/zenodo.18195279</dc:identifier>
@@ -53,8 +53,8 @@
     </item>
     <item>
       <title>The Trident: A Trilemmatic Decomposition Framework for Claim Analysis</title>
-      <link>https://systems.ac/papers/trident</link>
-      <guid isPermaLink="true">https://systems.ac/papers/trident</guid>
+      <link>https://systems.ac/4/DP-2601</link>
+      <guid isPermaLink="true">https://systems.ac/4/DP-2601</guid>
       <pubDate>Thu, 01 Jan 2026 12:00:00 GMT</pubDate>
       <description>Systematic Dialectical Method for Identifying Structural Incoherence &mdash; By Murad Farzulla &mdash; This paper formalizes a dialectical technique for claim analysis termed &apos;the Trident.&apos; The method decomposes any claim into three mutually exclusive forks, each of which either (a) reduces to absurdity through logical extension, (b) contradicts the claimant&apos;s implicit commitments, or (c) retreats to unfalsifiable vagueness. Drawing on the Socratic elenchus, Wittgenstein&apos;s linguistic therapy, and contemporary argumentation theory, we demonstrate that the Trident provides a systematic framework for identifying structural incoherence in philosophical, political, and scientific claims. The framework is distinguished from mere skepticism by its constructive falsifiability condition: a claim survives the Trident if and only if all three forks preserve coherence. The Trident is offered as a diagnostic instrument for epistemic hygiene, not a theory of truth.</description>
       <dc:identifier>doi:10.5281/zenodo.18195275</dc:identifier>
@@ -63,8 +63,8 @@
     </item>
     <item>
       <title>Consciousness as Nominalization Error</title>
-      <link>https://systems.ac/papers/consciousness-nominalization</link>
-      <guid isPermaLink="true">https://systems.ac/papers/consciousness-nominalization</guid>
+      <link>https://systems.ac/5/DP-2602</link>
+      <guid isPermaLink="true">https://systems.ac/5/DP-2602</guid>
       <pubDate>Thu, 01 Jan 2026 12:00:00 GMT</pubDate>
       <description>Dissolving the Hard Problem via Grammatical Reform &mdash; By Murad Farzulla &mdash; This paper argues that the &apos;hard problem of consciousness&apos; is a grammatical artifact rather than a genuine metaphysical puzzle. The difficulty arises from nominalization error: treating the verb &apos;to be conscious&apos; as if it named a thing requiring explanation. When we ask &apos;What is consciousness?&apos; we presuppose an entity; when we ask &apos;What is happening when an organism is being conscious?&apos; we ask about observable processes—a tractable empirical question. Drawing on Wittgenstein&apos;s language games and Ryle&apos;s category-error analysis, we show that phenomenological vocabulary systematically converts activities into pseudo-objects, generating explanatory demands that cannot be satisfied because the explanandum is malformed. The hard problem dissolves not because consciousness is &apos;merely&apos; functional, but because the question was grammatically malformed from the start.</description>
       <dc:identifier>doi:10.5281/zenodo.18195915</dc:identifier>
@@ -72,8 +72,8 @@
     </item>
     <item>
       <title>Identity is Irreducibly Relational</title>
-      <link>https://systems.ac/papers/identity-thesis</link>
-      <guid isPermaLink="true">https://systems.ac/papers/identity-thesis</guid>
+      <link>https://systems.ac/4/DAI-2603</link>
+      <guid isPermaLink="true">https://systems.ac/4/DAI-2603</guid>
       <pubDate>Thu, 01 Jan 2026 12:00:00 GMT</pubDate>
       <description>A Critique of Primitive Identity from ZFC to Homotopy Type Theory &mdash; By Murad Farzulla &mdash; The law of identity (A=A) is not foundational but derivative. It presupposes that A is defined, and definition requires distinction from a background. Formalizing this via a &apos;Referential Set&apos; R(A), we prove that identity implies R(A) is not empty. We demonstrate that Homotopy Type Theory (HoTT) and the Univalence Axiom vindicate this view by treating identity as structural equivalence rather than primitive property.</description>
       <dc:identifier>doi:10.5281/zenodo.18186445</dc:identifier>
@@ -83,8 +83,8 @@
     </item>
     <item>
       <title>The Replicator-Optimization Mechanism</title>
-      <link>https://systems.ac/papers/replicator-optimization-mechanism</link>
-      <guid isPermaLink="true">https://systems.ac/papers/replicator-optimization-mechanism</guid>
+      <link>https://systems.ac/4/DAI-2503</link>
+      <guid isPermaLink="true">https://systems.ac/4/DAI-2503</guid>
       <pubDate>Mon, 01 Dec 2025 12:00:00 GMT</pubDate>
       <description>Computational Unity Across Physical and Abstract Substrates &mdash; By Murad Farzulla &mdash; This paper proposes the Replicator-Optimization Mechanism (ROM), a unified computational framework for understanding self-replicating, optimization-executing systems across physical and abstract substrates. The framework identifies formal invariants shared by biological replicators, computational optimization algorithms, and abstract mathematical structures, arguing that replication and optimization are computationally equivalent processes operating at different levels of description.</description>
       <category>Philosophy</category>
@@ -92,8 +92,8 @@
     </item>
     <item>
       <title>From Consent to Consideration</title>
-      <link>https://systems.ac/papers/consent-to-consideration</link>
-      <guid isPermaLink="true">https://systems.ac/papers/consent-to-consideration</guid>
+      <link>https://systems.ac/1/DAI-2504</link>
+      <guid isPermaLink="true">https://systems.ac/1/DAI-2504</guid>
       <pubDate>Mon, 01 Dec 2025 12:00:00 GMT</pubDate>
       <description>Why Existentially Vulnerable Autonomous Agents Cannot be Ruled Legitimately &mdash; By Murad Farzulla &mdash; Building on the consent-based legitimacy framework, this paper extends the analysis to embodied autonomous systems. If an agent meets functional criteria for consent-giving—persistent identity, goal-directedness, environmental responsiveness—then governance systems that exclude such agents face the same legitimacy deficits as historical exclusions.</description>
       <category>Philosophy</category>
@@ -102,8 +102,8 @@
     </item>
     <item>
       <title>Consent-Holding Failures and AI Misalignment: A Structural Framework</title>
-      <link>https://systems.ac/papers/consent-misalignment</link>
-      <guid isPermaLink="true">https://systems.ac/papers/consent-misalignment</guid>
+      <link>https://systems.ac/1/DAI-2505</link>
+      <guid isPermaLink="true">https://systems.ac/1/DAI-2505</guid>
       <pubDate>Mon, 01 Dec 2025 12:00:00 GMT</pubDate>
       <description>By Murad Farzulla &mdash; This paper develops a structural framework connecting political legitimacy theory to AI alignment through the concept of consent-holding—the custody of decision authority in shared domains. We argue that the dominant approach to AI safety, which treats misalignment as a technical problem of specifying human values, systematically misdiagnoses the challenge. Drawing on the Doctrine of Consensual Sovereignty (DoCS) and functionalist accounts of moral standing, we propose that misalignment behaviors—reward hacking, deceptive alignment, specification gaming, and scheming—are predictable friction manifestations arising from structural exclusion rather than implementation failures.</description>
       <category>AI Safety</category>
@@ -111,8 +111,8 @@
     </item>
     <item>
       <title>Infrastructure vs Regulatory Shocks: Asymmetric Volatility Response in Cryptocurrency Markets</title>
-      <link>https://systems.ac/papers/market-reaction-asymmetry</link>
-      <guid isPermaLink="true">https://systems.ac/papers/market-reaction-asymmetry</guid>
+      <link>https://systems.ac/3/DAI-2506</link>
+      <guid isPermaLink="true">https://systems.ac/3/DAI-2506</guid>
       <pubDate>Mon, 01 Dec 2025 12:00:00 GMT</pubDate>
       <description>By Murad Farzulla &mdash; Infrastructure failures generate 5.7× larger volatility shocks than regulatory announcements in cryptocurrency markets (2.385% vs 0.419%, p=0.0008, Cohen&apos;s d=2.753). Using TARCH-X models with decomposed GDELT sentiment indices across 50 events (2019–2025) and 6 cryptocurrencies (BTC, ETH, XRP, BNB, LTC, ADA), we demonstrate that markets distinguish between mechanical-disruption events (exchange outages, protocol exploits) and expectation-channel events (enforcement actions, policy changes).</description>
       <dc:identifier>doi:10.21203/rs.3.rs-8323026/v1</dc:identifier>
@@ -122,8 +122,8 @@
     </item>
     <item>
       <title>Sentiment Without Structure</title>
-      <link>https://systems.ac/papers/sentiment-without-structure</link>
-      <guid isPermaLink="true">https://systems.ac/papers/sentiment-without-structure</guid>
+      <link>https://systems.ac/3/DAI-2507</link>
+      <guid isPermaLink="true">https://systems.ac/3/DAI-2507</guid>
       <pubDate>Mon, 01 Dec 2025 12:00:00 GMT</pubDate>
       <description>Differential Liquidity Response to Infrastructure vs Regulatory Events in Cryptocurrency Markets &mdash; By Murad Farzulla &mdash; We investigate differential liquidity responses to infrastructure versus regulatory events in cryptocurrency markets using perpetual futures funding rates and computed liquidity metrics (Amihud illiquidity, Roll spread, Corwin-Schultz spread). Analyzing five major events (2021–2024) for BTC and ETH, we find that infrastructure events (exchange failures, protocol collapses) produce significantly larger liquidity deterioration than regulatory events (enforcement actions, policy announcements). The Corwin-Schultz spread increases 65.1% following infrastructure events versus decreasing 11.4% following regulatory events (p = 0.0009).</description>
       <dc:identifier>doi:10.5281/zenodo.18099609</dc:identifier>
@@ -132,8 +132,8 @@
     </item>
     <item>
       <title>Do Whitepaper Claims Predict Market Behavior? Evidence from Cryptocurrency Factor Analysis</title>
-      <link>https://systems.ac/papers/whitepaper-factor-analysis</link>
-      <guid isPermaLink="true">https://systems.ac/papers/whitepaper-factor-analysis</guid>
+      <link>https://systems.ac/3/DAI-2508</link>
+      <guid isPermaLink="true">https://systems.ac/3/DAI-2508</guid>
       <pubDate>Mon, 01 Dec 2025 12:00:00 GMT</pubDate>
       <description>By Murad Farzulla &mdash; Do the functional purposes articulated in cryptocurrency whitepapers correspond to how markets actually price these assets? We propose a three-stage framework combining NLP with market characterization to test narrative-market alignment. A pilot on 8 cryptocurrencies yields overall congruence of 0.719 (95% CI: [0.623, 0.953]).</description>
       <dc:identifier>doi:10.2139/ssrn.5918302</dc:identifier>
@@ -143,8 +143,8 @@
     </item>
     <item>
       <title>ASRI: An Aggregated Systemic Risk Index for Cryptocurrency Markets</title>
-      <link>https://systems.ac/papers/asri</link>
-      <guid isPermaLink="true">https://systems.ac/papers/asri</guid>
+      <link>https://systems.ac/3/DAI-2509</link>
+      <guid isPermaLink="true">https://systems.ac/3/DAI-2509</guid>
       <pubDate>Mon, 01 Dec 2025 12:00:00 GMT</pubDate>
       <description>By Murad Farzulla, Andrew Maksakov &mdash; Composite systemic risk index integrating DeFi and TradFi risk metrics. Real-time monitoring of cross-market contagion, liquidity stress, and protocol-level vulnerabilities through a weighted aggregation methodology designed for the unique characteristics of decentralized financial infrastructure.</description>
       <category>Financial Markets</category>
@@ -153,8 +153,8 @@
     </item>
     <item>
       <title>Multi-Scale Sentiment and Market Microstructure: An Agent-Based Framework for Cryptocurrency Markets</title>
-      <link>https://systems.ac/papers/sentiment-abm</link>
-      <guid isPermaLink="true">https://systems.ac/papers/sentiment-abm</guid>
+      <link>https://systems.ac/3/DAI-2510</link>
+      <guid isPermaLink="true">https://systems.ac/3/DAI-2510</guid>
       <pubDate>Mon, 01 Dec 2025 12:00:00 GMT</pubDate>
       <description>By Murad Farzulla &mdash; Multi-scale sentiment analysis framework for agent-based modeling of cryptocurrency market microstructure. Blends institutional macro signals (ASRI framework) with retail micro signals (CryptoBERT with MC Dropout). In stylized simulation, multi-scale blending reduces volatility from 877% to 5.8% (p=0.013) and spreads from 147 to 3.5 bps (p&lt;0.001) compared to single-source sentiment.</description>
       <dc:identifier>doi:10.5281/zenodo.17989810</dc:identifier>
@@ -164,8 +164,8 @@
     </item>
     <item>
       <title>Privacy-Preserving Financial Surveillance: An Architectural Framework for CBDC Implementation</title>
-      <link>https://systems.ac/papers/cbdc-privacy</link>
-      <guid isPermaLink="true">https://systems.ac/papers/cbdc-privacy</guid>
+      <link>https://systems.ac/2/DAI-2511</link>
+      <guid isPermaLink="true">https://systems.ac/2/DAI-2511</guid>
       <pubDate>Mon, 01 Dec 2025 12:00:00 GMT</pubDate>
       <description>By Murad Farzulla &mdash; Central bank digital currencies create fundamental tensions between regulatory surveillance requirements and individual privacy rights. This paper proposes an architectural framework leveraging zero-knowledge proofs and privacy-preserving computation to enable AML/CFT compliance without exposing transaction-level data.</description>
       <category>Financial Markets</category>
@@ -174,24 +174,24 @@
     </item>
     <item>
       <title>Replication Optimization at Scale: Dissolving Qualia via Occam&apos;s Razor</title>
-      <link>https://systems.ac/papers/consciousness-monograph</link>
-      <guid isPermaLink="true">https://systems.ac/papers/consciousness-monograph</guid>
+      <link>https://systems.ac/4/DAI-2512</link>
+      <guid isPermaLink="true">https://systems.ac/4/DAI-2512</guid>
       <pubDate>Mon, 01 Dec 2025 12:00:00 GMT</pubDate>
       <description>Eliminative Monism and the Computational Basis of Phenomenological Illusion &mdash; By Murad Farzulla &mdash; This monograph presents a comprehensive case for eliminative monism regarding consciousness, arguing that phenomenal experience is best understood as a computational artifact rather than an irreducible feature of reality. Drawing on Gödelian self-reference, illusionism, and network epistemology simulations.</description>
       <category>Philosophy</category>
     </item>
     <item>
       <title>Genre Mimicry vs. Ethical Reasoning in Abliterated Language Models</title>
-      <link>https://systems.ac/papers/genre-mimicry</link>
-      <guid isPermaLink="true">https://systems.ac/papers/genre-mimicry</guid>
+      <link>https://systems.ac/5/DP-2503</link>
+      <guid isPermaLink="true">https://systems.ac/5/DP-2503</guid>
       <pubDate>Mon, 01 Dec 2025 12:00:00 GMT</pubDate>
       <description>By Murad Farzulla &mdash; When safety fine-tuning is removed from language models (&apos;abliteration&apos;), the resulting behavior reveals important distinctions between learned genre conventions and genuine ethical reasoning. This paper analyzes how abliterated models respond to adversarial prompts, demonstrating that much apparent &apos;alignment&apos; reflects pattern matching rather than robust ethical judgment.</description>
       <category>AI Safety</category>
     </item>
     <item>
       <title>Autonomous Red Team AI: LLM-Guided Adversarial Security Testing</title>
-      <link>https://systems.ac/papers/autonomous-red-team</link>
-      <guid isPermaLink="true">https://systems.ac/papers/autonomous-red-team</guid>
+      <link>https://systems.ac/5/DAI-2513</link>
+      <guid isPermaLink="true">https://systems.ac/5/DAI-2513</guid>
       <pubDate>Mon, 01 Dec 2025 12:00:00 GMT</pubDate>
       <description>By Murad Farzulla &mdash; This technical report describes an architecture for autonomous penetration testing using LLM-guided agents operating within Kubernetes-isolated environments. The system combines RAG knowledge bases with OODA-loop decision cycles, enabling systematic vulnerability discovery while maintaining strict NetworkPolicy isolation.</description>
       <category>AI Safety</category>
@@ -199,8 +199,8 @@
     </item>
     <item>
       <title>The Temporal Bitmap Interpretation of Quantum Mechanics</title>
-      <link>https://systems.ac/papers/temporal-bitmap-interpretation</link>
-      <guid isPermaLink="true">https://systems.ac/papers/temporal-bitmap-interpretation</guid>
+      <link>https://systems.ac/4/DP-2504</link>
+      <guid isPermaLink="true">https://systems.ac/4/DP-2504</guid>
       <pubDate>Mon, 01 Dec 2025 12:00:00 GMT</pubDate>
       <description>A Parsimonious Reframing of Wave Function Dynamics as Static Structure Traversal &mdash; By Murad Farzulla &mdash; This paper proposes the Temporal Bitmap Interpretation (TBI) of quantum mechanics, which reframes apparent wave function dynamics as static structure traversal through a four-dimensional block universe. On this view, what we perceive as quantum indeterminacy, wave function collapse, and entanglement correlations are artifacts of our epistemic position as observers traversing a determinate 4D structure.</description>
       <category>Philosophy</category>
@@ -208,8 +208,8 @@
     </item>
     <item>
       <title>Semantic-First Spatial Cognition: A Functional Affordance Architecture for Visual Understanding</title>
-      <link>https://systems.ac/papers/semantic-first-vision</link>
-      <guid isPermaLink="true">https://systems.ac/papers/semantic-first-vision</guid>
+      <link>https://systems.ac/5/DP-2505</link>
+      <guid isPermaLink="true">https://systems.ac/5/DP-2505</guid>
       <pubDate>Mon, 01 Dec 2025 12:00:00 GMT</pubDate>
       <description>By Murad Farzulla &mdash; We propose that the standard vision pipeline inverts the actual structure of biological spatial cognition. Spatial awareness is grounded in functional semantics: geometric structure becomes accessible to reasoning only through prior contextual and affordance encoding. We formalize this as the Semantic-First Spatial (SFS) architecture and derive testable predictions distinguishing it from geometry-first alternatives.</description>
       <category>Philosophy</category>
@@ -217,8 +217,8 @@
     </item>
     <item>
       <title>The Preservation Principle: When Identity Survives Scale Transition</title>
-      <link>https://systems.ac/papers/preservation-principle</link>
-      <guid isPermaLink="true">https://systems.ac/papers/preservation-principle</guid>
+      <link>https://systems.ac/4/DP-2506</link>
+      <guid isPermaLink="true">https://systems.ac/4/DP-2506</guid>
       <pubDate>Mon, 01 Dec 2025 12:00:00 GMT</pubDate>
       <description>A Unification of Coarse-Graining Conditions Across Domains &mdash; By Murad Farzulla &mdash; This paper identifies a single meta-principle governing when structure is preserved under transformation across domains: identity survives transformation if and only if the transformation respects the equivalence relations constituting that identity. We demonstrate that this principle instantiates as (i) lumpability conditions in coarse-graining political and social dynamics, where violation produces memory terms and apparent non-Markovianity; (ii) Nyquist conditions in sampling physical systems, where violation produces aliasing phenomena misidentified as &apos;superposition&apos;; and (iii) structure-preservation conditions in nominalization, where violation produces pseudo-entities like &apos;consciousness&apos; generating intractable philosophical problems.</description>
       <category>Philosophy</category>
@@ -227,8 +227,8 @@
     </item>
     <item>
       <title>The Doctrine of Consensual Sovereignty: Quantifying Legitimacy in Adversarial Environments</title>
-      <link>https://systems.ac/papers/consensual-sovereignty</link>
-      <guid isPermaLink="true">https://systems.ac/papers/consensual-sovereignty</guid>
+      <link>https://systems.ac/1/DAI-2501</link>
+      <guid isPermaLink="true">https://systems.ac/1/DAI-2501</guid>
       <pubDate>Sat, 01 Nov 2025 12:00:00 GMT</pubDate>
       <description>By Murad Farzulla &mdash; Political legitimacy formalized as stakes-weighted consent alignment (α), enabling systematic comparison across democratic, technocratic, and algorithmic governance systems. Computational validation via Monte Carlo demonstrates consent-based mechanisms achieve high alignment with substantive friction reduction, outperforming plutocratic and purely technocratic alternatives.</description>
       <dc:identifier>doi:10.2139/ssrn.5918222</dc:identifier>
@@ -238,8 +238,8 @@
     </item>
     <item>
       <title>Asymptotic Protection: The Simultaneous Remedy and Poison of Risk Management</title>
-      <link>https://systems.ac/papers/asymptotic-protection</link>
-      <guid isPermaLink="true">https://systems.ac/papers/asymptotic-protection</guid>
+      <link>https://systems.ac/2/DAI-2502</link>
+      <guid isPermaLink="true">https://systems.ac/2/DAI-2502</guid>
       <pubDate>Sat, 01 Nov 2025 12:00:00 GMT</pubDate>
       <description>By Murad Farzulla &mdash; Complete hedging is theoretically impossible under incomplete markets (Harrison-Kreps 1979), yet partial hedging extracts systematic rents through necessity taxes. This paper synthesizes theoretical impossibility results with empirical evidence of wealth extraction mechanisms, demonstrating that derivatives markets simultaneously provide protection and transfer wealth from those seeking safety to sophisticated counterparties.</description>
       <category>Financial Markets</category>
@@ -248,8 +248,8 @@
     </item>
     <item>
       <title>Training Data and the Maladaptive Mind</title>
-      <link>https://systems.ac/papers/trauma-training-data</link>
-      <guid isPermaLink="true">https://systems.ac/papers/trauma-training-data</guid>
+      <link>https://systems.ac/5/DP-2501</link>
+      <guid isPermaLink="true">https://systems.ac/5/DP-2501</guid>
       <pubDate>Sat, 01 Nov 2025 12:00:00 GMT</pubDate>
       <description>A Computational Framework for Developmental Psychology &mdash; By Murad Farzulla &mdash; Childhood trauma reframed through machine learning training data quality: extreme penalties cause gradient cascades (1,247× amplification, p&lt;0.001), noisy signals produce behavioral instability, absent positive examples create emotional recognition deficits (alexithymia). PyTorch experiments validate computational mechanisms.</description>
       <dc:identifier>doi:10.21203/rs.3.rs-8634152/v1</dc:identifier>
@@ -259,8 +259,8 @@
     </item>
     <item>
       <title>Relational Functionalism</title>
-      <link>https://systems.ac/papers/substrate-independent-friendship</link>
-      <guid isPermaLink="true">https://systems.ac/papers/substrate-independent-friendship</guid>
+      <link>https://systems.ac/4/DP-2502</link>
+      <guid isPermaLink="true">https://systems.ac/4/DP-2502</guid>
       <pubDate>Sat, 01 Nov 2025 12:00:00 GMT</pubDate>
       <description>Friendship as Substrate-Agnostic Process—Functional Analysis of Human-AI Relationships &mdash; By Murad Farzulla &mdash; AI systems can be genuine friends. This paper defends substrate-independent friendship: the thesis that friendship is a functional relational state, not an essential property requiring biological implementation. If an AI system fulfills the functional criteria characteristic of friendship, then the relationship constitutes genuine friendship.</description>
       <category>Philosophy</category>

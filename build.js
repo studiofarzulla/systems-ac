@@ -105,6 +105,16 @@ function programIndex(programKey) {
   return p ? p.index : '';
 }
 
+function romanToArabic(roman) {
+  const map = { 'I': 1, 'II': 2, 'III': 3, 'IV': 4, 'V': 5, 'VI': 6, 'VII': 7 };
+  return map[roman] || 0;
+}
+
+function programmeNumber(programKey) {
+  const p = programs[programKey];
+  return p ? romanToArabic(p.index) : 0;
+}
+
 function pdfUrl(paper) {
   if (!paper.pdf) return null;
   return `${PDF_BASE}/${paper.pdf}`;
@@ -116,11 +126,13 @@ function doiUrl(paper) {
 }
 
 function paperUrl(paper) {
-  return `/papers/${paper.id}`;
+  const num = programmeNumber(paper.program);
+  return `/${num}/${paper.wpNumber}`;
 }
 
 function programmeUrl(programKey) {
-  return `/programmes/${programKey}`;
+  const num = programmeNumber(programKey);
+  return `/${num}`;
 }
 
 function truncateAbstract(text, maxLen) {
@@ -196,7 +208,7 @@ function bibtexEntry(paper) {
   if (doi) {
     bib += `  doi          = {${doi}},\n`;
   }
-  bib += `  url          = {${SITE_URL}/papers/${paper.id}}\n`;
+  bib += `  url          = {${SITE_URL}${paperUrl(paper)}}\n`;
   bib += `}`;
   return bib;
 }
@@ -278,7 +290,7 @@ function getHeadHtml(meta) {
     }
     head += `  <meta name="citation_publication_date" content="${formatDateSlash(paper.date)}">
   <meta name="citation_publisher" content="${PUBLISHER}">
-  <meta name="citation_abstract_html_url" content="${SITE_URL}/papers/${paper.id}">
+  <meta name="citation_abstract_html_url" content="${SITE_URL}${paperUrl(paper)}">
 `;
     if (paper.pdf) {
       head += `  <meta name="citation_pdf_url" content="${escapeHtml(pdfUrl(paper))}">\n`;
@@ -323,7 +335,7 @@ function getHeadHtml(meta) {
         '@type': 'Organization',
         'name': PUBLISHER,
       },
-      'url': `${SITE_URL}/papers/${paper.id}`,
+      'url': `${SITE_URL}${paperUrl(paper)}`,
       'abstract': paper.abstract || '',
     };
     if (paper.doi) {
@@ -437,7 +449,7 @@ function buildPaperPage(paper) {
   const headHtml = getHeadHtml({
     title: paper.title,
     description: truncateAbstract(paper.abstract, 200),
-    canonicalUrl: `${SITE_URL}/papers/${paper.id}`,
+    canonicalUrl: `${SITE_URL}${paperUrl(paper)}`,
     ogType: 'article',
     paper: paper,
   });
@@ -621,7 +633,7 @@ function buildProgrammePage(programKey) {
   const headHtml = getHeadHtml({
     title: `Programme ${prog.index}: ${prog.title}`,
     description: prog.description,
-    canonicalUrl: `${SITE_URL}/programmes/${programKey}`,
+    canonicalUrl: `${SITE_URL}${programmeUrl(programKey)}`,
   });
 
   const navHtml = getNavHtml('programmes');
@@ -694,7 +706,7 @@ function buildProgrammesIndexPage() {
       <section class="hero" style="border-bottom: none; padding-bottom: 2rem;">
         <span class="hero__label">Research Structure</span>
         <h1 class="hero__title">Programmes</h1>
-        <p class="hero__subtitle">Six interlocking research programmes investigating friction, consent, and stability across adversarial systems.</p>
+        <p class="hero__subtitle">Five interlocking research programmes investigating friction, consent, and stability across adversarial systems.</p>
       </section>
 
       <div class="programme-grid">
@@ -736,7 +748,7 @@ function buildSitemap() {
   // Paper pages
   for (const paper of papers) {
     urls += `  <url>
-    <loc>${SITE_URL}/papers/${paper.id}</loc>
+    <loc>${SITE_URL}${paperUrl(paper)}</loc>
     <lastmod>${paper.date}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -746,7 +758,7 @@ function buildSitemap() {
   // Programme pages
   for (const key of Object.keys(programs)) {
     urls += `  <url>
-    <loc>${SITE_URL}/programmes/${key}</loc>
+    <loc>${SITE_URL}${programmeUrl(key)}</loc>
     <lastmod>${today}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -767,7 +779,7 @@ function buildRSSFeed() {
 
   let items = '';
   for (const paper of sortedPapers) {
-    const paperLink = `${SITE_URL}/papers/${paper.id}`;
+    const paperLink = `${SITE_URL}${paperUrl(paper)}`;
     const abstract = paper.abstract ? escapeXml(paper.abstract) : '';
 
     let descriptionParts = [];
@@ -837,32 +849,58 @@ function build() {
   ensureDir(papersDir);
   ensureDir(programmesDir);
 
-  // --- Individual paper pages ---
+  // Ensure DOI-style programme number directories (1/, 2/, 3/, etc.)
+  for (const key of Object.keys(programs)) {
+    const num = programmeNumber(key);
+    ensureDir(path.join(PUBLIC, String(num)));
+  }
+
+  // Clean old slug-based paper pages from public/papers/ (keep index.html)
+  const oldPaperFiles = fs.readdirSync(papersDir).filter(f => f !== 'index.html' && f.endsWith('.html'));
+  for (const f of oldPaperFiles) {
+    fs.unlinkSync(path.join(papersDir, f));
+  }
+  if (oldPaperFiles.length) {
+    console.log(`  Cleaned ${oldPaperFiles.length} old paper pages from public/papers/`);
+  }
+
+  // Clean old slug-based programme pages from public/programmes/ (keep index.html)
+  const oldProgFiles = fs.readdirSync(programmesDir).filter(f => f !== 'index.html' && f.endsWith('.html'));
+  for (const f of oldProgFiles) {
+    fs.unlinkSync(path.join(programmesDir, f));
+  }
+  if (oldProgFiles.length) {
+    console.log(`  Cleaned ${oldProgFiles.length} old programme pages from public/programmes/`);
+  }
+
+  // --- Individual paper pages (DOI-style: /{num}/{wpNumber}.html) ---
   let paperCount = 0;
   for (const paper of papers) {
     const html = buildPaperPage(paper);
-    const outPath = path.join(papersDir, `${paper.id}.html`);
+    const num = programmeNumber(paper.program);
+    const outPath = path.join(PUBLIC, String(num), `${paper.wpNumber}.html`);
     fs.writeFileSync(outPath, html, 'utf-8');
     paperCount++;
   }
-  console.log(`  Generated ${paperCount} paper pages -> public/papers/`);
+  console.log(`  Generated ${paperCount} paper pages -> public/{num}/{wpNumber}.html`);
 
   // --- Papers index ---
   const papersIndexHtml = buildPapersIndexPage();
   fs.writeFileSync(path.join(papersDir, 'index.html'), papersIndexHtml, 'utf-8');
   console.log(`  Generated papers index -> public/papers/index.html`);
 
-  // --- Individual programme pages ---
+  // --- Individual programme pages (DOI-style: /{num}/index.html) ---
   let progCount = 0;
   for (const key of Object.keys(programs)) {
     const html = buildProgrammePage(key);
     if (html) {
-      const outPath = path.join(programmesDir, `${key}.html`);
+      const num = programmeNumber(key);
+      const outPath = path.join(PUBLIC, String(num), 'index.html');
       fs.writeFileSync(outPath, html, 'utf-8');
       progCount++;
     }
   }
-  console.log(`  Generated ${progCount} programme pages -> public/programmes/`);
+  console.log(`  Generated ${progCount} programme pages -> public/{num}/index.html`);
 
   // --- Programmes index ---
   const programmesIndexHtml = buildProgrammesIndexPage();
@@ -878,6 +916,17 @@ function build() {
   const feed = buildRSSFeed();
   fs.writeFileSync(path.join(PUBLIC, 'feed.xml'), feed, 'utf-8');
   console.log(`  Generated RSS feed -> public/feed.xml`);
+
+  // --- _redirects for old slug-based URLs ---
+  let redirects = '# Old slug-based URLs -> DOI-style URLs\n';
+  for (const paper of papers) {
+    redirects += `/papers/${paper.id} ${paperUrl(paper)} 301\n`;
+  }
+  for (const key of Object.keys(programs)) {
+    redirects += `/programmes/${key} ${programmeUrl(key)} 301\n`;
+  }
+  fs.writeFileSync(path.join(PUBLIC, '_redirects'), redirects, 'utf-8');
+  console.log(`  Generated _redirects with ${papers.length + Object.keys(programs).length} redirects`);
 
   // --- Cache-bust CSS in static pages ---
   const staticPages = ['index.html', 'framework.html', 'people.html', 'about.html', 'contact.html'];

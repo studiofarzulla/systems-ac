@@ -452,7 +452,7 @@
       "github": null,
       "dashboard": null,
       "wpNumber": "DP-2502",
-      "program": "machine-morality",
+      "program": "process-philosophy",
       "category": "process-philosophy"
     },
     {
@@ -656,30 +656,25 @@
       "description": "The formal theory of consent-holding in multi-agent systems. When can delegation be legitimate? What are the structural conditions for valid consent? How do we measure consent deficits?",
       "index": "I"
     },
-    "machine-morality": {
-      "title": "Machine Morality",
-      "description": "Substrate-independent criteria for moral status. If an AI system meets functional criteria for consent-giving, what follows? The genre mimicry hypothesis and the politics of AI standing.",
-      "index": "II"
-    },
     "economic-pharmakon": {
       "title": "Economic Pharmakon",
       "description": "Derivatives as simultaneously remedy and poison. The hedging paradox: when risk management becomes wealth transfer infrastructure. Market microstructure as friction measurement.",
-      "index": "III"
+      "index": "II"
     },
     "crypto-microstructure": {
       "title": "Crypto Microstructure",
       "description": "Empirical validation of friction dynamics in cryptocurrency markets. Why do infrastructure failures move markets more than regulatory announcements? The enforcement capacity hypothesis.",
-      "index": "IV"
+      "index": "III"
     },
     "process-philosophy": {
       "title": "Process Philosophy",
-      "description": "Metaphysics, identity, consciousness, and substrates. Eliminative and relational approaches to persistent philosophical problems. The Replicator-Optimization Mechanism as meta-theory.",
-      "index": "V"
+      "description": "Metaphysics, identity, consciousness, substrates, and moral standing. Eliminative and relational approaches to persistent philosophical problems. Substrate-independent criteria for agency and friendship. The Replicator-Optimization Mechanism as meta-theory.",
+      "index": "IV"
     },
     "computational-cognition": {
       "title": "Computational Cognition",
       "description": "Machine learning, safety, phenomenology, and the computational basis of cognitive processes. Trauma as training data corruption. Genre mimicry in alignment.",
-      "index": "VI"
+      "index": "V"
     }
   },
   "categories": {
