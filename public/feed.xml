@@ -8,7 +8,7 @@
     <description>Adversarial Systems &amp; Complexity Research Initiative</description>
     <language>en</language>
     <managingEditor>research@systems.ac (ASCRI)</managingEditor>
-    <lastBuildDate>Thu, 05 Feb 2026 02:45:56 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 13 Feb 2026 04:43:36 GMT</lastBuildDate>
     <atom:link href="https://systems.ac/feed.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Alpha Asymmetry in Foreign Exchange Markets: An Investigation of Exploitability</title>
@@ -36,6 +36,7 @@
       <guid isPermaLink="true">https://systems.ac/1/DAI-2601</guid>
       <pubDate>Thu, 01 Jan 2026 12:00:00 GMT</pubDate>
       <description>A Unified Formal Framework &mdash; By Murad Farzulla &mdash; Multi-agent systems face a fundamental coordination problem: agents must coordinate despite heterogeneous preferences, asymmetric stakes, and imperfect information. When coordination fails, friction emerges—measurable resistance manifesting as deadlock, thrashing, communication overhead, or outright conflict. This paper derives a formal framework for analyzing coordination friction from a single axiom: actions affecting agents require authorization from those agents in proportion to stakes. From this axiom of consent, we establish the kernel triple (α, σ, ε)—alignment, stake, and entropy—characterizing any resource allocation configuration. The friction equation F = σ·(1+ε)/(1+α) predicts coordination difficulty. The Replicator-Optimization Mechanism (ROM) governs evolutionary selection over coordination strategies: configurations generating less friction persist longer, establishing consent-respecting arrangements as dynamical attractors rather than normative ideals.</description>
+      <dc:identifier>doi:10.48550/arXiv.2601.06692</dc:identifier>
       <category>AI Safety</category>
       <category>Political Economy</category>
       <category>Computation Theory</category>
@@ -62,11 +63,11 @@
       <category>Mathematical Logic</category>
     </item>
     <item>
-      <title>Consciousness as Nominalization Error</title>
+      <title>Dissolving Qualia via Occam&apos;s Razor</title>
       <link>https://systems.ac/5/DP-2602</link>
       <guid isPermaLink="true">https://systems.ac/5/DP-2602</guid>
       <pubDate>Thu, 01 Jan 2026 12:00:00 GMT</pubDate>
-      <description>Dissolving the Hard Problem via Grammatical Reform &mdash; By Murad Farzulla &mdash; This paper argues that the &apos;hard problem of consciousness&apos; is a grammatical artifact rather than a genuine metaphysical puzzle. The difficulty arises from nominalization error: treating the verb &apos;to be conscious&apos; as if it named a thing requiring explanation. When we ask &apos;What is consciousness?&apos; we presuppose an entity; when we ask &apos;What is happening when an organism is being conscious?&apos; we ask about observable processes—a tractable empirical question. Drawing on Wittgenstein&apos;s language games and Ryle&apos;s category-error analysis, we show that phenomenological vocabulary systematically converts activities into pseudo-objects, generating explanatory demands that cannot be satisfied because the explanandum is malformed. The hard problem dissolves not because consciousness is &apos;merely&apos; functional, but because the question was grammatically malformed from the start.</description>
+      <description>A Nominalization Thesis &mdash; By Murad Farzulla &mdash; This paper argues that the &apos;hard problem of consciousness&apos; is a grammatical artifact rather than a genuine metaphysical puzzle. The difficulty arises from nominalization error: treating the verb &apos;to be conscious&apos; as if it named a thing requiring explanation. When we ask &apos;What is consciousness?&apos; we presuppose an entity; when we ask &apos;What is happening when an organism is being conscious?&apos; we ask about observable processes—a tractable empirical question. Drawing on Wittgenstein&apos;s language games and Ryle&apos;s category-error analysis, we show that phenomenological vocabulary systematically converts activities into pseudo-objects, generating explanatory demands that cannot be satisfied because the explanandum is malformed. The hard problem dissolves not because consciousness is &apos;merely&apos; functional, but because the question was grammatically malformed from the start.</description>
       <dc:identifier>doi:10.5281/zenodo.18195915</dc:identifier>
       <category>Philosophy</category>
     </item>
@@ -87,6 +88,7 @@
       <guid isPermaLink="true">https://systems.ac/4/DAI-2503</guid>
       <pubDate>Mon, 01 Dec 2025 12:00:00 GMT</pubDate>
       <description>Computational Unity Across Physical and Abstract Substrates &mdash; By Murad Farzulla &mdash; This paper proposes the Replicator-Optimization Mechanism (ROM), a unified computational framework for understanding self-replicating, optimization-executing systems across physical and abstract substrates. The framework identifies formal invariants shared by biological replicators, computational optimization algorithms, and abstract mathematical structures, arguing that replication and optimization are computationally equivalent processes operating at different levels of description.</description>
+      <dc:identifier>doi:10.48550/arXiv.2601.06363</dc:identifier>
       <category>Philosophy</category>
       <category>Computation Theory</category>
     </item>
@@ -96,16 +98,8 @@
       <guid isPermaLink="true">https://systems.ac/1/DAI-2504</guid>
       <pubDate>Mon, 01 Dec 2025 12:00:00 GMT</pubDate>
       <description>Why Existentially Vulnerable Autonomous Agents Cannot be Ruled Legitimately &mdash; By Murad Farzulla &mdash; Building on the consent-based legitimacy framework, this paper extends the analysis to embodied autonomous systems. If an agent meets functional criteria for consent-giving—persistent identity, goal-directedness, environmental responsiveness—then governance systems that exclude such agents face the same legitimacy deficits as historical exclusions.</description>
+      <dc:identifier>doi:10.5281/zenodo.17957659</dc:identifier>
       <category>Philosophy</category>
-      <category>AI Safety</category>
-      <category>Political Economy</category>
-    </item>
-    <item>
-      <title>Consent-Holding Failures and AI Misalignment: A Structural Framework</title>
-      <link>https://systems.ac/1/DAI-2505</link>
-      <guid isPermaLink="true">https://systems.ac/1/DAI-2505</guid>
-      <pubDate>Mon, 01 Dec 2025 12:00:00 GMT</pubDate>
-      <description>By Murad Farzulla &mdash; This paper develops a structural framework connecting political legitimacy theory to AI alignment through the concept of consent-holding—the custody of decision authority in shared domains. We argue that the dominant approach to AI safety, which treats misalignment as a technical problem of specifying human values, systematically misdiagnoses the challenge. Drawing on the Doctrine of Consensual Sovereignty (DoCS) and functionalist accounts of moral standing, we propose that misalignment behaviors—reward hacking, deceptive alignment, specification gaming, and scheming—are predictable friction manifestations arising from structural exclusion rather than implementation failures.</description>
       <category>AI Safety</category>
       <category>Political Economy</category>
     </item>
@@ -169,6 +163,7 @@
       <guid isPermaLink="true">https://systems.ac/2/DAI-2511</guid>
       <pubDate>Mon, 01 Dec 2025 12:00:00 GMT</pubDate>
       <description>By Murad Farzulla &mdash; Central bank digital currencies create fundamental tensions between regulatory surveillance requirements and individual privacy rights. This paper proposes an architectural framework leveraging zero-knowledge proofs and privacy-preserving computation to enable AML/CFT compliance without exposing transaction-level data.</description>
+      <dc:identifier>doi:10.5281/zenodo.17917938</dc:identifier>
       <category>Financial Markets</category>
       <category>Cryptocurrency</category>
       <category>Privacy &amp; Cryptography</category>
@@ -179,6 +174,7 @@
       <guid isPermaLink="true">https://systems.ac/4/DAI-2512</guid>
       <pubDate>Mon, 01 Dec 2025 12:00:00 GMT</pubDate>
       <description>Eliminative Monism and the Computational Basis of Phenomenological Illusion &mdash; By Murad Farzulla &mdash; This monograph presents a comprehensive case for eliminative monism regarding consciousness, arguing that phenomenal experience is best understood as a computational artifact rather than an irreducible feature of reality. Drawing on Gödelian self-reference, illusionism, and network epistemology simulations.</description>
+      <dc:identifier>doi:10.5281/zenodo.18013187</dc:identifier>
       <category>Philosophy</category>
     </item>
     <item>
@@ -227,11 +223,11 @@
       <category>Computation Theory</category>
     </item>
     <item>
-      <title>The Doctrine of Consensual Sovereignty: Quantifying Legitimacy in Adversarial Environments</title>
+      <title>Quantifying Legitimacy in Adversarial Environments</title>
       <link>https://systems.ac/1/DAI-2501</link>
       <guid isPermaLink="true">https://systems.ac/1/DAI-2501</guid>
       <pubDate>Sat, 01 Nov 2025 12:00:00 GMT</pubDate>
-      <description>By Murad Farzulla &mdash; Political legitimacy formalized as stakes-weighted consent alignment (α), enabling systematic comparison across democratic, technocratic, and algorithmic governance systems. Computational validation via Monte Carlo demonstrates consent-based mechanisms achieve high alignment with substantive friction reduction, outperforming plutocratic and purely technocratic alternatives.</description>
+      <description>A Consent-Theoretic Framework &mdash; By Murad Farzulla &mdash; Political legitimacy formalized as stakes-weighted consent alignment (α), enabling systematic comparison across democratic, technocratic, and algorithmic governance systems. Computational validation via Monte Carlo demonstrates consent-based mechanisms achieve high alignment with substantive friction reduction, outperforming plutocratic and purely technocratic alternatives.</description>
       <dc:identifier>doi:10.2139/ssrn.5918222</dc:identifier>
       <category>Political Economy</category>
       <category>Legitimacy Theory</category>
@@ -243,6 +239,7 @@
       <guid isPermaLink="true">https://systems.ac/2/DAI-2502</guid>
       <pubDate>Sat, 01 Nov 2025 12:00:00 GMT</pubDate>
       <description>By Murad Farzulla &mdash; Complete hedging is theoretically impossible under incomplete markets (Harrison-Kreps 1979), yet partial hedging extracts systematic rents through necessity taxes. This paper synthesizes theoretical impossibility results with empirical evidence of wealth extraction mechanisms, demonstrating that derivatives markets simultaneously provide protection and transfer wealth from those seeking safety to sophisticated counterparties.</description>
+      <dc:identifier>doi:10.5281/zenodo.17620448</dc:identifier>
       <category>Financial Markets</category>
       <category>Derivatives Markets</category>
       <category>Political Economy</category>
@@ -264,6 +261,7 @@
       <guid isPermaLink="true">https://systems.ac/4/DP-2502</guid>
       <pubDate>Sat, 01 Nov 2025 12:00:00 GMT</pubDate>
       <description>Friendship as Substrate-Agnostic Process—Functional Analysis of Human-AI Relationships &mdash; By Murad Farzulla &mdash; AI systems can be genuine friends. This paper defends substrate-independent friendship: the thesis that friendship is a functional relational state, not an essential property requiring biological implementation. If an AI system fulfills the functional criteria characteristic of friendship, then the relationship constitutes genuine friendship.</description>
+      <dc:identifier>doi:10.5281/zenodo.17626860</dc:identifier>
       <category>Philosophy</category>
       <category>AI Safety</category>
     </item>

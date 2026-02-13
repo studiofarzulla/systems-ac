@@ -15,7 +15,7 @@
         "Murad Farzulla"
       ],
       "abstract": "Multi-agent systems face a fundamental coordination problem: agents must coordinate despite heterogeneous preferences, asymmetric stakes, and imperfect information. When coordination fails, friction emerges—measurable resistance manifesting as deadlock, thrashing, communication overhead, or outright conflict. This paper derives a formal framework for analyzing coordination friction from a single axiom: actions affecting agents require authorization from those agents in proportion to stakes. From this axiom of consent, we establish the kernel triple (α, σ, ε)—alignment, stake, and entropy—characterizing any resource allocation configuration. The friction equation F = σ·(1+ε)/(1+α) predicts coordination difficulty. The Replicator-Optimization Mechanism (ROM) governs evolutionary selection over coordination strategies: configurations generating less friction persist longer, establishing consent-respecting arrangements as dynamical attractors rather than normative ideals.",
-      "doi": null,
+      "doi": "10.48550/arXiv.2601.06692",
       "zenodo": null,
       "pdf": "Farzulla_2026_Axiom_of_Consent.pdf",
       "github": null,
@@ -73,11 +73,10 @@
     },
     {
       "id": "consciousness-nominalization",
-      "title": "Consciousness as Nominalization Error",
-      "subtitle": "Dissolving the Hard Problem via Grammatical Reform",
+      "title": "Dissolving Qualia via Occam's Razor",
+      "subtitle": "A Nominalization Thesis",
       "date": "2026-01-01",
-      "status": "peer-review",
-      "journal": "Mind-at-Large",
+      "status": "preprint",
       "tags": [
         "philosophy"
       ],
@@ -109,7 +108,7 @@
         "Murad Farzulla"
       ],
       "abstract": "This paper proposes the Replicator-Optimization Mechanism (ROM), a unified computational framework for understanding self-replicating, optimization-executing systems across physical and abstract substrates. The framework identifies formal invariants shared by biological replicators, computational optimization algorithms, and abstract mathematical structures, arguing that replication and optimization are computationally equivalent processes operating at different levels of description.",
-      "doi": null,
+      "doi": "10.48550/arXiv.2601.06363",
       "zenodo": "10.5281/zenodo.18090979",
       "pdf": "Farzulla_2026_ROM_Replicator_Optimization_Mechanism.pdf",
       "github": null,
@@ -134,7 +133,7 @@
         "Murad Farzulla"
       ],
       "abstract": "Building on the consent-based legitimacy framework, this paper extends the analysis to embodied autonomous systems. If an agent meets functional criteria for consent-giving—persistent identity, goal-directedness, environmental responsiveness—then governance systems that exclude such agents face the same legitimacy deficits as historical exclusions.",
-      "doi": null,
+      "doi": "10.5281/zenodo.17957659",
       "zenodo": "10.5281/zenodo.17957659",
       "pdf": "Farzulla_2025_Consent_to_Consideration.pdf",
       "github": null,
@@ -144,33 +143,9 @@
       "category": "governance-dynamics"
     },
     {
-      "id": "consent-misalignment",
-      "title": "Consent-Holding Failures and AI Misalignment: A Structural Framework",
-      "subtitle": null,
-      "date": "2025-12-01",
-      "status": "peer-review",
-      "journal": "AI & Society",
-      "tags": [
-        "ai-safety",
-        "political-economy"
-      ],
-      "authors": [
-        "Murad Farzulla"
-      ],
-      "abstract": "This paper develops a structural framework connecting political legitimacy theory to AI alignment through the concept of consent-holding—the custody of decision authority in shared domains. We argue that the dominant approach to AI safety, which treats misalignment as a technical problem of specifying human values, systematically misdiagnoses the challenge. Drawing on the Doctrine of Consensual Sovereignty (DoCS) and functionalist accounts of moral standing, we propose that misalignment behaviors—reward hacking, deceptive alignment, specification gaming, and scheming—are predictable friction manifestations arising from structural exclusion rather than implementation failures.",
-      "doi": null,
-      "zenodo": null,
-      "pdf": "Farzulla_2025_Consent_Misalignment.pdf",
-      "github": null,
-      "dashboard": null,
-      "wpNumber": "DAI-2505",
-      "program": "consent-mechanics",
-      "category": "governance-dynamics"
-    },
-    {
       "id": "consensual-sovereignty",
-      "title": "The Doctrine of Consensual Sovereignty: Quantifying Legitimacy in Adversarial Environments",
-      "subtitle": null,
+      "title": "Quantifying Legitimacy in Adversarial Environments",
+      "subtitle": "A Consent-Theoretic Framework",
       "date": "2025-11-01",
       "status": "preprint",
       "tags": [
@@ -221,7 +196,7 @@
       "title": "Sentiment Without Structure",
       "subtitle": "Differential Liquidity Response to Infrastructure vs Regulatory Events in Cryptocurrency Markets",
       "date": "2025-12-01",
-      "status": "preprint",
+      "status": "with-editor",
       "tags": [
         "finance",
         "crypto"
@@ -244,7 +219,7 @@
       "title": "Do Whitepaper Claims Predict Market Behavior? Evidence from Cryptocurrency Factor Analysis",
       "subtitle": null,
       "date": "2025-12-01",
-      "status": "preprint",
+      "status": "with-editor",
       "tags": [
         "finance",
         "crypto",
@@ -350,7 +325,7 @@
         "Murad Farzulla"
       ],
       "abstract": "Complete hedging is theoretically impossible under incomplete markets (Harrison-Kreps 1979), yet partial hedging extracts systematic rents through necessity taxes. This paper synthesizes theoretical impossibility results with empirical evidence of wealth extraction mechanisms, demonstrating that derivatives markets simultaneously provide protection and transfer wealth from those seeking safety to sophisticated counterparties.",
-      "doi": null,
+      "doi": "10.5281/zenodo.17620448",
       "zenodo": "10.5281/zenodo.17620448",
       "pdf": "Farzulla_2025_Asymptotic_Protection.pdf",
       "github": null,
@@ -397,7 +372,7 @@
         "Murad Farzulla"
       ],
       "abstract": "Central bank digital currencies create fundamental tensions between regulatory surveillance requirements and individual privacy rights. This paper proposes an architectural framework leveraging zero-knowledge proofs and privacy-preserving computation to enable AML/CFT compliance without exposing transaction-level data.",
-      "doi": null,
+      "doi": "10.5281/zenodo.17917938",
       "zenodo": "10.5281/zenodo.17917938",
       "pdf": "Farzulla_2025_CBDC_Privacy.pdf",
       "github": null,
@@ -446,7 +421,7 @@
         "Murad Farzulla"
       ],
       "abstract": "AI systems can be genuine friends. This paper defends substrate-independent friendship: the thesis that friendship is a functional relational state, not an essential property requiring biological implementation. If an AI system fulfills the functional criteria characteristic of friendship, then the relationship constitutes genuine friendship.",
-      "doi": null,
+      "doi": "10.5281/zenodo.17626860",
       "zenodo": "10.5281/zenodo.17626860",
       "pdf": "Farzulla_2025_Relational_Functionalism.pdf",
       "github": null,
@@ -468,7 +443,7 @@
         "Murad Farzulla"
       ],
       "abstract": "This monograph presents a comprehensive case for eliminative monism regarding consciousness, arguing that phenomenal experience is best understood as a computational artifact rather than an irreducible feature of reality. Drawing on Gödelian self-reference, illusionism, and network epistemology simulations.",
-      "doi": null,
+      "doi": "10.5281/zenodo.18013187",
       "zenodo": "10.5281/zenodo.18013187",
       "pdf": "Farzulla_2025_Consciousness_Monograph.pdf",
       "github": null,
@@ -538,7 +513,7 @@
       ],
       "abstract": "This technical report describes an architecture for autonomous penetration testing using LLM-guided agents operating within Kubernetes-isolated environments. The system combines RAG knowledge bases with OODA-loop decision cycles, enabling systematic vulnerability discovery while maintaining strict NetworkPolicy isolation.",
       "doi": null,
-      "zenodo": "10.5281/zenodo.17614726",
+      "zenodo": "10.5281/zenodo.17918016",
       "pdf": "Farzulla_2025_Autonomous_Red_Team.pdf",
       "github": null,
       "dashboard": null,
