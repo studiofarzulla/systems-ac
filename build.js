@@ -488,6 +488,9 @@ function buildPaperPage(paper) {
   if (paper.doi) {
     actions.push(`<a href="${escapeHtml(doiUrl(paper))}" class="btn" target="_blank" rel="noopener">DOI: ${escapeHtml(paper.doi)}</a>`);
   }
+  if (paper.arxiv) {
+    actions.push(`<a href="https://arxiv.org/abs/${escapeHtml(paper.arxiv)}" class="btn" target="_blank" rel="noopener">arXiv: ${escapeHtml(paper.arxiv)}</a>`);
+  }
   if (paper.github) {
     actions.push(`<a href="${escapeHtml(paper.github)}" class="btn" target="_blank" rel="noopener">GitHub</a>`);
   }
@@ -543,6 +546,21 @@ function buildPaperPage(paper) {
       </div>`;
   }
 
+  // Methods
+  let methodsHtml = '';
+  if (paper.methods && paper.methods.length) {
+    const methodPills = paper.methods
+      .map(m => `<span class="tag tag--method">${escapeHtml(m)}</span>`)
+      .join('\n          ');
+    methodsHtml = `
+      <div class="paper-detail__section">
+        <h2 class="paper-detail__section-title">Methodology</h2>
+        <div class="tag-list">
+          ${methodPills}
+        </div>
+      </div>`;
+  }
+
   const bodyContent = `
   <main class="paper-detail">
     <div class="container">
@@ -554,6 +572,7 @@ ${titleBlock}
       </div>
 ${actionsHtml}
 ${abstractHtml}
+${methodsHtml}
 ${citationHtml}
 ${bibtexHtml}
 ${tagsHtml}

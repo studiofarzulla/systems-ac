@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
   <!-- CSS -->
-  <link rel="stylesheet" href="/css/ascri.css?v=80068220">
+  <link rel="stylesheet" href="/css/ascri.css?v=374011e1">
   <script>(function(){var t=localStorage.getItem('ascri-theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)})()</script>
 
   <!-- Canonical -->
@@ -133,11 +133,22 @@
       <div class="paper-detail__actions">
         <a href="https://farzulla.org/papers/Farzulla_2026_Axiom_of_Consent.pdf" class="btn btn--primary" target="_blank" rel="noopener">Download PDF</a>
         <a href="https://doi.org/10.48550/arXiv.2601.06692" class="btn" target="_blank" rel="noopener">DOI: 10.48550/arXiv.2601.06692</a>
+        <a href="https://arxiv.org/abs/2601.06692" class="btn" target="_blank" rel="noopener">arXiv: 2601.06692</a>
       </div>
 
       <div class="paper-detail__section">
         <h2 class="paper-detail__section-title">Abstract</h2>
         <p class="paper-detail__abstract">Multi-agent systems face a fundamental coordination problem: agents must coordinate despite heterogeneous preferences, asymmetric stakes, and imperfect information. When coordination fails, friction emerges—measurable resistance manifesting as deadlock, thrashing, communication overhead, or outright conflict. This paper derives a formal framework for analyzing coordination friction from a single axiom: actions affecting agents require authorization from those agents in proportion to stakes. From this axiom of consent, we establish the kernel triple (α, σ, ε)—alignment, stake, and entropy—characterizing any resource allocation configuration. The friction equation F = σ·(1+ε)/(1+α) predicts coordination difficulty. The Replicator-Optimization Mechanism (ROM) governs evolutionary selection over coordination strategies: configurations generating less friction persist longer, establishing consent-respecting arrangements as dynamical attractors rather than normative ideals.</p>
+      </div>
+
+      <div class="paper-detail__section">
+        <h2 class="paper-detail__section-title">Methodology</h2>
+        <div class="tag-list">
+          <span class="tag tag--method">Kernel triple formalism</span>
+          <span class="tag tag--method">ROM dynamics</span>
+          <span class="tag tag--method">MARL</span>
+          <span class="tag tag--method">Monte Carlo validation</span>
+        </div>
       </div>
 
       <div class="paper-detail__section">

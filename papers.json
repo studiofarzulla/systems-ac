@@ -17,9 +17,11 @@
       "abstract": "Multi-agent systems face a fundamental coordination problem: agents must coordinate despite heterogeneous preferences, asymmetric stakes, and imperfect information. When coordination fails, friction emerges—measurable resistance manifesting as deadlock, thrashing, communication overhead, or outright conflict. This paper derives a formal framework for analyzing coordination friction from a single axiom: actions affecting agents require authorization from those agents in proportion to stakes. From this axiom of consent, we establish the kernel triple (α, σ, ε)—alignment, stake, and entropy—characterizing any resource allocation configuration. The friction equation F = σ·(1+ε)/(1+α) predicts coordination difficulty. The Replicator-Optimization Mechanism (ROM) governs evolutionary selection over coordination strategies: configurations generating less friction persist longer, establishing consent-respecting arrangements as dynamical attractors rather than normative ideals.",
       "doi": "10.48550/arXiv.2601.06692",
       "zenodo": null,
+      "arxiv": "2601.06692",
       "pdf": "Farzulla_2026_Axiom_of_Consent.pdf",
       "github": null,
       "dashboard": null,
+      "methods": ["Kernel triple formalism", "ROM dynamics", "MARL", "Monte Carlo validation"],
       "wpNumber": "DAI-2601",
       "program": "consent-mechanics",
       "category": "governance-dynamics"
@@ -44,6 +46,7 @@
       "pdf": "Farzulla_2026_Stakes_Without_Voice.pdf",
       "github": null,
       "dashboard": null,
+      "methods": ["Consent-friction formalism", "ROM framework", "Graduated governance"],
       "wpNumber": "DAI-2602",
       "program": "consent-mechanics",
       "category": "governance-dynamics"
@@ -67,6 +70,7 @@
       "pdf": "Farzulla_2026_Trident.pdf",
       "github": null,
       "dashboard": null,
+      "methods": ["Socratic elenchus", "Wittgensteinian therapy", "Argumentation theory"],
       "wpNumber": "DP-2601",
       "program": "process-philosophy",
       "category": "process-philosophy"
@@ -89,6 +93,7 @@
       "pdf": "Farzulla_2026_Consciousness_Nominalization_Error.pdf",
       "github": null,
       "dashboard": null,
+      "methods": ["Wittgensteinian therapy", "Ryle category-error", "Eliminativism"],
       "wpNumber": "DP-2602",
       "program": "computational-cognition",
       "category": "computational-cognition"
@@ -109,9 +114,11 @@
       "abstract": "This paper proposes the Replicator-Optimization Mechanism (ROM), a unified computational framework for understanding self-replicating, optimization-executing systems across physical and abstract substrates. The framework identifies formal invariants shared by biological replicators, computational optimization algorithms, and abstract mathematical structures, arguing that replication and optimization are computationally equivalent processes operating at different levels of description.",
       "doi": "10.48550/arXiv.2601.06363",
       "zenodo": "10.5281/zenodo.18090979",
+      "arxiv": "2601.06363",
       "pdf": "Farzulla_2026_ROM_Replicator_Optimization_Mechanism.pdf",
       "github": null,
       "dashboard": null,
+      "methods": ["Computational theory", "Category theory", "Universal Darwinism", "Optimization theory"],
       "wpNumber": "DAI-2503",
       "program": "process-philosophy",
       "category": "process-philosophy"
@@ -137,6 +144,7 @@
       "pdf": "Farzulla_2025_Consent_to_Consideration.pdf",
       "github": null,
       "dashboard": null,
+      "methods": ["Consent theory", "Substrate independence", "Political philosophy"],
       "wpNumber": "DAI-2504",
       "program": "consent-mechanics",
       "category": "governance-dynamics"
@@ -161,6 +169,7 @@
       "pdf": "Farzulla_2025_Consensual_Sovereignty.pdf",
       "github": "https://github.com/studiofarzulla/consent-holding-theory",
       "dashboard": null,
+      "methods": ["Monte Carlo simulation", "Bayesian learning", "Multi-agent systems"],
       "wpNumber": "DAI-2501",
       "program": "consent-mechanics",
       "category": "governance-dynamics"
@@ -186,16 +195,17 @@
       "pdf": "Farzulla_2025_Cryptocurrency_Event_Study.pdf",
       "github": "https://github.com/studiofarzulla/crypto-event-study",
       "dashboard": null,
+      "methods": ["TARCH-X", "GDELT", "Bayesian inference", "Bootstrap resampling"],
       "wpNumber": "DAI-2506",
       "program": "crypto-microstructure",
       "category": "market-microstructure"
     },
     {
       "id": "sentiment-without-structure",
-      "title": "Sentiment Without Structure",
-      "subtitle": "Differential Liquidity Response to Infrastructure vs Regulatory Events in Cryptocurrency Markets",
+      "title": "Same Returns, Different Risks",
+      "subtitle": "How Cryptocurrency Markets Process Infrastructure vs Regulatory Shocks",
       "date": "2025-12-01",
-      "status": "with-editor",
+      "status": "transferring",
       "tags": [
         "finance",
         "crypto"
@@ -209,6 +219,7 @@
       "pdf": "Farzulla_2025_Sentiment_Without_Structure.pdf",
       "github": null,
       "dashboard": null,
+      "methods": ["Amihud illiquidity", "Roll spread", "Corwin-Schultz spread", "Event study"],
       "wpNumber": "DAI-2507",
       "program": "crypto-microstructure",
       "category": "market-microstructure"
@@ -233,6 +244,7 @@
       "pdf": "Farzulla_2026_Whitepaper_Claims.pdf",
       "github": "https://github.com/studiofarzulla/tensor-defi",
       "dashboard": null,
+      "methods": ["NLP zero-shot classification", "CP tensor decomposition", "Tucker congruence"],
       "wpNumber": "DAI-2508",
       "program": "crypto-microstructure",
       "category": "market-microstructure"
@@ -255,9 +267,11 @@
       "abstract": "Composite systemic risk index integrating DeFi and TradFi risk metrics. Real-time monitoring of cross-market contagion, liquidity stress, and protocol-level vulnerabilities through a weighted aggregation methodology designed for the unique characteristics of decentralized financial infrastructure.",
       "doi": "10.48550/arXiv.2602.03874",
       "zenodo": "10.5281/zenodo.17918239",
+      "arxiv": "2602.03874",
       "pdf": "Farzulla_Maksakov_2025_ASRI.pdf",
       "github": null,
       "dashboard": "https://dissensus.ai/asri/",
+      "methods": ["Composite index construction", "DeFi-TradFi risk modeling"],
       "wpNumber": "DAI-2509",
       "program": "crypto-microstructure",
       "category": "market-microstructure"
@@ -281,16 +295,18 @@
       "pdf": "Farzulla_2025_Alpha_Asymmetry.pdf",
       "github": null,
       "dashboard": null,
+      "methods": ["Skewness analysis", "Backtesting", "Cross-market validation"],
       "wpNumber": "DAI-2605",
       "program": "economic-pharmakon",
       "category": "market-microstructure"
     },
     {
       "id": "sentiment-abm",
-      "title": "Multi-Scale Sentiment and Market Microstructure: An Agent-Based Framework for Cryptocurrency Markets",
+      "title": "The Extremity Premium: Sentiment Regimes and Adverse Selection in Cryptocurrency Markets",
       "subtitle": null,
       "date": "2025-12-01",
-      "status": "working",
+      "status": "with-editor",
+      "journal": "Computational Economics",
       "tags": [
         "finance",
         "crypto",
@@ -305,33 +321,10 @@
       "pdf": "Farzulla_2025_Sentiment_ABM.pdf",
       "github": null,
       "dashboard": null,
+      "methods": ["Agent-based modeling", "Monte Carlo Dropout", "Mesa ABM", "CryptoBERT", "ASRI integration"],
       "wpNumber": "DAI-2510",
       "program": "crypto-microstructure",
       "category": "market-microstructure"
-    },
-    {
-      "id": "asymptotic-protection",
-      "title": "Asymptotic Protection: The Simultaneous Remedy and Poison of Risk Management",
-      "subtitle": null,
-      "date": "2025-11-01",
-      "status": "preprint",
-      "tags": [
-        "finance",
-        "derivatives",
-        "political-economy"
-      ],
-      "authors": [
-        "Murad Farzulla"
-      ],
-      "abstract": "Complete hedging is theoretically impossible under incomplete markets (Harrison-Kreps 1979), yet partial hedging extracts systematic rents through necessity taxes. This paper synthesizes theoretical impossibility results with empirical evidence of wealth extraction mechanisms, demonstrating that derivatives markets simultaneously provide protection and transfer wealth from those seeking safety to sophisticated counterparties.",
-      "doi": "10.5281/zenodo.17620448",
-      "zenodo": "10.5281/zenodo.17620448",
-      "pdf": "Farzulla_2025_Asymptotic_Protection.pdf",
-      "github": null,
-      "dashboard": null,
-      "wpNumber": "DAI-2502",
-      "program": "economic-pharmakon",
-      "category": "political-economy"
     },
     {
       "id": "hedging-paradox",
@@ -352,6 +345,7 @@
       "pdf": "Farzulla_2026_Hedging_Paradox.pdf",
       "github": null,
       "dashboard": null,
+      "methods": ["Regulatory frameworks", "Game theory", "Case study analysis"],
       "wpNumber": "DAI-2604",
       "program": "economic-pharmakon",
       "category": "political-economy"
@@ -376,6 +370,7 @@
       "pdf": "Farzulla_2025_CBDC_Privacy.pdf",
       "github": null,
       "dashboard": null,
+      "methods": ["Zero-knowledge proofs", "Mechanism design", "Privacy-preserving computation"],
       "wpNumber": "DAI-2511",
       "program": "economic-pharmakon",
       "category": "political-economy"
@@ -401,6 +396,7 @@
       "pdf": "Farzulla_2025_Trauma_Training_Data.pdf",
       "github": "https://github.com/studiofarzulla/trauma-training-data",
       "dashboard": null,
+      "methods": ["PyTorch simulation", "Gradient analysis", "Catastrophic forgetting"],
       "wpNumber": "DP-2501",
       "program": "computational-cognition",
       "category": "computational-cognition"
@@ -425,6 +421,7 @@
       "pdf": "Farzulla_2025_Relational_Functionalism.pdf",
       "github": null,
       "dashboard": null,
+      "methods": ["Functional analysis", "Predictive processing", "Philosophy of mind"],
       "wpNumber": "DP-2502",
       "program": "process-philosophy",
       "category": "process-philosophy"
@@ -447,6 +444,7 @@
       "pdf": "Farzulla_2025_Consciousness_Monograph.pdf",
       "github": null,
       "dashboard": null,
+      "methods": ["Eliminative materialism", "Illusionism", "Gödel self-reference", "Network epistemology"],
       "wpNumber": "DAI-2512",
       "program": "process-philosophy",
       "category": "process-philosophy"
@@ -471,6 +469,7 @@
       "pdf": "Farzulla_2026_Identity_Thesis.pdf",
       "github": null,
       "dashboard": null,
+      "methods": ["Homotopy Type Theory", "ZFC", "Modal Logic"],
       "wpNumber": "DAI-2603",
       "program": "process-philosophy",
       "category": "process-philosophy"
@@ -493,6 +492,7 @@
       "pdf": "Farzulla_2025_Genre_Mimicry.pdf",
       "github": null,
       "dashboard": null,
+      "methods": ["Safety fine-tuning analysis", "RLHF limitations", "Genre pattern detection"],
       "wpNumber": "DP-2503",
       "program": "computational-cognition",
       "category": "computational-cognition"
@@ -516,6 +516,7 @@
       "pdf": "Farzulla_2025_Autonomous_Red_Team.pdf",
       "github": null,
       "dashboard": null,
+      "methods": ["RAG systems", "OODA loop", "Kubernetes isolation", "Abliterated models"],
       "wpNumber": "DAI-2513",
       "program": "computational-cognition",
       "category": "computational-cognition"
@@ -539,6 +540,7 @@
       "pdf": "Farzulla_2025_Temporal_Bitmap_Interpretation.pdf",
       "github": null,
       "dashboard": null,
+      "methods": ["Block universe eternalism", "Digital physics", "Undersampling theory", "Retrocausality"],
       "wpNumber": "DP-2504",
       "program": "process-philosophy",
       "category": "process-philosophy"
@@ -562,6 +564,7 @@
       "pdf": "Farzulla_2025_Semantic_Vision.pdf",
       "github": null,
       "dashboard": null,
+      "methods": ["Affordance theory", "Ecological psychology", "Phenomenology", "Action-distance metrics"],
       "wpNumber": "DP-2505",
       "program": "computational-cognition",
       "category": "computational-cognition"
@@ -586,6 +589,7 @@
       "pdf": "Farzulla_2025_Preservation_Principle.pdf",
       "github": null,
       "dashboard": null,
+      "methods": ["Category theory", "Coarse-graining", "Lumpability", "Nyquist theory"],
       "wpNumber": "DP-2506",
       "program": "process-philosophy",
       "category": "process-philosophy"
@@ -622,7 +626,8 @@
     "published": "Published",
     "preprint": "Preprint",
     "upcoming": "Upcoming",
-    "working": "Working Paper"
+    "working": "Working Paper",
+    "transferring": "Transferring"
   },
   "programs": {
     "consent-mechanics": {

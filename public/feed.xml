@@ -8,7 +8,7 @@
     <description>Adversarial Systems &amp; Complexity Research Initiative</description>
     <language>en</language>
     <managingEditor>research@systems.ac (ASCRI)</managingEditor>
-    <lastBuildDate>Fri, 13 Feb 2026 05:30:44 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 15 Feb 2026 04:39:33 GMT</lastBuildDate>
     <atom:link href="https://systems.ac/feed.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Alpha Asymmetry in Foreign Exchange Markets: An Investigation of Exploitability</title>
@@ -115,11 +115,11 @@
       <category>Volatility Modeling</category>
     </item>
     <item>
-      <title>Sentiment Without Structure</title>
+      <title>Same Returns, Different Risks</title>
       <link>https://systems.ac/3/DAI-2507</link>
       <guid isPermaLink="true">https://systems.ac/3/DAI-2507</guid>
       <pubDate>Mon, 01 Dec 2025 12:00:00 GMT</pubDate>
-      <description>Differential Liquidity Response to Infrastructure vs Regulatory Events in Cryptocurrency Markets &mdash; By Murad Farzulla &mdash; We investigate differential liquidity responses to infrastructure versus regulatory events in cryptocurrency markets using perpetual futures funding rates and computed liquidity metrics (Amihud illiquidity, Roll spread, Corwin-Schultz spread). Analyzing five major events (2021–2024) for BTC and ETH, we find that infrastructure events (exchange failures, protocol collapses) produce significantly larger liquidity deterioration than regulatory events (enforcement actions, policy announcements). The Corwin-Schultz spread increases 65.1% following infrastructure events versus decreasing 11.4% following regulatory events (p = 0.0009).</description>
+      <description>How Cryptocurrency Markets Process Infrastructure vs Regulatory Shocks &mdash; By Murad Farzulla &mdash; We investigate differential liquidity responses to infrastructure versus regulatory events in cryptocurrency markets using perpetual futures funding rates and computed liquidity metrics (Amihud illiquidity, Roll spread, Corwin-Schultz spread). Analyzing five major events (2021–2024) for BTC and ETH, we find that infrastructure events (exchange failures, protocol collapses) produce significantly larger liquidity deterioration than regulatory events (enforcement actions, policy announcements). The Corwin-Schultz spread increases 65.1% following infrastructure events versus decreasing 11.4% following regulatory events (p = 0.0009).</description>
       <dc:identifier>doi:10.5281/zenodo.18099609</dc:identifier>
       <category>Financial Markets</category>
       <category>Cryptocurrency</category>
@@ -147,7 +147,7 @@
       <category>Risk Management</category>
     </item>
     <item>
-      <title>Multi-Scale Sentiment and Market Microstructure: An Agent-Based Framework for Cryptocurrency Markets</title>
+      <title>The Extremity Premium: Sentiment Regimes and Adverse Selection in Cryptocurrency Markets</title>
       <link>https://systems.ac/3/DAI-2510</link>
       <guid isPermaLink="true">https://systems.ac/3/DAI-2510</guid>
       <pubDate>Mon, 01 Dec 2025 12:00:00 GMT</pubDate>
@@ -232,17 +232,6 @@
       <category>Political Economy</category>
       <category>Legitimacy Theory</category>
       <category>Adversarial Systems</category>
-    </item>
-    <item>
-      <title>Asymptotic Protection: The Simultaneous Remedy and Poison of Risk Management</title>
-      <link>https://systems.ac/2/DAI-2502</link>
-      <guid isPermaLink="true">https://systems.ac/2/DAI-2502</guid>
-      <pubDate>Sat, 01 Nov 2025 12:00:00 GMT</pubDate>
-      <description>By Murad Farzulla &mdash; Complete hedging is theoretically impossible under incomplete markets (Harrison-Kreps 1979), yet partial hedging extracts systematic rents through necessity taxes. This paper synthesizes theoretical impossibility results with empirical evidence of wealth extraction mechanisms, demonstrating that derivatives markets simultaneously provide protection and transfer wealth from those seeking safety to sophisticated counterparties.</description>
-      <dc:identifier>doi:10.5281/zenodo.17620448</dc:identifier>
-      <category>Financial Markets</category>
-      <category>Derivatives Markets</category>
-      <category>Political Economy</category>
     </item>
     <item>
       <title>Training Data and the Maladaptive Mind</title>
