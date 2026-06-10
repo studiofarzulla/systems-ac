@@ -206,6 +206,7 @@
       "subtitle": "How Cryptocurrency Markets Process Infrastructure vs Regulatory Shocks",
       "date": "2025-12-01",
       "status": "transferring",
+      "journal": "Computational Economics",
       "tags": [
         "finance",
         "crypto"
@@ -229,7 +230,7 @@
       "title": "Do Whitepaper Claims Predict Market Behavior? Evidence from Cryptocurrency Factor Analysis",
       "subtitle": null,
       "date": "2025-12-01",
-      "status": "with-editor",
+      "status": "preprint",
       "tags": [
         "finance",
         "crypto",
@@ -380,8 +381,7 @@
       "title": "Training Data and the Maladaptive Mind",
       "subtitle": "A Computational Framework for Developmental Psychology",
       "date": "2025-11-01",
-      "status": "peer-review",
-      "journal": "Humanities and Social Sciences Communications",
+      "status": "preprint",
       "tags": [
         "philosophy",
         "ai-safety",
@@ -439,8 +439,8 @@
         "Murad Farzulla"
       ],
       "abstract": "This monograph presents a comprehensive case for eliminative monism regarding consciousness, arguing that phenomenal experience is best understood as a computational artifact rather than an irreducible feature of reality. Drawing on Gödelian self-reference, illusionism, and network epistemology simulations.",
-      "doi": "10.5281/zenodo.18013187",
-      "zenodo": "10.5281/zenodo.18013187",
+      "doi": "10.5281/zenodo.17917969",
+      "zenodo": "10.5281/zenodo.17917969",
       "pdf": "Farzulla_2025_Consciousness_Monograph.pdf",
       "github": null,
       "dashboard": null,
@@ -512,7 +512,7 @@
       ],
       "abstract": "This technical report describes an architecture for autonomous penetration testing using LLM-guided agents operating within Kubernetes-isolated environments. The system combines RAG knowledge bases with OODA-loop decision cycles, enabling systematic vulnerability discovery while maintaining strict NetworkPolicy isolation.",
       "doi": null,
-      "zenodo": "10.5281/zenodo.17918016",
+      "zenodo": "10.5281/zenodo.17614725",
       "pdf": "Farzulla_2025_Autonomous_Red_Team.pdf",
       "github": null,
       "dashboard": null,
@@ -561,6 +561,7 @@
       "abstract": "We propose that the standard vision pipeline inverts the actual structure of biological spatial cognition. Spatial awareness is grounded in functional semantics: geometric structure becomes accessible to reasoning only through prior contextual and affordance encoding. We formalize this as the Semantic-First Spatial (SFS) architecture and derive testable predictions distinguishing it from geometry-first alternatives.",
       "doi": null,
       "zenodo": "10.5281/zenodo.18091090",
+      "arxiv": "2603.04419",
       "pdf": "Farzulla_2025_Semantic_Vision.pdf",
       "github": null,
       "dashboard": null,
