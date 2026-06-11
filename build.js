@@ -433,8 +433,11 @@ function toggleTheme(){var h=document.documentElement,t=h.getAttribute('data-the
 function wrapPage(headHtml, navHtml, bodyContent, footerHtml) {
   return `${headHtml}
 <body class="has-nav">
+  <a href="#content" class="skip-link">Skip to content</a>
   ${navHtml}
+  <div id="content">
   ${bodyContent}
+  </div>
   ${footerHtml}
   ${getThemeScript()}
 </body>

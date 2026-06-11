@@ -10,10 +10,10 @@
   --bg-tertiary: #F0EFEC;
   --text-primary: #1A1A1A;
   --text-secondary: #4A4A4A;
-  --text-muted: #757575;
-  --accent: #9B1B30;
-  --accent-hover: #B22234;
-  --accent-light: rgba(155, 27, 48, 0.08);
+  --text-muted: #6E6E6E;
+  --accent: #800020;
+  --accent-hover: #9B1B30;
+  --accent-light: rgba(128, 0, 32, 0.07);
   --border: #E0DED9;
   --border-strong: #C5C3BD;
   --nav-bg: rgba(255, 255, 255, 0.92);
@@ -44,9 +44,9 @@
   --text-primary: #E8E6E1;
   --text-secondary: #B0ADA6;
   --text-muted: #807D76;
-  --accent: #D44A5E;
-  --accent-hover: #E8637A;
-  --accent-light: rgba(212, 74, 94, 0.12);
+  --accent: #D98A99;
+  --accent-hover: #E8A4B1;
+  --accent-light: rgba(217, 138, 153, 0.12);
   --border: #2A2926;
   --border-strong: #3A3835;
   --nav-bg: rgba(18, 18, 18, 0.92);
@@ -126,6 +126,20 @@ a {
 
 a:hover {
   color: var(--accent-hover);
+}
+
+/* Inline body-text links get an underline cue (not just colour) for accessibility */
+.container p a,
+.person-card__bio a {
+  text-decoration: underline;
+  text-decoration-color: rgba(128, 0, 32, 0.35);
+  text-underline-offset: 0.15em;
+  text-decoration-thickness: 1px;
+}
+
+.container p a:hover,
+.person-card__bio a:hover {
+  text-decoration-color: currentColor;
 }
 
 a:focus-visible {
@@ -633,7 +647,7 @@ section + section {
 }
 
 .tag--method {
-  background: var(--bg-alt);
+  background: var(--bg-tertiary);
   color: var(--text-muted);
   border: 1px solid var(--border);
 }
@@ -1104,4 +1118,40 @@ html[data-theme] .btn {
 *:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
+}
+
+/* --- Skip Link (accessibility) --- */
+.skip-link {
+  position: absolute;
+  left: 0;
+  top: -3rem;
+  z-index: 1100;
+  background: var(--accent);
+  color: #fff;
+  padding: 0.6rem 1rem;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  border-radius: 0 0 var(--radius) 0;
+  transition: top var(--transition);
+}
+
+.skip-link:focus {
+  top: 0;
+  color: #fff;
+}
+
+/* --- Reduced Motion (accessibility) --- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
