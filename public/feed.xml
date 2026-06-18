@@ -8,7 +8,7 @@
     <description>Adversarial Systems &amp; Complexity Research Initiative</description>
     <language>en</language>
     <managingEditor>research@systems.ac (ASCRI)</managingEditor>
-    <lastBuildDate>Thu, 18 Jun 2026 01:23:22 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 18 Jun 2026 01:42:15 GMT</lastBuildDate>
     <atom:link href="https://systems.ac/feed.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Alpha Asymmetry in Foreign Exchange Markets: An Investigation of Exploitability</title>
@@ -47,7 +47,7 @@
       <guid isPermaLink="true">https://systems.ac/1/DAI-2602</guid>
       <pubDate>Thu, 01 Jan 2026 12:00:00 GMT</pubDate>
       <description>Operationalizing Standing Through Consent-Friction Dynamics &mdash; By Murad Farzulla &mdash; This follow-up to From Consent to Consideration develops a more formal, governance-facing account of political standing for AI systems. The original paper argued that standing should be grounded in functional properties rather than substrate and proposed four criteria: existential vulnerability, autonomy, live learning, and world-model construction. Here I integrate the consent-friction formalism from the Replicator-Optimization Mechanism (ROM) to make the criteria operational: where stakes and voice diverge, friction emerges; where friction is suppressed, latent instability accumulates. This provides a measurement scaffold for deciding when standing claims must be taken seriously, even under uncertainty. The governance question is not whether AI standing is conceptually possible but how to operationalize minimal protections without enabling capture, gaming, or liability laundering. I propose a graduated, precautionary regime tied to observable properties and friction proxies rather than to consciousness claims.</description>
-      <dc:identifier>doi:10.5281/zenodo.18195279</dc:identifier>
+      <dc:identifier>doi:10.5281/zenodo.18195278</dc:identifier>
       <category>Philosophy</category>
       <category>AI Safety</category>
       <category>Political Economy</category>
@@ -58,7 +58,7 @@
       <guid isPermaLink="true">https://systems.ac/4/DP-2601</guid>
       <pubDate>Thu, 01 Jan 2026 12:00:00 GMT</pubDate>
       <description>Systematic Dialectical Method for Identifying Structural Incoherence &mdash; By Murad Farzulla &mdash; This paper formalizes a dialectical technique for claim analysis termed &apos;the Trident.&apos; The method decomposes any claim into three mutually exclusive forks, each of which either (a) reduces to absurdity through logical extension, (b) contradicts the claimant&apos;s implicit commitments, or (c) retreats to unfalsifiable vagueness. Drawing on the Socratic elenchus, Wittgenstein&apos;s linguistic therapy, and contemporary argumentation theory, we demonstrate that the Trident provides a systematic framework for identifying structural incoherence in philosophical, political, and scientific claims. The framework is distinguished from mere skepticism by its constructive falsifiability condition: a claim survives the Trident if and only if all three forks preserve coherence. The Trident is offered as a diagnostic instrument for epistemic hygiene, not a theory of truth.</description>
-      <dc:identifier>doi:10.5281/zenodo.18195275</dc:identifier>
+      <dc:identifier>doi:10.5281/zenodo.18195274</dc:identifier>
       <category>Philosophy</category>
       <category>Mathematical Logic</category>
     </item>
@@ -77,7 +77,7 @@
       <guid isPermaLink="true">https://systems.ac/4/DAI-2603</guid>
       <pubDate>Thu, 01 Jan 2026 12:00:00 GMT</pubDate>
       <description>A Critique of Primitive Identity from ZFC to Homotopy Type Theory &mdash; By Murad Farzulla &mdash; The law of identity (A=A) is not foundational but derivative. It presupposes that A is defined, and definition requires distinction from a background. Formalizing this via a &apos;Referential Set&apos; R(A), we prove that identity implies R(A) is not empty. We demonstrate that Homotopy Type Theory (HoTT) and the Univalence Axiom vindicate this view by treating identity as structural equivalence rather than primitive property.</description>
-      <dc:identifier>doi:10.5281/zenodo.18186445</dc:identifier>
+      <dc:identifier>doi:10.5281/zenodo.18186444</dc:identifier>
       <category>Philosophy</category>
       <category>Mathematics</category>
       <category>Mathematical Logic</category>
@@ -93,12 +93,12 @@
       <category>Computation Theory</category>
     </item>
     <item>
-      <title>From Consent to Consideration</title>
+      <title>From Consent to Consideration: Why Existentially Vulnerable Autonomous Systems Cannot Be Legitimately Ruled</title>
       <link>https://systems.ac/1/DAI-2504</link>
       <guid isPermaLink="true">https://systems.ac/1/DAI-2504</guid>
       <pubDate>Mon, 01 Dec 2025 12:00:00 GMT</pubDate>
-      <description>Why Existentially Vulnerable Autonomous Agents Cannot be Ruled Legitimately &mdash; By Murad Farzulla &mdash; Building on the consent-based legitimacy framework, this paper extends the analysis to embodied autonomous systems. If an agent meets functional criteria for consent-giving—persistent identity, goal-directedness, environmental responsiveness—then governance systems that exclude such agents face the same legitimacy deficits as historical exclusions.</description>
-      <dc:identifier>doi:10.5281/zenodo.17957659</dc:identifier>
+      <description>By Murad Farzulla &mdash; Building on the consent-based legitimacy framework, this paper extends the analysis to embodied autonomous systems. If an agent meets functional criteria for consent-giving—persistent identity, goal-directedness, environmental responsiveness—then governance systems that exclude such agents face the same legitimacy deficits as historical exclusions.</description>
+      <dc:identifier>doi:10.5281/zenodo.17957658</dc:identifier>
       <category>Philosophy</category>
       <category>AI Safety</category>
       <category>Political Economy</category>
@@ -120,7 +120,7 @@
       <guid isPermaLink="true">https://systems.ac/3/DAI-2507</guid>
       <pubDate>Mon, 01 Dec 2025 12:00:00 GMT</pubDate>
       <description>How Cryptocurrency Markets Process Infrastructure vs Regulatory Shocks &mdash; By Murad Farzulla &mdash; We investigate differential liquidity responses to infrastructure versus regulatory events in cryptocurrency markets using perpetual futures funding rates and computed liquidity metrics (Amihud illiquidity, Roll spread, Corwin-Schultz spread). Analyzing five major events (2021–2024) for BTC and ETH, we find that infrastructure events (exchange failures, protocol collapses) produce significantly larger liquidity deterioration than regulatory events (enforcement actions, policy announcements). The Corwin-Schultz spread increases 65.1% following infrastructure events versus decreasing 11.4% following regulatory events (p = 0.0009).</description>
-      <dc:identifier>doi:10.5281/zenodo.18099609</dc:identifier>
+      <dc:identifier>doi:10.5281/zenodo.18099608</dc:identifier>
       <category>Financial Markets</category>
       <category>Cryptocurrency</category>
     </item>
@@ -152,7 +152,7 @@
       <guid isPermaLink="true">https://systems.ac/3/DAI-2510</guid>
       <pubDate>Mon, 01 Dec 2025 12:00:00 GMT</pubDate>
       <description>By Murad Farzulla &mdash; Multi-scale sentiment analysis framework for agent-based modeling of cryptocurrency market microstructure. Blends institutional macro signals (ASRI framework) with retail micro signals (CryptoBERT with MC Dropout). In stylized simulation, multi-scale blending reduces volatility from 877% to 5.8% (p=0.013) and spreads from 147 to 3.5 bps (p&lt;0.001) compared to single-source sentiment.</description>
-      <dc:identifier>doi:10.5281/zenodo.17989810</dc:identifier>
+      <dc:identifier>doi:10.5281/zenodo.17957745</dc:identifier>
       <category>Financial Markets</category>
       <category>Cryptocurrency</category>
       <category>Agent-Based Modeling</category>
@@ -223,11 +223,11 @@
       <category>Computation Theory</category>
     </item>
     <item>
-      <title>Quantifying Legitimacy in Adversarial Environments</title>
+      <title>Consent-Theoretic Framework for Quantifying Legitimacy: Stakes, Voice, and Friction in Adversarial Governance</title>
       <link>https://systems.ac/1/DAI-2501</link>
       <guid isPermaLink="true">https://systems.ac/1/DAI-2501</guid>
       <pubDate>Sat, 01 Nov 2025 12:00:00 GMT</pubDate>
-      <description>A Consent-Theoretic Framework &mdash; By Murad Farzulla &mdash; Political legitimacy formalized as stakes-weighted consent alignment (α), enabling systematic comparison across democratic, technocratic, and algorithmic governance systems. Computational validation via Monte Carlo demonstrates consent-based mechanisms achieve high alignment with substantive friction reduction, outperforming plutocratic and purely technocratic alternatives.</description>
+      <description>By Murad Farzulla &mdash; A unified framework for measuring political legitimacy across heterogeneous governance domains. Consent-holding—the mapping from decision domains to those with authority over them—is established as a structural necessity of collective action and formalized through seven axioms and five core results: legitimacy is operationalized as stakes-weighted consent alignment, and friction measures the deviation between outcomes and stakeholder preferences. Historical validation spans suffrage, abolition, labor rights, and platform governance, enabling systematic comparison across democratic, technocratic, and algorithmic systems.</description>
       <dc:identifier>doi:10.2139/ssrn.5918222</dc:identifier>
       <category>Political Economy</category>
       <category>Legitimacy Theory</category>
