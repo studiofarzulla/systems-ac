@@ -16,7 +16,7 @@
       ],
       "abstract": "Multi-agent systems face a fundamental coordination problem: agents must coordinate despite heterogeneous preferences, asymmetric stakes, and imperfect information. When coordination fails, friction emerges—measurable resistance manifesting as deadlock, thrashing, communication overhead, or outright conflict. This paper derives a formal framework for analyzing coordination friction from a single axiom: actions affecting agents require authorization from those agents in proportion to stakes. From this axiom of consent, we establish the kernel triple (α, σ, ε)—alignment, stake, and entropy—characterizing any resource allocation configuration. The friction equation F = σ·(1+ε)/(1+α) predicts coordination difficulty. The Replicator-Optimization Mechanism (ROM) governs evolutionary selection over coordination strategies: configurations generating less friction persist longer, establishing consent-respecting arrangements as dynamical attractors rather than normative ideals.",
       "doi": "10.48550/arXiv.2601.06692",
-      "zenodo": null,
+      "zenodo": "10.5281/zenodo.20741718",
       "arxiv": "2601.06692",
       "pdf": "Farzulla_2026_Axiom_of_Consent.pdf",
       "github": null,
