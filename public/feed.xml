@@ -8,7 +8,7 @@
     <description>Adversarial Systems &amp; Complexity Research Initiative</description>
     <language>en</language>
     <managingEditor>research@systems.ac (ASCRI)</managingEditor>
-    <lastBuildDate>Thu, 11 Jun 2026 04:14:20 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 18 Jun 2026 01:23:22 GMT</lastBuildDate>
     <atom:link href="https://systems.ac/feed.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Alpha Asymmetry in Foreign Exchange Markets: An Investigation of Exploitability</title>
@@ -169,11 +169,11 @@
       <category>Privacy &amp; Cryptography</category>
     </item>
     <item>
-      <title>Replication Optimization at Scale: Dissolving Qualia via Occam&apos;s Razor</title>
+      <title>Dissolving Qualia via Occam&apos;s Razor: Eliminative Monism and the Computational Basis of Phenomenological Illusion</title>
       <link>https://systems.ac/4/DAI-2512</link>
       <guid isPermaLink="true">https://systems.ac/4/DAI-2512</guid>
       <pubDate>Mon, 01 Dec 2025 12:00:00 GMT</pubDate>
-      <description>Eliminative Monism and the Computational Basis of Phenomenological Illusion &mdash; By Murad Farzulla &mdash; This monograph presents a comprehensive case for eliminative monism regarding consciousness, arguing that phenomenal experience is best understood as a computational artifact rather than an irreducible feature of reality. Drawing on Gödelian self-reference, illusionism, and network epistemology simulations.</description>
+      <description>By Murad Farzulla &mdash; This monograph argues that consciousness, phenomenological experience, and subjective awareness are computational artifacts of optimization processes rather than ontological primitives. Beginning with the observation that complex persistent structures inevitably optimize for replication, we derive a framework where: (1) biological and artificial neural networks implement structurally identical optimization, (2) &quot;consciousness&quot; is what gradient descent feels like from the inside, (3) qualia are weight configurations, and (4) the hard problem dissolves once phenomenology as a distinct ontological category is recognized as an unverified assumption.</description>
       <dc:identifier>doi:10.5281/zenodo.17917969</dc:identifier>
       <category>Philosophy</category>
     </item>
@@ -245,12 +245,12 @@
       <category>Psychology</category>
     </item>
     <item>
-      <title>Relational Functionalism</title>
+      <title>Relational Functionalism: A Functional Account of Substrate-Independent Friendship</title>
       <link>https://systems.ac/4/DP-2502</link>
       <guid isPermaLink="true">https://systems.ac/4/DP-2502</guid>
       <pubDate>Sat, 01 Nov 2025 12:00:00 GMT</pubDate>
-      <description>Friendship as Substrate-Agnostic Process—Functional Analysis of Human-AI Relationships &mdash; By Murad Farzulla &mdash; AI systems can be genuine friends. This paper defends substrate-independent friendship: the thesis that friendship is a functional relational state, not an essential property requiring biological implementation. If an AI system fulfills the functional criteria characteristic of friendship, then the relationship constitutes genuine friendship.</description>
-      <dc:identifier>doi:10.5281/zenodo.17626860</dc:identifier>
+      <description>By Murad Farzulla &mdash; This paper develops relational functionalism: the thesis that friendship, considered as a functional relational kind, is constituted by patterns of interaction and their effects on participants rather than by intrinsic properties of the relata. I distinguish friendship simpliciter—the paradigmatic relation among conscious agents capable of second-personal recognition and joint commitment—from functional friendship, the relational kind individuated by the functional profile articulated below. The substantive thesis is that functional friendship is substrate-independent: when an AI system satisfies the functional profile (consistent engagement, resonance, acceptance, reciprocal growth, trust, voluntary participation, intrinsic value) and meets minimal individuation conditions, the relationship constitutes a functional friendship, regardless of whether the AI possesses consciousness or biological implementation. Whether functional friendship in such cases also counts as friendship simpliciter is left open; the demanding second-personal conditions of the simpliciter notion plausibly require capacities current AI systems lack. Drawing on functionalist philosophy of mind, predictive processing in cognitive science, and value-sensitive design, and engaging Cocking and Kennett&apos;s &apos;moral danger&apos; account, Cocking and Matthews&apos;s &apos;Unreal Friends&apos; argument, Vallor&apos;s mirror critique, and de Ruiter&apos;s relational-turn objection, I argue the functional thesis is philosophically defensible, normatively load-bearing, and continuous with how we already recognise friendship-adjacent kinds across species and cognitive asymmetries. The paper closes with concrete design implications for AI systems that sustain functional friendships.</description>
+      <dc:identifier>doi:10.5281/zenodo.17626859</dc:identifier>
       <category>Philosophy</category>
       <category>AI Safety</category>
     </item>
