@@ -4,3 +4,7 @@ node_modules/
 *.swo
 *~
 .env
+
+# claude-mem activity logs must never deploy
+public/CLAUDE.md
+public/**/CLAUDE.md

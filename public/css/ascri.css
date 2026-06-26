@@ -567,6 +567,38 @@ section + section {
   overflow: hidden;
 }
 
+/* --- Outbound paper cards (link to the canonical host) --- */
+.paper-card__ids {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.625rem;
+}
+
+.paper-card__id {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  color: var(--text-muted);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  padding: 0.15rem 0.45rem;
+  border-radius: var(--radius);
+}
+
+.paper-card__readout {
+  display: inline-block;
+  margin-top: 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--accent);
+  transition: transform var(--transition);
+}
+
+.paper-card--outbound:hover .paper-card__readout {
+  transform: translateX(3px);
+}
+
 /* --- Status Badges --- */
 .status {
   font-family: var(--font-mono);
@@ -579,7 +611,8 @@ section + section {
   display: inline-block;
 }
 
-.status--peer-review {
+.status--peer-review,
+.status--under-review {
   background: var(--status-peer-bg);
   color: var(--status-peer-fg);
 }
