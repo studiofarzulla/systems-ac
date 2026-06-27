@@ -7,7 +7,7 @@
     <link>https://systems.ac</link>
     <description>Adversarial Systems &amp; Complexity Research Initiative — papers published on dissensus.ai.</description>
     <language>en</language>
-    <lastBuildDate>Sat, 27 Jun 2026 02:48:15 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 27 Jun 2026 02:50:03 GMT</lastBuildDate>
     <atom:link href="https://systems.ac/feed.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Alpha Asymmetry in Foreign Exchange Markets: An Investigation of Exploitability</title>
@@ -152,11 +152,11 @@
       <category>Security Research</category>
     </item>
     <item>
-      <title>Quantum Statistics from Oscillatory Sampling: A Detection-Theoretic Derivation of the Born Rule</title>
+      <title>Quantum Statistics from Oscillatory Sampling</title>
       <link>https://dissensus.ai/papers/temporal-bitmap-interpretation</link>
       <guid isPermaLink="true">https://dissensus.ai/papers/temporal-bitmap-interpretation</guid>
       <pubDate>Mon, 01 Dec 2025 12:00:00 GMT</pubDate>
-      <description>A Parsimonious Reframing of Wave Function Dynamics as Static Structure Traversal &mdash; By Murad Farzulla &mdash; This paper proposes the Temporal Bitmap Interpretation (TBI) of quantum mechanics, which reframes apparent wave function dynamics as static structure traversal through a four-dimensional block universe. On this view, what we perceive as quantum indeterminacy, wave function collapse, and entanglement correlations are artifacts of our epistemic position as observers traversing a determinate 4D structure.</description>
+      <description>A Detection-Theoretic Derivation of the Born Rule &mdash; By Murad Farzulla &mdash; This paper proposes the Temporal Bitmap Interpretation (TBI) of quantum mechanics, which reframes apparent wave function dynamics as static structure traversal through a four-dimensional block universe. On this view, what we perceive as quantum indeterminacy, wave function collapse, and entanglement correlations are artifacts of our epistemic position as observers traversing a determinate 4D structure.</description>
       <category>Philosophy</category>
       <category>Quantum Mechanics</category>
     </item>
