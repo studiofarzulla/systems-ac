@@ -233,11 +233,19 @@ function getHeadHtml(meta) {
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
-  <!-- CSS -->
+  <!-- Favicon -->
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+
+  <!-- CSS: shared design system + ASCRI supplement -->
+  <link rel="stylesheet" href="/css/system.css">
   <link rel="stylesheet" href="/css/ascri.css?v=${CSS_HASH}">
-  <script>(function(){var t=localStorage.getItem('ascri-theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)})()</script>
+
+  <!-- Theme: dark default, light via [data-theme="light"], persisted (fz-theme) -->
+  <script>
+  (function(){var t=localStorage.getItem('fz-theme')||'dark';if(t==='light')document.documentElement.setAttribute('data-theme','light');})();
+  </script>
 
   <!-- Canonical -->
   <link rel="canonical" href="${escapeHtml(canonicalUrl)}">
@@ -265,64 +273,49 @@ function getNavHtml(activePage) {
   const links = [
     { href: '/framework', label: 'Framework', key: 'framework' },
     { href: '/programmes/', label: 'Programmes', key: 'programmes' },
-    { href: CANON_RESEARCH, label: 'Publications &rarr;', key: 'publications', external: true },
-    { href: '/people', label: 'People', key: 'people' },
+    { href: CANON_RESEARCH, label: 'Publications &rarr;', key: 'publications', external: true, hideSm: true },
+    { href: '/people', label: 'People', key: 'people', hideSm: true },
     { href: '/about', label: 'About', key: 'about' },
   ];
 
   const linksHtml = links
     .map(l => {
-      const activeClass = l.key === activePage ? ' site-nav__link--active' : '';
+      const cls = l.hideSm ? ' class="hide-sm"' : '';
+      const active = l.key === activePage ? ' aria-current="page"' : '';
       const ext = l.external ? ' target="_blank" rel="noopener"' : '';
-      return `<a href="${l.href}" class="site-nav__link${activeClass}"${ext}>${l.label}</a>`;
+      return `<a href="${l.href}"${cls}${active}${ext}>${l.label}</a>`;
     })
-    .join('\n        ');
+    .join('\n      ');
 
-  return `<nav class="site-nav" role="navigation" aria-label="Main navigation">
-    <div class="site-nav__inner">
-      <a href="/" class="site-nav__brand">${SITE_TITLE}</a>
-      <div style="display:flex;align-items:center;">
-        <div class="site-nav__links">
-          ${linksHtml}
-        </div>
-        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
-          <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-          <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-        </button>
-        <button class="site-nav__toggle" aria-label="Toggle menu" onclick="document.querySelector('.site-nav__links').classList.toggle('is-open')">
-          <span></span><span></span><span></span>
-        </button>
-      </div>
+  return `<nav class="nav" role="navigation" aria-label="Main navigation">
+    <a href="/" class="nav__brand">${SITE_TITLE}</a>
+    <div class="nav__links">
+      ${linksHtml}
+      <button class="toggle" onclick="toggleTheme()" aria-label="Toggle theme">&#9680; theme</button>
     </div>
   </nav>`;
 }
 
 function getFooterHtml() {
-  return `<footer class="site-footer">
-    <div class="container container--wide">
-      <div class="site-footer__inner">
-        <div>
-          <div class="site-footer__brand">${SITE_TITLE}</div>
-          <div class="site-footer__copy">&copy; 2026 ${SITE_TITLE} &middot; Operated by <a href="${CANON_HOST}">${OPERATOR}</a></div>
-        </div>
-        <div class="site-footer__links">
-          <a href="/framework">Framework</a>
-          <a href="/programmes/">Programmes</a>
-          <a href="${CANON_RESEARCH}" target="_blank" rel="noopener">Publications &rarr;</a>
-          <a href="/people">People</a>
-          <a href="/about">About</a>
-          <a href="/contact">Contact</a>
-          <a href="/feed.xml">RSS</a>
-        </div>
-      </div>
+  return `<footer class="footer">
+    <div class="container" style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:1rem;">
+      <span>&copy; 2026 ${SITE_TITLE} &middot; Operated by <a href="${CANON_HOST}">${OPERATOR}</a></span>
+      <span>
+        <a href="/framework">Framework</a> &middot;
+        <a href="/programmes/">Programmes</a> &middot;
+        <a href="${CANON_RESEARCH}" target="_blank" rel="noopener">Publications &rarr;</a> &middot;
+        <a href="/people">People</a> &middot;
+        <a href="/about">About</a> &middot;
+        <a href="/contact">Contact</a> &middot;
+        <a href="/feed.xml">RSS</a>
+      </span>
     </div>
   </footer>`;
 }
 
 function getThemeScript() {
   return `<script>
-(function(){var t=localStorage.getItem('ascri-theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)})();
-function toggleTheme(){var h=document.documentElement,t=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',t);localStorage.setItem('ascri-theme',t)}
+function toggleTheme(){var h=document.documentElement;if(h.getAttribute('data-theme')==='light'){h.removeAttribute('data-theme');localStorage.setItem('fz-theme','dark');}else{h.setAttribute('data-theme','light');localStorage.setItem('fz-theme','light');}}
 </script>`;
 }
 
@@ -344,27 +337,31 @@ function wrapPage(headHtml, navHtml, bodyContent, footerHtml) {
 // Outbound paper card
 // ---------------------------------------------------------------------------
 
+function pillClass(status) {
+  return status === 'under-review' ? 'pill pill--review' : 'pill pill--preprint';
+}
+
 function renderOutboundCard(paper) {
   const ids = identifierLabels(paper);
   const idHtml = ids.length
-    ? `\n          <div class="paper-card__ids">${ids.map(i => `<span class="paper-card__id">${escapeHtml(i)}</span>`).join('')}</div>`
+    ? `\n          <div class="card__ids">${ids.map(i => `<span class="card__id">${escapeHtml(i)}</span>`).join('')}</div>`
     : '';
   const venueHtml = (paper.status === 'under-review' && paper.journal)
     ? `\n            <span class="tag">${escapeHtml(paper.journal)}</span>`
     : '';
   const subtitleHtml = paper.subtitle
-    ? `\n          <p class="paper-card__subtitle">${escapeHtml(paper.subtitle)}</p>`
+    ? `\n          <p class="card__authors">${escapeHtml(paper.subtitle)}</p>`
     : '';
 
   return `
-        <a href="${canonicalPaperUrl(paper)}" class="paper-card paper-card--outbound" target="_blank" rel="noopener">
-          <div class="paper-card__meta">
-            <span class="status ${statusClass(paper.status)}">${escapeHtml(statusLabel(paper.status))}</span>${venueHtml}
-            <span class="paper-card__date">${year(paper.date)}</span>
+        <a href="${canonicalPaperUrl(paper)}" class="card card--paper" target="_blank" rel="noopener">
+          <div class="card__meta">
+            <span class="${pillClass(paper.status)}">${escapeHtml(statusLabel(paper.status))}</span>${venueHtml}
+            <span>${year(paper.date)}</span>
           </div>
-          <h3 class="paper-card__title">${escapeHtml(paper.title)}</h3>${subtitleHtml}
-          <p class="paper-card__authors">${escapeHtml(paper.authors.join(', '))}</p>${idHtml}
-          <span class="paper-card__readout">Read on dissensus.ai &rarr;</span>
+          <h3>${escapeHtml(paper.title)}</h3>${subtitleHtml}
+          <p class="card__authors">${escapeHtml(paper.authors.join(', '))}</p>${idHtml}
+          <span class="card__readout">Read on dissensus.ai &rarr;</span>
         </a>`;
 }
 
@@ -391,22 +388,15 @@ function buildProgrammePage(programKey) {
   const cardsHtml = programPapers.map(renderOutboundCard).join('');
 
   const bodyContent = `
-  <main class="programme-detail">
-    <div class="container">
-      <a href="/programmes/" class="paper-detail__back">&larr; All Programmes</a>
-
-      <div class="programme-detail__header">
-        <span class="programme-detail__index">Programme ${escapeHtml(prog.index)}</span>
-        <h1 class="programme-detail__title">${escapeHtml(prog.title)}</h1>
-        <p class="programme-detail__desc">${escapeHtml(prog.description)}</p>
-      </div>
-
-      <section>
-        <span class="section-label">${programPapers.length} paper${programPapers.length !== 1 ? 's' : ''} &middot; hosted on dissensus.ai</span>
-        <div class="featured-papers">
+  <main class="container" style="padding-block: var(--sp-16) var(--sp-24);">
+    <a href="/programmes/" class="back-link">&larr; All programmes</a>
+    <span class="kicker">Programme ${escapeHtml(prog.index)}</span>
+    <h1>${escapeHtml(prog.title)}</h1>
+    <hr class="rule">
+    <p style="margin-bottom: var(--sp-8);">${escapeHtml(prog.description)}</p>
+    <span class="index">${programPapers.length} paper${programPapers.length !== 1 ? 's' : ''} &middot; hosted on dissensus.ai</span>
+    <div class="grid" style="margin-top: var(--sp-6);">
 ${cardsHtml}
-        </div>
-      </section>
     </div>
   </main>`;
 
@@ -428,27 +418,27 @@ function buildProgrammesIndexPage() {
   for (const [key, prog] of Object.entries(programs)) {
     const count = counts[key] || 0;
     cardsHtml += `
-        <a href="${programmeUrl(key)}" class="programme-card">
-          <span class="programme-card__index">Programme ${escapeHtml(prog.index)}</span>
-          <h3 class="programme-card__title">${escapeHtml(prog.title)}</h3>
-          <p class="programme-card__desc">${escapeHtml(prog.description)}</p>
-          <span class="programme-card__count">${count} paper${count !== 1 ? 's' : ''}</span>
+        <a href="${programmeUrl(key)}" class="card">
+          <span class="card__index">Programme ${escapeHtml(prog.index)}</span>
+          <h3>${escapeHtml(prog.title)}</h3>
+          <p>${escapeHtml(prog.description)}</p>
+          <span class="card__count">${count} paper${count !== 1 ? 's' : ''}</span>
         </a>`;
   }
 
   const bodyContent = `
   <main>
-    <div class="container container--wide">
-      <section class="hero" style="border-bottom: none; padding-bottom: 2rem;">
-        <span class="hero__label">Research Structure</span>
-        <h1 class="hero__title">Programmes</h1>
-        <p class="hero__subtitle">Five interlocking programmes apply the consent-friction framework to a different substrate, testing whether the formal machinery generalizes. Full papers are published on <a href="${CANON_RESEARCH}" target="_blank" rel="noopener">dissensus.ai</a>.</p>
-      </section>
-
-      <div class="programme-grid">
+    <header class="container hero">
+      <span class="kicker">Research structure</span>
+      <h1>Programmes</h1>
+      <p>Five interlocking programmes, each applying the consent-friction framework to a different substrate, testing whether the formal machinery generalises. Full papers are published on <a href="${CANON_RESEARCH}" target="_blank" rel="noopener">dissensus.ai</a>.</p>
+      <hr class="rule">
+    </header>
+    <section class="section container">
+      <div class="grid">
 ${cardsHtml}
       </div>
-    </div>
+    </section>
   </main>`;
 
   return wrapPage(headHtml, navHtml, bodyContent, getFooterHtml());

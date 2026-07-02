@@ -5,143 +5,128 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact — ASCRI</title>
   <meta name="description" content="Collaboration enquiries and contact information for ASCRI.">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/ascri.css?v=f1970f80">
-  <script>(function(){var t=localStorage.getItem("ascri-theme")||(matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light");document.documentElement.setAttribute("data-theme",t)})()</script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/system.css">
+  <link rel="stylesheet" href="/css/ascri.css?v=4bad2b46">
+  <link rel="alternate" type="application/rss+xml" title="ASCRI Research Updates" href="https://systems.ac/feed.xml">
+  <script>
+  (function () {
+    var KEY = "fz-theme";
+    function apply(t) {
+      if (t === "light") document.documentElement.setAttribute("data-theme", "light");
+      else document.documentElement.removeAttribute("data-theme");
+    }
+    apply(localStorage.getItem(KEY) || "dark");
+    window.toggleTheme = function () {
+      var next = document.documentElement.getAttribute("data-theme") === "light" ? "dark" : "light";
+      apply(next);
+      localStorage.setItem(KEY, next);
+    };
+  })();
+  </script>
 </head>
-<body class="has-nav">
-
+<body>
   <a href="#content" class="skip-link">Skip to content</a>
-  <nav class="site-nav">
-    <div class="site-nav__inner">
-      <a href="/" class="site-nav__brand">ASCRI</a>
-      <div style="display:flex;align-items:center;">
-        <div class="site-nav__links">
-        <a href="/framework" class="site-nav__link">Framework</a>
-        <a href="/programmes/" class="site-nav__link">Programmes</a>
-        <a href="https://dissensus.ai/research" class="site-nav__link" target="_blank" rel="noopener">Publications &rarr;</a>
-        <a href="/people" class="site-nav__link">People</a>
-        <a href="/about" class="site-nav__link">About</a>
-      </div>
-        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
-          <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-          <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-        </button>
-        <button class="site-nav__toggle" onclick="document.querySelector('.site-nav__links').classList.toggle('is-open')" aria-label="Toggle menu">
-        <span></span><span></span><span></span>
-      </button>
-      </div>
+
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <a href="/" class="nav__brand">ASCRI</a>
+    <div class="nav__links">
+      <a href="/framework">Framework</a>
+      <a href="/programmes/">Programmes</a>
+      <a href="https://dissensus.ai/research" class="hide-sm" target="_blank" rel="noopener">Publications &rarr;</a>
+      <a href="/people" class="hide-sm">People</a>
+      <a href="/about">About</a>
+      <button class="toggle" onclick="toggleTheme()" aria-label="Toggle theme">&#9680; theme</button>
     </div>
   </nav>
 
   <!-- Header -->
-  <section id="content" tabindex="-1" class="hero">
-    <div class="container">
-      <span class="hero__label">Contact</span>
-      <h1 class="hero__title">Collaboration &amp; Enquiries</h1>
-      <p class="hero__subtitle">We are actively seeking collaborators who want to stress-test, extend, or dismantle the framework.</p>
-    </div>
-  </section>
+  <header id="content" tabindex="-1" class="container hero">
+    <span class="kicker">Contact</span>
+    <h1>Collaboration &amp; enquiries</h1>
+    <p>We are actively seeking collaborators who want to stress-test, extend, or dismantle the framework.</p>
+    <hr class="rule">
+  </header>
 
   <!-- Email -->
-  <section>
+  <section class="section">
     <div class="container">
-      <span class="section-label">Email</span>
-      <h2 class="section-title">Get in Touch</h2>
-
-      <div class="equation" style="font-size: 1.125rem; text-align: center; border-left-width: 3px;">
-        <a href="mailto:research@dissensus.ai" style="text-decoration: none; color: var(--accent); font-weight: 500;">research@dissensus.ai</a>
+      <span class="index">01 · Email</span>
+      <h2 style="margin:1rem 0 1.5rem;">Get in touch</h2>
+      <div class="equation">
+        <span class="equation__label">Correspondence</span>
+        <a href="mailto:research@dissensus.ai">research@dissensus.ai</a>
       </div>
     </div>
   </section>
 
-  <!-- Collaboration Types -->
-  <section class="section--alt">
+  <!-- Collaborations sought -->
+  <section class="section section--alt">
     <div class="container">
-      <span class="section-label">Open Problems</span>
-      <h2 class="section-title">Collaborations Sought</h2>
-      <p class="section-desc">We are looking for researchers who can attack specific open problems in the framework.</p>
+      <span class="index">02 · Open problems</span>
+      <h2 style="margin:1rem 0 0.75rem;">Collaborations sought</h2>
+      <p style="margin-bottom:1.5rem;">We are looking for researchers who can attack specific open problems in the framework.</p>
 
-      <div style="display: flex; flex-direction: column; gap: 2rem; margin-top: 1rem;">
+      <div class="collab">
+        <span class="tag">Category Theory</span>
+        <h3>Formalizing the Replicator-Optimization Homomorphism</h3>
+        <p>The mapping between replicator dynamics and optimization processes has been described informally. We need category theorists to formalise the structure-preserving maps between these domains and determine whether ROM constitutes a genuine functor or something weaker.</p>
+      </div>
 
-        <div style="padding: 1.5rem 0; border-bottom: 1px solid var(--border);">
-          <div style="display: flex; align-items: baseline; gap: 0.75rem; margin-bottom: 0.5rem;">
-            <span class="tag">Category Theory</span>
-          </div>
-          <h3 style="margin-bottom: 0.5rem;">Formalizing the Replicator-Optimization Homomorphism</h3>
-          <p style="font-size: 0.9375rem;">The mapping between replicator dynamics and optimization processes has been described informally. We need category theorists to formalize the structure-preserving maps between these domains and determine whether ROM constitutes a genuine functor or something weaker.</p>
-        </div>
+      <div class="collab">
+        <span class="tag">Political Science</span>
+        <h3>Stress-Testing Consent-Legitimacy Mappings</h3>
+        <p>The framework derives governance legitimacy as a function of consent alignment. This needs adversarial testing against real-world political systems, particularly edge cases where high-alignment regimes are illegitimate or low-alignment systems persist stably.</p>
+      </div>
 
-        <div style="padding: 1.5rem 0; border-bottom: 1px solid var(--border);">
-          <div style="display: flex; align-items: baseline; gap: 0.75rem; margin-bottom: 0.5rem;">
-            <span class="tag">Political Science</span>
-          </div>
-          <h3 style="margin-bottom: 0.5rem;">Stress-Testing Consent-Legitimacy Mappings</h3>
-          <p style="font-size: 0.9375rem;">The framework derives governance legitimacy as a function of consent alignment. This needs adversarial testing against real-world political systems&mdash;particularly edge cases where high-alignment regimes are illegitimate or low-alignment systems persist stably.</p>
-        </div>
+      <div class="collab">
+        <span class="tag">AI Safety</span>
+        <h3>Attacking the Substrate-Independence Thesis</h3>
+        <p>The framework claims friction dynamics are substrate-independent, that the same formal machinery applies to biological, institutional, and computational systems. AI safety researchers are uniquely positioned to identify where this claim breaks down in artificial agent architectures.</p>
+      </div>
 
-        <div style="padding: 1.5rem 0; border-bottom: 1px solid var(--border);">
-          <div style="display: flex; align-items: baseline; gap: 0.75rem; margin-bottom: 0.5rem;">
-            <span class="tag">AI Safety</span>
-          </div>
-          <h3 style="margin-bottom: 0.5rem;">Attacking the Substrate-Independence Thesis</h3>
-          <p style="font-size: 0.9375rem;">The framework claims friction dynamics are substrate-independent&mdash;that the same formal machinery applies to biological, institutional, and computational systems. AI safety researchers are uniquely positioned to identify where this claim breaks down in artificial agent architectures.</p>
-        </div>
+      <div class="collab">
+        <span class="tag">Economics</span>
+        <h3>Finding Where the Hedging Paradox Breaks Down</h3>
+        <p>The hedging paradox predicts that risk-mitigation instruments eventually generate the systemic risk they were designed to prevent. We need economists to identify market structures where this prediction fails, where hedging genuinely reduces systemic risk without recursive amplification.</p>
+      </div>
 
-        <div style="padding: 1.5rem 0; border-bottom: 1px solid var(--border);">
-          <div style="display: flex; align-items: baseline; gap: 0.75rem; margin-bottom: 0.5rem;">
-            <span class="tag">Economics</span>
-          </div>
-          <h3 style="margin-bottom: 0.5rem;">Finding Where the Hedging Paradox Breaks Down</h3>
-          <p style="font-size: 0.9375rem;">The hedging paradox predicts that risk-mitigation instruments eventually generate the systemic risk they were designed to prevent. We need economists to identify market structures where this prediction fails&mdash;where hedging genuinely reduces systemic risk without recursive amplification.</p>
-        </div>
-
-        <div style="padding: 1.5rem 0; border-bottom: 1px solid var(--border);">
-          <div style="display: flex; align-items: baseline; gap: 0.75rem; margin-bottom: 0.5rem;">
-            <span class="tag">Philosophy</span>
-          </div>
-          <h3 style="margin-bottom: 0.5rem;">Dismantling the Eliminative Argument on Consciousness</h3>
-          <p style="font-size: 0.9375rem;">The consciousness monograph argues for eliminative monism&mdash;that phenomenal consciousness is an artefact of optimization rather than a fundamental feature of reality. Philosophers of mind who can identify fatal objections to this position are particularly welcome.</p>
-        </div>
-
+      <div class="collab">
+        <span class="tag">Philosophy</span>
+        <h3>Dismantling the Eliminative Argument on Consciousness</h3>
+        <p>The consciousness monograph argues for eliminative monism, that phenomenal consciousness is an artefact of optimisation rather than a fundamental feature of reality. Philosophers of mind who can identify fatal objections to this position are particularly welcome.</p>
       </div>
     </div>
   </section>
 
-  <!-- Institutional Note -->
-  <section>
+  <!-- Institutional note -->
+  <section class="section">
     <div class="container">
-      <span class="section-label">Organisation</span>
-      <h2 class="section-title">Institutional Note</h2>
-
-      <p style="margin-bottom: 1rem;">ASCRI operates under <a href="https://dissensus.ai">Dissensus</a>. For services, consulting, and organizational enquiries, visit <a href="https://dissensus.ai">dissensus.ai</a>.</p>
-
-      <p style="font-size: 0.9375rem; color: var(--text-muted);">For academic correspondence, paper-specific questions, or data requests, use the email above. For press, partnerships, or institutional enquiries, contact Dissensus directly.</p>
+      <span class="index">03 · Organisation</span>
+      <h2 style="margin:1rem 0 1.5rem;">Institutional note</h2>
+      <div class="prose">
+        <p>ASCRI operates under <a href="https://dissensus.ai">Dissensus</a>. For services, consulting, and organisational enquiries, visit <a href="https://dissensus.ai">dissensus.ai</a>.</p>
+        <p>For academic correspondence, paper-specific questions, or data requests, use the email above. For press, partnerships, or institutional enquiries, contact Dissensus directly.</p>
+      </div>
     </div>
   </section>
 
-  <footer class="site-footer">
-    <div class="container container--wide site-footer__inner">
-      <div>
-        <div class="site-footer__brand">ASCRI</div>
-        <div class="site-footer__copy">&copy; 2026 ASCRI &middot; Operated by <a href="https://dissensus.ai">Dissensus</a></div>
-      </div>
-      <div class="site-footer__links">
-        <a href="/framework">Framework</a>
-        <a href="/programmes/">Programmes</a>
-        <a href="https://dissensus.ai/research" target="_blank" rel="noopener">Publications &rarr;</a>
-        <a href="/people">People</a>
-        <a href="/about">About</a>
-        <a href="/contact">Contact</a>
+  <footer class="footer">
+    <div class="container" style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:1rem;">
+      <span>&copy; 2026 ASCRI &middot; Operated by <a href="https://dissensus.ai">Dissensus</a></span>
+      <span>
+        <a href="/framework">Framework</a> &middot;
+        <a href="/programmes/">Programmes</a> &middot;
+        <a href="https://dissensus.ai/research" target="_blank" rel="noopener">Publications &rarr;</a> &middot;
+        <a href="/people">People</a> &middot;
+        <a href="/about">About</a> &middot;
+        <a href="/contact">Contact</a> &middot;
         <a href="/feed.xml">RSS</a>
-      </div>
+      </span>
     </div>
   </footer>
-
-<script>
-function toggleTheme(){var h=document.documentElement,t=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',t);localStorage.setItem('ascri-theme',t)}
-</script>
 </body>
 </html>

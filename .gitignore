@@ -8,3 +8,5 @@ node_modules/
 # claude-mem activity logs must never deploy
 public/CLAUDE.md
 public/**/CLAUDE.md
+
+_preview*.png

@@ -5,69 +5,68 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Page Not Found | ASCRI</title>
   <meta name="description" content="The page you were looking for could not be found.">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/ascri.css?v=f1970f80">
-  <script>(function(){var t=localStorage.getItem("ascri-theme")||(matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light");document.documentElement.setAttribute("data-theme",t)})()</script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/system.css">
+  <link rel="stylesheet" href="/css/ascri.css?v=4bad2b46">
+  <script>
+  (function () {
+    var KEY = "fz-theme";
+    function apply(t) {
+      if (t === "light") document.documentElement.setAttribute("data-theme", "light");
+      else document.documentElement.removeAttribute("data-theme");
+    }
+    apply(localStorage.getItem(KEY) || "dark");
+    window.toggleTheme = function () {
+      var next = document.documentElement.getAttribute("data-theme") === "light" ? "dark" : "light";
+      apply(next);
+      localStorage.setItem(KEY, next);
+    };
+  })();
+  </script>
 </head>
-<body class="has-nav">
+<body>
   <a href="#content" class="skip-link">Skip to content</a>
-  <nav class="site-nav">
-    <div class="site-nav__inner">
-      <a href="/" class="site-nav__brand">ASCRI</a>
-      <div style="display:flex;align-items:center;">
-        <div class="site-nav__links">
-        <a href="/framework" class="site-nav__link">Framework</a>
-        <a href="/programmes/" class="site-nav__link">Programmes</a>
-        <a href="https://dissensus.ai/research" class="site-nav__link" target="_blank" rel="noopener">Publications &rarr;</a>
-        <a href="/people" class="site-nav__link">People</a>
-        <a href="/about" class="site-nav__link">About</a>
-      </div>
-        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
-          <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-          <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-        </button>
-        <button class="site-nav__toggle" onclick="document.querySelector('.site-nav__links').classList.toggle('is-open')" aria-label="Toggle menu">
-        <span></span><span></span><span></span>
-      </button>
-      </div>
+
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <a href="/" class="nav__brand">ASCRI</a>
+    <div class="nav__links">
+      <a href="/framework">Framework</a>
+      <a href="/programmes/">Programmes</a>
+      <a href="https://dissensus.ai/research" class="hide-sm" target="_blank" rel="noopener">Publications &rarr;</a>
+      <a href="/people" class="hide-sm">People</a>
+      <a href="/about">About</a>
+      <button class="toggle" onclick="toggleTheme()" aria-label="Toggle theme">&#9680; theme</button>
     </div>
   </nav>
 
-  <section id="content" tabindex="-1" class="hero">
-    <div class="container">
-      <span class="hero__label">404</span>
-      <h1 class="hero__title">Page not found</h1>
-      <p class="hero__subtitle">This page has moved or never existed. Papers are now published on the canonical host, <a href="https://dissensus.ai/research">dissensus.ai</a>.</p>
-      <div style="margin-top: 2rem; display: flex; flex-wrap: wrap; gap: 1rem;">
-        <a href="/" class="btn btn--primary">Home</a>
-        <a href="/programmes/" class="btn">Programmes</a>
-        <a href="https://dissensus.ai/research" class="btn" target="_blank" rel="noopener">Publications &rarr;</a>
-      </div>
+  <header id="content" tabindex="-1" class="container hero">
+    <span class="kicker">404</span>
+    <h1>Page not found</h1>
+    <p>This page has moved or never existed. Papers are now published on the canonical host, <a href="https://dissensus.ai/research">dissensus.ai</a>.</p>
+    <hr class="rule">
+    <div style="display:flex; flex-wrap:wrap; gap:1rem; margin-top:1.5rem;">
+      <a href="/" class="btn">Home</a>
+      <a href="/programmes/" class="btn btn--ghost">Programmes</a>
+      <a href="https://dissensus.ai/research" class="btn btn--ghost" target="_blank" rel="noopener">Publications &rarr;</a>
     </div>
-  </section>
+  </header>
 
-  <footer class="site-footer">
-    <div class="container container--wide site-footer__inner">
-      <div>
-        <div class="site-footer__brand">ASCRI</div>
-        <div class="site-footer__copy">&copy; 2026 ASCRI &middot; Operated by <a href="https://dissensus.ai">Dissensus</a></div>
-      </div>
-      <div class="site-footer__links">
-        <a href="/framework">Framework</a>
-        <a href="/programmes/">Programmes</a>
-        <a href="https://dissensus.ai/research" target="_blank" rel="noopener">Publications &rarr;</a>
-        <a href="/people">People</a>
-        <a href="/about">About</a>
-        <a href="/contact">Contact</a>
+  <footer class="footer">
+    <div class="container" style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:1rem;">
+      <span>&copy; 2026 ASCRI &middot; Operated by <a href="https://dissensus.ai">Dissensus</a></span>
+      <span>
+        <a href="/framework">Framework</a> &middot;
+        <a href="/programmes/">Programmes</a> &middot;
+        <a href="https://dissensus.ai/research" target="_blank" rel="noopener">Publications &rarr;</a> &middot;
+        <a href="/people">People</a> &middot;
+        <a href="/about">About</a> &middot;
+        <a href="/contact">Contact</a> &middot;
         <a href="/feed.xml">RSS</a>
-      </div>
+      </span>
     </div>
   </footer>
-
-<script>
-function toggleTheme(){var h=document.documentElement,t=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',t);localStorage.setItem('ascri-theme',t)}
-</script>
 </body>
 </html>

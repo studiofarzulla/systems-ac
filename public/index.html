@@ -5,223 +5,222 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ASCRI — Adversarial Systems & Complexity Research Initiative</title>
   <meta name="description" content="Investigating friction dynamics in complex systems where competing interests generate structural conflict.">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/ascri.css?v=f1970f80">
-  <script>(function(){var t=localStorage.getItem("ascri-theme")||(matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light");document.documentElement.setAttribute("data-theme",t)})()</script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/system.css">
+  <link rel="stylesheet" href="/css/ascri.css?v=4bad2b46">
+  <link rel="alternate" type="application/rss+xml" title="ASCRI Research Updates" href="https://systems.ac/feed.xml">
+  <script>
+  (function () {
+    var KEY = "fz-theme";
+    function apply(t) {
+      if (t === "light") document.documentElement.setAttribute("data-theme", "light");
+      else document.documentElement.removeAttribute("data-theme");
+    }
+    apply(localStorage.getItem(KEY) || "dark");
+    window.toggleTheme = function () {
+      var next = document.documentElement.getAttribute("data-theme") === "light" ? "dark" : "light";
+      apply(next);
+      localStorage.setItem(KEY, next);
+    };
+  })();
+  </script>
 </head>
-<body class="has-nav">
-
+<body>
   <a href="#content" class="skip-link">Skip to content</a>
-  <nav class="site-nav">
-    <div class="site-nav__inner">
-      <a href="/" class="site-nav__brand">ASCRI</a>
-      <div style="display:flex;align-items:center;">
-        <div class="site-nav__links">
-        <a href="/framework" class="site-nav__link">Framework</a>
-        <a href="/programmes/" class="site-nav__link">Programmes</a>
-        <a href="https://dissensus.ai/research" class="site-nav__link" target="_blank" rel="noopener">Publications &rarr;</a>
-        <a href="/people" class="site-nav__link">People</a>
-        <a href="/about" class="site-nav__link">About</a>
-      </div>
-        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
-          <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-          <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-        </button>
-        <button class="site-nav__toggle" onclick="document.querySelector('.site-nav__links').classList.toggle('is-open')" aria-label="Toggle menu">
-        <span></span><span></span><span></span>
-      </button>
-      </div>
+
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <a href="/" class="nav__brand">ASCRI</a>
+    <div class="nav__links">
+      <a href="/framework">Framework</a>
+      <a href="/programmes/">Programmes</a>
+      <a href="https://dissensus.ai/research" class="hide-sm" target="_blank" rel="noopener">Publications &rarr;</a>
+      <a href="/people" class="hide-sm">People</a>
+      <a href="/about">About</a>
+      <button class="toggle" onclick="toggleTheme()" aria-label="Toggle theme">&#9680; theme</button>
     </div>
   </nav>
 
   <!-- Hero -->
-  <section id="content" tabindex="-1" class="hero">
-    <div class="container">
-      <span class="hero__label">Adversarial Systems &amp; Complexity Research Initiative</span>
-      <h1 class="hero__title">ASCRI</h1>
-      <p class="hero__subtitle">Investigating friction dynamics in complex systems where competing interests generate structural conflict. Formalizing the coordination costs that multi-agent systems impose.</p>
-      <div class="hero__meta">
-        <div class="hero__meta-item">
-          <span class="hero__meta-label">Focus</span>
-          <span class="hero__meta-value">Multi-Agent Friction</span>
-        </div>
-        <div class="hero__meta-item">
-          <span class="hero__meta-label">Programmes</span>
-          <span class="hero__meta-value">Five Domains</span>
-        </div>
-        <div class="hero__meta-item">
-          <span class="hero__meta-label">Status</span>
-          <span class="hero__meta-value">Active Research</span>
-        </div>
+  <header id="content" tabindex="-1" class="container hero">
+    <span class="kicker">Adversarial Systems &amp; Complexity Research Initiative</span>
+    <h1>Friction in systems that compete.</h1>
+    <p>ASCRI investigates friction dynamics in complex systems where competing interests generate structural conflict, formalising the coordination costs that multi-agent systems impose across governance, markets, and cognition.</p>
+    <hr class="rule">
+    <div class="hero-meta">
+      <div class="hero-meta__item">
+        <span class="hero-meta__label">Focus</span>
+        <span class="hero-meta__value">Multi-agent friction</span>
+      </div>
+      <div class="hero-meta__item">
+        <span class="hero-meta__label">Programmes</span>
+        <span class="hero-meta__value">Five domains</span>
+      </div>
+      <div class="hero-meta__item">
+        <span class="hero-meta__label">Status</span>
+        <span class="hero-meta__value">Active research</span>
       </div>
     </div>
-  </section>
+    <div style="display:flex; gap:1rem; flex-wrap:wrap; margin-top:2rem;">
+      <a class="btn" href="/framework">Read the framework &rarr;</a>
+      <a class="btn btn--ghost" href="/programmes/">Programmes</a>
+    </div>
+  </header>
 
-  <!-- Framework Brief -->
-  <section class="section--alt">
+  <!-- Framework brief -->
+  <section class="section section--alt">
     <div class="container">
-      <span class="section-label">Core Framework</span>
-      <h2 class="section-title">The Axiom of Consent</h2>
-      <p class="section-desc">A pre-game-theoretic framework that formalizes why coordination fails before strategy even begins.</p>
-
-      <p style="margin-bottom: 1.5rem;">Game theory assumes agents are already participating. It models what happens after the game begins but says nothing about how agents enter strategic interaction, why payoff structures take certain forms, or what happens when participation itself is refused. The Axiom of Consent addresses the structural layer beneath: the conditions under which optimization is delegated, and the friction that emerges when those conditions are violated.</p>
-
-      <p style="margin-bottom: 2rem;">The framework introduces a measurable friction function over three kernel variables&mdash;alignment, stakes, and entropy&mdash;that predicts coordination costs across political, economic, and computational systems. Where traditional models assume equilibria, the Axiom of Consent formalizes why some systems never reach them.</p>
+      <span class="index">01 · Core framework</span>
+      <h2 style="margin:1rem 0 1.5rem;">The Axiom of Consent</h2>
+      <div class="prose">
+        <p>Game theory assumes agents are already participating. It models what happens after the game begins but says nothing about how agents enter strategic interaction, why payoff structures take certain forms, or what happens when participation itself is refused. The Axiom of Consent addresses the structural layer beneath: the conditions under which optimisation is delegated, and the friction that emerges when those conditions are violated.</p>
+        <p>The framework introduces a measurable friction function over three kernel variables (alignment, stakes, and entropy) that predicts coordination costs across political, economic, and computational systems. Where traditional models assume equilibria, the Axiom of Consent formalises why some systems never reach them.</p>
+      </div>
 
       <div class="equation">
-        <span class="equation__label">Friction Function</span>
+        <span class="equation__label">Friction function</span>
         F = &sigma; &middot; (1 + &epsilon;) / (1 + &alpha;)
       </div>
 
-      <div class="grid-3" style="margin-top: 2rem;">
+      <div class="grid" style="margin-top:2rem;">
         <div>
-          <h4 style="font-family: var(--font-mono); color: var(--accent); font-size: 1.125rem; margin-bottom: 0.5rem;">&alpha;</h4>
-          <h4 style="margin-bottom: 0.5rem;">Alignment</h4>
-          <p style="font-size: 0.9375rem;">Convergence of optimization targets between principal and agent. When alignment is high, delegation is cheap. When it collapses, friction dominates.</p>
+          <h3><span class="mono-accent">&alpha;</span> &nbsp; Alignment</h3>
+          <p>Convergence of optimisation targets between principal and agent. When alignment is high, delegation is cheap. When it collapses, friction dominates.</p>
         </div>
         <div>
-          <h4 style="font-family: var(--font-mono); color: var(--accent); font-size: 1.125rem; margin-bottom: 0.5rem;">&sigma;</h4>
-          <h4 style="margin-bottom: 0.5rem;">Stakes</h4>
-          <p style="font-size: 0.9375rem;">Magnitude of optimization being delegated. Higher stakes amplify every misalignment. Small disagreements become structural failures when enough is at risk.</p>
+          <h3><span class="mono-accent">&sigma;</span> &nbsp; Stakes</h3>
+          <p>Magnitude of optimisation being delegated. Higher stakes amplify every misalignment. Small disagreements become structural failures when enough is at risk.</p>
         </div>
         <div>
-          <h4 style="font-family: var(--font-mono); color: var(--accent); font-size: 1.125rem; margin-bottom: 0.5rem;">&epsilon;</h4>
-          <h4 style="margin-bottom: 0.5rem;">Entropy</h4>
-          <p style="font-size: 0.9375rem;">Efficiency loss in optimization transfer. Even perfectly aligned agents lose information in delegation. Entropy is the irreducible cost of coordination.</p>
+          <h3><span class="mono-accent">&epsilon;</span> &nbsp; Entropy</h3>
+          <p>Efficiency loss in optimisation transfer. Even perfectly aligned agents lose information in delegation. Entropy is the irreducible cost of coordination.</p>
         </div>
       </div>
 
-      <div style="margin-top: 3rem;">
-        <a href="/framework" class="btn btn--primary">Read the Full Framework</a>
+      <div style="margin-top:2.5rem;">
+        <a href="/framework" class="btn btn--ghost">Read the full framework &rarr;</a>
       </div>
     </div>
   </section>
 
   <!-- Programmes -->
-  <section>
-    <div class="container container--wide">
-      <span class="section-label">Research Programmes</span>
-      <h2 class="section-title">Five Domains of Friction</h2>
-      <p class="section-desc">Each programme applies the consent-friction framework to a different substrate, testing whether the formal machinery generalizes.</p>
+  <section class="section">
+    <div class="container">
+      <span class="index">02 · Research programmes</span>
+      <h2 style="margin:1rem 0 0.75rem;">Five domains of friction</h2>
+      <p style="margin-bottom:2rem;">Each programme applies the consent-friction framework to a different substrate, testing whether the formal machinery generalises.</p>
 
-      <div class="programme-grid">
-        <a href="/1" class="programme-card">
-          <span class="programme-card__index">Programme I</span>
-          <div class="programme-card__title">Consent Mechanics</div>
-          <p class="programme-card__desc">Consent-holding theory, delegation legitimacy, governance alignment functions.</p>
-          <span class="programme-card__count">4 papers</span>
+      <div class="grid">
+        <a href="/1" class="card">
+          <span class="card__index">Programme I</span>
+          <h3>Consent Mechanics</h3>
+          <p>Consent-holding theory, delegation legitimacy, governance alignment functions.</p>
+          <span class="card__count">4 papers</span>
         </a>
-        <a href="/2" class="programme-card">
-          <span class="programme-card__index">Programme II</span>
-          <div class="programme-card__title">Economic Pharmakon</div>
-          <p class="programme-card__desc">Derivatives as remedy and poison, the hedging paradox, systemic risk architectures.</p>
-          <span class="programme-card__count">3 papers</span>
+        <a href="/2" class="card">
+          <span class="card__index">Programme II</span>
+          <h3>Economic Pharmakon</h3>
+          <p>Derivatives as remedy and poison, the hedging paradox, systemic risk architectures.</p>
+          <span class="card__count">3 papers</span>
         </a>
-        <a href="/3" class="programme-card">
-          <span class="programme-card__index">Programme III</span>
-          <div class="programme-card__title">Crypto Microstructure</div>
-          <p class="programme-card__desc">Empirical friction validation in cryptocurrency markets, event studies, volatility regimes.</p>
-          <span class="programme-card__count">5 papers</span>
+        <a href="/3" class="card">
+          <span class="card__index">Programme III</span>
+          <h3>Crypto Microstructure</h3>
+          <p>Empirical friction validation in cryptocurrency markets, event studies, volatility regimes.</p>
+          <span class="card__count">4 papers</span>
         </a>
-        <a href="/4" class="programme-card">
-          <span class="programme-card__index">Programme IV</span>
-          <div class="programme-card__title">Process Philosophy</div>
-          <p class="programme-card__desc">Identity, consciousness, substrates, moral standing, the replicator-optimization mechanism.</p>
-          <span class="programme-card__count">7 papers</span>
+        <a href="/4" class="card">
+          <span class="card__index">Programme IV</span>
+          <h3>Process Philosophy</h3>
+          <p>Identity, consciousness, substrates, moral standing, the replicator-optimisation mechanism.</p>
+          <span class="card__count">5 papers</span>
         </a>
-        <a href="/5" class="programme-card">
-          <span class="programme-card__index">Programme V</span>
-          <div class="programme-card__title">Computational Cognition</div>
-          <p class="programme-card__desc">Machine learning, AI safety, computational models of cognition, trauma as training failure.</p>
-          <span class="programme-card__count">5 papers</span>
+        <a href="/5" class="card">
+          <span class="card__index">Programme V</span>
+          <h3>Computational Cognition</h3>
+          <p>Machine learning, AI safety, computational models of cognition, trauma as training failure.</p>
+          <span class="card__count">4 papers</span>
         </a>
       </div>
     </div>
   </section>
 
-  <!-- Featured Papers (outbound to the canonical host) -->
-  <section class="section--alt">
+  <!-- Featured papers (outbound to the canonical host) -->
+  <section class="section section--alt">
     <div class="container">
-      <span class="section-label">Featured Work</span>
-      <h2 class="section-title">Selected Papers</h2>
-      <p class="section-desc">Core publications that anchor the programme. Full papers are published on dissensus.ai.</p>
+      <span class="index">03 · Featured work</span>
+      <h2 style="margin:1rem 0 0.75rem;">Selected papers</h2>
+      <p style="margin-bottom:2rem;">Core publications that anchor the programme. Full papers are published on dissensus.ai.</p>
 
-      <div class="featured-papers">
-        <a href="https://dissensus.ai/papers/axiom-of-consent" class="paper-card paper-card--outbound" target="_blank" rel="noopener">
-          <div class="paper-card__meta">
-            <span class="status status--preprint">Preprint</span>
-            <span class="paper-card__date">2026</span>
+      <div class="grid">
+        <a href="https://dissensus.ai/papers/axiom-of-consent" class="card card--paper" target="_blank" rel="noopener">
+          <div class="card__meta">
+            <span class="pill pill--preprint">Preprint</span>
+            <span>2026</span>
           </div>
-          <div class="paper-card__title">The Axiom of Consent: Friction Dynamics in Multi-Agent Coordination</div>
-          <div class="paper-card__authors">Murad Farzulla</div>
-          <p class="paper-card__abstract">Introduces the friction function and the kernel triple (&alpha;, &sigma;, &epsilon;) as a formal framework for analyzing coordination costs that precede strategic interaction.</p>
-          <span class="paper-card__readout">Read on dissensus.ai &rarr;</span>
+          <h3>The Axiom of Consent: Friction Dynamics in Multi-Agent Coordination</h3>
+          <p class="card__authors">Murad Farzulla</p>
+          <p>Introduces the friction function and the kernel triple (&alpha;, &sigma;, &epsilon;) as a formal framework for analysing the coordination costs that precede strategic interaction.</p>
+          <span class="card__readout">Read on dissensus.ai &rarr;</span>
         </a>
 
-        <a href="https://dissensus.ai/papers/replicator-optimization-mechanism" class="paper-card paper-card--outbound" target="_blank" rel="noopener">
-          <div class="paper-card__meta">
-            <span class="status status--preprint">Preprint</span>
-            <span class="paper-card__date">2025</span>
+        <a href="https://dissensus.ai/papers/replicator-optimization-mechanism" class="card card--paper" target="_blank" rel="noopener">
+          <div class="card__meta">
+            <span class="pill pill--preprint">Preprint</span>
+            <span>2025</span>
           </div>
-          <div class="paper-card__title">The Replicator-Optimization Mechanism</div>
-          <div class="paper-card__authors">Murad Farzulla</div>
-          <p class="paper-card__abstract">ROM provides the meta-theory: configurations generating less friction persist longer. Consent-respecting arrangements are dynamical attractors in optimization space.</p>
-          <span class="paper-card__readout">Read on dissensus.ai &rarr;</span>
+          <h3>The Replicator-Optimization Mechanism</h3>
+          <p class="card__authors">Murad Farzulla</p>
+          <p>ROM provides the meta-theory: configurations generating less friction persist longer. Consent-respecting arrangements are dynamical attractors in optimisation space.</p>
+          <span class="card__readout">Read on dissensus.ai &rarr;</span>
         </a>
 
-        <a href="https://dissensus.ai/papers/market-reaction-asymmetry" class="paper-card paper-card--outbound" target="_blank" rel="noopener">
-          <div class="paper-card__meta">
-            <span class="status status--under-review">Under Review</span>
+        <a href="https://dissensus.ai/papers/market-reaction-asymmetry" class="card card--paper" target="_blank" rel="noopener">
+          <div class="card__meta">
+            <span class="pill pill--review">Under Review</span>
             <span class="tag">Digital Finance</span>
-            <span class="paper-card__date">2025</span>
+            <span>2025</span>
           </div>
-          <div class="paper-card__title">Do Cryptocurrency Markets Differentiate Infrastructure from Regulatory Shocks?</div>
-          <div class="paper-card__authors">Murad Farzulla</div>
-          <p class="paper-card__abstract">A multi-moment event study with dependence-robust inference, testing whether cryptocurrency markets distinguish infrastructure failures from regulatory shocks&mdash;empirical evidence for friction dynamics.</p>
-          <span class="paper-card__readout">Read on dissensus.ai &rarr;</span>
+          <h3>Do Cryptocurrency Markets Differentiate Infrastructure from Regulatory Shocks?</h3>
+          <p class="card__authors">Murad Farzulla</p>
+          <p>A multi-moment event study with dependence-robust inference, testing whether cryptocurrency markets distinguish infrastructure failures from regulatory shocks. Empirical evidence for friction dynamics.</p>
+          <span class="card__readout">Read on dissensus.ai &rarr;</span>
         </a>
 
-        <a href="https://dissensus.ai/papers/consent-to-consideration" class="paper-card paper-card--outbound" target="_blank" rel="noopener">
-          <div class="paper-card__meta">
-            <span class="status status--under-review">Under Review</span>
+        <a href="https://dissensus.ai/papers/consent-to-consideration" class="card card--paper" target="_blank" rel="noopener">
+          <div class="card__meta">
+            <span class="pill pill--review">Under Review</span>
             <span class="tag">AI and Ethics</span>
-            <span class="paper-card__date">2025</span>
+            <span>2025</span>
           </div>
-          <div class="paper-card__title">From Consent to Consideration</div>
-          <div class="paper-card__authors">Murad Farzulla</div>
-          <p class="paper-card__abstract">Applies the consent framework to artificial agents, arguing that stake-holding capacity&mdash;not consciousness&mdash;grounds political consideration.</p>
-          <span class="paper-card__readout">Read on dissensus.ai &rarr;</span>
+          <h3>From Consent to Consideration</h3>
+          <p class="card__authors">Murad Farzulla</p>
+          <p>Applies the consent framework to artificial agents, arguing that stake-holding capacity, not consciousness, grounds political consideration.</p>
+          <span class="card__readout">Read on dissensus.ai &rarr;</span>
         </a>
       </div>
 
-      <div style="margin-top: 2.5rem;">
+      <div style="margin-top:2.5rem;">
         <a href="https://dissensus.ai/research" class="btn" target="_blank" rel="noopener">View all publications on dissensus.ai &rarr;</a>
       </div>
     </div>
   </section>
 
-  <footer class="site-footer">
-    <div class="container container--wide site-footer__inner">
-      <div>
-        <div class="site-footer__brand">ASCRI</div>
-        <div class="site-footer__copy">&copy; 2026 ASCRI &middot; Operated by <a href="https://dissensus.ai">Dissensus</a></div>
-      </div>
-      <div class="site-footer__links">
-        <a href="/framework">Framework</a>
-        <a href="/programmes/">Programmes</a>
-        <a href="https://dissensus.ai/research" target="_blank" rel="noopener">Publications &rarr;</a>
-        <a href="/people">People</a>
-        <a href="/about">About</a>
-        <a href="/contact">Contact</a>
+  <footer class="footer">
+    <div class="container" style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:1rem;">
+      <span>&copy; 2026 ASCRI &middot; Operated by <a href="https://dissensus.ai">Dissensus</a></span>
+      <span>
+        <a href="/framework">Framework</a> &middot;
+        <a href="/programmes/">Programmes</a> &middot;
+        <a href="https://dissensus.ai/research" target="_blank" rel="noopener">Publications &rarr;</a> &middot;
+        <a href="/people">People</a> &middot;
+        <a href="/about">About</a> &middot;
+        <a href="/contact">Contact</a> &middot;
         <a href="/feed.xml">RSS</a>
-      </div>
+      </span>
     </div>
   </footer>
-
-<script>
-function toggleTheme(){var h=document.documentElement,t=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',t);localStorage.setItem('ascri-theme',t)}
-</script>
 </body>
 </html>

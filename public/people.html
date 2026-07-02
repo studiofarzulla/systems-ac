@@ -5,60 +5,66 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>People — ASCRI</title>
   <meta name="description" content="Research team and affiliates of the Adversarial Systems & Complexity Research Initiative.">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/ascri.css?v=f1970f80">
-  <script>(function(){var t=localStorage.getItem("ascri-theme")||(matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light");document.documentElement.setAttribute("data-theme",t)})()</script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/system.css">
+  <link rel="stylesheet" href="/css/ascri.css?v=4bad2b46">
+  <link rel="alternate" type="application/rss+xml" title="ASCRI Research Updates" href="https://systems.ac/feed.xml">
+  <script>
+  (function () {
+    var KEY = "fz-theme";
+    function apply(t) {
+      if (t === "light") document.documentElement.setAttribute("data-theme", "light");
+      else document.documentElement.removeAttribute("data-theme");
+    }
+    apply(localStorage.getItem(KEY) || "dark");
+    window.toggleTheme = function () {
+      var next = document.documentElement.getAttribute("data-theme") === "light" ? "dark" : "light";
+      apply(next);
+      localStorage.setItem(KEY, next);
+    };
+  })();
+  </script>
 </head>
-<body class="has-nav">
-
+<body>
   <a href="#content" class="skip-link">Skip to content</a>
-  <nav class="site-nav">
-    <div class="site-nav__inner">
-      <a href="/" class="site-nav__brand">ASCRI</a>
-      <div style="display:flex;align-items:center;">
-        <div class="site-nav__links">
-        <a href="/framework" class="site-nav__link">Framework</a>
-        <a href="/programmes/" class="site-nav__link">Programmes</a>
-        <a href="https://dissensus.ai/research" class="site-nav__link" target="_blank" rel="noopener">Publications &rarr;</a>
-        <a href="/people" class="site-nav__link site-nav__link--active">People</a>
-        <a href="/about" class="site-nav__link">About</a>
-      </div>
-        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
-          <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-          <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-        </button>
-        <button class="site-nav__toggle" onclick="document.querySelector('.site-nav__links').classList.toggle('is-open')" aria-label="Toggle menu">
-        <span></span><span></span><span></span>
-      </button>
-      </div>
+
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <a href="/" class="nav__brand">ASCRI</a>
+    <div class="nav__links">
+      <a href="/framework">Framework</a>
+      <a href="/programmes/">Programmes</a>
+      <a href="https://dissensus.ai/research" class="hide-sm" target="_blank" rel="noopener">Publications &rarr;</a>
+      <a href="/people" class="hide-sm" aria-current="page">People</a>
+      <a href="/about">About</a>
+      <button class="toggle" onclick="toggleTheme()" aria-label="Toggle theme">&#9680; theme</button>
     </div>
   </nav>
 
   <!-- Header -->
-  <section id="content" tabindex="-1" class="hero">
-    <div class="container">
-      <span class="hero__label">Research Team</span>
-      <h1 class="hero__title">People</h1>
-      <p class="hero__subtitle">The researchers and collaborators behind ASCRI.</p>
-    </div>
-  </section>
+  <header id="content" tabindex="-1" class="container hero">
+    <span class="kicker">Research team</span>
+    <h1>People</h1>
+    <p>The researchers and collaborators behind ASCRI.</p>
+    <hr class="rule">
+  </header>
 
-  <!-- Core Team -->
-  <section>
+  <!-- Core team -->
+  <section class="section">
     <div class="container">
-      <span class="section-label">Core Team</span>
-      <h2 class="section-title">Researchers</h2>
+      <span class="index">01 · Core team</span>
+      <h2 style="margin:1rem 0 1rem;">Researchers</h2>
 
-      <div class="person-card">
-        <div class="person-card__avatar">MF</div>
+      <div class="person">
+        <div class="person__avatar">MF</div>
         <div>
-          <div class="person-card__role">Research Fellow</div>
-          <div class="person-card__name">Murad Farzulla</div>
-          <div class="person-card__affiliation">King's College London &middot; MSc Finance Analytics</div>
-          <p class="person-card__bio">Independent researcher investigating friction dynamics across political economy, computational finance, and philosophy of mind. Developed the Axiom of Consent framework and the Replicator-Optimization Mechanism. Research spans adversarial systems analysis, cryptocurrency market microstructure, AI alignment, and consciousness studies. ORCID: 0009-0002-7164-8704.</p>
-          <div class="person-card__links">
+          <div class="person__role">Research Fellow</div>
+          <div class="person__name">Murad Farzulla</div>
+          <div class="person__affiliation">King&rsquo;s College London &middot; MSc Finance Analytics</div>
+          <p>Independent researcher investigating friction dynamics across political economy, computational finance, and philosophy of mind. Developed the Axiom of Consent framework and the Replicator-Optimization Mechanism. Research spans adversarial systems analysis, cryptocurrency market microstructure, AI alignment, and consciousness studies. ORCID: 0009-0002-7164-8704.</p>
+          <div class="person__links">
             <a href="https://orcid.org/0009-0002-7164-8704">ORCID</a>
             <a href="https://scholar.google.com/citations?user=bmplqfwAAAAJ">Google Scholar</a>
             <a href="https://farzulla.org">farzulla.org</a>
@@ -67,70 +73,63 @@
         </div>
       </div>
 
-      <div class="person-card">
-        <div class="person-card__avatar">DF</div>
+      <div class="person">
+        <div class="person__avatar">DF</div>
         <div>
-          <div class="person-card__role">Director</div>
-          <div class="person-card__name">Davud Farzullayev</div>
-          <p class="person-card__bio">Research oversight and strategic direction for ASCRI. Responsible for organizational governance, partnership development, and long-term programme alignment.</p>
+          <div class="person__role">Director</div>
+          <div class="person__name">Davud Farzullayev</div>
+          <p>Research oversight and strategic direction for ASCRI. Responsible for organisational governance, partnership development, and long-term programme alignment.</p>
         </div>
       </div>
 
-      <div class="person-card">
-        <div class="person-card__avatar">AM</div>
+      <div class="person">
+        <div class="person__avatar">AM</div>
         <div>
-          <div class="person-card__role">Research Assistant</div>
-          <div class="person-card__name">Andrew Maksakov</div>
-          <p class="person-card__bio">Co-author on the Aggregated Systemic Risk Index (ASRI). Computational finance and risk modeling, with a focus on dynamic connectedness measures and systemic risk quantification.</p>
+          <div class="person__role">Research Assistant</div>
+          <div class="person__name">Andrew Maksakov</div>
+          <p>Co-author on the Aggregated Systemic Risk Index (ASRI). Computational finance and risk modelling, with a focus on dynamic connectedness measures and systemic risk quantification.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Affiliates -->
-  <section class="section--alt">
+  <section class="section section--alt">
     <div class="container">
-      <span class="section-label">Network</span>
-      <h2 class="section-title">Affiliates</h2>
+      <span class="index">02 · Network</span>
+      <h2 style="margin:1rem 0 1rem;">Affiliates</h2>
 
-      <div class="person-card" style="border-top: 1px solid var(--border);">
-        <div class="person-card__avatar">FP</div>
+      <div class="person">
+        <div class="person__avatar">FP</div>
         <div>
-          <div class="person-card__role">Affiliate Researcher</div>
-          <div class="person-card__name">Felipe Pachano Azuaje, PhD</div>
-          <p class="person-card__bio">Cross-disciplinary collaborator. Contributes domain expertise across intersecting research areas.</p>
+          <div class="person__role">Affiliate Researcher</div>
+          <div class="person__name">Felipe Pachano Azuaje, PhD</div>
+          <p>Cross-disciplinary collaborator. Contributes domain expertise across intersecting research areas.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Institutional Note -->
-  <section>
+  <!-- Institutional note -->
+  <section class="section">
     <div class="container">
-      <p style="font-size: 0.9375rem; color: var(--text-muted);">ASCRI operates under <a href="https://dissensus.ai">Dissensus</a>. For full organizational information, visit <a href="https://dissensus.ai">dissensus.ai</a>.</p>
+      <p>ASCRI operates under <a href="https://dissensus.ai">Dissensus</a>. For full organisational information, visit <a href="https://dissensus.ai">dissensus.ai</a>.</p>
     </div>
   </section>
 
-  <footer class="site-footer">
-    <div class="container container--wide site-footer__inner">
-      <div>
-        <div class="site-footer__brand">ASCRI</div>
-        <div class="site-footer__copy">&copy; 2026 ASCRI &middot; Operated by <a href="https://dissensus.ai">Dissensus</a></div>
-      </div>
-      <div class="site-footer__links">
-        <a href="/framework">Framework</a>
-        <a href="/programmes/">Programmes</a>
-        <a href="https://dissensus.ai/research" target="_blank" rel="noopener">Publications &rarr;</a>
-        <a href="/people">People</a>
-        <a href="/about">About</a>
-        <a href="/contact">Contact</a>
+  <footer class="footer">
+    <div class="container" style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:1rem;">
+      <span>&copy; 2026 ASCRI &middot; Operated by <a href="https://dissensus.ai">Dissensus</a></span>
+      <span>
+        <a href="/framework">Framework</a> &middot;
+        <a href="/programmes/">Programmes</a> &middot;
+        <a href="https://dissensus.ai/research" target="_blank" rel="noopener">Publications &rarr;</a> &middot;
+        <a href="/people">People</a> &middot;
+        <a href="/about">About</a> &middot;
+        <a href="/contact">Contact</a> &middot;
         <a href="/feed.xml">RSS</a>
-      </div>
+      </span>
     </div>
   </footer>
-
-<script>
-function toggleTheme(){var h=document.documentElement,t=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',t);localStorage.setItem('ascri-theme',t)}
-</script>
 </body>
 </html>

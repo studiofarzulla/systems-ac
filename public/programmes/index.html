@@ -9,11 +9,19 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="/css/ascri.css?v=f1970f80">
-  <script>(function(){var t=localStorage.getItem('ascri-theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)})()</script>
+  <!-- Favicon -->
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+
+  <!-- CSS: shared design system + ASCRI supplement -->
+  <link rel="stylesheet" href="/css/system.css">
+  <link rel="stylesheet" href="/css/ascri.css?v=4bad2b46">
+
+  <!-- Theme: dark default, light via [data-theme="light"], persisted (fz-theme) -->
+  <script>
+  (function(){var t=localStorage.getItem('fz-theme')||'dark';if(t==='light')document.documentElement.setAttribute('data-theme','light');})();
+  </script>
 
   <!-- Canonical -->
   <link rel="canonical" href="https://systems.ac/programmes/">
@@ -37,95 +45,79 @@
 </head>
 <body class="has-nav">
   <a href="#content" class="skip-link">Skip to content</a>
-  <nav class="site-nav" role="navigation" aria-label="Main navigation">
-    <div class="site-nav__inner">
-      <a href="/" class="site-nav__brand">ASCRI</a>
-      <div style="display:flex;align-items:center;">
-        <div class="site-nav__links">
-          <a href="/framework" class="site-nav__link">Framework</a>
-        <a href="/programmes/" class="site-nav__link site-nav__link--active">Programmes</a>
-        <a href="https://dissensus.ai/research" class="site-nav__link" target="_blank" rel="noopener">Publications &rarr;</a>
-        <a href="/people" class="site-nav__link">People</a>
-        <a href="/about" class="site-nav__link">About</a>
-        </div>
-        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
-          <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-          <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-        </button>
-        <button class="site-nav__toggle" aria-label="Toggle menu" onclick="document.querySelector('.site-nav__links').classList.toggle('is-open')">
-          <span></span><span></span><span></span>
-        </button>
-      </div>
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <a href="/" class="nav__brand">ASCRI</a>
+    <div class="nav__links">
+      <a href="/framework">Framework</a>
+      <a href="/programmes/" aria-current="page">Programmes</a>
+      <a href="https://dissensus.ai/research" class="hide-sm" target="_blank" rel="noopener">Publications &rarr;</a>
+      <a href="/people" class="hide-sm">People</a>
+      <a href="/about">About</a>
+      <button class="toggle" onclick="toggleTheme()" aria-label="Toggle theme">&#9680; theme</button>
     </div>
   </nav>
   <div id="content">
   
   <main>
-    <div class="container container--wide">
-      <section class="hero" style="border-bottom: none; padding-bottom: 2rem;">
-        <span class="hero__label">Research Structure</span>
-        <h1 class="hero__title">Programmes</h1>
-        <p class="hero__subtitle">Five interlocking programmes apply the consent-friction framework to a different substrate, testing whether the formal machinery generalizes. Full papers are published on <a href="https://dissensus.ai/research" target="_blank" rel="noopener">dissensus.ai</a>.</p>
-      </section>
+    <header class="container hero">
+      <span class="kicker">Research structure</span>
+      <h1>Programmes</h1>
+      <p>Five interlocking programmes, each applying the consent-friction framework to a different substrate, testing whether the formal machinery generalises. Full papers are published on <a href="https://dissensus.ai/research" target="_blank" rel="noopener">dissensus.ai</a>.</p>
+      <hr class="rule">
+    </header>
+    <section class="section container">
+      <div class="grid">
 
-      <div class="programme-grid">
-
-        <a href="/1" class="programme-card">
-          <span class="programme-card__index">Programme I</span>
-          <h3 class="programme-card__title">Consent Mechanics</h3>
-          <p class="programme-card__desc">The formal theory of consent-holding in multi-agent systems. When can delegation be legitimate? What are the structural conditions for valid consent? How do we measure consent deficits?</p>
-          <span class="programme-card__count">4 papers</span>
+        <a href="/1" class="card">
+          <span class="card__index">Programme I</span>
+          <h3>Consent Mechanics</h3>
+          <p>The formal theory of consent-holding in multi-agent systems. When can delegation be legitimate? What are the structural conditions for valid consent? How do we measure consent deficits?</p>
+          <span class="card__count">4 papers</span>
         </a>
-        <a href="/2" class="programme-card">
-          <span class="programme-card__index">Programme II</span>
-          <h3 class="programme-card__title">Economic Pharmakon</h3>
-          <p class="programme-card__desc">Derivatives as simultaneously remedy and poison. The hedging paradox: when risk management becomes wealth transfer infrastructure. Market microstructure as friction measurement.</p>
-          <span class="programme-card__count">3 papers</span>
+        <a href="/2" class="card">
+          <span class="card__index">Programme II</span>
+          <h3>Economic Pharmakon</h3>
+          <p>Derivatives as simultaneously remedy and poison. The hedging paradox: when risk management becomes wealth transfer infrastructure. Market microstructure as friction measurement.</p>
+          <span class="card__count">3 papers</span>
         </a>
-        <a href="/3" class="programme-card">
-          <span class="programme-card__index">Programme III</span>
-          <h3 class="programme-card__title">Crypto Microstructure</h3>
-          <p class="programme-card__desc">Empirical validation of friction dynamics in cryptocurrency markets. Why do infrastructure failures move markets more than regulatory announcements? The enforcement capacity hypothesis.</p>
-          <span class="programme-card__count">4 papers</span>
+        <a href="/3" class="card">
+          <span class="card__index">Programme III</span>
+          <h3>Crypto Microstructure</h3>
+          <p>Empirical validation of friction dynamics in cryptocurrency markets. Why do infrastructure failures move markets more than regulatory announcements? The enforcement capacity hypothesis.</p>
+          <span class="card__count">4 papers</span>
         </a>
-        <a href="/4" class="programme-card">
-          <span class="programme-card__index">Programme IV</span>
-          <h3 class="programme-card__title">Process Philosophy</h3>
-          <p class="programme-card__desc">Metaphysics, identity, consciousness, substrates, and moral standing. Eliminative and relational approaches to persistent philosophical problems. Substrate-independent criteria for agency and friendship. The Replicator-Optimization Mechanism as meta-theory.</p>
-          <span class="programme-card__count">5 papers</span>
+        <a href="/4" class="card">
+          <span class="card__index">Programme IV</span>
+          <h3>Process Philosophy</h3>
+          <p>Metaphysics, identity, consciousness, substrates, and moral standing. Eliminative and relational approaches to persistent philosophical problems. Substrate-independent criteria for agency and friendship. The Replicator-Optimization Mechanism as meta-theory.</p>
+          <span class="card__count">5 papers</span>
         </a>
-        <a href="/5" class="programme-card">
-          <span class="programme-card__index">Programme V</span>
-          <h3 class="programme-card__title">Computational Cognition</h3>
-          <p class="programme-card__desc">Machine learning, safety, phenomenology, and the computational basis of cognitive processes. Trauma as training data corruption. Genre mimicry in alignment.</p>
-          <span class="programme-card__count">4 papers</span>
+        <a href="/5" class="card">
+          <span class="card__index">Programme V</span>
+          <h3>Computational Cognition</h3>
+          <p>Machine learning, safety, phenomenology, and the computational basis of cognitive processes. Trauma as training data corruption. Genre mimicry in alignment.</p>
+          <span class="card__count">4 papers</span>
         </a>
       </div>
-    </div>
+    </section>
   </main>
   </div>
-  <footer class="site-footer">
-    <div class="container container--wide">
-      <div class="site-footer__inner">
-        <div>
-          <div class="site-footer__brand">ASCRI</div>
-          <div class="site-footer__copy">&copy; 2026 ASCRI &middot; Operated by <a href="https://dissensus.ai">Dissensus</a></div>
-        </div>
-        <div class="site-footer__links">
-          <a href="/framework">Framework</a>
-          <a href="/programmes/">Programmes</a>
-          <a href="https://dissensus.ai/research" target="_blank" rel="noopener">Publications &rarr;</a>
-          <a href="/people">People</a>
-          <a href="/about">About</a>
-          <a href="/contact">Contact</a>
-          <a href="/feed.xml">RSS</a>
-        </div>
-      </div>
+  <footer class="footer">
+    <div class="container" style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:1rem;">
+      <span>&copy; 2026 ASCRI &middot; Operated by <a href="https://dissensus.ai">Dissensus</a></span>
+      <span>
+        <a href="/framework">Framework</a> &middot;
+        <a href="/programmes/">Programmes</a> &middot;
+        <a href="https://dissensus.ai/research" target="_blank" rel="noopener">Publications &rarr;</a> &middot;
+        <a href="/people">People</a> &middot;
+        <a href="/about">About</a> &middot;
+        <a href="/contact">Contact</a> &middot;
+        <a href="/feed.xml">RSS</a>
+      </span>
     </div>
   </footer>
   <script>
-(function(){var t=localStorage.getItem('ascri-theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)})();
-function toggleTheme(){var h=document.documentElement,t=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',t);localStorage.setItem('ascri-theme',t)}
+function toggleTheme(){var h=document.documentElement;if(h.getAttribute('data-theme')==='light'){h.removeAttribute('data-theme');localStorage.setItem('fz-theme','dark');}else{h.setAttribute('data-theme','light');localStorage.setItem('fz-theme','light');}}
 </script>
 </body>
 </html>

@@ -1,0 +1,171 @@
+/* ============================================================================
+   Dissensus / Farzulla shared design system  —  minimal modern tech
+   One source of truth. Copied into each site's css/ during the rehaul.
+   Dark-default + light toggle (data-theme="light" on <html>).
+   Signature: Inter prose, IBM Plex Mono labels, mono section indices,
+   thin burgundy rule — echoes the announcement-card language.
+   ============================================================================ */
+
+/* ---- tokens ---------------------------------------------------------------- */
+:root {
+  /* dark (default) */
+  --bg:        #0b0b0d;
+  --surface:   #141418;
+  --surface-2: #1b1b20;
+  --line:      #26262c;
+  --text:      #ededed;
+  --text-dim:  #9a9a9a;
+  --burgundy:  #800020;   /* brand constant, both modes */
+  --accent:    #c8455f;   /* burgundy-bright, readable on dark */
+  --accent-dim: rgba(200, 69, 95, 0.14);
+  --shadow:    0 1px 0 rgba(255,255,255,0.02), 0 8px 30px rgba(0,0,0,0.35);
+
+  /* type */
+  --font-sans: "Inter", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --fs-hero: clamp(2.4rem, 6vw, 4.25rem);
+  --fs-h1:   clamp(1.9rem, 4vw, 2.75rem);
+  --fs-h2:   clamp(1.4rem, 2.6vw, 1.9rem);
+  --fs-h3:   1.15rem;
+  --fs-body: 1.02rem;
+  --fs-sm:   0.9rem;
+  --fs-mono: 0.8rem;
+  --lh:      1.6;
+  --measure: 68ch;
+
+  /* space + shape */
+  --sp-1: 0.25rem; --sp-2: 0.5rem; --sp-3: 0.75rem; --sp-4: 1rem;
+  --sp-6: 1.5rem;  --sp-8: 2rem;   --sp-12: 3rem;   --sp-16: 4rem; --sp-24: 6rem;
+  --radius: 5px;
+  --container: 1080px;
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+[data-theme="light"] {
+  --bg:        #faf8f5;   /* warm off-white — matches the announcement card */
+  --surface:   #ffffff;
+  --surface-2: #f4f1ec;
+  --line:      #e6e1d9;
+  --text:      #1a1a1a;
+  --text-dim:  #5c554e;
+  --accent:    #800020;   /* on light, the true burgundy is the accent */
+  --accent-dim: rgba(128, 0, 32, 0.07);
+  --shadow:    0 1px 0 rgba(0,0,0,0.02), 0 10px 30px rgba(60,40,45,0.08);
+}
+
+/* ---- reset / base --------------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  line-height: var(--lh);
+  -webkit-font-smoothing: antialiased;
+  transition: background 0.4s var(--ease), color 0.4s var(--ease);
+}
+h1, h2, h3, h4 { line-height: 1.15; font-weight: 650; letter-spacing: -0.02em; }
+h1 { font-size: var(--fs-h1); }
+h2 { font-size: var(--fs-h2); }
+h3 { font-size: var(--fs-h3); font-weight: 600; }
+p { color: var(--text-dim); max-width: var(--measure); }
+a { color: var(--accent); text-decoration: none; transition: color 0.15s var(--ease); }
+a:hover { color: var(--text); }
+img, svg { max-width: 100%; display: block; }
+::selection { background: var(--accent-dim); }
+
+/* ---- layout --------------------------------------------------------------- */
+.container { max-width: var(--container); margin-inline: auto; padding-inline: var(--sp-6); }
+.section { padding-block: var(--sp-24); border-top: 1px solid var(--line); }
+.section:first-of-type { border-top: 0; }
+
+/* mono kicker / section index — the unifying signature */
+.kicker {
+  font-family: var(--font-mono);
+  font-size: var(--fs-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  color: var(--accent);
+  display: inline-block;
+  margin-bottom: var(--sp-4);
+}
+.index {
+  font-family: var(--font-mono);
+  font-size: var(--fs-mono);
+  color: var(--text-dim);
+  letter-spacing: 0.15em;
+}
+.rule { width: 56px; height: 3px; background: var(--burgundy); border: 0; margin: var(--sp-6) 0; }
+
+/* ---- nav ------------------------------------------------------------------ */
+.nav {
+  position: sticky; top: 0; z-index: 50;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: var(--sp-4) var(--sp-6);
+  background: color-mix(in srgb, var(--bg) 82%, transparent);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+.nav__brand { font-family: var(--font-mono); font-weight: 600; letter-spacing: 0.12em; color: var(--text); text-transform: uppercase; }
+.nav__links { display: flex; gap: var(--sp-6); align-items: center; }
+.nav__links a { font-family: var(--font-mono); font-size: var(--fs-mono); text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-dim); }
+.nav__links a:hover { color: var(--accent); }
+
+/* theme toggle */
+.toggle {
+  font-family: var(--font-mono); font-size: var(--fs-mono);
+  background: transparent; color: var(--text-dim);
+  border: 1px solid var(--line); border-radius: var(--radius);
+  padding: var(--sp-1) var(--sp-3); cursor: pointer; letter-spacing: 0.1em;
+  transition: border-color 0.15s var(--ease), color 0.15s var(--ease);
+}
+.toggle:hover { color: var(--accent); border-color: var(--accent); }
+
+/* ---- hero ----------------------------------------------------------------- */
+.hero { padding-block: clamp(4rem, 12vw, 9rem); }
+.hero h1 { font-size: var(--fs-hero); max-width: 20ch; }
+.hero p { font-size: 1.2rem; margin-top: var(--sp-6); }
+
+/* ---- cards ---------------------------------------------------------------- */
+.grid { display: grid; gap: var(--sp-4); grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: var(--sp-6);
+  transition: border-color 0.2s var(--ease), transform 0.2s var(--ease);
+}
+.card:hover { border-color: var(--accent); transform: translateY(-2px); }
+.card__meta { font-family: var(--font-mono); font-size: var(--fs-mono); color: var(--text-dim); letter-spacing: 0.08em; text-transform: uppercase; }
+.card h3 { margin: var(--sp-3) 0; color: var(--text); }
+.card p { font-size: var(--fs-sm); }
+
+/* status pills */
+.pill { display: inline-block; font-family: var(--font-mono); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em;
+  padding: 2px var(--sp-2); border-radius: 100px; border: 1px solid var(--line); color: var(--text-dim); }
+.pill--review { color: var(--accent); border-color: var(--accent); }
+.pill--preprint { color: var(--text-dim); }
+
+/* ---- buttons -------------------------------------------------------------- */
+.btn { display: inline-flex; align-items: center; gap: var(--sp-2);
+  font-family: var(--font-mono); font-size: var(--fs-sm); letter-spacing: 0.06em;
+  padding: var(--sp-3) var(--sp-6); border-radius: var(--radius); cursor: pointer;
+  border: 1px solid var(--burgundy); background: var(--burgundy); color: #fff;
+  transition: opacity 0.15s var(--ease); }
+.btn:hover { opacity: 0.88; color: #fff; }
+.btn--ghost { background: transparent; color: var(--text); border-color: var(--line); }
+.btn--ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+/* ---- footer --------------------------------------------------------------- */
+.footer { border-top: 1px solid var(--line); padding-block: var(--sp-12); }
+.footer, .footer a { font-family: var(--font-mono); font-size: var(--fs-mono); color: var(--text-dim); letter-spacing: 0.06em; }
+.footer a:hover { color: var(--accent); }
+
+/* ---- responsive ----------------------------------------------------------- */
+@media (max-width: 720px) {
+  .nav__links { gap: var(--sp-4); }
+  .nav__links a.hide-sm { display: none; }
+  .section { padding-block: var(--sp-16); }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
