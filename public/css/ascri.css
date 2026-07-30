@@ -155,6 +155,14 @@
 .notation-table .symbol { font-family: var(--font-mono); color: var(--accent); font-size: 1.05rem; width: 3.5rem; }
 .notation-table .name { color: var(--text); font-weight: 500; width: 9rem; }
 .notation-table .desc { color: var(--text-dim); }
+/* The two fixed columns total 12.5rem, which leaves too little for the definition
+   below ~360px and pushed the table 28px past the viewport. Relax them and let the
+   name column wrap rather than forcing a sideways scroll on the whole page. */
+@media (max-width: 480px) {
+  .notation-table .symbol { width: 2.5rem; }
+  .notation-table .name { width: auto; white-space: normal; }
+  .notation-table th, .notation-table td { padding-left: var(--sp-2); padding-right: var(--sp-2); }
+}
 
 /* inline mono notation accent (kernel symbols in prose) */
 .mono-accent { font-family: var(--font-mono); color: var(--accent); }
@@ -218,7 +226,10 @@
 /* ===========================================================================
    Scope — in/out lists and the adjacent-field comparison blocks
    =========================================================================== */
-.scope-cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr)); gap: var(--sp-8); margin-top: var(--sp-6); }
+/* min() floor, not a bare 19rem: at 320px the container is ~272px wide, so a hard
+   19rem (304px) track overflowed the viewport by 8px. This site has no
+   `overflow-x: clip` on <html>, so that overflow is a real sideways scroll. */
+.scope-cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr)); gap: var(--sp-8); margin-top: var(--sp-6); }
 .scope-list { list-style: none; padding: 0; margin: var(--sp-4) 0 0; }
 .scope-list li { position: relative; padding-left: 1.5rem; color: var(--text-dim); font-size: var(--fs-sm); line-height: 1.6; }
 .scope-list li + li { margin-top: var(--sp-3); }

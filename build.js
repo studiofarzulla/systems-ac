@@ -61,9 +61,14 @@ const submitData = loadOptional('submit.json');
 // Papers shown as cards (hidden ones are retired/subsumed — still redirected).
 const visiblePapers = papers.filter(p => !p.hidden);
 
-// CSS cache-busting hash (first 8 chars of MD5)
-const cssPath = path.join(PUBLIC, 'css', 'ascri.css');
-const CSS_HASH = crypto.createHash('md5').update(fs.readFileSync(cssPath)).digest('hex').slice(0, 8);
+// CSS cache-busting hash (first 8 chars of MD5).
+// Hashes BOTH stylesheets: system.css used to be linked with no version at all, so a
+// change to it — tokens, .grid, the nav — never reached a returning visitor until their
+// cache expired on its own. One shared hash means either file changing busts both links.
+const CSS_HASH = crypto.createHash('md5')
+  .update(fs.readFileSync(path.join(PUBLIC, 'css', 'system.css')))
+  .update(fs.readFileSync(path.join(PUBLIC, 'css', 'ascri.css')))
+  .digest('hex').slice(0, 8);
 
 // ---------------------------------------------------------------------------
 // Utilities
@@ -140,7 +145,11 @@ function paperUrl(paper) {
 
 function programmeUrl(programKey) {
   const num = programmeNumber(programKey);
-  return `/${num}`;
+  // Trailing slash matters: these pages are directory indexes (public/1/index.html), so
+  // the host 308-redirects /1 to /1/. Without the slash the canonical tag, the sitemap
+  // entry and the /programmes/<key> redirect all named a URL that redirects rather than
+  // the 200 itself.
+  return `/${num}/`;
 }
 
 // Canonical destination on dissensus.ai for this paper (clean URL).
@@ -257,7 +266,7 @@ function getHeadHtml(meta) {
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 
   <!-- CSS: shared design system + ASCRI supplement -->
-  <link rel="stylesheet" href="/css/system.css">
+  <link rel="stylesheet" href="/css/system.css?v=${CSS_HASH}">
   <link rel="stylesheet" href="/css/ascri.css?v=${CSS_HASH}">
 
   <!-- Theme: dark default, light via [data-theme="light"], persisted (fz-theme) -->
@@ -1170,19 +1179,65 @@ function build() {
   fs.writeFileSync(path.join(PUBLIC, '_redirects'), buildRedirects(), 'utf-8');
   console.log(`  Generated _redirects (${papers.length} papers + ${Object.keys(programs).length} programme aliases)`);
 
-  // --- Cache-bust CSS in hand-authored static pages ---
-  const staticPages = ['index.html', 'framework.html', 'people.html', 'about.html', 'contact.html', '404.html'];
-  let busted = 0;
-  for (const page of staticPages) {
-    const pagePath = path.join(PUBLIC, page);
-    if (fs.existsSync(pagePath)) {
-      let html = fs.readFileSync(pagePath, 'utf-8');
-      html = html.replace(/ascri\.css(\?v=[a-f0-9]*)?"/g, `ascri.css?v=${CSS_HASH}"`);
-      fs.writeFileSync(pagePath, html, 'utf-8');
-      busted++;
+  // --- Sync chrome + cache-bust CSS in hand-authored static pages ---
+  // These pages own their CONTENT but not their chrome. The nav and footer are
+  // rewritten from getNavHtml()/getFooterHtml() on every build, so adding a route
+  // updates all of them at once. Before this existed the six hand-authored pages
+  // still carried the pre-expansion five-item nav with no hamburger, while every
+  // generated page had eight items — the homepage disagreed with /scope about what
+  // the site contains.
+  const staticPages = [
+    { file: 'index.html', active: null },
+    { file: 'framework.html', active: 'framework' },
+    { file: 'people.html', active: 'people' },
+    { file: 'about.html', active: 'about' },
+    { file: 'contact.html', active: null },
+    { file: '404.html', active: null },
+  ];
+  let busted = 0, navSynced = 0, footerSynced = 0, navFnAdded = 0;
+  for (const { file, active } of staticPages) {
+    const pagePath = path.join(PUBLIC, file);
+    if (!fs.existsSync(pagePath)) continue;
+    let html = fs.readFileSync(pagePath, 'utf-8');
+
+    html = html.replace(/ascri\.css(\?v=[a-f0-9]*)?"/g, () => `ascri.css?v=${CSS_HASH}"`);
+    html = html.replace(/system\.css(\?v=[a-f0-9]*)?"/g, () => `system.css?v=${CSS_HASH}"`);
+    busted++;
+
+    const navRe = /<nav class="nav"[\s\S]*?<\/nav>/;
+    if (navRe.test(html)) {
+      html = html.replace(navRe, () => getNavHtml(active).replace(/^\s*/, ''));
+      navSynced++;
+    } else {
+      console.log(`  ! ${file}: no <nav class="nav"> block found — chrome NOT synced`);
     }
+
+    const footRe = /<footer class="footer">[\s\S]*?<\/footer>/;
+    if (footRe.test(html)) {
+      html = html.replace(footRe, () => getFooterHtml().replace(/^\s*/, ''));
+      footerSynced++;
+    } else {
+      console.log(`  ! ${file}: no <footer class="footer"> block found — chrome NOT synced`);
+    }
+
+    // The generated pages get toggleNav from getThemeScript(); these pages carry
+    // their own theme IIFE, so the hamburger needs its handler supplied separately.
+    if (!/function toggleNav|toggleNav\s*=/.test(html)) {
+      const fn = `<script>\nfunction toggleNav(btn){var m=document.getElementById('nav-menu');if(!m)return;var o=m.classList.toggle('is-open');btn.setAttribute('aria-expanded',o?'true':'false');}\n</script>\n`;
+      if (html.includes('</body>')) {
+        // Replacement function, not a string — a `$` in the injected snippet would
+        // otherwise be read as a replacement pattern.
+        html = html.replace('</body>', () => `${fn}</body>`);
+        navFnAdded++;
+      } else {
+        console.log(`  ! ${file}: no </body> — toggleNav NOT injected, hamburger will be inert`);
+      }
+    }
+
+    fs.writeFileSync(pagePath, html, 'utf-8');
   }
-  console.log(`  Cache-busted CSS (v=${CSS_HASH}) in ${busted} static pages`);
+  console.log(`  Static pages: CSS v=${CSS_HASH} in ${busted}, nav synced in ${navSynced}, `
+    + `footer synced in ${footerSynced}, toggleNav added to ${navFnAdded}`);
 
   console.log(`\nDone in ${Date.now() - start}ms.`);
 }

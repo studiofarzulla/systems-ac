@@ -128,7 +128,11 @@ img, svg { max-width: 100%; display: block; }
 .hero p { font-size: 1.2rem; margin-top: var(--sp-6); }
 
 /* ---- cards ---------------------------------------------------------------- */
-.grid { display: grid; gap: var(--sp-4); grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
+/* min() floor: a hard 300px track is wider than the container at 320px viewports and
+   pushed the homepage sideways. Unlike dissensus, this site's <html> has no
+   `overflow-x: clip`, so the overflow is a real horizontal scroll, not just a
+   reported scrollWidth. */
+.grid { display: grid; gap: var(--sp-4); grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); }
 .card {
   background: var(--surface);
   border: 1px solid var(--line);

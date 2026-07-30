@@ -8,8 +8,8 @@
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
   <!-- Fonts: self-hosted woff2 subsets, @font-face declared in ascri.css.
        No third-party font CDN. -->
-  <link rel="stylesheet" href="/css/system.css">
-  <link rel="stylesheet" href="/css/ascri.css?v=fee07560">
+  <link rel="stylesheet" href="/css/system.css?v=6dd53fb4">
+  <link rel="stylesheet" href="/css/ascri.css?v=6dd53fb4">
   <link rel="alternate" type="application/rss+xml" title="ASCRI Research Updates" href="https://systems.ac/feed.xml">
   <script>
   (function () {
@@ -32,12 +32,16 @@
 
   <nav class="nav" role="navigation" aria-label="Main navigation">
     <a href="/" class="nav__brand">ASCRI</a>
-    <div class="nav__links">
+    <button class="nav__burger" aria-label="Menu" aria-expanded="false" aria-controls="nav-menu" onclick="toggleNav(this)"><span></span><span></span><span></span></button>
+    <div class="nav__links" id="nav-menu">
       <a href="/framework">Framework</a>
+      <a href="/scope">Scope</a>
       <a href="/programmes/">Programmes</a>
+      <a href="/library/">Library</a>
+      <a href="/notes/">Notes</a>
       <a href="https://dissensus.ai/research" class="hide-sm" target="_blank" rel="noopener">Publications &rarr;</a>
-      <a href="/people" class="hide-sm">People</a>
-      <a href="/about" aria-current="page">About</a>
+      <a href="/submit">Submit</a>
+      <a href="/about" class="hide-sm" aria-current="page">About</a>
       <button class="toggle" onclick="toggleTheme()" aria-label="Toggle theme">&#9680; theme</button>
     </div>
   </nav>
@@ -114,14 +118,23 @@
       <span>&copy; 2026 ASCRI &middot; Operated by <a href="https://dissensus.ai">Dissensus</a></span>
       <span>
         <a href="/framework">Framework</a> &middot;
+        <a href="/scope">Scope</a> &middot;
         <a href="/programmes/">Programmes</a> &middot;
+        <a href="/library/">Library</a> &middot;
+        <a href="/notes/">Notes</a> &middot;
         <a href="https://dissensus.ai/research" target="_blank" rel="noopener">Publications &rarr;</a> &middot;
+        <a href="/submit">Submit</a> &middot;
         <a href="/people">People</a> &middot;
         <a href="/about">About</a> &middot;
         <a href="/contact">Contact</a> &middot;
+        <a href="https://www.linkedin.com/company/dissensus-ai/" target="_blank" rel="noopener">LinkedIn</a> &middot;
+        <a href="https://github.com/dissensus-ai" target="_blank" rel="noopener">GitHub</a> &middot;
         <a href="/feed.xml">RSS</a>
       </span>
     </div>
   </footer>
+<script>
+function toggleNav(btn){var m=document.getElementById('nav-menu');if(!m)return;var o=m.classList.toggle('is-open');btn.setAttribute('aria-expanded',o?'true':'false');}
+</script>
 </body>
 </html>
