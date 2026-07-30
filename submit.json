@@ -1,0 +1,126 @@
+{
+  "_note": "Copy for /submit. SUBMISSIONS_FORM_ID in build.js decides how each surface renders: null (the default) gives a mailto route to research@dissensus.ai plus the emailChecklist line, and setting it renders the fields below as a Formspree form.",
+  "heading": "Submit work, or attack a position",
+  "intro": "Three things you can send here: a paper for the library, a short piece for us to publish, or an argument against something this initiative has claimed. The third is the one we would most like to receive, and the one least likely to arrive on its own.\n\nWorth saying at the top, because it is easier to state than to discover: this is a small operation. Editorial work is one researcher and one research assistant, both with papers of their own in flight. There is no editorial board, no managing editor, no queue system and no budget.\n\nNone of what follows is a journal, and none of it substitutes for one. A piece published here has been read and edited by a person. It has not been refereed, and nothing here should be cited as though it has.",
+  "surfaces": [
+    {
+      "id": "recommend",
+      "kicker": "Recommend reading",
+      "title": "Point us at something worth reading",
+      "body": "[The Library](/library/) is a curated reading list on friction and adversarial dynamics in multi-agent systems: coordination costs, delegation failure, alignment drift, refusal to participate, and the traces those leave in markets, institutions and learned agents. It is not an archive, and it is not trying to be a complete bibliography of anything.\n\nEvery entry carries a short annotation saying what the work does and why it is there. If nobody here can write that annotation, the entry does not go in. The bar is therefore annotated and relevant, in that order, rather than prestigious. Send whatever you think fits: your own paper, somebody else's, new or thirty years old, published or preprint, formal or empirical.\n\nInclusion is not endorsement. An entry means the work has been read and judged relevant to the questions asked here, and that is the whole of the claim. It carries no verdict on whether the argument holds or the statistics survive, and annotations often say where we think a paper goes wrong.",
+      "expectations": [
+        "A link or a DOI, and two or three sentences on what the work claims and what that claim bears on. The second item does more work than the first; a bare link usually goes unread.",
+        "Your name, and your relationship to the work if you have one: author, co-author, supervisor, none.",
+        "Work that cuts against the programme's own claims is more useful than work that agrees with it. Null results are welcome for the same reason.",
+        "Everything gets read eventually. You get a note saying it has gone in, or a short note saying it has not.",
+        "A no does not come with a reasoned explanation, mostly because there is rarely a reason more interesting than outside what the library covers, or nobody got to it properly."
+      ],
+      "emailChecklist": "a link or DOI, two or three sentences on why it belongs, your name, and your relationship to the work if you have one.",
+      "fields": [
+        {
+          "name": "work_url",
+          "label": "Link or DOI",
+          "type": "url",
+          "required": true,
+          "placeholder": "https://doi.org/..."
+        },
+        {
+          "name": "why_relevant",
+          "label": "Why it belongs",
+          "type": "textarea",
+          "required": true,
+          "placeholder": "Two or three sentences: what it claims, and what that bears on"
+        },
+        {
+          "name": "relationship",
+          "label": "Your relationship to the work",
+          "type": "text",
+          "required": false,
+          "placeholder": "Author, co-author, supervisor, none"
+        }
+      ]
+    },
+    {
+      "id": "publish",
+      "kicker": "Write something",
+      "title": "Offer a piece for publication",
+      "body": "We publish short pieces from people outside the lab, in the territory the programme works in: coordination and its failures, delegation, legitimacy, adversarial dynamics in markets, institutions and multi-agent learning systems, and the methodological arguments around all of it. Roughly 800 to 2,500 words, with a position in it. A methodological note about something a field keeps getting wrong, a negative result too small to be a paper but too useful to bin, a close reading of someone else's work including ours, or a dissent from something already published here all count.\n\nWhat does not: product announcements, token promotion, general-audience commentary with no argument inside it, and anything that reads as generated filler. A piece that is mainly a link to somewhere else belongs in the library rather than here.\n\nA person reads it. Editing is for clarity, accuracy and citation, not for agreement, and a piece arguing that the friction framework is wrong gets the same treatment as one extending it. You see every edit before anything goes live, and you can withdraw at any point up to publication.",
+      "expectations": [
+        "There is no payment. There is no budget for it and no plan for one. If that is a dealbreaker, it is a reasonable dealbreaker.",
+        "You keep copyright and you keep authorship. What we ask for is a non-exclusive licence to publish the piece and keep it online.",
+        "The default licence is CC BY 4.0, matching the rest of what the programme publishes. You can opt out and keep it all rights reserved without that affecting whether we run it.",
+        "Republish it anywhere you like, whenever you like, including the same day. A line pointing back here is appreciated and not required.",
+        "Turnaround is slow. A first response typically takes weeks, and editing takes longer. If a month has gone by with nothing, send a reminder; that usually means the message was missed rather than declined."
+      ],
+      "emailChecklist": "a working title, one line on what the argument is, and the draft pasted in or attached. Pitches are fine, but a finished draft gets an answer faster than a pitch does.",
+      "fields": [
+        {
+          "name": "working_title",
+          "label": "Working title",
+          "type": "text",
+          "required": true,
+          "placeholder": "Short is fine"
+        },
+        {
+          "name": "argument",
+          "label": "What is the argument",
+          "type": "textarea",
+          "required": true,
+          "placeholder": "One or two sentences on the position the piece takes"
+        },
+        {
+          "name": "draft",
+          "label": "Draft, or a link to one",
+          "type": "textarea",
+          "required": true,
+          "placeholder": "Paste the draft here, or give a link to it"
+        }
+      ]
+    },
+    {
+      "id": "critique",
+      "kicker": "Attack a position",
+      "title": "Critique a position the initiative holds",
+      "body": "This is the surface that matters most, and it is the one most likely to sit empty unless people use it. The programme publishes a formal framework and a set of claims derived from it, and those claims are the target: the friction function and its kernel triple, the identification of legitimacy with consent alignment, the substrate-independence thesis, the hedging paradox, the eliminative argument in the consciousness work. Each is stated precisely enough to be wrong, which was the point of stating it that way. [The scope page](/scope) sets out what is and is not being claimed; [the publications](https://dissensus.ai/research) contain the claims themselves.\n\nA framework that has never been attacked in public has not been tested, only ignored politely. Referees do this work under anonymity and under embargo, with the result that the strongest objections to a paper are usually invisible to everyone reading it. This surface exists to put some of that back in the open.\n\nSubstantive critiques are published on this site alongside the position they attack, with a link from the position's own page pointing to the critique. Not in a comments section, not in an appendix, and not somewhere the original never mentions. The author of the position gets a right of reply, published with the critique or after it; the reply does not gate publication and does not get to hold the critique while it is written.",
+      "expectations": [
+        "Attack the argument. Not the author, the affiliation, the lab's size, the venue, or the fact that this is independent research. Those are all true and none of them are objections.",
+        "Cite the specific claim: the paper, the section, the equation, the page. *The framework is unfalsifiable* is a mood. *Equation 3 in §2 is invariant under the transformation X, so the prediction in §5 does not follow* is a critique.",
+        "No anonymous drive-bys. Critiques are published with a name attached. A pseudonym with a stable public record is considered case by case; a first-contact anonymous message is not.",
+        "Length is whatever the argument needs. Three paragraphs taking apart one step of a derivation are worth more than five thousand words of general scepticism.",
+        "If the critique is right, the paper gets corrected and the correction says who found the error. If we think it is wrong, it still goes up, with the disagreement stated rather than smoothed over. The critiques we cannot answer are the useful ones."
+      ],
+      "emailChecklist": "the paper and the specific claim you are attacking, located by section, equation or page; the argument itself; and the name you want it published under.",
+      "fields": [
+        {
+          "name": "target_claim",
+          "label": "Which claim, and where",
+          "type": "text",
+          "required": true,
+          "placeholder": "Paper, section, equation or page"
+        },
+        {
+          "name": "critique",
+          "label": "The critique",
+          "type": "textarea",
+          "required": true,
+          "placeholder": "Which step fails, and why it fails"
+        },
+        {
+          "name": "publish_as",
+          "label": "Name to publish it under",
+          "type": "text",
+          "required": true,
+          "placeholder": "As it should appear beside the position"
+        }
+      ]
+    }
+  ],
+  "standards": [
+    "Nothing is published anonymously. Every piece and every critique carries a name; pseudonyms with an established public record are considered individually, and anonymity is never granted retrospectively.",
+    "Errors get corrected in public. The page is amended, the change is dated and described at the foot of the piece, and whoever found the error is named unless they ask otherwise. Silent edits are limited to typography.",
+    "Conflicts of interest are disclosed: funding, employment, advisory positions, equity, and personal relationships with anyone whose work is under discussion. Disclose it and it runs as a note; failing to disclose is the only thing that gets a piece pulled after publication.",
+    "The initiative publishes critiques of its own work. Objections to positions held here appear on this site, linked from the positions they attack, and that is a standing commitment rather than a case-by-case editorial judgement.",
+    "Inclusion is not endorsement, and publication is not peer review. The library records what has been read; a published piece has been edited by a person for clarity and accuracy. Neither carries the certification a refereed journal offers."
+  ],
+  "capacityNote": "The honest version is worth stating rather than discovering. Editorial work here is one researcher and one research assistant, both working on their own papers, fitted around submission deadlines and review cycles. A submission may sit unread for a fortnight, a reply usually arrives in weeks rather than days, and editing a piece to publication can take a month or more. Most things sent will be declined, and the decline will be short. Nothing is lost deliberately, but things do get lost, so a reminder after a month is a courtesy rather than a nuisance.\n\nIf you need a fast decision, a guaranteed reply, a formal review record, or anything that will count on a promotion case, this is the wrong venue and a journal is the right one. What is on offer instead is that a person will actually read what you send and respond to the argument in it."
+}

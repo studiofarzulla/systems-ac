@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notes | ASCRI</title>
+  <meta name="description" content="Working notes, reference material, and writeups from the initiative — published because someone else might find them useful, not as portfolio claims.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Favicon -->
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+
+  <!-- CSS: shared design system + ASCRI supplement -->
+  <link rel="stylesheet" href="/css/system.css">
+  <link rel="stylesheet" href="/css/ascri.css?v=da47e1e7">
+
+  <!-- Theme: dark default, light via [data-theme="light"], persisted (fz-theme) -->
+  <script>
+  (function(){var t=localStorage.getItem('fz-theme')||'dark';if(t==='light')document.documentElement.setAttribute('data-theme','light');})();
+  </script>
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://systems.ac/notes/">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="ASCRI Research Updates" href="https://systems.ac/feed.xml">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Notes">
+  <meta property="og:description" content="Working notes, reference material, and writeups from the initiative — published because someone else might find them useful, not as portfolio claims.">
+  <meta property="og:url" content="https://systems.ac/notes/">
+  <meta property="og:site_name" content="ASCRI">
+  <meta property="og:image" content="https://systems.ac/assets/og-default.png">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Notes">
+  <meta name="twitter:description" content="Working notes, reference material, and writeups from the initiative — published because someone else might find them useful, not as portfolio claims.">
+  <meta name="twitter:image" content="https://systems.ac/assets/og-default.png">
+</head>
+<body class="has-nav">
+  <a href="#content" class="skip-link">Skip to content</a>
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <a href="/" class="nav__brand">ASCRI</a>
+    <button class="nav__burger" aria-label="Menu" aria-expanded="false" aria-controls="nav-menu" onclick="toggleNav(this)"><span></span><span></span><span></span></button>
+    <div class="nav__links" id="nav-menu">
+      <a href="/framework">Framework</a>
+      <a href="/scope">Scope</a>
+      <a href="/programmes/">Programmes</a>
+      <a href="/library/">Library</a>
+      <a href="/notes/" aria-current="page">Notes</a>
+      <a href="https://dissensus.ai/research" class="hide-sm" target="_blank" rel="noopener">Publications &rarr;</a>
+      <a href="/submit">Submit</a>
+      <a href="/about" class="hide-sm">About</a>
+      <button class="toggle" onclick="toggleTheme()" aria-label="Toggle theme">&#9680; theme</button>
+    </div>
+  </nav>
+  <div id="content">
+  
+  <main>
+    <header class="container hero">
+      <span class="kicker">Working material</span>
+      <h1>Notes</h1>
+      <hr class="rule">
+      <p>Material that is not a paper. Some of it is speculative, some is a byproduct of work published elsewhere, some is reference material we needed and could not find. It is here because someone else might want it, not because it is finished.</p>
+      <p style="margin-top:var(--sp-4);">Each note states plainly what it is and what it is not. Peer-reviewed work lives on <a href="https://dissensus.ai/research" target="_blank" rel="noopener">dissensus.ai</a>.</p>
+    </header>
+    <section class="section container">
+      <div class="note-list">
+
+        <article class="note">
+          <span class="note__kind">Reference</span>
+          <h3><a href="/notes/notation-reference">Notation reference for the consent-friction framework</a></h3>
+          <p>The consent-friction papers run on a small set of recurring symbols, and the lab&#039;s own web pages have not agreed with the papers about what those symbols mean. This entry fixes the canonical set as it is written in the manuscripts, defines each symbol against the definition it comes from, and records which published surfaces depart from it. It is a byproduct of an audit rather than a contribution, and it exists so that a reader moving between the papers and the sites can tell which version is load-bearing.</p>
+          <ul class="note__caveats">
+            <li>Unreviewed. This is an audit note with no new mathematics; it records what the manuscripts say and where the sites departed from it.</li>
+            <li>Partially acted on. The `φ` and `η` discrepancies were corrected on both sites on 30 July 2026; the `Λ` and `Ψ` entries were left alone because the papers do not define them and picking a symbol is an authorial decision.</li>
+          </ul>
+          <div class="note__foot"><a href="/notes/notation-reference">Read &rarr;</a></div>
+        </article>
+        <article class="note">
+          <span class="note__kind">Proof library</span>
+          <h3><a href="/notes/lean-formalisations">FarzullaProofs — Lean 4 formalisations</a></h3>
+          <p>FarzullaProofs is a Lean 4 library that restates selected results from the lab&#039;s papers as machine-checked theorems. The public repository holds 246 theorems across fifteen paper modules plus a shared library, compiling against Lean 4 v4.27.0 and Mathlib with no `sorry` placeholders, no custom axioms and no `native_decide`. Formalisation depth varies a great deal between modules: several map onto named propositions in the manuscripts, others formalise a simplified algebraic stand-in for the construct the paper is actually about.</p>
+          <ul class="note__caveats">
+            <li>Unreviewed. Machine-checking establishes that proofs follow from the definitions given, not that those definitions render the papers&#039; constructs faithfully.</li>
+            <li>One module is entirely conditional on a posited quadratic entropy response that is neither derived nor estimated from data, and the ledger separately records that the modelled entropy at the optimum can fall outside the Axiom of Consent&#039;s own entropy domain. That module is also the unpushed one.</li>
+          </ul>
+          <div class="note__foot"><a href="/notes/lean-formalisations">Read &rarr;</a></div>
+        </article>
+        <article class="note">
+          <span class="note__kind">Note</span>
+          <h3><a href="/notes/quantum-oscillatory-sampling">Quantum Statistics from Oscillatory Sampling: A Detection-Theoretic Derivation of the Born Rule</a></h3>
+          <p>A note asking why quantum measurement probabilities go as the square of the amplitude rather than any other power. It models a particle as a slowly varying envelope riding a very fast carrier oscillation, and treats measurement the way an engineer would treat a radio receiver or a photomultiplier: finite-window demodulation, then threshold crossing in noise. It is speculative physics written by a researcher in computational finance and AI alignment, working outside his field and with no physics affiliation, and it is posted as a note rather than as a claim on the subject.</p>
+          <ul class="note__caveats">
+            <li>Unreviewed. Zenodo preprint only, never submitted to a physics journal, and no arXiv, SSRN or PhilArchive record exists. The author works in computational finance and AI alignment and holds no physics affiliation.</li>
+            <li>The code is not deposited, and the paper says otherwise. The published PDF states in two places that the source and the saved numerical outputs accompany the paper. Checked against the Zenodo API on 30 July 2026, every version of the record contains exactly one file, a PDF; there is no code archive, no dataset and no public repository. The simulations exist only on a local disk. An earlier public claim that the code was on Zenodo was false; a website correction was made in July 2026, the same correction has not been made inside the paper, and the packaging has not happened in the six weeks since.</li>
+          </ul>
+          <div class="note__foot"><a href="/notes/quantum-oscillatory-sampling">Read &rarr;</a></div>
+        </article>
+        <article class="note">
+          <span class="note__kind">Note</span>
+          <h3><a href="/notes/consciousness-nominalization">Consciousness as Nominalization Error: Dissolving the Hard Problem via Grammatical Reform</a></h3>
+          <p>A seventeen-page paper arguing that the hard problem of consciousness is an artefact of grammar rather than a metaphysical puzzle. The noun consciousness nominalises a verb, turning the activity of being conscious into a pseudo-object that then appears to demand explanation; repose the question as what is happening when an organism is being conscious, and what remains is an ordinary empirical question. It was written as a condensation of a longer monograph and has since been folded back into it.</p>
+          <ul class="note__caveats">
+            <li>No external peer review on either artefact. Both are preprint deposits; neither has been through a journal.</li>
+            <li>The deposited monograph is behind its own source, and the gap is substantive. An internal panel review returned a revise verdict, and the subsequent local rebuild reframes a network-epistemology result as running counter to the classic effect, explicitly withdraws a claim about intelligence and suicidality, and removes a cross-model validation section whose supporting appendix contained only Claude excerpts. A reader who fetches the concept DOI today still gets all three. Depositing the next version closes it.</li>
+          </ul>
+          <div class="note__foot"><a href="/notes/consciousness-nominalization">Read &rarr;</a></div>
+        </article>
+        <article class="note">
+          <span class="note__kind">Working paper</span>
+          <h3><a href="/notes/preservation-principle">The Preservation Principle: When Identity Survives Scale Transition</a></h3>
+          <p>A 23-page draft from December 2025 proposing a single meta-principle behind several problems normally treated separately: identity survives a transformation if and only if the transformation respects the equivalence relations constituting that identity. It runs the principle through three cases and argues that memory terms, superposition and the hard problem of consciousness are artefacts of failed transformation rather than features of the world. It was never deposited, has no DOI, and the later work no longer depends on it; it is posted here as a byproduct on the grounds that the cross-domain framing may still be useful to someone.</p>
+          <ul class="note__caveats">
+            <li>Not public and unreviewed. No peer review, no external reading, no deposit, no DOI and no arXiv identifier; its own README still has compile and debug, peer review, and upload as unticked next steps. A systems.ac record describing it as a preprint is unsupported, and the PDF it points at does not exist anywhere.</li>
+            <li>The compiled PDF has a broken figure: the naturality square uses a `tikzcd` environment that the preamble never loads, so the diagram does not render and the category-theoretic backbone is asserted in prose.</li>
+          </ul>
+          <div class="note__foot"><a href="/notes/preservation-principle">Read &rarr;</a></div>
+        </article>
+      </div>
+    </section>
+  </main>
+  </div>
+  <footer class="footer">
+    <div class="container" style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:1rem;">
+      <span>&copy; 2026 ASCRI &middot; Operated by <a href="https://dissensus.ai">Dissensus</a></span>
+      <span>
+        <a href="/framework">Framework</a> &middot;
+        <a href="/scope">Scope</a> &middot;
+        <a href="/programmes/">Programmes</a> &middot;
+        <a href="/library/">Library</a> &middot;
+        <a href="/notes/">Notes</a> &middot;
+        <a href="https://dissensus.ai/research" target="_blank" rel="noopener">Publications &rarr;</a> &middot;
+        <a href="/submit">Submit</a> &middot;
+        <a href="/people">People</a> &middot;
+        <a href="/about">About</a> &middot;
+        <a href="/contact">Contact</a> &middot;
+        <a href="https://www.linkedin.com/company/dissensus-ai/" target="_blank" rel="noopener">LinkedIn</a> &middot;
+        <a href="https://github.com/dissensus-ai" target="_blank" rel="noopener">GitHub</a> &middot;
+        <a href="/feed.xml">RSS</a>
+      </span>
+    </div>
+  </footer>
+  <script>
+function toggleTheme(){var h=document.documentElement;if(h.getAttribute('data-theme')==='light'){h.removeAttribute('data-theme');localStorage.setItem('fz-theme','dark');}else{h.setAttribute('data-theme','light');localStorage.setItem('fz-theme','light');}}
+function toggleNav(btn){var m=document.getElementById('nav-menu');if(!m)return;var o=m.classList.toggle('is-open');btn.setAttribute('aria-expanded',o?'true':'false');}
+</script>
+</body>
+</html>

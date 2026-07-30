@@ -40,6 +40,32 @@
 /* active nav link (shared nav has no active state of its own) */
 .nav__links a[aria-current="page"] { color: var(--accent); }
 
+/* hamburger — this site's system.css predates the shared burger, so the control
+   lives in the site layer. Collapses the nav to a dropdown below 880px, which the
+   expanded IA (framework/scope/programmes/library/notes/submit) needs. */
+.nav__burger {
+  display: none; flex-direction: column; justify-content: center; gap: 4px;
+  width: 38px; height: 34px; padding: 0 8px; background: transparent;
+  border: 1px solid var(--line); border-radius: var(--radius); cursor: pointer;
+}
+.nav__burger span { display: block; height: 2px; width: 100%; background: var(--text); transition: transform 0.2s ease, opacity 0.2s ease; }
+.nav__burger[aria-expanded="true"] span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.nav__burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.nav__burger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+@media (max-width: 880px) {
+  .nav { flex-wrap: wrap; }
+  .nav__burger { display: flex; }
+  .nav__links {
+    display: none; flex-direction: column; align-items: flex-start;
+    width: 100%; gap: var(--sp-4); padding: var(--sp-4) 0 var(--sp-2);
+    border-top: 1px solid var(--line); margin-top: var(--sp-4);
+  }
+  .nav__links.is-open { display: flex; }
+  /* the burger makes hiding links unnecessary — everything is reachable in the drawer */
+  .nav__links a.hide-sm { display: block; }
+}
+
 /* meta row inside cards lays pill + venue + year on one line */
 .card__meta { display: flex; align-items: center; gap: var(--sp-2); flex-wrap: wrap; }
 .card__meta .tag { text-transform: none; }
@@ -133,3 +159,99 @@
   display: inline-block; margin-bottom: var(--sp-6);
 }
 .back-link:hover { color: var(--accent); }
+
+/* ===========================================================================
+   Library — annotated external work. Rows, not cards: the annotation is the
+   point and it needs measure, so these read as a bibliography with commentary.
+   =========================================================================== */
+.entry { padding: var(--sp-6) 0; border-top: 1px solid var(--line); }
+.entry:first-of-type { border-top: 0; }
+.entry__meta { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-3);
+  font-family: var(--font-mono); font-size: var(--fs-mono); color: var(--text-dim); letter-spacing: 0.04em; }
+.entry__title { font-size: 1.08rem; font-weight: 600; color: var(--text); margin: var(--sp-2) 0 var(--sp-1); line-height: 1.35; }
+.entry__title a { color: var(--text); }
+.entry__title a:hover { color: var(--accent); }
+.entry__authors { font-size: var(--fs-sm); color: var(--text-dim); }
+.entry__note { font-size: var(--fs-sm); color: var(--text-dim); margin-top: var(--sp-3);
+  max-width: var(--measure); border-left: 2px solid var(--line); padding-left: var(--sp-4); }
+.entry__ids { display: flex; flex-wrap: wrap; gap: var(--sp-4); margin-top: var(--sp-3);
+  font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.04em; }
+
+/* section-scoped filter chips */
+.chips { display: flex; flex-wrap: wrap; gap: var(--sp-2); margin-top: var(--sp-6); }
+.chip { font-family: var(--font-mono); font-size: var(--fs-mono); letter-spacing: 0.06em;
+  border: 1px solid var(--line); border-radius: 100px; padding: 3px var(--sp-3);
+  color: var(--text-dim); background: transparent; cursor: pointer; }
+.chip:hover { border-color: var(--accent); color: var(--accent); }
+.chip[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); background: var(--surface); }
+
+/* ===========================================================================
+   Scope — in/out lists and the adjacent-field comparison blocks
+   =========================================================================== */
+.scope-cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr)); gap: var(--sp-8); margin-top: var(--sp-6); }
+.scope-list { list-style: none; padding: 0; margin: var(--sp-4) 0 0; }
+.scope-list li { position: relative; padding-left: 1.5rem; color: var(--text-dim); font-size: var(--fs-sm); line-height: 1.6; }
+.scope-list li + li { margin-top: var(--sp-3); }
+.scope-list li::before { position: absolute; left: 0; font-family: var(--font-mono); }
+.scope-list--in li::before { content: "+"; color: var(--accent); }
+.scope-list--out li::before { content: "\2212"; color: var(--text-dim); }
+
+.adjacent { padding: var(--sp-6) 0; border-top: 1px solid var(--line); }
+.adjacent:first-of-type { border-top: 0; }
+.adjacent h3 { color: var(--text); margin-bottom: var(--sp-3); }
+.adjacent__row { display: grid; grid-template-columns: 8.5rem 1fr; gap: var(--sp-3) var(--sp-4); align-items: baseline; }
+.adjacent__row + .adjacent__row { margin-top: var(--sp-3); }
+.adjacent__k { font-family: var(--font-mono); font-size: var(--fs-mono); text-transform: uppercase;
+  letter-spacing: 0.08em; color: var(--text-dim); }
+.adjacent__v { color: var(--text-dim); font-size: var(--fs-sm); line-height: 1.6; }
+.adjacent__v strong { color: var(--text); font-weight: 500; }
+@media (max-width: 620px) { .adjacent__row { grid-template-columns: 1fr; gap: var(--sp-1); } }
+
+/* ===========================================================================
+   Submit — forms and editorial standards
+   =========================================================================== */
+.form { display: flex; flex-direction: column; gap: var(--sp-4); margin-top: var(--sp-6); max-width: 40rem; }
+.form__row { display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: var(--sp-4); }
+.form label { display: flex; flex-direction: column; gap: var(--sp-2);
+  font-family: var(--font-mono); font-size: var(--fs-mono); text-transform: uppercase;
+  letter-spacing: 0.08em; color: var(--text-dim); }
+.form input, .form select, .form textarea {
+  font-family: inherit; font-size: var(--fs-body); color: var(--text);
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: var(--sp-3); width: 100%; text-transform: none; letter-spacing: normal;
+}
+.form textarea { min-height: 9rem; resize: vertical; }
+.form input:focus, .form select:focus, .form textarea:focus { outline: 2px solid var(--accent); outline-offset: 1px; border-color: var(--accent); }
+.form__hint { font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-dim); text-transform: none; letter-spacing: 0.02em; }
+.form button { align-self: flex-start; }
+
+.standards { list-style: none; padding: 0; margin-top: var(--sp-4); }
+.standards li { position: relative; padding-left: 1.5rem; color: var(--text-dim); font-size: var(--fs-sm); line-height: 1.6; max-width: var(--measure); }
+.standards li + li { margin-top: var(--sp-3); }
+.standards li::before { content: "\00A7"; position: absolute; left: 0; font-family: var(--font-mono); color: var(--accent); }
+
+/* honest-capacity / caveat callout */
+.caveat { border-left: 3px solid var(--accent); background: var(--surface); border-radius: var(--radius);
+  padding: var(--sp-5) var(--sp-6); margin-top: var(--sp-6); }
+.caveat p { font-size: var(--fs-sm); color: var(--text-dim); max-width: var(--measure); }
+.caveat__label { font-family: var(--font-mono); font-size: var(--fs-mono); text-transform: uppercase;
+  letter-spacing: 0.14em; color: var(--accent); display: block; margin-bottom: var(--sp-2); }
+
+/* ===========================================================================
+   Notes — the lab's informal writeups and reference material
+   =========================================================================== */
+.note-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 24rem), 1fr)); gap: var(--sp-4); margin-top: var(--sp-6); }
+.note { display: flex; flex-direction: column; background: var(--surface); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: var(--sp-6); transition: border-color 0.2s ease; }
+.note:hover { border-color: var(--accent); }
+.note__kind { font-family: var(--font-mono); font-size: var(--fs-mono); text-transform: uppercase;
+  letter-spacing: 0.1em; color: var(--text-dim); }
+.note h3 { margin: var(--sp-3) 0; color: var(--text); font-size: 1.05rem; }
+.note p { font-size: var(--fs-sm); color: var(--text-dim); }
+.note__foot { margin-top: auto; padding-top: var(--sp-4);
+  font-family: var(--font-mono); font-size: var(--fs-mono); }
+.note__caveats { list-style: none; padding: 0; margin-top: var(--sp-3); }
+.note__caveats li { font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-dim);
+  position: relative; padding-left: 1rem; line-height: 1.5; }
+.note__caveats li + li { margin-top: 0.25rem; }
+.note__caveats li::before { content: "!"; position: absolute; left: 0; color: var(--accent); }

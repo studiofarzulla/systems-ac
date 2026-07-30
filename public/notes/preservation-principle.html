@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Preservation Principle: When Identity Survives Scale Transition | ASCRI</title>
+  <meta name="description" content="A 23-page draft from December 2025 proposing a single meta-principle behind several problems normally treated separately: identity survives a transformation if and only if the transformation respects the equivalence relations constituting that identity. It runs the principle through three cases and argues that memory terms, superposition and the hard problem of consciousness are artefacts of failed transformation rather than features of the world. It was never deposited, has no DOI, and the later work no longer depends on it; it is posted here as a byproduct on the grounds that the cross-domain framing may still be useful to someone.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Favicon -->
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+
+  <!-- CSS: shared design system + ASCRI supplement -->
+  <link rel="stylesheet" href="/css/system.css">
+  <link rel="stylesheet" href="/css/ascri.css?v=da47e1e7">
+
+  <!-- Theme: dark default, light via [data-theme="light"], persisted (fz-theme) -->
+  <script>
+  (function(){var t=localStorage.getItem('fz-theme')||'dark';if(t==='light')document.documentElement.setAttribute('data-theme','light');})();
+  </script>
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://systems.ac/notes/preservation-principle">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="ASCRI Research Updates" href="https://systems.ac/feed.xml">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="The Preservation Principle: When Identity Survives Scale Transition">
+  <meta property="og:description" content="A 23-page draft from December 2025 proposing a single meta-principle behind several problems normally treated separately: identity survives a transformation if and only if the transformation respects the equivalence relations constituting that identity. It runs the principle through three cases and argues that memory terms, superposition and the hard problem of consciousness are artefacts of failed transformation rather than features of the world. It was never deposited, has no DOI, and the later work no longer depends on it; it is posted here as a byproduct on the grounds that the cross-domain framing may still be useful to someone.">
+  <meta property="og:url" content="https://systems.ac/notes/preservation-principle">
+  <meta property="og:site_name" content="ASCRI">
+  <meta property="og:image" content="https://systems.ac/assets/og-default.png">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Preservation Principle: When Identity Survives Scale Transition">
+  <meta name="twitter:description" content="A 23-page draft from December 2025 proposing a single meta-principle behind several problems normally treated separately: identity survives a transformation if and only if the transformation respects the equivalence relations constituting that identity. It runs the principle through three cases and argues that memory terms, superposition and the hard problem of consciousness are artefacts of failed transformation rather than features of the world. It was never deposited, has no DOI, and the later work no longer depends on it; it is posted here as a byproduct on the grounds that the cross-domain framing may still be useful to someone.">
+  <meta name="twitter:image" content="https://systems.ac/assets/og-default.png">
+</head>
+<body class="has-nav">
+  <a href="#content" class="skip-link">Skip to content</a>
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <a href="/" class="nav__brand">ASCRI</a>
+    <button class="nav__burger" aria-label="Menu" aria-expanded="false" aria-controls="nav-menu" onclick="toggleNav(this)"><span></span><span></span><span></span></button>
+    <div class="nav__links" id="nav-menu">
+      <a href="/framework">Framework</a>
+      <a href="/scope">Scope</a>
+      <a href="/programmes/">Programmes</a>
+      <a href="/library/">Library</a>
+      <a href="/notes/" aria-current="page">Notes</a>
+      <a href="https://dissensus.ai/research" class="hide-sm" target="_blank" rel="noopener">Publications &rarr;</a>
+      <a href="/submit">Submit</a>
+      <a href="/about" class="hide-sm">About</a>
+      <button class="toggle" onclick="toggleTheme()" aria-label="Toggle theme">&#9680; theme</button>
+    </div>
+  </nav>
+  <div id="content">
+  
+  <main>
+    <header class="container hero">
+      <a href="/notes/" class="back-link">&larr; All notes</a>
+      <span class="kicker">Working paper</span>
+      <h1>The Preservation Principle: When Identity Survives Scale Transition</h1>
+      <hr class="rule">
+      <p>A 23-page draft from December 2025 proposing a single meta-principle behind several problems normally treated separately: identity survives a transformation if and only if the transformation respects the equivalence relations constituting that identity. It runs the principle through three cases and argues that memory terms, superposition and the hard problem of consciousness are artefacts of failed transformation rather than features of the world. It was never deposited, has no DOI, and the later work no longer depends on it; it is posted here as a byproduct on the grounds that the cross-domain framing may still be useful to someone.</p>
+    </header>
+    <section class="section container">
+      <span class="index">01 &middot; Why it might be useful</span>
+      <h2>Who this is for</h2>
+      <div class="prose" style="max-width:var(--measure);">
+        <p>Two audiences. First, anyone working on emergence, inter-level reduction or coarse-graining who wants the Markov lumpability condition and the Nyquist sampling bound stated side by side in one place. Those literatures rarely cite each other, and the draft&#039;s claim that they are the same constraint is at least a clear, attackable target.</p>
+        <p>Second, anyone reading the rest of the portfolio who wants to see how ROM, the oscillatory-sampling quantum work and the consciousness-nominalisation argument were meant to fit together. This is the only document that states that intended connective structure; none of the deposited pieces does.</p>
+      </div>
+      <div class="prose" style="max-width:var(--measure);margin-top:var(--sp-8);">
+      <h3>The claim</h3>
+      <p>Identity survives a transformation if and only if the transformation respects the equivalence relations constituting that identity. The draft runs this through three cases: lumpability conditions when coarse-graining political dynamics, Nyquist conditions when sampling a physical system, and structure preservation when a process is nominalised into a noun. Category-theoretic naturality is offered as the shared backbone.</p>
+        <p>Where preservation fails, the draft predicts a specific signature in each domain: memory terms in coarse-grained dynamics, aliasing in undersampled signals, pseudo-entities in nominalised language. These are offered as diagnostics rather than as discoveries, and the parallel is exhibited case by case rather than proved.</p>
+        <p>The draft states its own limits in its closing section: it does not explain why any structure exists, does not derive the dynamics of any domain, and does not claim to dissolve every hard problem.</p>
+
+      <h3>Standalone, but superseded in role</h3>
+      <p>It is a standalone document, not a section of another paper. It was drafted as its own paper and never folded into anything. But it is derivative by construction: its own README names the three earlier drafts it synthesises, and the later work has routed around it. The sentence in the Identity Thesis that once pointed readers to the Preservation Principle by name now attributes the formal development to ROM instead. The forwarding pointer was rewritten; the draft was left where it was.</p>
+        <p>A reader wanting the formal development should read <a href="https://arxiv.org/abs/2601.06363" target="_blank" rel="noopener">the Replicator-Optimization Mechanism</a>, and for the identity argument the <a href="https://doi.org/10.5281/zenodo.18186444" target="_blank" rel="noopener">Identity Thesis</a>. This draft is worth reading only for the cross-domain framing that neither of those states.</p>
+        <p>Status, plainly: not public. No deposit, no DOI, no arXiv identifier. A site listing that describes it as a preprint is wrong, and the file it points at does not exist.</p>
+
+      <h3>What is broken in the draft as it stands</h3>
+      <p>The compiled PDF has a broken figure. The naturality square uses a <code>tikzcd</code> environment while the preamble loads <code>tikz</code> only, so the compile logs undefined control sequences and the diagram does not render. The category-theoretic backbone is therefore asserted in prose in the artefact as it currently stands.</p>
+        <p>The necessity direction of the lumpability theorem is a two-sentence sketch rather than a proof. A 1,137-line cosmology chapter sits in the paper directory but is never included by the main file; it duplicates and extends a cosmology subsection that is in the main text, and which of the two is intended is not recorded anywhere. That cosmological material, a self-sustaining oscillatory phase field with a claimed convergence to Penrose&#039;s conformal cyclic cosmology, is the least supported part of the document, and the main argument does not need it.</p></div>
+    </section>
+    <section class="section container">
+      <span class="index">02 &middot; Claims</span>
+      <h2>What it argues</h2>
+      <ul class="scope-list scope-list--in">
+        <li>Markov lumpability, the Nyquist sampling bound and structure-preserving nominalisation are presented as three instantiations of one constraint, with category-theoretic naturality as the shared backbone. The draft claims structural identity rather than analogy, but exhibits the parallel case by case; it does not prove it.</li>
+        <li>Where preservation fails, the draft predicts a domain-specific signature: memory terms in coarse-grained dynamics, aliasing in undersampled signals, pseudo-entities in nominalised language. Offered as diagnostics, not discoveries.</li>
+        <li>It is a standalone document rather than a section of another paper, but superseded in role: the formal development it was meant to supply is now attributed to ROM.</li>
+        <li>The draft states its own limits explicitly. It does not explain why any structure exists, does not derive the dynamics of any domain, and does not claim to dissolve every hard problem.</li>
+      </ul>
+    </section>
+    <section class="section container">
+      <span class="index">03 &middot; Status</span>
+      <h2>What this is not</h2>
+      <ul class="standards">
+        <li>Not public and unreviewed. No peer review, no external reading, no deposit, no DOI and no arXiv identifier; its own README still has compile and debug, peer review, and upload as unticked next steps. A systems.ac record describing it as a preprint is unsupported, and the PDF it points at does not exist anywhere.</li>
+        <li>The compiled PDF has a broken figure: the naturality square uses a <code>tikzcd</code> environment that the preamble never loads, so the diagram does not render and the category-theoretic backbone is asserted in prose.</li>
+        <li>The necessity direction of the lumpability theorem is a two-sentence sketch, not a proof, and an unused 1,137-line cosmology chapter duplicates and extends material in the main text with no record of which is intended.</li>
+        <li>The ROM leg rests on material with known problems. An external review in July 2026 confirmed three mathematical errors in ROM&#039;s live appendices. The lumpability theorem is not among them, but the appendix quantifying the memory penalty from non-lumpable coarse-graining has a proof that does not establish its stated bound, so anyone building on the claim that violation produces memory terms should check that leg independently.</li>
+      </ul>
+    </section>
+    <section class="section container">
+      <span class="index">05 &middot; Respond</span>
+      <h2>Think this is wrong?</h2>
+      <p>Notes are the part of the programme most likely to contain errors, because nothing here has been through review. If you can show a step does not follow, <a href="/submit#critique">say so</a> and we will publish it.</p>
+    </section>
+  </main>
+  </div>
+  <footer class="footer">
+    <div class="container" style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:1rem;">
+      <span>&copy; 2026 ASCRI &middot; Operated by <a href="https://dissensus.ai">Dissensus</a></span>
+      <span>
+        <a href="/framework">Framework</a> &middot;
+        <a href="/scope">Scope</a> &middot;
+        <a href="/programmes/">Programmes</a> &middot;
+        <a href="/library/">Library</a> &middot;
+        <a href="/notes/">Notes</a> &middot;
+        <a href="https://dissensus.ai/research" target="_blank" rel="noopener">Publications &rarr;</a> &middot;
+        <a href="/submit">Submit</a> &middot;
+        <a href="/people">People</a> &middot;
+        <a href="/about">About</a> &middot;
+        <a href="/contact">Contact</a> &middot;
+        <a href="https://www.linkedin.com/company/dissensus-ai/" target="_blank" rel="noopener">LinkedIn</a> &middot;
+        <a href="https://github.com/dissensus-ai" target="_blank" rel="noopener">GitHub</a> &middot;
+        <a href="/feed.xml">RSS</a>
+      </span>
+    </div>
+  </footer>
+  <script>
+function toggleTheme(){var h=document.documentElement;if(h.getAttribute('data-theme')==='light'){h.removeAttribute('data-theme');localStorage.setItem('fz-theme','dark');}else{h.setAttribute('data-theme','light');localStorage.setItem('fz-theme','light');}}
+function toggleNav(btn){var m=document.getElementById('nav-menu');if(!m)return;var o=m.classList.toggle('is-open');btn.setAttribute('aria-expanded',o?'true':'false');}
+</script>
+</body>
+</html>

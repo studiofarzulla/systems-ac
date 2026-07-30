@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FarzullaProofs — Lean 4 formalisations | ASCRI</title>
+  <meta name="description" content="FarzullaProofs is a Lean 4 library that restates selected results from the lab&#039;s papers as machine-checked theorems. The public repository holds 246 theorems across fifteen paper modules plus a shared library, compiling against Lean 4 v4.27.0 and Mathlib with no `sorry` placeholders, no custom axioms and no `native_decide`. Formalisation depth varies a great deal between modules: several map onto named propositions in the manuscripts, others formalise a simplified algebraic stand-in for the construct the paper is actually about.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Favicon -->
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+
+  <!-- CSS: shared design system + ASCRI supplement -->
+  <link rel="stylesheet" href="/css/system.css">
+  <link rel="stylesheet" href="/css/ascri.css?v=da47e1e7">
+
+  <!-- Theme: dark default, light via [data-theme="light"], persisted (fz-theme) -->
+  <script>
+  (function(){var t=localStorage.getItem('fz-theme')||'dark';if(t==='light')document.documentElement.setAttribute('data-theme','light');})();
+  </script>
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://systems.ac/notes/lean-formalisations">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="ASCRI Research Updates" href="https://systems.ac/feed.xml">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="FarzullaProofs — Lean 4 formalisations">
+  <meta property="og:description" content="FarzullaProofs is a Lean 4 library that restates selected results from the lab&#039;s papers as machine-checked theorems. The public repository holds 246 theorems across fifteen paper modules plus a shared library, compiling against Lean 4 v4.27.0 and Mathlib with no `sorry` placeholders, no custom axioms and no `native_decide`. Formalisation depth varies a great deal between modules: several map onto named propositions in the manuscripts, others formalise a simplified algebraic stand-in for the construct the paper is actually about.">
+  <meta property="og:url" content="https://systems.ac/notes/lean-formalisations">
+  <meta property="og:site_name" content="ASCRI">
+  <meta property="og:image" content="https://systems.ac/assets/og-default.png">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="FarzullaProofs — Lean 4 formalisations">
+  <meta name="twitter:description" content="FarzullaProofs is a Lean 4 library that restates selected results from the lab&#039;s papers as machine-checked theorems. The public repository holds 246 theorems across fifteen paper modules plus a shared library, compiling against Lean 4 v4.27.0 and Mathlib with no `sorry` placeholders, no custom axioms and no `native_decide`. Formalisation depth varies a great deal between modules: several map onto named propositions in the manuscripts, others formalise a simplified algebraic stand-in for the construct the paper is actually about.">
+  <meta name="twitter:image" content="https://systems.ac/assets/og-default.png">
+</head>
+<body class="has-nav">
+  <a href="#content" class="skip-link">Skip to content</a>
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <a href="/" class="nav__brand">ASCRI</a>
+    <button class="nav__burger" aria-label="Menu" aria-expanded="false" aria-controls="nav-menu" onclick="toggleNav(this)"><span></span><span></span><span></span></button>
+    <div class="nav__links" id="nav-menu">
+      <a href="/framework">Framework</a>
+      <a href="/scope">Scope</a>
+      <a href="/programmes/">Programmes</a>
+      <a href="/library/">Library</a>
+      <a href="/notes/" aria-current="page">Notes</a>
+      <a href="https://dissensus.ai/research" class="hide-sm" target="_blank" rel="noopener">Publications &rarr;</a>
+      <a href="/submit">Submit</a>
+      <a href="/about" class="hide-sm">About</a>
+      <button class="toggle" onclick="toggleTheme()" aria-label="Toggle theme">&#9680; theme</button>
+    </div>
+  </nav>
+  <div id="content">
+  
+  <main>
+    <header class="container hero">
+      <a href="/notes/" class="back-link">&larr; All notes</a>
+      <span class="kicker">Proof library</span>
+      <h1>FarzullaProofs — Lean 4 formalisations</h1>
+      <hr class="rule">
+      <p>FarzullaProofs is a Lean 4 library that restates selected results from the lab&#039;s papers as machine-checked theorems. The public repository holds 246 theorems across fifteen paper modules plus a shared library, compiling against Lean 4 v4.27.0 and Mathlib with no `sorry` placeholders, no custom axioms and no `native_decide`. Formalisation depth varies a great deal between modules: several map onto named propositions in the manuscripts, others formalise a simplified algebraic stand-in for the construct the paper is actually about.</p>
+    </header>
+    <section class="section container">
+      <span class="index">01 &middot; Why it might be useful</span>
+      <h2>Who this is for</h2>
+      <div class="prose" style="max-width:var(--measure);">
+        <p>Anyone refereeing or extending the Axiom of Consent friction functional, the Replicator-Optimization Mechanism, or the regime-tenure law can go from an equation in a PDF to the checked Lean statement in one step, and read off which side conditions the result needs. Each module ships a PaperMap linking manuscript theorem identifiers to Lean declarations. The ROM modules also ship as arXiv ancillary files with <a href="https://arxiv.org/abs/2601.06363" target="_blank" rel="noopener">arXiv:2601.06363</a>.</p>
+        <p>For readers who do not use Lean, the assumptions ledger is probably the more reusable artefact: an explicit inventory of the side conditions and modelling assumptions each result is conditional on, including, in one module, a statement of where the model leaves its own valid domain. The proofs are elementary and readable, so the repository also works as a worked example of formalising an applied paper&#039;s algebra with Mathlib.</p>
+      </div>
+      <div class="prose" style="max-width:var(--measure);margin-top:var(--sp-8);">
+      <h3>What is in the repository</h3>
+      <p>246 theorems across fifteen paper modules plus a shared Common library, on Lean 4 v4.27.0 with Mathlib at the matching revision. The build was checked by running it rather than by reading the README: <code>lake build</code> returns exit 0 on 7,938 jobs, and a grep across all non-cache <code>.lean</code> files finds no <code>sorry</code>, no custom axioms and no <code>native_decide</code>. Those figures agree with the repository&#039;s own description.</p>
+        <p>A sixteenth module on optimal friction dosing, fifteen further theorems, is committed on a local branch and not pushed, so the public repository and all current site copy describe the smaller version. The 246 figure goes stale the moment that branch lands.</p>
+
+      <h3>Depth is uneven, and the headline count flattens that</h3>
+      <p>Roughly six modules formalise named propositions from the manuscripts. The rest formalise simplified algebraic stand-ins. The module named for the 33k-word consciousness monograph defines qualia distance as the absolute difference of two reals and proves non-negativity, self-distance zero and symmetry, which are the standard properties of absolute value. The CBDC privacy module models privacy composition as additive epsilon accounting closed by <code>ring</code>. Neither formalises the argument of the paper it is named after.</p>
+        <p>The Bronze, Silver and Gold tier labels advertised in the README no longer discriminate between these cases: the coverage file now marks every module as gold. The promotion commits flipped the label by adding a roughly forty-line file of four further elementary theorems, so the label moved and the depth did not.</p>
+        <p>Everything in the library is elementary algebra over the reals, Finset and the complex numbers. There is no measure theory, no topology and no continuous dynamics anywhere in it; results described as dynamics are discrete algebraic identities, not statements about differential equations or their convergence.</p>
+
+      <h3>What machine-checking does and does not buy</h3>
+      <p>Lean checks that the proofs follow from the stated definitions. It does not establish that the definitions are faithful renderings of the papers&#039; constructs, and for the shallower modules they plainly are not. The library is unreviewed in the peer-review sense.</p>
+        <p>One concrete example of the gap: the regime-tenure first-passage identity is proved by hand in the paper and is not formalised at all. Only the comparative statics around it are machine-checked.</p></div>
+    </section>
+    <section class="section container">
+      <span class="index">02 &middot; Claims</span>
+      <h2>What it argues</h2>
+      <ul class="scope-list scope-list--in">
+        <li>246 theorems, zero <code>sorry</code>, zero custom axioms, zero <code>native_decide</code>, on Lean 4 v4.27.0 and Mathlib. Verified by running the build and grepping the source rather than by reading the README, and consistent with the repository&#039;s own description.</li>
+        <li>Formalisation depth is uneven and the tier labels no longer track it. About six modules formalise named propositions; the others formalise simplified algebraic stand-ins.</li>
+        <li>Everything is elementary algebra over the reals, Finset and the complex numbers. No measure theory, no topology, no continuous dynamics.</li>
+        <li>A sixteenth module of fifteen theorems exists only on an unpushed local branch, so the public repository is the smaller version.</li>
+      </ul>
+    </section>
+    <section class="section container">
+      <span class="index">03 &middot; Status</span>
+      <h2>What this is not</h2>
+      <ul class="standards">
+        <li>Unreviewed. Machine-checking establishes that proofs follow from the definitions given, not that those definitions render the papers&#039; constructs faithfully.</li>
+        <li>One module is entirely conditional on a posited quadratic entropy response that is neither derived nor estimated from data, and the ledger separately records that the modelled entropy at the optimum can fall outside the Axiom of Consent&#039;s own entropy domain. That module is also the unpushed one.</li>
+        <li>Repository metadata is stale after the July 2026 move to the <code>dissensus-ai</code> organisation: the README build badge and the <code>url</code> and <code>repository-code</code> fields in CITATION.cff still point at the retired namespace, so the badge will not resolve. CITATION.cff also cites version Zenodo DOIs in places where concept DOIs belong, and the repository has no GitHub topics set, contrary to the lab&#039;s own rubric.</li>
+        <li>The Zenodo software deposit archives a commit two behind the current public main, so the citable snapshot is not the current repository state. The build was verified locally against a warm Mathlib cache; CI status on GitHub and the liveness of the configured documentation site were not checked.</li>
+      </ul>
+    </section>
+    <section class="section container">
+      <span class="index">04 &middot; Where to find it</span>
+      <h2>Identifiers</h2>
+      <div class="entry__ids" style="margin-top:var(--sp-4);">
+        <a href="https://github.com/dissensus-ai/lean-formalizations" target="_blank" rel="noopener">Repository: dissensus-ai/lean-formalizations (CC-BY-4.0)</a>
+        <a href="https://doi.org/10.5281/zenodo.21315610" target="_blank" rel="noopener">Zenodo software concept DOI 10.5281/zenodo.21315610</a>
+        <a href="https://arxiv.org/abs/2601.06363" target="_blank" rel="noopener">arXiv:2601.06363 — Replicator-Optimization Mechanism (ROM modules ship as ancillary files)</a>
+        <a href="https://arxiv.org/abs/2601.06692" target="_blank" rel="noopener">arXiv:2601.06692 — The Axiom of Consent</a>
+        <a href="https://orcid.org/0009-0002-7164-8704" target="_blank" rel="noopener">ORCID 0009-0002-7164-8704</a>
+      </div>
+    </section>
+    <section class="section container">
+      <span class="index">05 &middot; Respond</span>
+      <h2>Think this is wrong?</h2>
+      <p>Notes are the part of the programme most likely to contain errors, because nothing here has been through review. If you can show a step does not follow, <a href="/submit#critique">say so</a> and we will publish it.</p>
+    </section>
+  </main>
+  </div>
+  <footer class="footer">
+    <div class="container" style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:1rem;">
+      <span>&copy; 2026 ASCRI &middot; Operated by <a href="https://dissensus.ai">Dissensus</a></span>
+      <span>
+        <a href="/framework">Framework</a> &middot;
+        <a href="/scope">Scope</a> &middot;
+        <a href="/programmes/">Programmes</a> &middot;
+        <a href="/library/">Library</a> &middot;
+        <a href="/notes/">Notes</a> &middot;
+        <a href="https://dissensus.ai/research" target="_blank" rel="noopener">Publications &rarr;</a> &middot;
+        <a href="/submit">Submit</a> &middot;
+        <a href="/people">People</a> &middot;
+        <a href="/about">About</a> &middot;
+        <a href="/contact">Contact</a> &middot;
+        <a href="https://www.linkedin.com/company/dissensus-ai/" target="_blank" rel="noopener">LinkedIn</a> &middot;
+        <a href="https://github.com/dissensus-ai" target="_blank" rel="noopener">GitHub</a> &middot;
+        <a href="/feed.xml">RSS</a>
+      </span>
+    </div>
+  </footer>
+  <script>
+function toggleTheme(){var h=document.documentElement;if(h.getAttribute('data-theme')==='light'){h.removeAttribute('data-theme');localStorage.setItem('fz-theme','dark');}else{h.setAttribute('data-theme','light');localStorage.setItem('fz-theme','light');}}
+function toggleNav(btn){var m=document.getElementById('nav-menu');if(!m)return;var o=m.classList.toggle('is-open');btn.setAttribute('aria-expanded',o?'true':'false');}
+</script>
+</body>
+</html>

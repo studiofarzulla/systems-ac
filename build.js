@@ -28,6 +28,13 @@ const CANON_PAPERS = `${CANON_HOST}/papers`;     // per-paper pages: /papers/<id
 const CANON_RESEARCH = `${CANON_HOST}/research`; // publications listing
 const PDF_BASE = CANON_PAPERS;                    // PDFs live on the canonical host
 
+// Formspree form ID for the /submit surfaces. MF: create a form at formspree.io for
+// systems.ac and paste its ID here (the part after /f/). While this is null the
+// submission sections render a documented email route instead of a form, so nothing
+// half-wired ships either way.
+const SUBMISSIONS_FORM_ID = null;
+const SUBMISSIONS_EMAIL = 'research@dissensus.ai';
+
 const ROOT = __dirname;
 const PUBLIC = path.join(ROOT, 'public');
 const DATA_FILE = path.join(ROOT, 'papers.json');
@@ -38,6 +45,18 @@ const DATA_FILE = path.join(ROOT, 'papers.json');
 
 const data = JSON.parse(fs.readFileSync(DATA_FILE, 'utf-8'));
 const { papers, tags, statuses, programs } = data;
+
+// Optional data files — the site builds without them, just without those pages.
+function loadOptional(name) {
+  const p = path.join(ROOT, name);
+  if (!fs.existsSync(p)) return null;
+  return JSON.parse(fs.readFileSync(p, 'utf-8'));
+}
+
+const libraryData = loadOptional('library.json');
+const notesData = loadOptional('notes.json');
+const scopeData = loadOptional('scope.json');
+const submitData = loadOptional('submit.json');
 
 // Papers shown as cards (hidden ones are retired/subsumed — still redirected).
 const visiblePapers = papers.filter(p => !p.hidden);
@@ -272,10 +291,13 @@ function getHeadHtml(meta) {
 function getNavHtml(activePage) {
   const links = [
     { href: '/framework', label: 'Framework', key: 'framework' },
+    { href: '/scope', label: 'Scope', key: 'scope' },
     { href: '/programmes/', label: 'Programmes', key: 'programmes' },
+    { href: '/library/', label: 'Library', key: 'library' },
+    { href: '/notes/', label: 'Notes', key: 'notes' },
     { href: CANON_RESEARCH, label: 'Publications &rarr;', key: 'publications', external: true, hideSm: true },
-    { href: '/people', label: 'People', key: 'people', hideSm: true },
-    { href: '/about', label: 'About', key: 'about' },
+    { href: '/submit', label: 'Submit', key: 'submit' },
+    { href: '/about', label: 'About', key: 'about', hideSm: true },
   ];
 
   const linksHtml = links
@@ -289,7 +311,8 @@ function getNavHtml(activePage) {
 
   return `<nav class="nav" role="navigation" aria-label="Main navigation">
     <a href="/" class="nav__brand">${SITE_TITLE}</a>
-    <div class="nav__links">
+    <button class="nav__burger" aria-label="Menu" aria-expanded="false" aria-controls="nav-menu" onclick="toggleNav(this)"><span></span><span></span><span></span></button>
+    <div class="nav__links" id="nav-menu">
       ${linksHtml}
       <button class="toggle" onclick="toggleTheme()" aria-label="Toggle theme">&#9680; theme</button>
     </div>
@@ -302,11 +325,17 @@ function getFooterHtml() {
       <span>&copy; 2026 ${SITE_TITLE} &middot; Operated by <a href="${CANON_HOST}">${OPERATOR}</a></span>
       <span>
         <a href="/framework">Framework</a> &middot;
+        <a href="/scope">Scope</a> &middot;
         <a href="/programmes/">Programmes</a> &middot;
+        <a href="/library/">Library</a> &middot;
+        <a href="/notes/">Notes</a> &middot;
         <a href="${CANON_RESEARCH}" target="_blank" rel="noopener">Publications &rarr;</a> &middot;
+        <a href="/submit">Submit</a> &middot;
         <a href="/people">People</a> &middot;
         <a href="/about">About</a> &middot;
         <a href="/contact">Contact</a> &middot;
+        <a href="https://www.linkedin.com/company/dissensus-ai/" target="_blank" rel="noopener">LinkedIn</a> &middot;
+        <a href="https://github.com/dissensus-ai" target="_blank" rel="noopener">GitHub</a> &middot;
         <a href="/feed.xml">RSS</a>
       </span>
     </div>
@@ -316,6 +345,7 @@ function getFooterHtml() {
 function getThemeScript() {
   return `<script>
 function toggleTheme(){var h=document.documentElement;if(h.getAttribute('data-theme')==='light'){h.removeAttribute('data-theme');localStorage.setItem('fz-theme','dark');}else{h.setAttribute('data-theme','light');localStorage.setItem('fz-theme','light');}}
+function toggleNav(btn){var m=document.getElementById('nav-menu');if(!m)return;var o=m.classList.toggle('is-open');btn.setAttribute('aria-expanded',o?'true':'false');}
 </script>`;
 }
 
@@ -445,6 +475,451 @@ ${cardsHtml}
 }
 
 // ---------------------------------------------------------------------------
+// Scope — what the research area is, its central claim, and what it is not
+// ---------------------------------------------------------------------------
+
+// Prose fields in the data files are escaped, then a deliberately tiny inline syntax is
+// re-expanded: [text](url) links, *emphasis*, and `code`. Escaping first means content
+// can never inject markup — only these three forms survive, and their contents stay escaped.
+function renderInline(escaped) {
+  return escaped
+    .replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+|\/[^\s)]*)\)/g,
+      (_, label, href) => `<a href="${href}"${href.startsWith('http') ? ' target="_blank" rel="noopener"' : ''}>${label}</a>`)
+    .replace(/`([^`]+)`/g, '<code>$1</code>')
+    .replace(/\*([^*]+)\*/g, '<em>$1</em>');
+}
+
+function renderParagraphs(text) {
+  if (!text) return '';
+  return String(text)
+    .split(/\n\s*\n/)
+    .map(p => `<p>${renderInline(escapeHtml(p.trim()))}</p>`)
+    .join('\n        ');
+}
+
+function buildScopePage() {
+  if (!scopeData) return null;
+  const s = scopeData;
+
+  const inList = (s.inScope || []).map(x => `<li>${renderInline(escapeHtml(x))}</li>`).join('\n            ');
+  const outList = (s.outOfScope || [])
+    .map(x => {
+      const claim = typeof x === 'string' ? x : x.claim;
+      const why = typeof x === 'string' ? null : x.why;
+      return `<li>${renderInline(escapeHtml(claim))}${why ? ` <span style="color:var(--text-dim);opacity:.8;">&mdash; ${renderInline(escapeHtml(why))}</span>` : ''}</li>`;
+    })
+    .join('\n            ');
+
+  const adjacent = (s.adjacentFields || [])
+    .map(f => `
+        <article class="adjacent">
+          <h3>${escapeHtml(f.field)}</h3>
+          <div class="adjacent__row">
+            <span class="adjacent__k">What it does</span>
+            <span class="adjacent__v">${renderInline(escapeHtml(f.whatItDoes || ''))}</span>
+          </div>
+          <div class="adjacent__row">
+            <span class="adjacent__k">Where we differ</span>
+            <span class="adjacent__v">${renderInline(escapeHtml(f.whereWeDiffer || ''))}</span>
+          </div>
+          <div class="adjacent__row">
+            <span class="adjacent__k">Overlap</span>
+            <span class="adjacent__v">${renderInline(escapeHtml(f.overlap || ''))}</span>
+          </div>
+        </article>`)
+    .join('');
+
+  const headHtml = getHeadHtml({
+    title: 'Scope',
+    description: s.metaDescription || 'What adversarial systems and complexity research is, its central claim, what falls inside and outside its scope, and how it differs from adjacent fields.',
+    canonicalUrl: `${SITE_URL}/scope`,
+  });
+
+  const bodyContent = `
+  <main>
+    <header class="container hero">
+      <span class="kicker">Definition &amp; scope</span>
+      <h1>${escapeHtml(s.heading || 'What this research area is')}</h1>
+      <hr class="rule">
+      <div class="prose" style="max-width:var(--measure);">
+        ${renderParagraphs(s.definition)}
+      </div>
+    </header>
+
+    <section class="section container">
+      <span class="index">01 &middot; The claim</span>
+      <h2>${escapeHtml(s.thesisHeading || 'Central argument')}</h2>
+      <div class="equation">
+        <span class="equation__label">The claim, stated so it can fail</span>
+        ${escapeHtml(s.thesis || '')}
+      </div>
+      <div class="prose" style="margin-top:var(--sp-6);">
+        ${renderParagraphs(s.thesisElaboration)}
+      </div>
+      ${s.falsifiers && s.falsifiers.length ? `<h3 style="margin-top:var(--sp-8);">What would refute it</h3>
+      <ul class="scope-list scope-list--out">
+            ${s.falsifiers.map(f => `<li>${renderInline(escapeHtml(f))}</li>`).join('\n            ')}
+      </ul>` : ''}
+    </section>
+
+    <section class="section container">
+      <span class="index">02 &middot; Boundaries</span>
+      <h2>In scope, and not</h2>
+      <div class="scope-cols">
+        <div>
+          <span class="hero-meta__label">Questions we take</span>
+          <ul class="scope-list scope-list--in">
+            ${inList}
+          </ul>
+        </div>
+        <div>
+          <span class="hero-meta__label">Questions we do not</span>
+          <ul class="scope-list scope-list--out">
+            ${outList}
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container">
+      <span class="index">03 &middot; Evidence</span>
+      <h2>${escapeHtml(s.methodHeading || 'What counts as evidence here')}</h2>
+      <div class="prose" style="max-width:var(--measure);">
+        ${renderParagraphs(s.methodology)}
+      </div>
+    </section>
+
+    <section class="section container">
+      <span class="index">04 &middot; Neighbours</span>
+      <h2>How this differs from adjacent fields</h2>
+      <p>${escapeHtml(s.adjacentIntro || '')}</p>
+      <div style="margin-top:var(--sp-8);">
+${adjacent}
+      </div>
+    </section>
+
+    <section class="section container">
+      <span class="index">05 &middot; Disagree</span>
+      <h2>Argue with this</h2>
+      <p>The claim above is meant to be attackable. If you think the decomposition is wrong, the framework is redundant with something that already exists, or a result does not hold, we publish substantive critiques alongside the position they attack.</p>
+      <p style="margin-top:var(--sp-4);"><a href="/submit#critique">Submit a critique &rarr;</a></p>
+    </section>
+  </main>`;
+
+  return wrapPage(headHtml, getNavHtml('scope'), bodyContent, getFooterHtml());
+}
+
+// ---------------------------------------------------------------------------
+// Library — annotated external work (other people's research)
+// ---------------------------------------------------------------------------
+
+function renderLibraryEntry(e) {
+  const ids = [];
+  if (e.identifier) ids.push(escapeHtml(e.identifier));
+  if (e.citationCount) ids.push(`${escapeHtml(e.citationCount)} citations`);
+  const idHtml = ids.length
+    ? `\n          <div class="entry__ids">${ids.map(i => `<span>${i}</span>`).join('')}</div>`
+    : '';
+
+  return `
+        <article class="entry" data-topic="${escapeHtml(e.topic || 'other')}">
+          <div class="entry__meta">
+            <span>${escapeHtml(e.year || '')}</span>
+            <span>&middot;</span>
+            <span>${escapeHtml(e.venue || '')}</span>
+            ${e.topicLabel ? `<span class="tag">${escapeHtml(e.topicLabel)}</span>` : ''}
+          </div>
+          <h3 class="entry__title"><a href="${escapeHtml(e.url)}" target="_blank" rel="noopener">${escapeHtml(e.title)}</a></h3>
+          <p class="entry__authors">${escapeHtml(e.authors || '')}</p>
+          <div class="entry__note">${renderInline(escapeHtml(e.note || ''))}</div>${idHtml}
+        </article>`;
+}
+
+function buildLibraryPage() {
+  if (!libraryData) return null;
+  const topics = libraryData.topics || {};
+  const entries = libraryData.entries || [];
+
+  // Group by topic, preserving the declared topic order.
+  const order = Object.keys(topics).filter(t => entries.some(e => e.topic === t));
+  const sectionsHtml = order
+    .map((t, i) => {
+      const items = entries.filter(e => e.topic === t);
+      const meta = topics[t] || {};
+      return `
+    <section class="section container" id="${escapeHtml(t)}">
+      <span class="index">${String(i + 1).padStart(2, '0')} &middot; ${escapeHtml(meta.label || t)}</span>
+      <h2>${escapeHtml(meta.label || t)}</h2>
+      ${meta.blurb ? `<p>${escapeHtml(meta.blurb)}</p>` : ''}
+      <div style="margin-top:var(--sp-6);">
+${items.map(renderLibraryEntry).join('')}
+      </div>
+    </section>`;
+    })
+    .join('');
+
+  const headHtml = getHeadHtml({
+    title: 'Library',
+    description: 'Annotated external research relevant to adversarial systems and complexity — other people\'s work, with notes on why it matters here.',
+    canonicalUrl: `${SITE_URL}/library/`,
+  });
+
+  const bodyContent = `
+  <main>
+    <header class="container hero">
+      <span class="kicker">Reading</span>
+      <h1>Library</h1>
+      <hr class="rule">
+      <p>Other people's work, annotated. Everything here is external research we think matters to anyone studying friction and adversarial dynamics in multi-agent systems. The note under each entry says why &mdash; an unannotated list would be no use to anyone.</p>
+      <p style="margin-top:var(--sp-4);">Inclusion is not endorsement, and the selection is a working bibliography rather than a survey. If something obvious is missing, <a href="/submit#recommend">tell us</a>.</p>
+      <div class="hero-meta">
+        <div class="hero-meta__item">
+          <span class="hero-meta__label">Entries</span>
+          <span class="hero-meta__value">${entries.length}</span>
+        </div>
+        <div class="hero-meta__item">
+          <span class="hero-meta__label">Topics</span>
+          <span class="hero-meta__value">${order.length}</span>
+        </div>
+        <div class="hero-meta__item">
+          <span class="hero-meta__label">Our own work</span>
+          <span class="hero-meta__value"><a href="${CANON_RESEARCH}" target="_blank" rel="noopener">dissensus.ai &rarr;</a></span>
+        </div>
+      </div>
+      <div class="chips">
+        ${order.map(t => `<a class="chip" href="#${escapeHtml(t)}">${escapeHtml((topics[t] || {}).label || t)}</a>`).join('\n        ')}
+      </div>
+    </header>
+${sectionsHtml}
+  </main>`;
+
+  return wrapPage(headHtml, getNavHtml('library'), bodyContent, getFooterHtml());
+}
+
+// ---------------------------------------------------------------------------
+// Notes — the lab's informal writeups and reference material
+// ---------------------------------------------------------------------------
+
+function buildNotesIndexPage() {
+  if (!notesData) return null;
+  const notes = notesData.notes || [];
+
+  const cards = notes
+    .map(n => `
+        <article class="note">
+          <span class="note__kind">${escapeHtml(n.kind || 'Note')}</span>
+          <h3><a href="/notes/${escapeHtml(n.id)}">${escapeHtml(n.title)}</a></h3>
+          <p>${escapeHtml(n.summary || '')}</p>
+          ${(n.caveats || []).length ? `<ul class="note__caveats">
+            ${(n.caveats || []).slice(0, 2).map(c => `<li>${escapeHtml(c)}</li>`).join('\n            ')}
+          </ul>` : ''}
+          <div class="note__foot"><a href="/notes/${escapeHtml(n.id)}">Read &rarr;</a></div>
+        </article>`)
+    .join('');
+
+  const headHtml = getHeadHtml({
+    title: 'Notes',
+    description: 'Working notes, reference material, and writeups from the initiative — published because someone else might find them useful, not as portfolio claims.',
+    canonicalUrl: `${SITE_URL}/notes/`,
+  });
+
+  const bodyContent = `
+  <main>
+    <header class="container hero">
+      <span class="kicker">Working material</span>
+      <h1>Notes</h1>
+      <hr class="rule">
+      <p>Material that is not a paper. Some of it is speculative, some is a byproduct of work published elsewhere, some is reference material we needed and could not find. It is here because someone else might want it, not because it is finished.</p>
+      <p style="margin-top:var(--sp-4);">Each note states plainly what it is and what it is not. Peer-reviewed work lives on <a href="${CANON_RESEARCH}" target="_blank" rel="noopener">dissensus.ai</a>.</p>
+    </header>
+    <section class="section container">
+      <div class="note-list">
+${cards}
+      </div>
+    </section>
+  </main>`;
+
+  return wrapPage(headHtml, getNavHtml('notes'), bodyContent, getFooterHtml());
+}
+
+function buildNotePage(n) {
+  const bodyHtml = (n.sections || [])
+    .map(sec => `
+      <h3>${escapeHtml(sec.heading)}</h3>
+      ${renderParagraphs(sec.body)}`)
+    .join('\n');
+
+  const claims = (n.keyClaims || []).length
+    ? `
+    <section class="section container">
+      <span class="index">02 &middot; Claims</span>
+      <h2>What it argues</h2>
+      <ul class="scope-list scope-list--in">
+        ${n.keyClaims.map(c => `<li>${renderInline(escapeHtml(c))}</li>`).join('\n        ')}
+      </ul>
+    </section>`
+    : '';
+
+  const caveats = (n.caveats || []).length
+    ? `
+    <section class="section container">
+      <span class="index">03 &middot; Status</span>
+      <h2>What this is not</h2>
+      <ul class="standards">
+        ${n.caveats.map(c => `<li>${renderInline(escapeHtml(c))}</li>`).join('\n        ')}
+      </ul>
+    </section>`
+    : '';
+
+  const ids = (n.identifiers || []).length
+    ? `
+    <section class="section container">
+      <span class="index">04 &middot; Where to find it</span>
+      <h2>Identifiers</h2>
+      <div class="entry__ids" style="margin-top:var(--sp-4);">
+        ${n.identifiers.map(i => (i.url
+          ? `<a href="${escapeHtml(i.url)}" target="_blank" rel="noopener">${escapeHtml(i.label)}</a>`
+          : `<span>${escapeHtml(i.label || i)}</span>`)).join('\n        ')}
+      </div>
+    </section>`
+    : '';
+
+  const headHtml = getHeadHtml({
+    title: n.title,
+    description: n.summary || '',
+    canonicalUrl: `${SITE_URL}/notes/${n.id}`,
+    ogType: 'article',
+  });
+
+  const bodyContent = `
+  <main>
+    <header class="container hero">
+      <a href="/notes/" class="back-link">&larr; All notes</a>
+      <span class="kicker">${escapeHtml(n.kind || 'Note')}</span>
+      <h1>${escapeHtml(n.title)}</h1>
+      <hr class="rule">
+      <p>${escapeHtml(n.summary || '')}</p>
+    </header>
+    <section class="section container">
+      <span class="index">01 &middot; Why it might be useful</span>
+      <h2>Who this is for</h2>
+      <div class="prose" style="max-width:var(--measure);">
+        ${renderParagraphs(n.whyUseful)}
+      </div>
+      ${bodyHtml ? `<div class="prose" style="max-width:var(--measure);margin-top:var(--sp-8);">${bodyHtml}</div>` : ''}
+    </section>${claims}${caveats}${ids}
+    <section class="section container">
+      <span class="index">05 &middot; Respond</span>
+      <h2>Think this is wrong?</h2>
+      <p>Notes are the part of the programme most likely to contain errors, because nothing here has been through review. If you can show a step does not follow, <a href="/submit#critique">say so</a> and we will publish it.</p>
+    </section>
+  </main>`;
+
+  return wrapPage(headHtml, getNavHtml('notes'), bodyContent, getFooterHtml());
+}
+
+// ---------------------------------------------------------------------------
+// Submit — three participation surfaces, form-backed when configured
+// ---------------------------------------------------------------------------
+
+function renderSubmitForm(surface) {
+  const subject = `ASCRI submission — ${surface.title}`;
+  if (!SUBMISSIONS_FORM_ID) {
+    return `      <div class="btn-row" style="margin-top:var(--sp-6);">
+        <a class="btn" href="mailto:${SUBMISSIONS_EMAIL}?subject=${encodeURIComponent(subject)}">Email ${SUBMISSIONS_EMAIL}</a>
+      </div>
+      <p class="form__hint" style="margin-top:var(--sp-3);">Include: ${escapeHtml(surface.emailChecklist || 'a link, and a sentence on why it belongs here.')}</p>`;
+  }
+  const fields = (surface.fields || [])
+    .map(f => {
+      const req = f.required ? ' required' : '';
+      if (f.type === 'textarea') {
+        return `        <label>${escapeHtml(f.label)}
+          <textarea name="${escapeHtml(f.name)}"${req} placeholder="${escapeHtml(f.placeholder || '')}"></textarea>
+        </label>`;
+      }
+      return `        <label>${escapeHtml(f.label)}
+          <input type="${escapeHtml(f.type || 'text')}" name="${escapeHtml(f.name)}"${req} placeholder="${escapeHtml(f.placeholder || '')}">
+        </label>`;
+    })
+    .join('\n');
+
+  return `      <form class="form" action="https://formspree.io/f/${SUBMISSIONS_FORM_ID}" method="POST">
+        <input type="hidden" name="_subject" value="${escapeHtml(subject)}">
+        <input type="hidden" name="submission_type" value="${escapeHtml(surface.id)}">
+        <div class="form__row">
+          <label>Your name
+            <input type="text" name="name" required>
+          </label>
+          <label>Email
+            <input type="email" name="email" required>
+          </label>
+        </div>
+        <label>Affiliation <span class="form__hint">(optional — independent is fine)</span>
+          <input type="text" name="affiliation">
+        </label>
+${fields}
+        <button type="submit" class="btn">Send</button>
+      </form>`;
+}
+
+function buildSubmitPage() {
+  if (!submitData) return null;
+  const surfaces = submitData.surfaces || [];
+
+  const sectionsHtml = surfaces
+    .map((s, i) => `
+    <section class="section container" id="${escapeHtml(s.id)}">
+      <span class="index">${String(i + 1).padStart(2, '0')} &middot; ${escapeHtml(s.kicker || s.title)}</span>
+      <h2>${escapeHtml(s.title)}</h2>
+      <div class="prose" style="max-width:var(--measure);">
+        ${renderParagraphs(s.body)}
+      </div>
+      ${(s.expectations || []).length ? `<ul class="scope-list scope-list--in" style="margin-top:var(--sp-6);">
+        ${s.expectations.map(e => `<li>${renderInline(escapeHtml(e))}</li>`).join('\n        ')}
+      </ul>` : ''}
+${renderSubmitForm(s)}
+    </section>`)
+    .join('');
+
+  const standards = (submitData.standards || []).length
+    ? `
+    <section class="section container" id="standards">
+      <span class="index">${String(surfaces.length + 1).padStart(2, '0')} &middot; Standards</span>
+      <h2>Editorial standards</h2>
+      <ul class="standards">
+        ${submitData.standards.map(s => `<li>${renderInline(escapeHtml(s))}</li>`).join('\n        ')}
+      </ul>
+      ${submitData.capacityNote ? `<div class="caveat">
+        <span class="caveat__label">Capacity</span>
+        ${renderParagraphs(submitData.capacityNote)}
+      </div>` : ''}
+    </section>`
+    : '';
+
+  const headHtml = getHeadHtml({
+    title: 'Submit',
+    description: 'Recommend work for the library, offer a piece for publication, or attack a position the initiative holds.',
+    canonicalUrl: `${SITE_URL}/submit`,
+  });
+
+  const bodyContent = `
+  <main>
+    <header class="container hero">
+      <span class="kicker">Participate</span>
+      <h1>${escapeHtml(submitData.heading || 'Submit')}</h1>
+      <hr class="rule">
+      <div class="prose" style="max-width:var(--measure);">
+        ${renderParagraphs(submitData.intro)}
+      </div>
+    </header>
+${sectionsHtml}${standards}
+  </main>`;
+
+  return wrapPage(headHtml, getNavHtml('submit'), bodyContent, getFooterHtml());
+}
+
+// ---------------------------------------------------------------------------
 // Sitemap (static + programme pages only — no per-paper URLs)
 // ---------------------------------------------------------------------------
 
@@ -457,6 +932,10 @@ function buildSitemap() {
     { loc: '/about', priority: '0.7', changefreq: 'monthly' },
     { loc: '/contact', priority: '0.5', changefreq: 'yearly' },
   ];
+  if (scopeData) staticPages.push({ loc: '/scope', priority: '0.9', changefreq: 'monthly' });
+  if (libraryData) staticPages.push({ loc: '/library/', priority: '0.8', changefreq: 'weekly' });
+  if (notesData) staticPages.push({ loc: '/notes/', priority: '0.7', changefreq: 'monthly' });
+  if (submitData) staticPages.push({ loc: '/submit', priority: '0.6', changefreq: 'monthly' });
 
   const today = new Date().toISOString().split('T')[0];
 
@@ -476,6 +955,15 @@ function buildSitemap() {
     <lastmod>${today}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+  </url>\n`;
+  }
+
+  for (const n of (notesData && notesData.notes) || []) {
+    urls += `  <url>
+    <loc>${SITE_URL}/notes/${n.id}</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>\n`;
   }
 
@@ -624,6 +1112,52 @@ function build() {
   // --- Programmes index ---
   fs.writeFileSync(path.join(programmesDir, 'index.html'), buildProgrammesIndexPage(), 'utf-8');
   console.log('  Generated programmes index -> public/programmes/index.html');
+
+  // --- Scope ---
+  if (scopeData) {
+    fs.writeFileSync(path.join(PUBLIC, 'scope.html'), buildScopePage(), 'utf-8');
+    console.log('  Generated scope -> public/scope.html');
+  } else {
+    console.log('  (scope.json absent — /scope skipped)');
+  }
+
+  // --- Library (annotated external work) ---
+  if (libraryData) {
+    const libDir = path.join(PUBLIC, 'library');
+    ensureDir(libDir);
+    fs.writeFileSync(path.join(libDir, 'index.html'), buildLibraryPage(), 'utf-8');
+    console.log(`  Generated library -> public/library/index.html (${(libraryData.entries || []).length} entries)`);
+  } else {
+    console.log('  (library.json absent — /library skipped)');
+  }
+
+  // --- Notes ---
+  if (notesData) {
+    const notesDir = path.join(PUBLIC, 'notes');
+    ensureDir(notesDir);
+    fs.writeFileSync(path.join(notesDir, 'index.html'), buildNotesIndexPage(), 'utf-8');
+    const wanted = new Set(['index.html']);
+    for (const n of notesData.notes || []) {
+      fs.writeFileSync(path.join(notesDir, `${n.id}.html`), buildNotePage(n), 'utf-8');
+      wanted.add(`${n.id}.html`);
+    }
+    // Prune pages for notes that have been removed from notes.json. Without this a
+    // withdrawn note keeps its page and deploys, unlinked but publicly reachable.
+    const orphans = fs.readdirSync(notesDir).filter(f => f.endsWith('.html') && !wanted.has(f));
+    for (const f of orphans) fs.unlinkSync(path.join(notesDir, f));
+    console.log(`  Generated notes -> public/notes/ (${(notesData.notes || []).length} notes`
+      + `${orphans.length ? `, pruned ${orphans.length}: ${orphans.join(', ')}` : ''})`);
+  } else {
+    console.log('  (notes.json absent — /notes skipped)');
+  }
+
+  // --- Submit ---
+  if (submitData) {
+    fs.writeFileSync(path.join(PUBLIC, 'submit.html'), buildSubmitPage(), 'utf-8');
+    console.log(`  Generated submit -> public/submit.html (form ${SUBMISSIONS_FORM_ID ? 'ACTIVE' : 'not configured — email route rendered'})`);
+  } else {
+    console.log('  (submit.json absent — /submit skipped)');
+  }
 
   // --- Sitemap ---
   fs.writeFileSync(path.join(PUBLIC, 'sitemap.xml'), buildSitemap(), 'utf-8');

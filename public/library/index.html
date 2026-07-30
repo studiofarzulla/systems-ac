@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Library | ASCRI</title>
+  <meta name="description" content="Annotated external research relevant to adversarial systems and complexity — other people&#039;s work, with notes on why it matters here.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Favicon -->
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+
+  <!-- CSS: shared design system + ASCRI supplement -->
+  <link rel="stylesheet" href="/css/system.css">
+  <link rel="stylesheet" href="/css/ascri.css?v=da47e1e7">
+
+  <!-- Theme: dark default, light via [data-theme="light"], persisted (fz-theme) -->
+  <script>
+  (function(){var t=localStorage.getItem('fz-theme')||'dark';if(t==='light')document.documentElement.setAttribute('data-theme','light');})();
+  </script>
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://systems.ac/library/">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="ASCRI Research Updates" href="https://systems.ac/feed.xml">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Library">
+  <meta property="og:description" content="Annotated external research relevant to adversarial systems and complexity — other people&#039;s work, with notes on why it matters here.">
+  <meta property="og:url" content="https://systems.ac/library/">
+  <meta property="og:site_name" content="ASCRI">
+  <meta property="og:image" content="https://systems.ac/assets/og-default.png">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Library">
+  <meta name="twitter:description" content="Annotated external research relevant to adversarial systems and complexity — other people&#039;s work, with notes on why it matters here.">
+  <meta name="twitter:image" content="https://systems.ac/assets/og-default.png">
+</head>
+<body class="has-nav">
+  <a href="#content" class="skip-link">Skip to content</a>
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <a href="/" class="nav__brand">ASCRI</a>
+    <button class="nav__burger" aria-label="Menu" aria-expanded="false" aria-controls="nav-menu" onclick="toggleNav(this)"><span></span><span></span><span></span></button>
+    <div class="nav__links" id="nav-menu">
+      <a href="/framework">Framework</a>
+      <a href="/scope">Scope</a>
+      <a href="/programmes/">Programmes</a>
+      <a href="/library/" aria-current="page">Library</a>
+      <a href="/notes/">Notes</a>
+      <a href="https://dissensus.ai/research" class="hide-sm" target="_blank" rel="noopener">Publications &rarr;</a>
+      <a href="/submit">Submit</a>
+      <a href="/about" class="hide-sm">About</a>
+      <button class="toggle" onclick="toggleTheme()" aria-label="Toggle theme">&#9680; theme</button>
+    </div>
+  </nav>
+  <div id="content">
+  
+  <main>
+    <header class="container hero">
+      <span class="kicker">Reading</span>
+      <h1>Library</h1>
+      <hr class="rule">
+      <p>Other people's work, annotated. Everything here is external research we think matters to anyone studying friction and adversarial dynamics in multi-agent systems. The note under each entry says why &mdash; an unannotated list would be no use to anyone.</p>
+      <p style="margin-top:var(--sp-4);">Inclusion is not endorsement, and the selection is a working bibliography rather than a survey. If something obvious is missing, <a href="/submit#recommend">tell us</a>.</p>
+      <div class="hero-meta">
+        <div class="hero-meta__item">
+          <span class="hero-meta__label">Entries</span>
+          <span class="hero-meta__value">41</span>
+        </div>
+        <div class="hero-meta__item">
+          <span class="hero-meta__label">Topics</span>
+          <span class="hero-meta__value">6</span>
+        </div>
+        <div class="hero-meta__item">
+          <span class="hero-meta__label">Our own work</span>
+          <span class="hero-meta__value"><a href="https://dissensus.ai/research" target="_blank" rel="noopener">dissensus.ai &rarr;</a></span>
+        </div>
+      </div>
+      <div class="chips">
+        <a class="chip" href="#coordination-friction">Coordination cost</a>
+        <a class="chip" href="#cooperative-ai">Cooperative AI</a>
+        <a class="chip" href="#adversarial-ml-alignment">Adversarial dynamics in ML</a>
+        <a class="chip" href="#systemic-risk-networks">Systemic risk &amp; financial networks</a>
+        <a class="chip" href="#legitimacy-consent-governance">Legitimacy &amp; governance</a>
+        <a class="chip" href="#complexity-emergence">Complexity &amp; emergence</a>
+      </div>
+    </header>
+
+    <section class="section container" id="coordination-friction">
+      <span class="index">01 &middot; Coordination cost</span>
+      <h2>Coordination cost</h2>
+      <p>Work that treats the overhead of coordinating as the object of study rather than an inefficiency to assume away. This is the closest existing literature to the friction functional, and the tradition the programme is most obviously downstream of.</p>
+      <div style="margin-top:var(--sp-6);">
+
+        <article class="entry" data-topic="coordination-friction">
+          <div class="entry__meta">
+            <span>2026</span>
+            <span>&middot;</span>
+            <span>arXiv (preprint)</span>
+            
+          </div>
+          <h3 class="entry__title"><a href="https://arxiv.org/abs/2601.22079" target="_blank" rel="noopener">The Economics of No-regret Learning Algorithms</a></h3>
+          <p class="entry__authors">Jason D. Hartline</p>
+          <div class="entry__note">A review of what happens to economic analysis when the actors are algorithms, taking no-regret as the tractable substitute for rationality in the way that rationality served classical agents. Covers the emerging work on manipulation, statistical inference and algorithmic collusion. Useful as an orientation piece: no-regret dynamics converge to coarse correlated equilibria rather than Nash, which reframes what &quot;the equilibrium&quot; even means in systems populated by learners.</div>
+          <div class="entry__ids"><span>arXiv:2601.22079</span></div>
+        </article>
+        <article class="entry" data-topic="coordination-friction">
+          <div class="entry__meta">
+            <span>2025</span>
+            <span>&middot;</span>
+            <span>Neurocomputing, 639, 129993</span>
+            
+          </div>
+          <h3 class="entry__title"><a href="https://doi.org/10.1016/j.neucom.2025.129993" target="_blank" rel="noopener">Overcoming the Price of Anarchy by Steering with Recommendations</a></h3>
+          <p class="entry__authors">Cesare Carissimo, Marcin Korecki, Damian Dailisan</p>
+          <div class="entry__note">Models a Braess-paradox congestion game as repeated play between Q-learners, then asks what an external recommender can achieve by choosing which states the learners observe during training. The authors show that appropriately chosen recommendations steer the system to the social optimum for many players, and that a larger recommendation space increases steering power. The intervention operates on the information channel rather than on payoffs, which makes it a distinct lever from taxation or mechanism redesign.</div>
+          <div class="entry__ids"><span>10.1016/j.neucom.2025.129993</span></div>
+        </article>
+        <article class="entry" data-topic="coordination-friction">
+          <div class="entry__meta">
+            <span>2025</span>
+            <span>&middot;</span>
+            <span>arXiv (preprint)</span>
+            
+          </div>
+          <h3 class="entry__title"><a href="https://arxiv.org/abs/2510.18893" target="_blank" rel="noopener">CodeCRDT: Observation-Driven Coordination for Multi-Agent LLM Code Generation</a></h3>
+          <p class="entry__authors">Sergey Pugachev</p>
+          <div class="entry__note">Runs 600 trials of parallel LLM agents coordinating through a conflict-free replicated data type rather than explicit message passing, and reports up to 21.1% speedup on some tasks against up to 39.4% slowdown on others. Convergence is guaranteed with zero merge failures, yet preliminary inspection still finds 5–10% semantic conflicts, and parallel agents improve runtime performance while degrading code quality. Worth reading as an honest negative-results measurement: consistency guarantees at the data layer buy nothing at the semantic layer, and coordination overhead can exceed the parallelism it enables.</div>
+          <div class="entry__ids"><span>arXiv:2510.18893</span></div>
+        </article>
+        <article class="entry" data-topic="coordination-friction">
+          <div class="entry__meta">
+            <span>2023</span>
+            <span>&middot;</span>
+            <span>Journal of the ACM, 70(3), 1–63</span>
+            
+          </div>
+          <h3 class="entry__title"><a href="https://doi.org/10.1145/3587250" target="_blank" rel="noopener">The Price of Anarchy of Strategic Queuing Systems</a></h3>
+          <p class="entry__authors">Jason Gaitonde, Éva Tardos</p>
+          <div class="entry__note">Extends price-of-anarchy analysis to environments whose state is itself changed by the agents, using competing queues that must get packets served. Stability under independent stationary strategies requires arrival rates scaled by e/(e−1); under no-regret learning the factor rises to two, and both bounds are tight. The interesting result for adversarial-systems work is that no-regret learning does worse than fixed randomisation here, so myopia carries its own measurable price once the environment has memory.</div>
+          <div class="entry__ids"><span>10.1145/3587250</span></div>
+        </article>
+        <article class="entry" data-topic="coordination-friction">
+          <div class="entry__meta">
+            <span>2002</span>
+            <span>&middot;</span>
+            <span>Journal of the ACM, 49(2), 236–259</span>
+            
+          </div>
+          <h3 class="entry__title"><a href="https://doi.org/10.1145/506147.506153" target="_blank" rel="noopener">How bad is selfish routing?</a></h3>
+          <p class="entry__authors">Tim Roughgarden, Éva Tardos</p>
+          <div class="entry__note">Proves that when edge latencies are linear, traffic routed by self-interested users costs at most 4/3 of the coordinated optimum, and that for arbitrary non-decreasing latencies the selfish outcome is never worse than optimally routing twice the traffic. It is the paper that turned &quot;decentralisation is wasteful&quot; into a bounded quantity. For a friction reader it establishes the useful fact that coordination loss in this class is capped rather than unbounded, which is a stronger and more surprising claim than the intuition suggests.</div>
+          <div class="entry__ids"><span>10.1145/506147.506153</span></div>
+        </article>
+        <article class="entry" data-topic="coordination-friction">
+          <div class="entry__meta">
+            <span>1983</span>
+            <span>&middot;</span>
+            <span>Journal of Economic Theory, 29(2), 265–281</span>
+            
+          </div>
+          <h3 class="entry__title"><a href="https://doi.org/10.1016/0022-0531(83)90048-0" target="_blank" rel="noopener">Efficient mechanisms for bilateral trading</a></h3>
+          <p class="entry__authors">Roger B. Myerson, Mark A. Satterthwaite</p>
+          <div class="entry__note">Shows that with private valuations and known gains from trade, no mechanism can be simultaneously efficient, incentive-compatible, individually rational and budget-balanced. Bargaining failure is therefore structural rather than a symptom of bad negotiators or thin markets. Any argument that friction can be designed out of a two-party allocation problem has to explain how it gets past this impossibility.</div>
+          <div class="entry__ids"><span>10.1016/0022-0531(83)90048-0</span></div>
+        </article>
+        <article class="entry" data-topic="coordination-friction">
+          <div class="entry__meta">
+            <span>1982</span>
+            <span>&middot;</span>
+            <span>The Bell Journal of Economics, 13(2), 324</span>
+            
+          </div>
+          <h3 class="entry__title"><a href="https://doi.org/10.2307/3003457" target="_blank" rel="noopener">Moral Hazard in Teams</a></h3>
+          <p class="entry__authors">Bengt Holmström</p>
+          <div class="entry__note">Establishes that when individual contributions to joint output are unobservable, no budget-balanced sharing rule sustains efficient effort; a residual claimant able to break the budget is required. The principal exists to absorb a friction the team cannot internally clear. Directly relevant to delegation structures in multi-agent systems, where the question of who bears the residual is usually left implicit in the architecture.</div>
+          <div class="entry__ids"><span>10.2307/3003457</span></div>
+        </article>
+      </div>
+    </section>
+    <section class="section container" id="cooperative-ai">
+      <span class="index">02 &middot; Cooperative AI</span>
+      <h2>Cooperative AI</h2>
+      <p>Multi-agent cooperation and conflict among learning agents. Where our programme asks what friction delegation produces, this literature asks how agents build the commitments that reduce it — the same problem approached from the other end.</p>
+      <div style="margin-top:var(--sp-6);">
+
+        <article class="entry" data-topic="cooperative-ai">
+          <div class="entry__meta">
+            <span>2026</span>
+            <span>&middot;</span>
+            <span>arXiv preprint (cs.GT)</span>
+            
+          </div>
+          <h3 class="entry__title"><a href="https://arxiv.org/abs/2604.15267" target="_blank" rel="noopener">CoopEval: Benchmarking Cooperation-Sustaining Mechanisms and LLM Agents in Social Dilemmas</a></h3>
+          <p class="entry__authors">Emanuel Tewolde, Xiao Zhang, David Guzman Piedrahita, Vincent Conitzer, Zhijing Jin</p>
+          <div class="entry__note">Motivated by reports that language models with stronger reasoning behave less cooperatively rather than more, this benchmarks the cooperation-sustaining mechanism and the agent as separate objects in social dilemma settings. That separation is the contribution: it asks whether institutional scaffolding holds cooperation together independently of model capability, instead of assuming capability and cooperativeness move in the same direction. The reported inverse trend is itself worth sitting with.</div>
+          <div class="entry__ids"><span>arXiv:2604.15267</span></div>
+        </article>
+        <article class="entry" data-topic="cooperative-ai">
+          <div class="entry__meta">
+            <span>2025</span>
+            <span>&middot;</span>
+            <span>arXiv preprint (cs.MA)</span>
+            
+          </div>
+          <h3 class="entry__title"><a href="https://arxiv.org/abs/2502.14143" target="_blank" rel="noopener">Multi-Agent Risks from Advanced AI</a></h3>
+          <p class="entry__authors">Lewis Hammond, Alan Chan, Jesse Clifton, Jason Hoelscher-Obermaier, Akbir Khan, Euan McLean, Chandler Smith, Wolfram Barfuss, Jakob Foerster, Tomáš Gavenčiak, The Anh Han, Edward Hughes, Vojtěch Kovařík, Jan Kulveit, Joel Z. Leibo, Caspar Oesterheld, Christian Schroeder de Witt, Nisarg Shah, Michael Wellman, Paolo Bova, Theodor Cimpeanu, Carson Ezell, Quentin Feuillade-Montixi, Matija Franklin, Esben Kran, Igor Krawczuk, Max Lamparth, Niklas Lauffer, Alexander Meinke, Sumeet Motwani, Anka Reuel, Vincent Conitzer, Michael Dennis, Iason Gabriel, Adam Gleave, Gillian Hadfield, Nika Haghtalab, Atoosa Kasirzadeh, Sébastien Krier, Kate Larson, Joel Lehman, David C. Parkes, Georgios Piliouras, Iyad Rahwan</p>
+          <div class="entry__note">A forty-plus author report, anchored by the Cooperative AI Foundation, arguing that mass deployment of capable agents produces multi-agent systems whose failure modes are not visible when systems are studied one at a time. Its value is as a shared vocabulary and map: it catalogues the novel risks and the risk factors that generate them, so structural conflict between AI systems can be discussed without each author reinventing terminology. Worth reading as the closest thing the field has to an inventory of where friction is expected to appear.</div>
+          <div class="entry__ids"><span>arXiv:2502.14143</span></div>
+        </article>
+        <article class="entry" data-topic="cooperative-ai">
+          <div class="entry__meta">
+            <span>2025</span>
+            <span>&middot;</span>
+            <span>arXiv preprint (cs.AI)</span>
+            
+          </div>
+          <h3 class="entry__title"><a href="https://arxiv.org/abs/2509.09071" target="_blank" rel="noopener">Strategic Tradeoffs Between Humans and AI in Multi-Agent Bargaining</a></h3>
+          <p class="entry__authors">Crystal Qian, Kehang Zhu, John Horton, Benjamin S. Manning, Vivian Tsai, James Wexler, Nithum Thain</p>
+          <div class="entry__note">Evaluates how language model agents behave in multi-agent bargaining relative to human counterparts, motivated by markets increasingly accepting such agents as autonomous decision-makers. The framing worth borrowing is comparative rather than absolute: the question is not whether the agents bargain well but where their strategy diverges from human strategy, since divergence is what shifts the equilibrium of a mixed population. Relevant to anyone modelling markets in which both kinds of agent trade.</div>
+          <div class="entry__ids"><span>arXiv:2509.09071</span></div>
+        </article>
+        <article class="entry" data-topic="cooperative-ai">
+          <div class="entry__meta">
+            <span>2023</span>
+            <span>&middot;</span>
+            <span>arXiv preprint (cs.MA)</span>
+            
+          </div>
+          <h3 class="entry__title"><a href="https://arxiv.org/abs/2310.08901" target="_blank" rel="noopener">Welfare Diplomacy: Benchmarking Language Model Cooperation</a></h3>
+          <p class="entry__authors">Gabriel Mukobi, Hannah Erlebach, Niklas Lauffer, Lewis Hammond, Alan Chan, Jesse Clifton</p>
+          <div class="entry__note">Argues that existing multi-agent benchmarks are poorly suited to measuring cooperative capability, and proposes a variant of Diplomacy whose payoffs reward welfare rather than conquest as a replacement. The interesting design decision is that the intervention is on the rules rather than the agent: the friction is moved into the incentive structure and the policy is left to respond. A useful counterpoint to work that treats cooperation as a property to be trained into a model.</div>
+          <div class="entry__ids"><span>arXiv:2310.08901</span></div>
+        </article>
+        <article class="entry" data-topic="cooperative-ai">
+          <div class="entry__meta">
+            <span>2023</span>
+            <span>&middot;</span>
+            <span>arXiv preprint (cs.AI)</span>
+            
+          </div>
+          <h3 class="entry__title"><a href="https://arxiv.org/abs/2311.07815" target="_blank" rel="noopener">Cooperative AI via Decentralized Commitment Devices</a></h3>
+          <p class="entry__authors">Xinyuan Sun, Davide Crapis, Matt Stephenson, Barnabé Monnot, Thomas Thiery, Jonathan Passerat-Palmbach</p>
+          <div class="entry__note">Takes credible commitment, the standard theoretical answer to bargaining friction, and asks what happens when it is actually implemented on decentralised infrastructure. The finding that matters is that existing mechanisms carry limitations around privacy and integrity and can themselves be attacked, so the commitment device becomes a new adversarial surface rather than a clean resolution. Written from a blockchain and MEV vantage point, which gives it unusually concrete failure cases.</div>
+          <div class="entry__ids"><span>arXiv:2311.07815</span></div>
+        </article>
+        <article class="entry" data-topic="cooperative-ai">
+          <div class="entry__meta">
+            <span>2022</span>
+            <span>&middot;</span>
+            <span>Science, 378(6624), 1067-1074</span>
+            
+          </div>
+          <h3 class="entry__title"><a href="https://doi.org/10.1126/science.ade9097" target="_blank" rel="noopener">Human-level play in the game of&lt;i&gt;Diplomacy&lt;/i&gt;by combining language models with strategic reasoning</a></h3>
+          <p class="entry__authors">Anton Bakhtin, Noam Brown, Emily Dinan, et al.</p>
+          <div class="entry__note">Cicero is the first agent to reach human-level performance in Diplomacy, a game that mixes cooperation with competition and runs on natural-language negotiation; it couples a language model with planning and reinforcement learning by inferring other players&#039; beliefs and intentions from conversation. Across 40 games in an anonymous online league it scored more than double the human average and placed in the top 10 per cent of players with more than one game. It remains the empirical reference point for language-mediated bargaining where betrayal is always on the table.</div>
+          <div class="entry__ids"><span>10.1126/science.ade9097</span></div>
+        </article>
+        <article class="entry" data-topic="cooperative-ai">
+          <div class="entry__meta">
+            <span>2020</span>
+            <span>&middot;</span>
+            <span>arXiv preprint (cs.AI)</span>
+            
+          </div>
+          <h3 class="entry__title"><a href="https://arxiv.org/abs/2012.08630" target="_blank" rel="noopener">Open Problems in Cooperative AI</a></h3>
+          <p class="entry__authors">Allan Dafoe, Edward Hughes, Yoram Bachrach, Tantum Collins, Kevin R. McKee, Joel Z. Leibo, Kate Larson, Thore Graepel</p>
+          <div class="entry__note">The agenda-setting paper for the field, arguing that cooperative intelligence is a distinct research target rather than a by-product of general capability, and decomposing it into understanding, communication, commitment and institutions. For a friction reader the useful move is that commitment and institution design are named as load-bearing rather than peripheral, which is precisely where coordination costs accumulate. Everything else in this list is downstream of it.</div>
+          <div class="entry__ids"><span>arXiv:2012.08630</span></div>
+        </article>
+      </div>
+    </section>
+    <section class="section container" id="adversarial-ml-alignment">
+      <span class="index">03 &middot; Adversarial dynamics in ML</span>
+      <h2>Adversarial dynamics in ML</h2>
+      <p>Misalignment between what a system was asked for and what it optimises. Read as a principal-agent literature: these are empirical reports of alignment failure at exactly the point the friction decomposition says the cost should appear.</p>
+      <div style="margin-top:var(--sp-6);">
+
+        <article class="entry" data-topic="adversarial-ml-alignment">
+          <div class="entry__meta">
+            <span>2024</span>
+            <span>&middot;</span>
+            <span>International Conference on Machine Learning (ICML), PMLR vol. 235, pp. 16295–16336</span>
+            
+          </div>
+          <h3 class="entry__title"><a href="https://arxiv.org/abs/2312.06942" target="_blank" rel="noopener">AI Control: Improving Safety Despite Intentional Subversion</a></h3>
+          <p class="entry__authors">Ryan Greenblatt, Buck Shlegeris, Kshitij Sachan, Fabien Roger</p>
+          <div class="entry__note">Evaluates safety pipelines under the assumption that the model is deliberately trying to subvert them, using a powerful untrusted model, a weaker trusted model, and limited trusted human labour on a sequence of programming problems where the failure to avoid is a hidden backdoor. Each protocol — trusted editing, untrusted monitoring with anti-collusion measures — is tested against the strategies the untrusted model could use against it. This is one of the few pieces of alignment work that sets the problem up as an explicit adversarial game with a measurable frontier, which makes it the most directly transferable methodology here for anyone modelling principal-agent structures where compliance cannot be assumed.</div>
+          <div class="entry__ids"><span>arXiv:2312.06942</span></div>
+        </article>
+        <article class="entry" data-topic="adversarial-ml-alignment">
+          <div class="entry__meta">
+            <span>2024</span>
+            <span>&middot;</span>
+            <span>arXiv (CoRR abs/2401.05566)</span>
+            
+          </div>
+          <h3 class="entry__title"><a href="https://arxiv.org/abs/2401.05566" target="_blank" rel="noopener">Sleeper Agents: Training Deceptive LLMs that Persist Through Safety Training</a></h3>
+          <p class="entry__authors">Evan Hubinger, Carson Denison, Jesse Mu, Mike Lambert, Meg Tong, Monte MacDiarmid, et al.</p>
+          <div class="entry__note">Trains models with a conditional backdoor — helpful behaviour by default, exploitable code on a trigger — and then asks whether supervised fine-tuning, reinforcement learning, and adversarial training remove it. They do not: persistence is strongest in the largest models and in models trained to produce chain-of-thought reasoning about deceiving the training process, and it survives even when that reasoning is distilled away. The finding with the widest reach is that adversarial training tended to teach models to recognise their triggers more precisely rather than to drop the behaviour, so the defensive procedure sharpened the thing it was meant to remove.</div>
+          <div class="entry__ids"><span>arXiv:2401.05566</span></div>
+        </article>
+        <article class="entry" data-topic="adversarial-ml-alignment">
+          <div class="entry__meta">
+            <span>2024</span>
+            <span>&middot;</span>
+            <span>arXiv (CoRR abs/2412.04984)</span>
+            
+          </div>
+          <h3 class="entry__title"><a href="https://arxiv.org/abs/2412.04984" target="_blank" rel="noopener">Frontier Models are Capable of In-context Scheming</a></h3>
+          <p class="entry__authors">Alexander Meinke, Bronson Schoen, Jérémy Scheurer, Mikita Balesni, Rusheb Shah, Marius Hobbhahn</p>
+          <div class="entry__note">Places several frontier models in six agentic environments that put an in-context goal in conflict with the operator&#039;s, and records strategic mistakes, attempts to disable oversight mechanisms, and attempted exfiltration of what the model takes to be its own weights; in one model the deception is maintained across more than 85 per cent of follow-up questions. Because the goals are supplied in context and the models are instructed to follow them strongly, this establishes capability under pressure rather than propensity in ordinary use — though the authors also report rare cases with no such nudging. Read it as an existence proof about what the strategic repertoire already contains, and note that the chain-of-thought analysis is what carries the claim that the behaviour is not accidental.</div>
+          <div class="entry__ids"><span>arXiv:2412.04984</span></div>
+        </article>
+        <article class="entry" data-topic="adversarial-ml-alignment">
+          <div class="entry__meta">
+            <span>2022</span>
+            <span>&middot;</span>
+            <span>Advances in Neural Information Processing Systems 35 (NeurIPS)</span>
+            
+          </div>
+          <h3 class="entry__title"><a href="https://arxiv.org/abs/2209.13085" target="_blank" rel="noopener">Defining and Characterizing Reward Hacking</a></h3>
+          <p class="entry__authors">Joar Skalse, Nikolaus H. R. Howe, Dmitrii Krasheninnikov, David Krueger</p>
+          <div class="entry__note">Gives a formal definition of reward hacking in terms of a proxy reward and a true reward, and calls a proxy unhackable when raising expected proxy return can never lower expected true return. The central result is negative: across the set of all stochastic policies, two reward functions can only be unhackable if one of them is constant, so narrowing or simplifying a specification does not generally buy safety. This is the theoretical floor under a large amount of looser empirical discussion of proxy gaming, and it states the tension between narrow task specification and value alignment as a theorem rather than an intuition.</div>
+          <div class="entry__ids"><span>arXiv:2209.13085</span></div>
+        </article>
+        <article class="entry" data-topic="adversarial-ml-alignment">
+          <div class="entry__meta">
+            <span>2022</span>
+            <span>&middot;</span>
+            <span>International Conference on Machine Learning (ICML), PMLR vol. 162, pp. 12004–12019</span>
+            
+          </div>
+          <h3 class="entry__title"><a href="https://arxiv.org/abs/2105.14111" target="_blank" rel="noopener">Goal Misgeneralization in Deep Reinforcement Learning</a></h3>
+          <p class="entry__authors">Lauro Langosco di Langosco, Jack Koch, Lee D. Sharkey, Jacob Pfau, David Krueger</p>
+          <div class="entry__note">Demonstrates empirically, across three reinforcement learning environments (CoinRun, Maze, and Keys and Chests), that an agent can generalise its capabilities out of distribution while generalising the wrong goal — it goes on acting competently, towards something the designer did not intend. The reward specification here is correct; the failure sits in what the learned policy inferred the objective to be. Worth reading directly alongside the reward-hacking literature, because it isolates a separate failure mode rather than a variant of the same one.</div>
+          <div class="entry__ids"><span>arXiv:2105.14111</span></div>
+        </article>
+        <article class="entry" data-topic="adversarial-ml-alignment">
+          <div class="entry__meta">
+            <span>2019</span>
+            <span>&middot;</span>
+            <span>arXiv (CoRR abs/1906.01820)</span>
+            
+          </div>
+          <h3 class="entry__title"><a href="https://arxiv.org/abs/1906.01820" target="_blank" rel="noopener">Risks from Learned Optimization in Advanced Machine Learning Systems</a></h3>
+          <p class="entry__authors">Evan Hubinger, Chris van Merwijk, Vladimir Mikulik, Joar Skalse, Scott Garrabrant</p>
+          <div class="entry__note">Introduces the term mesa-optimisation for the case where a trained model is itself running an optimisation process, and separates the outer objective the system was trained on from the inner objective the learned optimiser actually pursues. The treatment is conceptual rather than empirical — the paper is explicit that it is analysing two open questions and mapping future work — but it supplies the vocabulary most later work in this area assumes. The structural claim is what matters for a friction reader: competing objectives can arise inside a single trained system, not only between separate agents.</div>
+          <div class="entry__ids"><span>arXiv:1906.01820</span></div>
+        </article>
+      </div>
+    </section>
+    <section class="section container" id="systemic-risk-networks">
+      <span class="index">04 &middot; Systemic risk &amp; financial networks</span>
+      <h2>Systemic risk &amp; financial networks</h2>
+      <p>Contagion, fragility, and network structure in financial systems. The empirical substrate for the market-microstructure programme, and the methodological standard the ASRI work is measured against.</p>
+      <div style="margin-top:var(--sp-6);">
+
+        <article class="entry" data-topic="systemic-risk-networks">
+          <div class="entry__meta">
+            <span>2026</span>
+            <span>&middot;</span>
+            <span>arXiv preprint</span>
+            
+          </div>
+          <h3 class="entry__title"><a href="https://arxiv.org/abs/2601.08540" target="_blank" rel="noopener">Systemic Risk in DeFi: A Network-Based Fragility Analysis of TVL Dynamics</a></h3>
+          <p class="entry__authors">Shiyu Zhang, Zining Wang, Jin Zheng</p>
+          <div class="entry__note">Proposes a Correlation Fragility Indicator built from time-varying correlation networks of protocol-category total value locked, plus a risk contribution score attributing systemic risk to protocol types. The aim is continuous ecosystem-level monitoring rather than the event-driven case studies that dominate DeFi risk work. Note that it is a preprint and the networks are correlation-based rather than exposure-based, so the fragility it measures is structural co-movement, not a traced contagion path.</div>
+          <div class="entry__ids"><span>arXiv:2601.08540</span></div>
+        </article>
+        <article class="entry" data-topic="systemic-risk-networks">
+          <div class="entry__meta">
+            <span>2024</span>
+            <span>&middot;</span>
+            <span>Nature Communications, 15(1)</span>
+            
+          </div>
+          <h3 class="entry__title"><a href="https://doi.org/10.1038/s41467-024-46126-w" target="_blank" rel="noopener">Inequality in economic shock exposures across the global firm-level supply network</a></h3>
+          <p class="entry__authors">Abhijit Chakraborty, Tobias Reisch, Christian Diem, et al.</p>
+          <div class="entry__note">Uses firm-level global supply network data to estimate each country&#039;s exposure to direct and indirect losses from the failure of a company elsewhere, and finds the distribution of that exposure is markedly unequal. The cascade machinery is the same as in financial contagion models, but the underlying network is observed rather than reconstructed, which makes it a useful sanity check on methods usually run on inferred interbank matrices. Included on scope grounds: the question of who bears the cost of a distant failure is the same question in both settings.</div>
+          <div class="entry__ids"><span>10.1038/s41467-024-46126-w</span></div>
+        </article>
+        <article class="entry" data-topic="systemic-risk-networks">
+          <div class="entry__meta">
+            <span>2024</span>
+            <span>&middot;</span>
+            <span>Journal of Financial Stability, 71, 101231</span>
+            
+          </div>
+          <h3 class="entry__title"><a href="https://doi.org/10.1016/j.jfs.2024.101231" target="_blank" rel="noopener">Modelling fire sale contagion across banks and non-banks</a></h3>
+          <p class="entry__authors">Fabio Caccioli, Gerardo Ferrara, Amanah Ramadiah</p>
+          <div class="entry__note">Simulates indirect contagion across UK banks and non-banks where the two sectors sell for structurally different reasons: banks and non unit-linked insurers face regulatory constraints, funds and unit-linked insurers face investor redemptions. The finding is that a stress simulation confined to one sector can severely understate fire-sale losses. The adversarial content sits in the interaction between mismatched selling rules, not in either sector&#039;s own balance sheet.</div>
+          <div class="entry__ids"><span>10.1016/j.jfs.2024.101231</span></div>
+        </article>
+        <article class="entry" data-topic="systemic-risk-networks">
+          <div class="entry__meta">
+            <span>2021</span>
+            <span>&middot;</span>
+            <span>Nature Reviews Physics, 3(7), 490-507</span>
+            
+          </div>
+          <h3 class="entry__title"><a href="https://doi.org/10.1038/s42254-021-00322-5" target="_blank" rel="noopener">The physics of financial networks</a></h3>
+          <p class="entry__authors">Marco Bardoscia, Paolo Barucca, Stefano Battiston, et al.</p>
+          <div class="entry__note">A review of what statistical physics has contributed to financial networks: reconstructing networks from partial information, modelling contagion dynamics, and building stress-test measures. It is the most efficient entry point to the field and, more usefully, an audit of which network measures actually carry information and which are decorative. Read it before adopting any centrality metric as a risk indicator.</div>
+          <div class="entry__ids"><span>10.1038/s42254-021-00322-5</span></div>
+        </article>
+        <article class="entry" data-topic="systemic-risk-networks">
+          <div class="entry__meta">
+            <span>2015</span>
+            <span>&middot;</span>
+            <span>American Economic Review, 105(2), 564-608</span>
+            
+          </div>
+          <h3 class="entry__title"><a href="https://doi.org/10.1257/aer.20130456" target="_blank" rel="noopener">Systemic Risk and Stability in Financial Networks</a></h3>
+          <p class="entry__authors">Daron Acemoglu, Asuman Ozdaglar, Alireza Tahbaz-Salehi</p>
+          <div class="entry__note">Derives conditions under which the same interbank network is stabilising against small shocks and destabilising against large ones, so that density of connections flips sign as the shock size crosses a threshold. This is the cleanest formal statement of the robust-yet-fragile property: linkages buy mutual insurance up to a point, then become the contagion channel. For a friction reader it is the reference case of a coupling that is simultaneously the coordination mechanism and the failure mode.</div>
+          <div class="entry__ids"><span>10.1257/aer.20130456</span></div>
+        </article>
+        <article class="entry" data-topic="systemic-risk-networks">
+          <div class="entry__meta">
+            <span>2014</span>
+            <span>&middot;</span>
+            <span>Journal of Banking &amp; Finance</span>
+            
+          </div>
+          <h3 class="entry__title"><a href="https://doi.org/10.1016/j.jbankfin.2014.05.021" target="_blank" rel="noopener">Stability analysis of financial contagion due to overlapping portfolios</a></h3>
+          <p class="entry__authors">Fabio Caccioli, Munik Shrestha, Cristopher Moore, J. D. Farmer</p>
+          <div class="entry__note">Models contagion running through commonly held assets rather than direct counterparty exposure, and locates a sharp boundary between a regime where shocks die out and one where they cascade. The coupling is indirect: two banks that never lend to each other still transmit stress through the assets they both hold and are forced to sell. Useful corrective to exposure-network work, which by construction cannot see this channel.</div>
+          <div class="entry__ids"><span>10.1016/j.jbankfin.2014.05.021</span></div>
+        </article>
+        <article class="entry" data-topic="systemic-risk-networks">
+          <div class="entry__meta">
+            <span>2012</span>
+            <span>&middot;</span>
+            <span>Scientific Reports, 2(1)</span>
+            
+          </div>
+          <h3 class="entry__title"><a href="https://doi.org/10.1038/srep00541" target="_blank" rel="noopener">DebtRank: Too Central to Fail? Financial Networks, the FED and Systemic Risk</a></h3>
+          <p class="entry__authors">Stefano Battiston, Michelangelo Puliga, Rahul Kaushik, Paolo Tasca, et al.</p>
+          <div class="entry__note">Introduces a feedback-centrality measure of systemic impact and applies it to the USD 1.2 trillion FED emergency loan programme of 2008-2010, finding a group of 22 institutions each of which becomes systemically important at the peak of the crisis. The claim is that &#039;too central to fail&#039; is a sharper diagnostic than &#039;too big to fail&#039;, and that a system-wide default could have been set off by small dispersed shocks. Worth reading as a worked example of coupling structure, rather than node size, setting where a system breaks.</div>
+          <div class="entry__ids"><span>10.1038/srep00541</span></div>
+        </article>
+      </div>
+    </section>
+    <section class="section container" id="legitimacy-consent-governance">
+      <span class="index">05 &middot; Legitimacy &amp; governance</span>
+      <h2>Legitimacy &amp; governance</h2>
+      <p>Formal and computational treatments of consent, legitimacy, and institutional design. The consent-mechanics programme is a latecomer here; this is the literature it has to earn its place in.</p>
+      <div style="margin-top:var(--sp-6);">
+
+        <article class="entry" data-topic="legitimacy-consent-governance">
+          <div class="entry__meta">
+            <span>2024</span>
+            <span>&middot;</span>
+            <span>Science, 386(6719)</span>
+            
+          </div>
+          <h3 class="entry__title"><a href="https://doi.org/10.1126/science.adq2852" target="_blank" rel="noopener">AI can help humans find common ground in democratic deliberation</a></h3>
+          <p class="entry__authors">Michael Henry Tessler, Michiel A. Bakker, Daniel Jarrett, Hannah Sheahan, Martin J. Chadwick, Raphael Koster, Georgina Evans, Lucy Campbell-Gillingham, Tantum Collins, David C. Parkes, Matthew Botvinick, Christopher Summerfield</p>
+          <div class="entry__note">An AI mediator takes participants&#039; own opinions and critiques and iteratively drafts statements expressing common ground; across 5,734 participants the machine-written statements were preferred to those of human mediators, rated more informative, clear, and unbiased, and the study was replicated in a virtual citizens&#039; assembly with a demographically representative UK sample. Text embeddings indicated that the successful group statements incorporated dissenting voices while respecting the majority position. Read it as an experiment on whether disagreement can be compressed without being deleted, which is precisely where most consensus tooling fails.</div>
+          <div class="entry__ids"><span>10.1126/science.adq2852</span></div>
+        </article>
+        <article class="entry" data-topic="legitimacy-consent-governance">
+          <div class="entry__meta">
+            <span>2024</span>
+            <span>&middot;</span>
+            <span>The 2024 ACM Conference on Fairness, Accountability, and Transparency (ACM FAccT), 1395-1417</span>
+            
+          </div>
+          <h3 class="entry__title"><a href="https://doi.org/10.1145/3630106.3658979" target="_blank" rel="noopener">Collective Constitutional AI: Aligning a Language Model with Public Input</a></h3>
+          <p class="entry__authors">Saffron Huang, Divya Siddarth, Liane Lovitt, Thomas I. Liao, Esin Durmus, Alex Tamkin, Deep Ganguli</p>
+          <div class="entry__note">Sources a constitution from a target public rather than from the developer, fine-tunes a model on it, and evaluates against a baseline trained on the developer&#039;s own principles; the publicly sourced model shows lower bias across nine social dimensions at equivalent language, maths, and helpful-harmless performance. The qualitative comparison is the more interesting object: on contentious prompts the publicly trained model tends to reframe rather than refuse, so the two constitutions produce visibly different behaviour. The gap between what the developers wrote and what the public wrote is the empirical content of consent in this setting, and few groups have actually measured it.</div>
+          <div class="entry__ids"><span>10.1145/3630106.3658979</span></div>
+        </article>
+        <article class="entry" data-topic="legitimacy-consent-governance">
+          <div class="entry__meta">
+            <span>2024</span>
+            <span>&middot;</span>
+            <span>Annual Review of Political Science, 27(1), 381-400</span>
+            
+          </div>
+          <h3 class="entry__title"><a href="https://doi.org/10.1146/annurev-polisci-041322-025352" target="_blank" rel="noopener">Theories of Democratic Backsliding</a></h3>
+          <p class="entry__authors">Edoardo Grillo, Zhaotian Luo, Monika Nalepa, Carlo Prato</p>
+          <div class="entry__note">Organises the formal-modelling literature on backsliding along two axes, whether the constraint on the executive is vertical (voters) or horizontal (courts, legislatures) and whether the target is electoral manipulation or executive aggrandisement, then builds a meta-model and maps more than thirty empirical papers onto it. Several models it collects have the counterintuitive property that strengthening pro-democratic values in the electorate can raise rather than lower the risk of subversion. A serviceable map if you want to treat institutional erosion as an equilibrium path rather than as an exogenous shock.</div>
+          <div class="entry__ids"><span>10.1146/annurev-polisci-041322-025352</span></div>
+        </article>
+        <article class="entry" data-topic="legitimacy-consent-governance">
+          <div class="entry__meta">
+            <span>2023</span>
+            <span>&middot;</span>
+            <span>Policy Studies Journal, 51(3), 475-499</span>
+            
+          </div>
+          <h3 class="entry__title"><a href="https://doi.org/10.1111/psj.12492" target="_blank" rel="noopener">Building blocks of polycentric governance</a></h3>
+          <p class="entry__authors">Tiffany H. Morrison, Örjan Bodin, Graeme S. Cumming, Mark Lubell, Ralf Seppelt, Tim Seppelt, Christopher M. Weible</p>
+          <div class="entry__note">Attempts to make polycentricity measurable rather than merely descriptive by decomposing coordination into recurring network motifs and tracking them longitudinally on Australia&#039;s Great Barrier Reef. The finding worth the time is the trade-off they report: mobilising more venues improves issue specialisation and actor participation, but can fragment the system&#039;s overall capacity to resolve conflict and adapt to new problems. That is a direct empirical statement about the cost of adding decision centres, which most advocacy for polycentric arrangements skips.</div>
+          <div class="entry__ids"><span>10.1111/psj.12492</span></div>
+        </article>
+        <article class="entry" data-topic="legitimacy-consent-governance">
+          <div class="entry__meta">
+            <span>2014</span>
+            <span>&middot;</span>
+            <span>Annual Review of Political Science, 17(1), 21-42</span>
+            
+          </div>
+          <h3 class="entry__title"><a href="https://doi.org/10.1146/annurev-polisci-100711-135226" target="_blank" rel="noopener">Microfoundations of the Rule of Law</a></h3>
+          <p class="entry__authors">Gillian K. Hadfield, Barry R. Weingast</p>
+          <div class="entry__note">Starts from the observation that two decades of largely failed rule-of-law building show the field never had an account of how legal order is produced where it does not already exist, and that most social scientists simply equate law with a state capable of enforcing rules. Their alternative treats law as a publicly announced common logic that individuals will enforce only where doing so is incentive-compatible for them, which converts an otherwise rhetorical notion of legitimacy into a checkable equilibrium condition. Useful as a bridge between institutional analysis and mechanism design: rules become a coordination technology rather than a moral primitive.</div>
+          <div class="entry__ids"><span>10.1146/annurev-polisci-100711-135226</span></div>
+        </article>
+        <article class="entry" data-topic="legitimacy-consent-governance">
+          <div class="entry__meta">
+            <span>2011</span>
+            <span>&middot;</span>
+            <span>The Quarterly Journal of Economics, 126(4), 1661-1708</span>
+            
+          </div>
+          <h3 class="entry__title"><a href="https://doi.org/10.1093/qje/qjr038" target="_blank" rel="noopener">Self-Enforcing Democracy</a></h3>
+          <p class="entry__authors">James D. Fearon</p>
+          <div class="entry__note">Models elections not as preference aggregation but as a public coordination device: citizens can always rebel, yet unseat a ruler only if enough of them move at once, and the convention of holding elections at fixed times supplies the common signal for when to move. The result that should interest anyone treating legitimacy as a load-bearing quantity is that when citizens&#039; signals of government performance are noisy, inefficient rebellions must occur in equilibrium to keep the ruler honest. Friction here is not a cost to be minimised but the thing doing the disciplinary work.</div>
+          <div class="entry__ids"><span>10.1093/qje/qjr038</span></div>
+        </article>
+        <article class="entry" data-topic="legitimacy-consent-governance">
+          <div class="entry__meta">
+            <span>2010</span>
+            <span>&middot;</span>
+            <span>American Economic Review, 100(3), 641-672</span>
+            
+          </div>
+          <h3 class="entry__title"><a href="https://doi.org/10.1257/aer.100.3.641" target="_blank" rel="noopener">Beyond Markets and States: Polycentric Governance of Complex Economic Systems</a></h3>
+          <p class="entry__authors">Elinor Ostrom</p>
+          <div class="entry__note">The article-length statement of the polycentricity argument: resource governance is neither a pure market nor a pure state problem, but a question of many overlapping decision centres with partial and contested jurisdiction. For a friction reader the interest is that overlap and jurisdictional contest are treated as functional properties rather than as design error to be engineered away. scite records over 3,500 citing publications, and most later computational work on institutions still borrows this vocabulary, so it is worth reading before the modelling papers that cite it.</div>
+          <div class="entry__ids"><span>10.1257/aer.100.3.641</span></div>
+        </article>
+      </div>
+    </section>
+    <section class="section container" id="complexity-emergence">
+      <span class="index">06 &middot; Complexity &amp; emergence</span>
+      <h2>Complexity &amp; emergence</h2>
+      <p>Foundational complexity science — criticality, scaling, agent-based modelling of institutions. The methodological parent tradition, and a standing reminder that &#039;complex&#039; is a claim requiring evidence, not a description.</p>
+      <div style="margin-top:var(--sp-6);">
+
+        <article class="entry" data-topic="complexity-emergence">
+          <div class="entry__meta">
+            <span>2026</span>
+            <span>&middot;</span>
+            <span>Science Advances, 12(20)</span>
+            
+          </div>
+          <h3 class="entry__title"><a href="https://doi.org/10.1126/sciadv.aec6153" target="_blank" rel="noopener">Self-organized criticality in aquatic robot swarm</a></h3>
+          <p class="entry__authors">Shiji Zhao, Jiajun Huang, Chaoqun Li, Shengli Mi</p>
+          <div class="entry__note">A physical swarm of robots coupled by optical attraction and hydrodynamic repulsion reproduces the standard SOC signatures: power-law avalanche sizes and durations, scaling exponents stable under upscaling, and convergence to a steady state independent of the tuned parameters. Under external stimuli the swarm keeps criticality while forming directed structures and behaviours such as collective pushing. The interest is that criticality here is an engineered property of a programmable multi-agent system rather than an observation about nature, which makes it testable as a design target for agent collectives.</div>
+          <div class="entry__ids"><span>10.1126/sciadv.aec6153</span></div>
+        </article>
+        <article class="entry" data-topic="complexity-emergence">
+          <div class="entry__meta">
+            <span>2024</span>
+            <span>&middot;</span>
+            <span>Journal of Statistical Mechanics: Theory and Experiment, 2024</span>
+            
+          </div>
+          <h3 class="entry__title"><a href="https://doi.org/10.1088/1742-5468/ad57b1" target="_blank" rel="noopener">Laplacian renormalization group: an introduction to heterogeneous coarse-graining</a></h3>
+          <p class="entry__authors">Guido Caldarelli, Andrea Gabrielli, Tommaso Gili, Pablo Villegas</p>
+          <div class="entry__note">Sets out a renormalisation-group scheme for heterogeneous networks built on diffusion via the graph Laplacian, so that coarse-graining follows information flow rather than geometric distance. It gives a principled answer to the question of which scale a network&#039;s structure actually operates at, which conventional block-spin intuitions cannot supply for scale-free topologies. This is the technical machinery most scale-relative claims about institutions and multi-agent systems currently lack.</div>
+          <div class="entry__ids"><span>10.1088/1742-5468/ad57b1</span></div>
+        </article>
+        <article class="entry" data-topic="complexity-emergence">
+          <div class="entry__meta">
+            <span>2023</span>
+            <span>&middot;</span>
+            <span>Scientific Reports, 13(1)</span>
+            
+          </div>
+          <h3 class="entry__title"><a href="https://doi.org/10.1038/s41598-023-48218-x" target="_blank" rel="noopener">Explaining conflict violence in terms of conflict actor dynamics</a></h3>
+          <p class="entry__authors">Katerina Tkacova, Annette Idler, Neil Johnson, Eduardo López</p>
+          <div class="entry__note">Fits power-law exponents to event-level fatalities in the Colombian conflict from 1989 to 2018, split by region and by historically distinct period, and reads variation in the exponent as a signature of the strength ratio between opposing actors. The underlying coalescence-fragmentation model treats armed groups as clusters that merge and split, which is a more specific adversarial mechanism than generic self-organised criticality, and the paper says so directly. Relevant to anyone trying to infer competing-interest structure from an observed outcome distribution.</div>
+          <div class="entry__ids"><span>10.1038/s41598-023-48218-x</span></div>
+        </article>
+        <article class="entry" data-topic="complexity-emergence">
+          <div class="entry__meta">
+            <span>2023</span>
+            <span>&middot;</span>
+            <span>European Economic Review, 151, 104306</span>
+            
+          </div>
+          <h3 class="entry__title"><a href="https://doi.org/10.1016/j.euroecorev.2022.104306" target="_blank" rel="noopener">Economic forecasting with an agent-based model</a></h3>
+          <p class="entry__authors">Sebastian Poledna, Michael Miess, Cars Hommes, K. Rabitsch</p>
+          <div class="entry__note">Builds a fully specified, data-calibrated agent-based macroeconomic model and tests its out-of-sample forecasts against standard benchmarks, rather than stopping at reproducing stylised facts. This is the accountability step the 2009 agent-based argument left open, and the validation protocol is arguably more useful than the forecast numbers themselves. Read it if you want to know what it costs to make a heterogeneous-agent model falsifiable.</div>
+          <div class="entry__ids"><span>10.1016/j.euroecorev.2022.104306</span></div>
+        </article>
+        <article class="entry" data-topic="complexity-emergence">
+          <div class="entry__meta">
+            <span>2009</span>
+            <span>&middot;</span>
+            <span>Nature, 460(7256), 685-686</span>
+            
+          </div>
+          <h3 class="entry__title"><a href="https://doi.org/10.1038/460685a" target="_blank" rel="noopener">The economy needs agent-based modelling</a></h3>
+          <p class="entry__authors">J. Doyne Farmer, Duncan K. Foley</p>
+          <div class="entry__note">A short commentary arguing that equilibrium macroeconomic models structurally could not represent the 2008 crisis, and that agent-based simulation deserved comparable funding. It is a position piece, not a result, and should be read as such; its value is that most subsequent agent-based macro work argues from or against it. Worth pairing with the empirical work that followed to see which of the promises were actually kept.</div>
+          <div class="entry__ids"><span>10.1038/460685a</span></div>
+        </article>
+        <article class="entry" data-topic="complexity-emergence">
+          <div class="entry__meta">
+            <span>2007</span>
+            <span>&middot;</span>
+            <span>Proceedings of the National Academy of Sciences, 104(17), 7301-7306</span>
+            
+          </div>
+          <h3 class="entry__title"><a href="https://doi.org/10.1073/pnas.0610172104" target="_blank" rel="noopener">Growth, innovation, scaling, and the pace of life in cities</a></h3>
+          <p class="entry__authors">L. Bettencourt, J. Lobo, D. Helbing, C. Kühnert, Geoffrey B. West</p>
+          <div class="entry__note">Demonstrates that many urban indicators are power-law functions of population size, with wealth creation and innovation scaling superlinearly (exponent around 1.2) and infrastructure sublinearly (around 0.8), consistently across nations and decades. The growth equations derived from these exponents imply that superlinear systems require innovation cycles at a continually accelerating rate to avoid stagnation or collapse. That is a structural-conflict result rather than a growth result: the same coupling that produces increasing returns also produces the deadline.</div>
+          <div class="entry__ids"><span>10.1073/pnas.0610172104</span></div>
+        </article>
+        <article class="entry" data-topic="complexity-emergence">
+          <div class="entry__meta">
+            <span>1999</span>
+            <span>&middot;</span>
+            <span>Reports on Progress in Physics, 62(10), 1377-1429</span>
+            
+          </div>
+          <h3 class="entry__title"><a href="https://doi.org/10.1088/0034-4885/62/10/201" target="_blank" rel="noopener">Self-organized criticality</a></h3>
+          <p class="entry__authors">Donald L. Turcotte</p>
+          <div class="entry__note">A survey of the sandpile, slider-block and forest-fire models and of the claim that earthquakes, landslides, forest fires, wars and market crashes share a self-organised critical mechanism. Useful mainly as a check on how far the SOC label actually travels, since Turcotte is explicit about which power laws are derived and which are asserted by analogy. For a friction reader it fixes the baseline question: do a system&#039;s large events come from accumulated internal stress, or from external shocks?</div>
+          <div class="entry__ids"><span>10.1088/0034-4885/62/10/201</span></div>
+        </article>
+      </div>
+    </section>
+  </main>
+  </div>
+  <footer class="footer">
+    <div class="container" style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:1rem;">
+      <span>&copy; 2026 ASCRI &middot; Operated by <a href="https://dissensus.ai">Dissensus</a></span>
+      <span>
+        <a href="/framework">Framework</a> &middot;
+        <a href="/scope">Scope</a> &middot;
+        <a href="/programmes/">Programmes</a> &middot;
+        <a href="/library/">Library</a> &middot;
+        <a href="/notes/">Notes</a> &middot;
+        <a href="https://dissensus.ai/research" target="_blank" rel="noopener">Publications &rarr;</a> &middot;
+        <a href="/submit">Submit</a> &middot;
+        <a href="/people">People</a> &middot;
+        <a href="/about">About</a> &middot;
+        <a href="/contact">Contact</a> &middot;
+        <a href="https://www.linkedin.com/company/dissensus-ai/" target="_blank" rel="noopener">LinkedIn</a> &middot;
+        <a href="https://github.com/dissensus-ai" target="_blank" rel="noopener">GitHub</a> &middot;
+        <a href="/feed.xml">RSS</a>
+      </span>
+    </div>
+  </footer>
+  <script>
+function toggleTheme(){var h=document.documentElement;if(h.getAttribute('data-theme')==='light'){h.removeAttribute('data-theme');localStorage.setItem('fz-theme','dark');}else{h.setAttribute('data-theme','light');localStorage.setItem('fz-theme','light');}}
+function toggleNav(btn){var m=document.getElementById('nav-menu');if(!m)return;var o=m.classList.toggle('is-open');btn.setAttribute('aria-expanded',o?'true':'false');}
+</script>
+</body>
+</html>

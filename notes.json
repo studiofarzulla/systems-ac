@@ -1,0 +1,243 @@
+{
+  "_note": "Informal notes and reference material published because someone else might find them useful; these are not portfolio claims and several are speculative or unreviewed.",
+  "notes": [
+    {
+      "id": "notation-reference",
+      "title": "Notation reference for the consent-friction framework",
+      "kind": "Reference",
+      "summary": "The consent-friction papers run on a small set of recurring symbols, and the lab's own web pages have not agreed with the papers about what those symbols mean. This entry fixes the canonical set as it is written in the manuscripts, defines each symbol against the definition it comes from, and records which published surfaces depart from it. It is a byproduct of an audit rather than a contribution, and it exists so that a reader moving between the papers and the sites can tell which version is load-bearing.",
+      "whyUseful": "Anyone reading [The Axiom of Consent](https://arxiv.org/abs/2601.06692) or [the Replicator-Optimization Mechanism](https://arxiv.org/abs/2601.06363) alongside either lab site hits a symbol collision within the first screen, with no way to tell which surface is authoritative. The definitions below are taken from the manuscripts, so the papers win by construction.\n\nIt doubles as a fix-list for the lab: two notation blocks to rewrite, one symbol used in two incompatible senses on a single page, and one stale abstract propagated across six files. One thing was checked and found sound, which is the claim that the friction properties `F = 0` exactly when `σ = 0`, positivity, and the lower bound `F ≥ σ/2` are machine-checked; that is supported verbatim by the papers' Lean appendix.",
+      "sections": [
+        {
+          "heading": "The canonical symbols",
+          "body": "Friction is `F`, a Roman capital, never φ. The definition in the Axiom of Consent reads `F(d,t) = σ(d) · (1 + ε(d,t)) / (1 + α(d,t))`.\n\nWithin that: `σ(d)` is total stake magnitude, the sum of individual stakes over the affected set, and it carries no time argument; `ε(d,t)` is information entropy, lying between 0 and 1; `α(d,t)` is aggregate alignment, built from per-agent correlations between the agent's target and the consent-holder's, running from -1 to 1. The value α = -1 is excluded from the domain because F diverges there. Named properties: `F = 0` exactly when `σ = 0`, and an irreducible baseline `F(σ,1,0) = σ/2`, hence `F ≥ σ/2`.\n\nThe kernel triple is (α, σ, ε). It maps onto the ROM triple of survival, weight and transmission, with survival given by `ρ_S = L/(1+F)`. Legitimacy is `L`, not Λ: stakes-weighted voice, the stake-weighted mean of individual voice, with a measurement proxy built from the mean absolute gap between stake share and voice share. The consent quantity is `C(d,t)`, the consenting stake share, of which L is the continuous relaxation. The consent-holding map is written `H_t(d)`."
+        },
+        {
+          "heading": "Which surface was right, and what changed",
+          "body": "Three live notations existed and they were mutually incompatible. The systems.ac landing page printed the friction function with `F` and `ε`, matching the papers. The systems.ac framework page printed the same function but named friction `φ` in its symbol table. The dissensus.ai research page carried a notation grid giving `φ` for friction and `η` for entropy, both of which disagree with the manuscripts.\n\nTwo of those disagreements are now resolved. On 30 July 2026 friction was changed to `F` on the systems.ac framework page and on the dissensus.ai grid, and entropy was changed from `η` to `ε` on the dissensus.ai grid. Both surfaces now match `F = σ(1 + ε)/(1 + α)` as the Axiom of Consent states it.\n\nTwo disagreements are not resolved, and cannot be resolved by editing a web page. The dissensus.ai grid also lists `Λ` for legitimacy and `Ψ` for a consent function. Neither symbol appears anywhere in the Axiom of Consent or in the legitimacy paper — they are site-only inventions with no manuscript counterpart, and the legitimacy paper does not settle on a single symbol at all. Choosing one is an authorial decision, not a typo fix, so both were left in place and are flagged here instead."
+        },
+        {
+          "heading": "Two symbols are already spent",
+          "body": "φ is mean fitness in these papers: the population-weighted product of weight and survival in the replicator-mutator equation, and a type-dependent fitness in ROM's gradient-flow appendix. η is measurement error in the measurement section, the ANOVA effect size η², a Pareto-inefficiency metric and a learning rate in the MARL appendix, and a sign indicator in the dynamics section. Ψ is the residual interaction term in ROM's free-energy functional.\n\nUsing φ for friction, η for entropy or Ψ for a consent function therefore creates a collision inside the framework, not merely a divergence from it. Λ appears nowhere in either formal paper, and no source was found that ever introduces Λ or Ψ as canonical symbols; whether they were an early convention later dropped, or were coined for the web copy, is not established."
+        },
+        {
+          "heading": "A reference is not an endorsement of the form",
+          "body": "The current manuscripts label `F = σ(1+ε)/(1+α)` an explicitly phenomenological ansatz and report that the single-index composition is not supported as a predictor: ROM's own validation section gives R² between 0.05 and 0.13, not significant at n = 27. What survives testing is the variable set and the ordinal structure, meaning stakes dominant, entropy positive, alignment monotone in signed correlation, rather than the particular composition.\n\nAnyone quoting the equation should carry that hedge with it. An abstract syndicated to six files across the three sites states without hedge that the friction equation predicts coordination difficulty; the current manuscript retracts exactly that."
+        }
+      ],
+      "keyClaims": [
+        "Canonical form: `F(d,t) = σ(d) · (1 + ε(d,t)) / (1 + α(d,t))`, with F a Roman capital for friction, σ total stake and no time argument, ε entropy, α aggregate alignment. Legitimacy is `L`, stakes-weighted voice; consent is `C`, the consenting stake share.",
+        "φ and η are already assigned inside the papers, to mean fitness and to measurement error and the ANOVA effect size respectively, so using them for friction and entropy collides within the framework rather than merely departing from it. Λ appears in neither formal paper.",
+        "systems.ac disagrees with itself: its landing page matches the papers and its framework page does not. The dissensus.ai notation grid has four of six symbols wrong and asserts that legitimacy collapses to alignment, which contradicts the definition ROM actually uses.",
+        "The equation is a phenomenological ansatz. What the papers report as surviving testing is the variable set and the ordinal structure, not the single-index composition."
+      ],
+      "caveats": [
+        "Unreviewed. This is an audit note with no new mathematics; it records what the manuscripts say and where the sites departed from it.",
+        "Partially acted on. The `φ` and `η` discrepancies were corrected on both sites on 30 July 2026; the `Λ` and `Ψ` entries were left alone because the papers do not define them and picking a symbol is an authorial decision.",
+        "Read off local working copies of the manuscripts. Whether the public arXiv PDFs are identical at these specific lines was not checked line by line.",
+        "The two framework papers state different quadratic variants of the friction form, differing in whether entropy is squared. Both are withdrawn as empirical claims, since the U-shape that motivated them was diagnosed as a sampling artefact."
+      ],
+      "identifiers": [
+        {
+          "label": "arXiv:2601.06692 — The Axiom of Consent: Friction Dynamics in Multi-Agent Coordination",
+          "url": "https://arxiv.org/abs/2601.06692"
+        },
+        {
+          "label": "Zenodo concept 10.5281/zenodo.20741718 — Axiom of Consent",
+          "url": "https://doi.org/10.5281/zenodo.20741718"
+        },
+        {
+          "label": "arXiv:2601.06363 — The Replicator-Optimization Mechanism",
+          "url": "https://arxiv.org/abs/2601.06363"
+        },
+        {
+          "label": "Zenodo concept 10.5281/zenodo.17626762 — Consensual Sovereignty",
+          "url": "https://doi.org/10.5281/zenodo.17626762"
+        }
+      ]
+    },
+    {
+      "id": "lean-formalisations",
+      "title": "FarzullaProofs — Lean 4 formalisations",
+      "kind": "Proof library",
+      "summary": "FarzullaProofs is a Lean 4 library that restates selected results from the lab's papers as machine-checked theorems. The public repository holds 246 theorems across fifteen paper modules plus a shared library, compiling against Lean 4 v4.27.0 and Mathlib with no `sorry` placeholders, no custom axioms and no `native_decide`. Formalisation depth varies a great deal between modules: several map onto named propositions in the manuscripts, others formalise a simplified algebraic stand-in for the construct the paper is actually about.",
+      "whyUseful": "Anyone refereeing or extending the Axiom of Consent friction functional, the Replicator-Optimization Mechanism, or the regime-tenure law can go from an equation in a PDF to the checked Lean statement in one step, and read off which side conditions the result needs. Each module ships a PaperMap linking manuscript theorem identifiers to Lean declarations. The ROM modules also ship as arXiv ancillary files with [arXiv:2601.06363](https://arxiv.org/abs/2601.06363).\n\nFor readers who do not use Lean, the assumptions ledger is probably the more reusable artefact: an explicit inventory of the side conditions and modelling assumptions each result is conditional on, including, in one module, a statement of where the model leaves its own valid domain. The proofs are elementary and readable, so the repository also works as a worked example of formalising an applied paper's algebra with Mathlib.",
+      "sections": [
+        {
+          "heading": "What is in the repository",
+          "body": "246 theorems across fifteen paper modules plus a shared Common library, on Lean 4 v4.27.0 with Mathlib at the matching revision. The build was checked by running it rather than by reading the README: `lake build` returns exit 0 on 7,938 jobs, and a grep across all non-cache `.lean` files finds no `sorry`, no custom axioms and no `native_decide`. Those figures agree with the repository's own description.\n\nA sixteenth module on optimal friction dosing, fifteen further theorems, is committed on a local branch and not pushed, so the public repository and all current site copy describe the smaller version. The 246 figure goes stale the moment that branch lands."
+        },
+        {
+          "heading": "Depth is uneven, and the headline count flattens that",
+          "body": "Roughly six modules formalise named propositions from the manuscripts. The rest formalise simplified algebraic stand-ins. The module named for the 33k-word consciousness monograph defines qualia distance as the absolute difference of two reals and proves non-negativity, self-distance zero and symmetry, which are the standard properties of absolute value. The CBDC privacy module models privacy composition as additive epsilon accounting closed by `ring`. Neither formalises the argument of the paper it is named after.\n\nThe Bronze, Silver and Gold tier labels advertised in the README no longer discriminate between these cases: the coverage file now marks every module as gold. The promotion commits flipped the label by adding a roughly forty-line file of four further elementary theorems, so the label moved and the depth did not.\n\nEverything in the library is elementary algebra over the reals, Finset and the complex numbers. There is no measure theory, no topology and no continuous dynamics anywhere in it; results described as dynamics are discrete algebraic identities, not statements about differential equations or their convergence."
+        },
+        {
+          "heading": "What machine-checking does and does not buy",
+          "body": "Lean checks that the proofs follow from the stated definitions. It does not establish that the definitions are faithful renderings of the papers' constructs, and for the shallower modules they plainly are not. The library is unreviewed in the peer-review sense.\n\nOne concrete example of the gap: the regime-tenure first-passage identity is proved by hand in the paper and is not formalised at all. Only the comparative statics around it are machine-checked."
+        }
+      ],
+      "keyClaims": [
+        "246 theorems, zero `sorry`, zero custom axioms, zero `native_decide`, on Lean 4 v4.27.0 and Mathlib. Verified by running the build and grepping the source rather than by reading the README, and consistent with the repository's own description.",
+        "Formalisation depth is uneven and the tier labels no longer track it. About six modules formalise named propositions; the others formalise simplified algebraic stand-ins.",
+        "Everything is elementary algebra over the reals, Finset and the complex numbers. No measure theory, no topology, no continuous dynamics.",
+        "A sixteenth module of fifteen theorems exists only on an unpushed local branch, so the public repository is the smaller version."
+      ],
+      "caveats": [
+        "Unreviewed. Machine-checking establishes that proofs follow from the definitions given, not that those definitions render the papers' constructs faithfully.",
+        "One module is entirely conditional on a posited quadratic entropy response that is neither derived nor estimated from data, and the ledger separately records that the modelled entropy at the optimum can fall outside the Axiom of Consent's own entropy domain. That module is also the unpushed one.",
+        "Repository metadata is stale after the July 2026 move to the `dissensus-ai` organisation: the README build badge and the `url` and `repository-code` fields in CITATION.cff still point at the retired namespace, so the badge will not resolve. CITATION.cff also cites version Zenodo DOIs in places where concept DOIs belong, and the repository has no GitHub topics set, contrary to the lab's own rubric.",
+        "The Zenodo software deposit archives a commit two behind the current public main, so the citable snapshot is not the current repository state. The build was verified locally against a warm Mathlib cache; CI status on GitHub and the liveness of the configured documentation site were not checked."
+      ],
+      "identifiers": [
+        {
+          "label": "Repository: dissensus-ai/lean-formalizations (CC-BY-4.0)",
+          "url": "https://github.com/dissensus-ai/lean-formalizations"
+        },
+        {
+          "label": "Zenodo software concept DOI 10.5281/zenodo.21315610",
+          "url": "https://doi.org/10.5281/zenodo.21315610"
+        },
+        {
+          "label": "arXiv:2601.06363 — Replicator-Optimization Mechanism (ROM modules ship as ancillary files)",
+          "url": "https://arxiv.org/abs/2601.06363"
+        },
+        {
+          "label": "arXiv:2601.06692 — The Axiom of Consent",
+          "url": "https://arxiv.org/abs/2601.06692"
+        },
+        {
+          "label": "ORCID 0009-0002-7164-8704",
+          "url": "https://orcid.org/0009-0002-7164-8704"
+        }
+      ]
+    },
+    {
+      "id": "quantum-oscillatory-sampling",
+      "title": "Quantum Statistics from Oscillatory Sampling: A Detection-Theoretic Derivation of the Born Rule",
+      "kind": "Note",
+      "summary": "A note asking why quantum measurement probabilities go as the square of the amplitude rather than any other power. It models a particle as a slowly varying envelope riding a very fast carrier oscillation, and treats measurement the way an engineer would treat a radio receiver or a photomultiplier: finite-window demodulation, then threshold crossing in noise. It is speculative physics written by a researcher in computational finance and AI alignment, working outside his field and with no physics affiliation, and it is posted as a note rather than as a claim on the subject.",
+      "whyUseful": "Narrowly useful to people already working on Born-rule derivations from classical-field-plus-threshold-detection models, such as Khrennikov's prequantum classical statistical field theory or La Cour and Williamson's quantum-optics version, who may want to argue with the explicit demodulation step and the Klein-Gordon envelope route to Schrödinger, which are where this differs from the existing work.\n\nAlso useful to anyone teaching the identification of Heisenberg's relation with the Gabor limit, which is a clean pedagogical hinge between two literatures that rarely cite each other. The four simulation scripts are small, pure NumPy and SciPy, fixed-seed and finish in seconds, so checking whether the detection pipeline behaves as described would be cheap, except that they are not currently deposited anywhere public. See the caveats.",
+      "sections": [
+        {
+          "heading": "What the note does",
+          "body": "Model measurement as finite-window demodulation followed by threshold detection in complex Gaussian noise. The click probability then has the exact closed form of a Marcum Q-function, and its weak-signal expansion is `P(click) = P(dark) + C|Ψ|² + O(|Ψ|⁴)`. The Born rule appears as the leading surviving term, the linear-in-amplitude term averaging away against the noise phase.\n\nThe same framing makes Heisenberg's uncertainty relation, divided through by the reduced Planck constant, the Gabor time-bandwidth limit from signal processing, so uncertainty on this account is a resolution artefact rather than a metaphysical one. The Schrödinger equation follows as the non-relativistic envelope dynamics of a field assumed to satisfy Klein-Gordon.\n\nFour fixed-seed simulations run the whole field-to-clicks pipeline with no quantum postulate anywhere in it. They recover the squared amplitude in space at r = 0.997, reproduce double-slit fringes and their destruction under which-path information, with fringe modulation falling to 1.7% of the coherent case, and produce decoherence from temporal averaging alone. That establishes that the mathematics does what the text says it does, not that nature agrees."
+        },
+        {
+          "heading": "Standing relative to existing work",
+          "body": "The nearest prior work arrived at the same leading result first by a different route. Khrennikov (2009) derived probability proportional to the squared amplitude from weak-signal threshold detection with additive noise. The paper's own section 1.3.3 says so plainly and scopes the contribution to four things: the demodulation grounding, the resolution-dependence analysis, the Gabor-limit identification, and the Klein-Gordon envelope route to Schrödinger.\n\nScope is single-system detection statistics. The paper's scope box rules out entanglement, Bell inequality violations, spin and identical-particle statistics, and declines any commitment to what the oscillatory field really is. It is not a model-independent derivation in the sense of Gleason's theorem; the abstract states this directly.\n\nOne prediction is in principle falsifiable: the quartic correction changes sign as the detector threshold crosses twice the noise variance. That is a statement about an apparatus's raw count rates rather than a modification of the quantum probability calculus, so it does not collide with the Galley-Masanes no-go results, and it is probably impractical to test."
+        },
+        {
+          "heading": "How it has been checked",
+          "body": "An internal panel review in July 2026 returned a blocking verdict on one defect: a resolution law was numerically refuted by the paper's own third simulation, while the summary table nevertheless marked that row confirmed. The current text appears to have fixed it, with the equation carrying the demodulated form, the regime interpretation reversed, two citation errors corrected and the sample-count contradictions reconciled.\n\nThat is a reading of the diff against the pre-fix source, not an independent re-derivation of the physics. Nobody with a physics affiliation has read the paper. No citations, correspondence or feedback are recorded."
+        }
+      ],
+      "keyClaims": [
+        "With measurement modelled as finite-window demodulation followed by threshold detection in complex Gaussian noise, click probability has the exact closed form of a Marcum Q-function, whose weak-signal expansion is `P(click) = P(dark) + C|Ψ|² + O(|Ψ|⁴)`, giving the Born rule as the leading surviving term.",
+        "Heisenberg's relation, divided through by the reduced Planck constant, is the Gabor time-bandwidth limit of signal processing; uncertainty is then a resolution artefact. The Schrödinger equation follows as slow-envelope dynamics of a field assumed to satisfy Klein-Gordon.",
+        "The quartic correction changes sign as the detector threshold crosses twice the noise variance. Falsifiable in principle, but a claim about raw count rates rather than about the probability calculus, and probably impractical to test.",
+        "Four fixed-seed simulations recover the squared amplitude in space at r = 0.997, plus double-slit fringes and their destruction under which-path information, with no quantum postulate in the pipeline."
+      ],
+      "caveats": [
+        "Unreviewed. Zenodo preprint only, never submitted to a physics journal, and no arXiv, SSRN or PhilArchive record exists. The author works in computational finance and AI alignment and holds no physics affiliation.",
+        "The code is not deposited, and the paper says otherwise. The published PDF states in two places that the source and the saved numerical outputs accompany the paper. Checked against the Zenodo API on 30 July 2026, every version of the record contains exactly one file, a PDF; there is no code archive, no dataset and no public repository. The simulations exist only on a local disk. An earlier public claim that the code was on Zenodo was false; a website correction was made in July 2026, the same correction has not been made inside the paper, and the packaging has not happened in the six weeks since.",
+        "Khrennikov (2009) reached the headline result first, by weak-signal threshold detection with additive noise. The contribution is scoped to the demodulation grounding, the resolution analysis, the Gabor identification and the Klein-Gordon route.",
+        "Scope is single-system detection statistics only, and the derivation is conditional on a specific physical model of detection rather than model-independent. Entanglement, Bell violations, spin and identical-particle statistics are all outside it."
+      ],
+      "identifiers": [
+        {
+          "label": "Zenodo concept 10.5281/zenodo.18091062 — cite this one",
+          "url": "https://doi.org/10.5281/zenodo.18091062"
+        },
+        {
+          "label": "Zenodo v1.1.0, 10.5281/zenodo.21315573 — current file, 31pp, published 11 July 2026",
+          "url": "https://doi.org/10.5281/zenodo.21315573"
+        },
+        {
+          "label": "10.5281/zenodo.18091063 — the v1 deposit under the retired title The Temporal Bitmap Interpretation of Quantum Mechanics. Superseded, and printed in error as the DOI on the current PDF",
+          "url": "https://doi.org/10.5281/zenodo.18091063"
+        },
+        {
+          "label": "ORCID 0009-0002-7164-8704",
+          "url": "https://orcid.org/0009-0002-7164-8704"
+        }
+      ]
+    },
+    {
+      "id": "consciousness-nominalization",
+      "title": "Consciousness as Nominalization Error: Dissolving the Hard Problem via Grammatical Reform",
+      "kind": "Note",
+      "summary": "A seventeen-page paper arguing that the hard problem of consciousness is an artefact of grammar rather than a metaphysical puzzle. The noun consciousness nominalises a verb, turning the activity of being conscious into a pseudo-object that then appears to demand explanation; repose the question as what is happening when an organism is being conscious, and what remains is an ordinary empirical question. It was written as a condensation of a longer monograph and has since been folded back into it.",
+      "whyUseful": "Two readers. Someone in philosophy of mind who wants to check whether the nominalisation diagnosis is actually distinct from illusionism, heterophenomenology, higher-order theories, or Bennett and Hacker's linguistic therapy can read seventeen pages instead of eighty-seven; the standalone carries a systematic point-by-point differentiation from each that the monograph absorbs but does not foreground.\n\nAnyone building on the property-realism trilemma or the benign-versus-pathological nominalisation criteria should cite the monograph instead, since that is where those arguments now sit in fuller form with the surrounding material. And anyone auditing the lab's record needs the relationship stated plainly, because two live deposits with overlapping titles look like two results.",
+      "sections": [
+        {
+          "heading": "The argument",
+          "body": "The hard problem is unsolvable by construction rather than by depth. It is defined as whatever is left over after functional explanation, so no functional account can ever discharge it. That is a fact about how the question was framed, not about how deep the mystery runs.\n\nRetreating from consciousness is a thing to phenomenal character is a property does not escape the diagnosis. The trilemma: if phenomenal properties are epistemically accessible they collapse into functional ones; if causally idle they are epiphenomenal; if causally efficacious they collapse into the physical.\n\nNot all nominalisation is pathological, and the thesis needs that distinction or it is answerable by pointing out that temperature is nominalised too. Two criteria separate the benign case from the pathological one: convergence under investigation, and external verifiability. The argument runs on Ryle's category-error analysis and Wittgenstein's language games, and applies the same diagnostic to Global Workspace Theory, Integrated Information Theory, Attention Schema Theory and predictive processing."
+        },
+        {
+          "heading": "Which artefact to read: the monograph",
+          "body": "This is a standalone deposit, but the dependency between the two artefacts has reversed. The standalone still describes itself in its front matter as a condensation of the monograph. In fact the monograph now carries the nominalisation thesis, the trilemma, the benign-versus-pathological criteria and the dissolution of Mary's Room, zombies and the inverted spectrum as its own sections, and that folding is visible in the deposited record rather than only in local source.\n\nSo the standalone deposit stays live and citable, but a reader who wants the argument in full should go to the monograph at [10.5281/zenodo.17917969](https://doi.org/10.5281/zenodo.17917969). Citing both as separate results double-counts one argument.\n\nIt is not separately listed on any public surface: the systems.ac entry is hidden and the slug redirects to the monograph page, and dissensus.ai has no entry for it. The one thing the standalone still does better is the point-by-point differentiation from adjacent positions."
+        }
+      ],
+      "keyClaims": [
+        "The hard problem is unsolvable by construction, not by depth: it is defined as the residue left after functional explanation, so no functional account can discharge it.",
+        "The retreat to phenomenal properties does not escape the diagnosis. If they are epistemically accessible they collapse into functional properties; if causally idle they are epiphenomenal; if causally efficacious they collapse into the physical.",
+        "Not all nominalisation is pathological. Two criteria separate the benign cases, such as the economy or temperature, from the pathological one: convergence under investigation, and external verifiability.",
+        "The dependency has reversed. The monograph now carries these arguments as its own sections, so it is the artefact to read and cite; treating the two deposits as separate results double-counts one argument."
+      ],
+      "caveats": [
+        "No external peer review on either artefact. Both are preprint deposits; neither has been through a journal.",
+        "The deposited monograph is behind its own source, and the gap is substantive. An internal panel review returned a revise verdict, and the subsequent local rebuild reframes a network-epistemology result as running counter to the classic effect, explicitly withdraws a claim about intelligence and suicidality, and removes a cross-model validation section whose supporting appendix contained only Claude excerpts. A reader who fetches the concept DOI today still gets all three. Depositing the next version closes it.",
+        "The standalone Zenodo record carries no related identifiers, so nothing on the record tells a reader it has been absorbed, and its own deposited description links to a lab URL that now returns 404.",
+        "Version DOIs are circulating where concept DOIs belong across the local metadata files for both artefacts, and the monograph's citation file still carries a retired title and a DOI that is neither the concept nor the current version."
+      ],
+      "identifiers": [
+        {
+          "label": "Monograph concept 10.5281/zenodo.17917969 — read and cite this one",
+          "url": "https://doi.org/10.5281/zenodo.17917969"
+        },
+        {
+          "label": "Monograph latest deposited version 10.5281/zenodo.20739645 (v4, 18 June 2026)",
+          "url": "https://doi.org/10.5281/zenodo.20739645"
+        },
+        {
+          "label": "Standalone concept 10.5281/zenodo.18195914",
+          "url": "https://doi.org/10.5281/zenodo.18195914"
+        }
+      ]
+    },
+    {
+      "id": "preservation-principle",
+      "title": "The Preservation Principle: When Identity Survives Scale Transition",
+      "kind": "Working paper",
+      "summary": "A 23-page draft from December 2025 proposing a single meta-principle behind several problems normally treated separately: identity survives a transformation if and only if the transformation respects the equivalence relations constituting that identity. It runs the principle through three cases and argues that memory terms, superposition and the hard problem of consciousness are artefacts of failed transformation rather than features of the world. It was never deposited, has no DOI, and the later work no longer depends on it; it is posted here as a byproduct on the grounds that the cross-domain framing may still be useful to someone.",
+      "whyUseful": "Two audiences. First, anyone working on emergence, inter-level reduction or coarse-graining who wants the Markov lumpability condition and the Nyquist sampling bound stated side by side in one place. Those literatures rarely cite each other, and the draft's claim that they are the same constraint is at least a clear, attackable target.\n\nSecond, anyone reading the rest of the portfolio who wants to see how ROM, the oscillatory-sampling quantum work and the consciousness-nominalisation argument were meant to fit together. This is the only document that states that intended connective structure; none of the deposited pieces does.",
+      "sections": [
+        {
+          "heading": "The claim",
+          "body": "Identity survives a transformation if and only if the transformation respects the equivalence relations constituting that identity. The draft runs this through three cases: lumpability conditions when coarse-graining political dynamics, Nyquist conditions when sampling a physical system, and structure preservation when a process is nominalised into a noun. Category-theoretic naturality is offered as the shared backbone.\n\nWhere preservation fails, the draft predicts a specific signature in each domain: memory terms in coarse-grained dynamics, aliasing in undersampled signals, pseudo-entities in nominalised language. These are offered as diagnostics rather than as discoveries, and the parallel is exhibited case by case rather than proved.\n\nThe draft states its own limits in its closing section: it does not explain why any structure exists, does not derive the dynamics of any domain, and does not claim to dissolve every hard problem."
+        },
+        {
+          "heading": "Standalone, but superseded in role",
+          "body": "It is a standalone document, not a section of another paper. It was drafted as its own paper and never folded into anything. But it is derivative by construction: its own README names the three earlier drafts it synthesises, and the later work has routed around it. The sentence in the Identity Thesis that once pointed readers to the Preservation Principle by name now attributes the formal development to ROM instead. The forwarding pointer was rewritten; the draft was left where it was.\n\nA reader wanting the formal development should read [the Replicator-Optimization Mechanism](https://arxiv.org/abs/2601.06363), and for the identity argument the [Identity Thesis](https://doi.org/10.5281/zenodo.18186444). This draft is worth reading only for the cross-domain framing that neither of those states.\n\nStatus, plainly: not public. No deposit, no DOI, no arXiv identifier. A site listing that describes it as a preprint is wrong, and the file it points at does not exist."
+        },
+        {
+          "heading": "What is broken in the draft as it stands",
+          "body": "The compiled PDF has a broken figure. The naturality square uses a `tikzcd` environment while the preamble loads `tikz` only, so the compile logs undefined control sequences and the diagram does not render. The category-theoretic backbone is therefore asserted in prose in the artefact as it currently stands.\n\nThe necessity direction of the lumpability theorem is a two-sentence sketch rather than a proof. A 1,137-line cosmology chapter sits in the paper directory but is never included by the main file; it duplicates and extends a cosmology subsection that is in the main text, and which of the two is intended is not recorded anywhere. That cosmological material, a self-sustaining oscillatory phase field with a claimed convergence to Penrose's conformal cyclic cosmology, is the least supported part of the document, and the main argument does not need it."
+        }
+      ],
+      "keyClaims": [
+        "Markov lumpability, the Nyquist sampling bound and structure-preserving nominalisation are presented as three instantiations of one constraint, with category-theoretic naturality as the shared backbone. The draft claims structural identity rather than analogy, but exhibits the parallel case by case; it does not prove it.",
+        "Where preservation fails, the draft predicts a domain-specific signature: memory terms in coarse-grained dynamics, aliasing in undersampled signals, pseudo-entities in nominalised language. Offered as diagnostics, not discoveries.",
+        "It is a standalone document rather than a section of another paper, but superseded in role: the formal development it was meant to supply is now attributed to ROM.",
+        "The draft states its own limits explicitly. It does not explain why any structure exists, does not derive the dynamics of any domain, and does not claim to dissolve every hard problem."
+      ],
+      "caveats": [
+        "Not public and unreviewed. No peer review, no external reading, no deposit, no DOI and no arXiv identifier; its own README still has compile and debug, peer review, and upload as unticked next steps. A systems.ac record describing it as a preprint is unsupported, and the PDF it points at does not exist anywhere.",
+        "The compiled PDF has a broken figure: the naturality square uses a `tikzcd` environment that the preamble never loads, so the diagram does not render and the category-theoretic backbone is asserted in prose.",
+        "The necessity direction of the lumpability theorem is a two-sentence sketch, not a proof, and an unused 1,137-line cosmology chapter duplicates and extends material in the main text with no record of which is intended.",
+        "The ROM leg rests on material with known problems. An external review in July 2026 confirmed three mathematical errors in ROM's live appendices. The lumpability theorem is not among them, but the appendix quantifying the memory penalty from non-lumpable coarse-graining has a proof that does not establish its stated bound, so anyone building on the claim that violation produces memory terms should check that leg independently."
+      ],
+      "identifiers": []
+    }
+  ]
+}

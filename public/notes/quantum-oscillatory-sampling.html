@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quantum Statistics from Oscillatory Sampling: A Detection-Theoretic Derivation of the Born Rule | ASCRI</title>
+  <meta name="description" content="A note asking why quantum measurement probabilities go as the square of the amplitude rather than any other power. It models a particle as a slowly varying envelope riding a very fast carrier oscillation, and treats measurement the way an engineer would treat a radio receiver or a photomultiplier: finite-window demodulation, then threshold crossing in noise. It is speculative physics written by a researcher in computational finance and AI alignment, working outside his field and with no physics affiliation, and it is posted as a note rather than as a claim on the subject.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Favicon -->
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+
+  <!-- CSS: shared design system + ASCRI supplement -->
+  <link rel="stylesheet" href="/css/system.css">
+  <link rel="stylesheet" href="/css/ascri.css?v=da47e1e7">
+
+  <!-- Theme: dark default, light via [data-theme="light"], persisted (fz-theme) -->
+  <script>
+  (function(){var t=localStorage.getItem('fz-theme')||'dark';if(t==='light')document.documentElement.setAttribute('data-theme','light');})();
+  </script>
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://systems.ac/notes/quantum-oscillatory-sampling">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="ASCRI Research Updates" href="https://systems.ac/feed.xml">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Quantum Statistics from Oscillatory Sampling: A Detection-Theoretic Derivation of the Born Rule">
+  <meta property="og:description" content="A note asking why quantum measurement probabilities go as the square of the amplitude rather than any other power. It models a particle as a slowly varying envelope riding a very fast carrier oscillation, and treats measurement the way an engineer would treat a radio receiver or a photomultiplier: finite-window demodulation, then threshold crossing in noise. It is speculative physics written by a researcher in computational finance and AI alignment, working outside his field and with no physics affiliation, and it is posted as a note rather than as a claim on the subject.">
+  <meta property="og:url" content="https://systems.ac/notes/quantum-oscillatory-sampling">
+  <meta property="og:site_name" content="ASCRI">
+  <meta property="og:image" content="https://systems.ac/assets/og-default.png">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Quantum Statistics from Oscillatory Sampling: A Detection-Theoretic Derivation of the Born Rule">
+  <meta name="twitter:description" content="A note asking why quantum measurement probabilities go as the square of the amplitude rather than any other power. It models a particle as a slowly varying envelope riding a very fast carrier oscillation, and treats measurement the way an engineer would treat a radio receiver or a photomultiplier: finite-window demodulation, then threshold crossing in noise. It is speculative physics written by a researcher in computational finance and AI alignment, working outside his field and with no physics affiliation, and it is posted as a note rather than as a claim on the subject.">
+  <meta name="twitter:image" content="https://systems.ac/assets/og-default.png">
+</head>
+<body class="has-nav">
+  <a href="#content" class="skip-link">Skip to content</a>
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <a href="/" class="nav__brand">ASCRI</a>
+    <button class="nav__burger" aria-label="Menu" aria-expanded="false" aria-controls="nav-menu" onclick="toggleNav(this)"><span></span><span></span><span></span></button>
+    <div class="nav__links" id="nav-menu">
+      <a href="/framework">Framework</a>
+      <a href="/scope">Scope</a>
+      <a href="/programmes/">Programmes</a>
+      <a href="/library/">Library</a>
+      <a href="/notes/" aria-current="page">Notes</a>
+      <a href="https://dissensus.ai/research" class="hide-sm" target="_blank" rel="noopener">Publications &rarr;</a>
+      <a href="/submit">Submit</a>
+      <a href="/about" class="hide-sm">About</a>
+      <button class="toggle" onclick="toggleTheme()" aria-label="Toggle theme">&#9680; theme</button>
+    </div>
+  </nav>
+  <div id="content">
+  
+  <main>
+    <header class="container hero">
+      <a href="/notes/" class="back-link">&larr; All notes</a>
+      <span class="kicker">Note</span>
+      <h1>Quantum Statistics from Oscillatory Sampling: A Detection-Theoretic Derivation of the Born Rule</h1>
+      <hr class="rule">
+      <p>A note asking why quantum measurement probabilities go as the square of the amplitude rather than any other power. It models a particle as a slowly varying envelope riding a very fast carrier oscillation, and treats measurement the way an engineer would treat a radio receiver or a photomultiplier: finite-window demodulation, then threshold crossing in noise. It is speculative physics written by a researcher in computational finance and AI alignment, working outside his field and with no physics affiliation, and it is posted as a note rather than as a claim on the subject.</p>
+    </header>
+    <section class="section container">
+      <span class="index">01 &middot; Why it might be useful</span>
+      <h2>Who this is for</h2>
+      <div class="prose" style="max-width:var(--measure);">
+        <p>Narrowly useful to people already working on Born-rule derivations from classical-field-plus-threshold-detection models, such as Khrennikov&#039;s prequantum classical statistical field theory or La Cour and Williamson&#039;s quantum-optics version, who may want to argue with the explicit demodulation step and the Klein-Gordon envelope route to Schrödinger, which are where this differs from the existing work.</p>
+        <p>Also useful to anyone teaching the identification of Heisenberg&#039;s relation with the Gabor limit, which is a clean pedagogical hinge between two literatures that rarely cite each other. The four simulation scripts are small, pure NumPy and SciPy, fixed-seed and finish in seconds, so checking whether the detection pipeline behaves as described would be cheap, except that they are not currently deposited anywhere public. See the caveats.</p>
+      </div>
+      <div class="prose" style="max-width:var(--measure);margin-top:var(--sp-8);">
+      <h3>What the note does</h3>
+      <p>Model measurement as finite-window demodulation followed by threshold detection in complex Gaussian noise. The click probability then has the exact closed form of a Marcum Q-function, and its weak-signal expansion is <code>P(click) = P(dark) + C|Ψ|² + O(|Ψ|⁴)</code>. The Born rule appears as the leading surviving term, the linear-in-amplitude term averaging away against the noise phase.</p>
+        <p>The same framing makes Heisenberg&#039;s uncertainty relation, divided through by the reduced Planck constant, the Gabor time-bandwidth limit from signal processing, so uncertainty on this account is a resolution artefact rather than a metaphysical one. The Schrödinger equation follows as the non-relativistic envelope dynamics of a field assumed to satisfy Klein-Gordon.</p>
+        <p>Four fixed-seed simulations run the whole field-to-clicks pipeline with no quantum postulate anywhere in it. They recover the squared amplitude in space at r = 0.997, reproduce double-slit fringes and their destruction under which-path information, with fringe modulation falling to 1.7% of the coherent case, and produce decoherence from temporal averaging alone. That establishes that the mathematics does what the text says it does, not that nature agrees.</p>
+
+      <h3>Standing relative to existing work</h3>
+      <p>The nearest prior work arrived at the same leading result first by a different route. Khrennikov (2009) derived probability proportional to the squared amplitude from weak-signal threshold detection with additive noise. The paper&#039;s own section 1.3.3 says so plainly and scopes the contribution to four things: the demodulation grounding, the resolution-dependence analysis, the Gabor-limit identification, and the Klein-Gordon envelope route to Schrödinger.</p>
+        <p>Scope is single-system detection statistics. The paper&#039;s scope box rules out entanglement, Bell inequality violations, spin and identical-particle statistics, and declines any commitment to what the oscillatory field really is. It is not a model-independent derivation in the sense of Gleason&#039;s theorem; the abstract states this directly.</p>
+        <p>One prediction is in principle falsifiable: the quartic correction changes sign as the detector threshold crosses twice the noise variance. That is a statement about an apparatus&#039;s raw count rates rather than a modification of the quantum probability calculus, so it does not collide with the Galley-Masanes no-go results, and it is probably impractical to test.</p>
+
+      <h3>How it has been checked</h3>
+      <p>An internal panel review in July 2026 returned a blocking verdict on one defect: a resolution law was numerically refuted by the paper&#039;s own third simulation, while the summary table nevertheless marked that row confirmed. The current text appears to have fixed it, with the equation carrying the demodulated form, the regime interpretation reversed, two citation errors corrected and the sample-count contradictions reconciled.</p>
+        <p>That is a reading of the diff against the pre-fix source, not an independent re-derivation of the physics. Nobody with a physics affiliation has read the paper. No citations, correspondence or feedback are recorded.</p></div>
+    </section>
+    <section class="section container">
+      <span class="index">02 &middot; Claims</span>
+      <h2>What it argues</h2>
+      <ul class="scope-list scope-list--in">
+        <li>With measurement modelled as finite-window demodulation followed by threshold detection in complex Gaussian noise, click probability has the exact closed form of a Marcum Q-function, whose weak-signal expansion is <code>P(click) = P(dark) + C|Ψ|² + O(|Ψ|⁴)</code>, giving the Born rule as the leading surviving term.</li>
+        <li>Heisenberg&#039;s relation, divided through by the reduced Planck constant, is the Gabor time-bandwidth limit of signal processing; uncertainty is then a resolution artefact. The Schrödinger equation follows as slow-envelope dynamics of a field assumed to satisfy Klein-Gordon.</li>
+        <li>The quartic correction changes sign as the detector threshold crosses twice the noise variance. Falsifiable in principle, but a claim about raw count rates rather than about the probability calculus, and probably impractical to test.</li>
+        <li>Four fixed-seed simulations recover the squared amplitude in space at r = 0.997, plus double-slit fringes and their destruction under which-path information, with no quantum postulate in the pipeline.</li>
+      </ul>
+    </section>
+    <section class="section container">
+      <span class="index">03 &middot; Status</span>
+      <h2>What this is not</h2>
+      <ul class="standards">
+        <li>Unreviewed. Zenodo preprint only, never submitted to a physics journal, and no arXiv, SSRN or PhilArchive record exists. The author works in computational finance and AI alignment and holds no physics affiliation.</li>
+        <li>The code is not deposited, and the paper says otherwise. The published PDF states in two places that the source and the saved numerical outputs accompany the paper. Checked against the Zenodo API on 30 July 2026, every version of the record contains exactly one file, a PDF; there is no code archive, no dataset and no public repository. The simulations exist only on a local disk. An earlier public claim that the code was on Zenodo was false; a website correction was made in July 2026, the same correction has not been made inside the paper, and the packaging has not happened in the six weeks since.</li>
+        <li>Khrennikov (2009) reached the headline result first, by weak-signal threshold detection with additive noise. The contribution is scoped to the demodulation grounding, the resolution analysis, the Gabor identification and the Klein-Gordon route.</li>
+        <li>Scope is single-system detection statistics only, and the derivation is conditional on a specific physical model of detection rather than model-independent. Entanglement, Bell violations, spin and identical-particle statistics are all outside it.</li>
+      </ul>
+    </section>
+    <section class="section container">
+      <span class="index">04 &middot; Where to find it</span>
+      <h2>Identifiers</h2>
+      <div class="entry__ids" style="margin-top:var(--sp-4);">
+        <a href="https://doi.org/10.5281/zenodo.18091062" target="_blank" rel="noopener">Zenodo concept 10.5281/zenodo.18091062 — cite this one</a>
+        <a href="https://doi.org/10.5281/zenodo.21315573" target="_blank" rel="noopener">Zenodo v1.1.0, 10.5281/zenodo.21315573 — current file, 31pp, published 11 July 2026</a>
+        <a href="https://doi.org/10.5281/zenodo.18091063" target="_blank" rel="noopener">10.5281/zenodo.18091063 — the v1 deposit under the retired title The Temporal Bitmap Interpretation of Quantum Mechanics. Superseded, and printed in error as the DOI on the current PDF</a>
+        <a href="https://orcid.org/0009-0002-7164-8704" target="_blank" rel="noopener">ORCID 0009-0002-7164-8704</a>
+      </div>
+    </section>
+    <section class="section container">
+      <span class="index">05 &middot; Respond</span>
+      <h2>Think this is wrong?</h2>
+      <p>Notes are the part of the programme most likely to contain errors, because nothing here has been through review. If you can show a step does not follow, <a href="/submit#critique">say so</a> and we will publish it.</p>
+    </section>
+  </main>
+  </div>
+  <footer class="footer">
+    <div class="container" style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:1rem;">
+      <span>&copy; 2026 ASCRI &middot; Operated by <a href="https://dissensus.ai">Dissensus</a></span>
+      <span>
+        <a href="/framework">Framework</a> &middot;
+        <a href="/scope">Scope</a> &middot;
+        <a href="/programmes/">Programmes</a> &middot;
+        <a href="/library/">Library</a> &middot;
+        <a href="/notes/">Notes</a> &middot;
+        <a href="https://dissensus.ai/research" target="_blank" rel="noopener">Publications &rarr;</a> &middot;
+        <a href="/submit">Submit</a> &middot;
+        <a href="/people">People</a> &middot;
+        <a href="/about">About</a> &middot;
+        <a href="/contact">Contact</a> &middot;
+        <a href="https://www.linkedin.com/company/dissensus-ai/" target="_blank" rel="noopener">LinkedIn</a> &middot;
+        <a href="https://github.com/dissensus-ai" target="_blank" rel="noopener">GitHub</a> &middot;
+        <a href="/feed.xml">RSS</a>
+      </span>
+    </div>
+  </footer>
+  <script>
+function toggleTheme(){var h=document.documentElement;if(h.getAttribute('data-theme')==='light'){h.removeAttribute('data-theme');localStorage.setItem('fz-theme','dark');}else{h.setAttribute('data-theme','light');localStorage.setItem('fz-theme','light');}}
+function toggleNav(btn){var m=document.getElementById('nav-menu');if(!m)return;var o=m.classList.toggle('is-open');btn.setAttribute('aria-expanded',o?'true':'false');}
+</script>
+</body>
+</html>

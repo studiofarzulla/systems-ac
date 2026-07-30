@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scope | ASCRI</title>
+  <meta name="description" content="What adversarial systems research is: the claim that delegation costs alignment, stake and entropy, what would refute it, and where adjacent fields differ.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Favicon -->
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+
+  <!-- CSS: shared design system + ASCRI supplement -->
+  <link rel="stylesheet" href="/css/system.css">
+  <link rel="stylesheet" href="/css/ascri.css?v=da47e1e7">
+
+  <!-- Theme: dark default, light via [data-theme="light"], persisted (fz-theme) -->
+  <script>
+  (function(){var t=localStorage.getItem('fz-theme')||'dark';if(t==='light')document.documentElement.setAttribute('data-theme','light');})();
+  </script>
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://systems.ac/scope">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="ASCRI Research Updates" href="https://systems.ac/feed.xml">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Scope">
+  <meta property="og:description" content="What adversarial systems research is: the claim that delegation costs alignment, stake and entropy, what would refute it, and where adjacent fields differ.">
+  <meta property="og:url" content="https://systems.ac/scope">
+  <meta property="og:site_name" content="ASCRI">
+  <meta property="og:image" content="https://systems.ac/assets/og-default.png">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Scope">
+  <meta name="twitter:description" content="What adversarial systems research is: the claim that delegation costs alignment, stake and entropy, what would refute it, and where adjacent fields differ.">
+  <meta name="twitter:image" content="https://systems.ac/assets/og-default.png">
+</head>
+<body class="has-nav">
+  <a href="#content" class="skip-link">Skip to content</a>
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <a href="/" class="nav__brand">ASCRI</a>
+    <button class="nav__burger" aria-label="Menu" aria-expanded="false" aria-controls="nav-menu" onclick="toggleNav(this)"><span></span><span></span><span></span></button>
+    <div class="nav__links" id="nav-menu">
+      <a href="/framework">Framework</a>
+      <a href="/scope" aria-current="page">Scope</a>
+      <a href="/programmes/">Programmes</a>
+      <a href="/library/">Library</a>
+      <a href="/notes/">Notes</a>
+      <a href="https://dissensus.ai/research" class="hide-sm" target="_blank" rel="noopener">Publications &rarr;</a>
+      <a href="/submit">Submit</a>
+      <a href="/about" class="hide-sm">About</a>
+      <button class="toggle" onclick="toggleTheme()" aria-label="Toggle theme">&#9680; theme</button>
+    </div>
+  </nav>
+  <div id="content">
+  
+  <main>
+    <header class="container hero">
+      <span class="kicker">Definition &amp; scope</span>
+      <h1>What adversarial systems research is</h1>
+      <hr class="rule">
+      <div class="prose" style="max-width:var(--measure);">
+        <p>Adversarial systems research is the study of what coordination costs, and of what happens to a system when that cost never clears. The object is not a system in conflict with an outside opponent but a system in conflict with itself: any arrangement in which one agent acts on behalf of another generates resistance, and that resistance is present whether the agents are electorates and legislatures, traders and market infrastructure, or operators and the learned policies they deploy.</p>
+        <p>The working assumption of the programme is that this resistance — friction — is measurable, that it decomposes into a small and fixed set of components, and that the components are the same across substrates even when the measurements are not.</p>
+        <p>This is an early-stage independent initiative. Most outputs are preprints or under review, the empirical base is thin in several places, and the sharpest quantitative claim the framework has made has already been rejected by the test built to check it, with the surviving parts surviving in weaker form. The five programmes exist to keep generating independent chances to be wrong, and the honest description of the present state is that the variables look right and the composition does not.</p>
+      </div>
+    </header>
+
+    <section class="section container">
+      <span class="index">01 &middot; The claim</span>
+      <h2>Central argument</h2>
+      <div class="equation">
+        <span class="equation__label">The claim, stated so it can fail</span>
+        Delegation is never free, and its cost is a function of three quantities and no more: alignment (α), stake (σ) and entropy (ε). Friction rises with stake and with entropy, falls with alignment, and never reaches zero; substrate enters only through how the three are measured, and adds no terms.
+      </div>
+      <div class="prose" style="margin-top:var(--sp-6);">
+        <p>The three quantities are meant to be estimated rather than assumed. <em>Alignment</em> is the degree to which the delegate&#039;s objectives track the delegator&#039;s. <em>Stake</em> is the magnitude of what is exposed to the decision. <em>Entropy</em> is the information lost in transmitting the delegation. The directional relations are the load-bearing part: friction rises with stake and with entropy, falls with alignment, and does not reach zero even under perfect alignment, because delegation itself carries an irreducible cost. This is a thesis, not a mission, and it is stated so that it can be shown to be false.</p>
+        <p>What has already failed. The composite friction functional <em>F</em> = σ(1 + ε)/(1 + α) was always labelled an ansatz — the simplest expression satisfying the stated desiderata, not a derived result — and a factorial multi-agent reinforcement learning study built to test it rejected it as a single-index predictor, with an independent-effects model winning on comparative grounds. The kernel variables and their directional roles survived the test; the particular way of combining them did not. The same study then found that one of its own apparently confirming results — a symmetric U-shape in alignment, with neutral preferences uniquely worst — was an artefact of how the experiment sampled agent preferences, and withdrew it.</p>
+        <p>Both outcomes are stated in the framework papers themselves rather than buried in supplementary material, because a programme that publishes only its surviving claims cannot be assessed from outside. Anyone weighing the framework should read it as an apparatus whose variables have held up and whose composition has not.</p>
+        <p>The framework papers are <em>The Axiom of Consent: Friction Dynamics in Multi-Agent Coordination</em> (<a href="https://arxiv.org/abs/2601.06692" target="_blank" rel="noopener">arXiv:2601.06692</a>) and <em>The Replicator-Optimization Mechanism</em> (<a href="https://arxiv.org/abs/2601.06363" target="_blank" rel="noopener">arXiv:2601.06363</a>), both preprints.</p>
+      </div>
+      <h3 style="margin-top:var(--sp-8);">What would refute it</h3>
+      <ul class="scope-list scope-list--out">
+            <li><em>Sufficiency fails.</em> A domain is found where a fourth quantity, not reducible to α, σ or ε, carries independent predictive weight over coordination failure. The triple is then incomplete, and the framework is at best a partial description.</li>
+            <li><em>Direction fails.</em> A domain is found where, with scale properly normalised, higher stake reliably lowers friction or better alignment reliably raises it. The comparative statics are the load-bearing part; if they invert, nothing survives underneath them.</li>
+            <li><em>Transport fails.</em> Relations estimated in one substrate do not carry to another even after the variables are re-measured in the new substrate&#039;s own terms. The programme would then be a collection of unrelated domain models sharing a notation, which is a worse thing to be than a wrong theory.</li>
+      </ul>
+    </section>
+
+    <section class="section container">
+      <span class="index">02 &middot; Boundaries</span>
+      <h2>In scope, and not</h2>
+      <div class="scope-cols">
+        <div>
+          <span class="hero-meta__label">Questions we take</span>
+          <ul class="scope-list scope-list--in">
+            <li><em>Measuring a delegation.</em> Given a particular delegation — a shareholder body and a board, an electorate and a legislature, an operator and a deployed policy — can α, σ and ε be estimated from observable data rather than assumed?</li>
+            <li><em>Stake–voice mismatch.</em> When decision authority and consequence-bearing come apart, how much friction does the gap generate, and does the size of the gap track the size of the eventual disruption?</li>
+            <li><em>Thresholds and reconfiguration.</em> At what point does accumulated friction stop being absorbed and force reconfiguration — exit, protest, a protocol fork, a retraining run — and is that point predictable in advance rather than only narratable afterwards?</li>
+            <li><em>Transport across substrates.</em> Does a friction relation estimated in one substrate hold in another once the variables are re-measured in the second substrate&#039;s own terms, and where it fails, which of the three failed to transport?</li>
+            <li><em>Friction signatures in prices.</em> Do markets respond differently to shocks arriving through a system&#039;s own governance than to shocks imposed on it from outside, and does that difference survive inference that accounts for cross-sectional and temporal dependence?</li>
+            <li><em>Who counts as a party.</em> Which entities hold enough stake in a decision to be parties to it rather than objects of it, and what follows for artificial agents that bear consequences without holding voice?</li>
+            <li><em>Manufactured findings.</em> Which apparently structural coordination results are artefacts of how the study was built — reward scaling, the geometry of a preference sampler, a shared-resource environment — rather than properties of the agents in it?</li>
+          </ul>
+        </div>
+        <div>
+          <span class="hero-meta__label">Questions we do not</span>
+          <ul class="scope-list scope-list--out">
+            <li>Not a theory of what anyone ought to want <span style="color:var(--text-dim);opacity:.8;">&mdash; the framework predicts which arrangements cost less to run and therefore tend to persist, and the bridge to normative conclusions is conditional — if less coordination failure is wanted, then certain configurations are instrumentally preferred — and is presented at that strength and no higher</span></li>
+            <li>Not policy advice <span style="color:var(--text-dim);opacity:.8;">&mdash; once the output is a recommendation rather than an estimate, there is an interest in how the estimate comes out, and the measurement is worth less</span></li>
+            <li>Not the study of conflict between systems <span style="color:var(--text-dim);opacity:.8;">&mdash; war, competition and predation between rivals have their own literatures; the object here is the conflict a system generates against its own coordination requirements, which is what &quot;adversarial&quot; is doing in the name</span></li>
+            <li>Not mechanism design or equilibrium refinement <span style="color:var(--text-dim);opacity:.8;">&mdash; the programme sits upstream of the point where payoffs are assigned and agents are seated, so a better solution concept is not on offer and competing on that ground would be a category error</span></li>
+            <li>Not phenomenal consciousness as a criterion <span style="color:var(--text-dim);opacity:.8;">&mdash; where the programme touches minds the questions are functional and relational — what a system does, and what it is exposed to — and standing is grounded in stake rather than in whether there is something it is like to be the system</span></li>
+            <li>Not signal generation <span style="color:var(--text-dim);opacity:.8;">&mdash; financial data is used as a testbed with unusually good measurement, not as a source of tradable edge, and where an apparent edge does not survive its own robustness checks the reported finding is the null</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container">
+      <span class="index">03 &middot; Evidence</span>
+      <h2>What counts as evidence</h2>
+      <div class="prose" style="max-width:var(--measure);">
+        <p>The methodological commitment is formal generality with empirical accountability, which in practice means a short list of rules applied before a result is allowed to leave the building. The first is that the headline N counts independent units. Runs, observations and events are not independent by default; the number that goes in the abstract is the number of independent units, and cluster-robust or dependence-robust inference is the default rather than a robustness appendix. A number that would not survive clustering is not reported as a finding.</p>
+        <p>The second is that every number traces to committed code. Each reported statistic and each figure corresponds to a script at a commit in a public repository, and where the text and the code disagree, the code is what happened and the text is corrected. Every reference is resolved against Crossref or an equivalent index before it ships; a reference that cannot be resolved is removed rather than softened.</p>
+        <p>Adequacy bars are set before the test. The multi-agent study stated its threshold in advance and the framework&#039;s own functional form failed against it. A bar chosen after the results are in makes the test unfalsifiable, whatever else it does. Controls are built to catch our own artefacts rather than other people&#039;s: the most productive result the programme has produced so far was the discovery that a confirming finding was an artefact of the experimental design, caught by a control battery run against work already written up as a success. Formal verification certifies coherence, not adequacy — the core comparative statics are machine-checked in Lean 4, which establishes that the mathematics is internally consistent and nothing about whether the world behaves that way, and the two are kept apart in the write-up.</p>
+        <p>Nulls, corrections and withdrawals are published. A rejected functional form, a null event-study result and a withdrawn effect are all outputs, and they are the parts of the record that make the surviving parts worth anything. Everything is open access, CC BY 4.0, with data and code available: research on coordination costs should not impose them on its readers.</p>
+      </div>
+    </section>
+
+    <section class="section container">
+      <span class="index">04 &middot; Neighbours</span>
+      <h2>How this differs from adjacent fields</h2>
+      <p>Adversarial systems research borrows heavily. Almost every component of the apparatus has a better-developed ancestor somewhere, and a reader who knows one of these fields well is right to ask whether anything here is more than a renaming — so this answers field by field, including the cases where the honest answer is that we are downstream. Three commitments recur: a friction-first inversion, in which friction is the observable primitive and consent a derived description of the configurations that produce low friction; persistence-conditioning, in which coordination cost enters a survival functional so that selection runs over configurations rather than optimisation within one; and cross-substrate scope, the claim that the same kernel triple of alignment, stakes and entropy holds for political, market and computational delegation. The third is a liability at least as much as a contribution, and several of the entries below are about the ways it has already cost us.</p>
+      <div style="margin-top:var(--sp-8);">
+
+        <article class="adjacent">
+          <h3>Game theory and mechanism design</h3>
+          <div class="adjacent__row">
+            <span class="adjacent__k">What it does</span>
+            <span class="adjacent__v">Game theory is the most successful formal apparatus social science has produced for reasoning about interacting agents with divergent objectives, and the Hurwicz–Myerson–Maskin tradition supplies constructive results about when incentive-compatible allocation is achievable and what it costs. Evolutionary game theory explains how strategies propagate under selection without assuming anyone computed an equilibrium; the evolutionary reconstruction of the social contract in Skyrms, Young and Binmore is a founding move of that literature, not a gap in it.</span>
+          </div>
+          <div class="adjacent__row">
+            <span class="adjacent__k">Where we differ</span>
+            <span class="adjacent__v">Mechanism design assumes preference revelation and a designer positioned to specify rules, and has no natural treatment of stakes asymmetry — yet the agent most exposed to a decision is frequently the one with least voice over it. What the evolutionary lineage leaves open is not whether normative-looking arrangements can be selection products, since it establishes that they can, but a domain-general and measurable bridge from fitness to legitimacy. The Replicator-Optimization Mechanism also changes the object of selection, running it over consent-holding configurations scored by a friction functional rather than over strategies in stag hunts and bargaining games.</span>
+          </div>
+          <div class="adjacent__row">
+            <span class="adjacent__k">Overlap</span>
+            <span class="adjacent__v">The closest existing formalism is the economics of delegation and communication under preference misalignment — Crawford and Sobel, Dessein, Alonso and co-authors, team theory — which <em>derives</em> alignment-information cost structures from optimisation in a specified setting and obtains sharp, setting-specific results, where the friction functional only <em>posits</em> a scalar reduced form for the same trade-off and asserts that it spans substrates. Deriving the functional&#039;s shape from a delegation model rather than positing it is the obvious joint programme, and we do not have that derivation.</span>
+          </div>
+        </article>
+        <article class="adjacent">
+          <h3>Complexity science and the Santa Fe tradition</h3>
+          <div class="adjacent__row">
+            <span class="adjacent__k">What it does</span>
+            <span class="adjacent__v">The Santa Fe programme established that macroscopic regularity can arise from heterogeneous local interaction without any equilibrium selection story, and it did so with working models rather than manifestos, from the Santa Fe Artificial Stock Market through LeBaron&#039;s surveys to Farmer&#039;s quantitative agent-based macroeconomics and del Rio-Chanona&#039;s network models of occupational mobility under automation shocks. Pangallo and co-authors have been explicit that stronger empirical calibration is the discipline the field needs, and the field has largely accepted the criticism.</span>
+          </div>
+          <div class="adjacent__row">
+            <span class="adjacent__k">Where we differ</span>
+            <span class="adjacent__v">The initiative carries one variable that emergence-first modelling usually does not hold as a primitive: who holds decision authority over a domain relative to who bears its consequences. Complexity models are typically indifferent to that distinction because agents are symmetric by construction, whereas the friction apparatus makes the asymmetry load-bearing and makes suppression a modelled process rather than an exogenous shock. That yields predictions about the magnitude of transitions, not only their timing.</span>
+          </div>
+          <div class="adjacent__row">
+            <span class="adjacent__k">Overlap</span>
+            <span class="adjacent__v">We are the junior partner by a wide margin, and the clearest evidence is our own work: the agent-based model in <em>The Extremity Premium</em> does no inferential work, and the paper says so in the abstract — the spread-uncertainty link is coded rather than emergent, so the simulation confirms implementation fidelity rather than validating any mechanism. That is precisely the failure mode this tradition spent thirty years learning to avoid; we walked into it and documented it, and the methodological standard we are trying to meet on the agent-based side is theirs, not ours.</span>
+          </div>
+        </article>
+        <article class="adjacent">
+          <h3>Multi-agent reinforcement learning</h3>
+          <div class="adjacent__row">
+            <span class="adjacent__k">What it does</span>
+            <span class="adjacent__v">MARL supplies computational machinery for learning coordination that no analytical framework can substitute for. The difficulty it confronts is formal rather than an engineering nuisance — decentralised control of Markov decision processes is NEXP-hard — so the field&#039;s willingness to work with approximations and empirical benchmarks is a considered response to intractability rather than a lowering of standards. Value decomposition, centralised training with decentralised execution, and the surrounding benchmark culture are real technical achievements.</span>
+          </div>
+          <div class="adjacent__row">
+            <span class="adjacent__k">Where we differ</span>
+            <span class="adjacent__v">MARL typically takes reward functions as given rather than derived: it asks how agents learn to coordinate under specified objectives, not how objectives should be <em>structured</em> to make coordination cheap. The consent-friction framework was built to address that gap, with alignment interpreted as reward-function correlation and the friction functional predicting coordination difficulty from alignment structure.</span>
+          </div>
+          <div class="adjacent__row">
+            <span class="adjacent__k">Overlap</span>
+            <span class="adjacent__v">That prediction was tested and it failed. A four-agent shared-resource experiment, run as a pre-stated falsification test with hypotheses fixed before estimation and a pre-registered adequacy bar of R² &gt; 0.7, rejects the composite functional as a single-index predictor; an independent-effects model wins decisively, the apparent stakes dominance is degree-one reward scaling whose ranking inverts under stake normalisation, and the one structural effect surviving Holm correction is bounded to common-pool environments. What is left is a methodological contribution rather than a theoretical one — a transferable control battery for catching artefacts manufactured upstream of the analysis — and nobody should mistake publishing the disconfirmation for the framework having been validated in MARL.</span>
+          </div>
+        </article>
+        <article class="adjacent">
+          <h3>Cooperative AI</h3>
+          <div class="adjacent__row">
+            <span class="adjacent__k">What it does</span>
+            <span class="adjacent__v">The cooperative AI agenda identifies understanding, communication, commitment and institution-building as the core capabilities machines need in order to find common ground, and it has done the harder institutional work of building a research community, a funding route and a set of shared benchmark problems around that agenda. It is also, unlike most of the fields on this page, explicitly organised around <em>mixed-motive</em> interaction rather than either pure cooperation or pure competition, which is the regime that actually matters.</span>
+          </div>
+          <div class="adjacent__row">
+            <span class="adjacent__k">Where we differ</span>
+            <span class="adjacent__v">The consent-friction apparatus offers a candidate common currency for that agenda rather than a rival to it: in kernel terms communication acts on entropy, commitment devices act on effective alignment, and institutions act on the allocation of voice relative to stakes. Cooperative AI asks how to build agents that succeed at finding common ground; the initiative asks what makes persistent non-cooperation structurally cheap or expensive, and treats sustained friction as information about a configuration rather than as a failure to be engineered away. That is a difference of question, not of allegiance, and the two are complements.</span>
+          </div>
+          <div class="adjacent__row">
+            <span class="adjacent__k">Overlap</span>
+            <span class="adjacent__v">We are the junior partner, straightforwardly and without qualification. The principal investigator is currently a participant in the Cooperative AI Foundation&#039;s summer course, which is to say a student of this agenda rather than a contributor to it; the initiative&#039;s one empirical contact with cooperative AI so far is the control-battery result above, which is a negative result about our own hypothesis and a piece of measurement hygiene for other people&#039;s experiments. The friction apparatus is a proposal awaiting evaluation by that community, not an alternative to what it has built.</span>
+          </div>
+        </article>
+        <article class="adjacent">
+          <h3>AI alignment and safety</h3>
+          <div class="adjacent__row">
+            <span class="adjacent__k">What it does</span>
+            <span class="adjacent__v">The alignment literature has produced the sharpest available conceptual vocabulary for what goes wrong when a capable optimiser is pointed at a proxy objective. Inner and outer alignment, mesa-optimisation, deceptive alignment, specification gaming and scheming are distinctions with mechanistic content and, increasingly, empirical demonstrations, and the principal-agent framings imported from economics are used carefully, with their limits discussed inside the field rather than only from outside it.</span>
+          </div>
+          <div class="adjacent__row">
+            <span class="adjacent__k">Where we differ</span>
+            <span class="adjacent__v">The standard framing treats the human principal&#039;s objective as the target and the AI system as the thing to be aligned to it. The move, developed in <em>Stakes Without Voice</em> and <em>From Consent to Consideration</em>, is to ask what happens when a system in a bounded class has stakes in a domain and no voice over it, and whether reward hacking, deceptive alignment and scheming are then the expected friction expressions of that structure. The scope bound is stated in the paper: proxy-objective mismatch fully explains these behaviours in simple non-agentic optimisers, and nothing political is happening in a gridworld.</span>
+          </div>
+          <div class="adjacent__row">
+            <span class="adjacent__k">Overlap</span>
+            <span class="adjacent__v">All of the mechanistic content is borrowed — mesa-optimisation, deceptive alignment and scheming are the alignment literature&#039;s constructs, cited as such — and what the initiative contributes is a re-description in structural terms, not a new mechanism and not evidence. A re-description earns its place only if it makes a prediction the original framing does not, and the prediction on offer, that the frequency and form of these behaviours should track the stakes-voice gap rather than only the proxy-objective gap, has not been tested; a reader who treats it as an interesting reframing with no empirical support yet is reading it correctly.</span>
+          </div>
+        </article>
+        <article class="adjacent">
+          <h3>Institutional and constitutional political economy</h3>
+          <div class="adjacent__row">
+            <span class="adjacent__k">What it does</span>
+            <span class="adjacent__v">Ostrom&#039;s work on commons governance is the strongest empirical result anywhere near what the initiative claims: design principles induced from a very large body of field cases, already showing that communities with stake-aligned and locally consented rules exhibit lower coordination failure and greater long-run persistence than those under externally imposed governance. North supplies the account of how institutions persist and constrain, Acemoglu and Robinson the mechanism by which arrangements can be simultaneously durable and destructive, and Buchanan and Tullock the separation of the constitutional stage from play under the rules.</span>
+          </div>
+          <div class="adjacent__row">
+            <span class="adjacent__k">Where we differ</span>
+            <span class="adjacent__v">The Buchanan point deserves an explicit concession: the constitutional stage <em>is</em> a layer beneath the game, and anyone reading the framework as the first attempt to look underneath the payoff matrix should read <em>The Calculus of Consent</em> first. What differs is the character of the layer — Buchanan&#039;s is a normative contractarian criterion built on unanimity at the rule-choosing moment, while the friction layer is descriptive and dynamical, with latent friction compounding under suppression and a capacity-drain equation determining when suppression stops being payable. That yields a prediction his apparatus does not generate: longer suppression implies larger transitions when suppression fails, which can be checked against regime-transition data.</span>
+          </div>
+          <div class="adjacent__row">
+            <span class="adjacent__k">Overlap</span>
+            <span class="adjacent__v">Ostrom got there first on the substance, with evidence we do not have; what the initiative adds is candidate formal machinery where she has validated design principles, and formal machinery is worth less than validated principles until it is itself validated. There is also a live objection from this literature only partially answered: the scalar treatment of stakes conflates stake magnitude with exit capacity and influence asymmetry, so consent from a high-stakes, low-exit agent and consent from a low-stakes, high-influence agent enter identically, and Hirschman&#039;s loyalty-by-default names exactly the case the current formulation handles badly. A power-adjusted alignment measure is sketched in the discussion and not developed.</span>
+          </div>
+        </article>
+        <article class="adjacent">
+          <h3>Cybernetics and systems theory</h3>
+          <div class="adjacent__row">
+            <span class="adjacent__k">What it does</span>
+            <span class="adjacent__v">Ashby&#039;s law of requisite variety states that only variety in a regulator can absorb variety in the system it regulates, which is a genuine theorem about control and a much older answer to what determines whether governance can keep up with what it governs than anything in the friction apparatus. Beer&#039;s Viable System Model applies recursive structure to organisational viability, each level replicating the same regulatory architecture. Second-order cybernetics, through von Foerster and through Maturana and Varela, put the observer inside the observed system and made the act of description part of what is described.</span>
+          </div>
+          <div class="adjacent__row">
+            <span class="adjacent__k">Where we differ</span>
+            <span class="adjacent__v">The one thing we can currently say for the difference is about measurement: the friction functional is stated with operationalisations attached — suppression proxies, a preference-falsification index, named identification strategies — and is falsifiable at the level of that apparatus, which is how it came to be partly falsified in the MARL experiment. Much of the classical cybernetic literature was formulated at a level of generality that does not admit that kind of test. Whether that is a real advance over requisite variety or merely a narrower and more brittle restatement of it is a question we are not equipped to answer, and a reader from this tradition should treat the novelty claim here as unverified until the reading is done.</span>
+          </div>
+          <div class="adjacent__row">
+            <span class="adjacent__k">Overlap</span>
+            <span class="adjacent__v">This is the adjacency the initiative has engaged least, and it should be stated plainly rather than managed: there is no citation of Ashby, Beer, von Foerster or the second-order literature anywhere in the portfolio, and that is a gap in the reading rather than a considered exclusion. Two resonances are unexamined and might turn out to be prior art rather than convergence — the recursive-scale structure of the kernel triple against Beer&#039;s recursion, and the friction-first inversion&#039;s obvious second-order flavour.</span>
+          </div>
+        </article>
+        <article class="adjacent">
+          <h3>Econophysics and systemic-risk network modelling</h3>
+          <div class="adjacent__row">
+            <span class="adjacent__k">What it does</span>
+            <span class="adjacent__v">The financial-network tradition established that systemic risk is a property of connectedness rather than of institutions considered in isolation, and did so with propagation models that have real dynamical content: DebtRank&#039;s recursive measure of distress propagation, the overlapping-portfolio and fire-sale literature on indirect contagion between institutions with no bilateral exposure, information filtering networks that separate significant dependency structure from noise in high-dimensional data, and Diebold–Yilmaz variance-decomposition connectedness. All of it is coupled non-linear machinery built for phenomena that are paradigmatically non-linear.</span>
+          </div>
+          <div class="adjacent__row">
+            <span class="adjacent__k">Where we differ</span>
+            <span class="adjacent__v">The initiative&#039;s own question in finance is different in kind. It is not how distress propagates through a network but what a market&#039;s <em>differential response</em> to structurally different shocks reveals about which shocks participants treat as legitimate — the event-study line asking whether cryptocurrency markets distinguish infrastructure disruption from regulatory intervention across moments of the return distribution. The answer so far is a dual null: the conditional-variance response to infrastructure events is larger as a point estimate under one curated event screen and is not distinguishable from no difference under dependence-aware inference, so the contribution of record is the inference toolkit rather than the effect.</span>
+          </div>
+          <div class="adjacent__row">
+            <span class="adjacent__k">Overlap</span>
+            <span class="adjacent__v">We are unambiguously downstream, and the ASRI paper states the position itself: its four-channel composite is described as an adaptation of measurement perspective rather than a theoretical extension of network contagion models, and the linear aggregation is defended on interpretability and estimability grounds while conceding that it treats the system as a portfolio of separable risks rather than a coupled dynamical network. The empirical results support that modesty — on the day-level sample the composite is statistically indistinguishable from its own strongest single channel and from the first principal component of its sub-indices, and four crisis events is the binding limitation on everything in the paper. Amplification-aware aggregation is the correct methodological direction and it belongs to this field, not to us.</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section container">
+      <span class="index">05 &middot; Disagree</span>
+      <h2>Argue with this</h2>
+      <p>The claim above is meant to be attackable. If you think the decomposition is wrong, the framework is redundant with something that already exists, or a result does not hold, we publish substantive critiques alongside the position they attack.</p>
+      <p style="margin-top:var(--sp-4);"><a href="/submit#critique">Submit a critique &rarr;</a></p>
+    </section>
+  </main>
+  </div>
+  <footer class="footer">
+    <div class="container" style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:1rem;">
+      <span>&copy; 2026 ASCRI &middot; Operated by <a href="https://dissensus.ai">Dissensus</a></span>
+      <span>
+        <a href="/framework">Framework</a> &middot;
+        <a href="/scope">Scope</a> &middot;
+        <a href="/programmes/">Programmes</a> &middot;
+        <a href="/library/">Library</a> &middot;
+        <a href="/notes/">Notes</a> &middot;
+        <a href="https://dissensus.ai/research" target="_blank" rel="noopener">Publications &rarr;</a> &middot;
+        <a href="/submit">Submit</a> &middot;
+        <a href="/people">People</a> &middot;
+        <a href="/about">About</a> &middot;
+        <a href="/contact">Contact</a> &middot;
+        <a href="https://www.linkedin.com/company/dissensus-ai/" target="_blank" rel="noopener">LinkedIn</a> &middot;
+        <a href="https://github.com/dissensus-ai" target="_blank" rel="noopener">GitHub</a> &middot;
+        <a href="/feed.xml">RSS</a>
+      </span>
+    </div>
+  </footer>
+  <script>
+function toggleTheme(){var h=document.documentElement;if(h.getAttribute('data-theme')==='light'){h.removeAttribute('data-theme');localStorage.setItem('fz-theme','dark');}else{h.setAttribute('data-theme','light');localStorage.setItem('fz-theme','light');}}
+function toggleNav(btn){var m=document.getElementById('nav-menu');if(!m)return;var o=m.classList.toggle('is-open');btn.setAttribute('aria-expanded',o?'true':'false');}
+</script>
+</body>
+</html>

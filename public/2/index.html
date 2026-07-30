@@ -16,7 +16,7 @@
 
   <!-- CSS: shared design system + ASCRI supplement -->
   <link rel="stylesheet" href="/css/system.css">
-  <link rel="stylesheet" href="/css/ascri.css?v=4bad2b46">
+  <link rel="stylesheet" href="/css/ascri.css?v=da47e1e7">
 
   <!-- Theme: dark default, light via [data-theme="light"], persisted (fz-theme) -->
   <script>
@@ -47,12 +47,16 @@
   <a href="#content" class="skip-link">Skip to content</a>
   <nav class="nav" role="navigation" aria-label="Main navigation">
     <a href="/" class="nav__brand">ASCRI</a>
-    <div class="nav__links">
+    <button class="nav__burger" aria-label="Menu" aria-expanded="false" aria-controls="nav-menu" onclick="toggleNav(this)"><span></span><span></span><span></span></button>
+    <div class="nav__links" id="nav-menu">
       <a href="/framework">Framework</a>
+      <a href="/scope">Scope</a>
       <a href="/programmes/" aria-current="page">Programmes</a>
+      <a href="/library/">Library</a>
+      <a href="/notes/">Notes</a>
       <a href="https://dissensus.ai/research" class="hide-sm" target="_blank" rel="noopener">Publications &rarr;</a>
-      <a href="/people" class="hide-sm">People</a>
-      <a href="/about">About</a>
+      <a href="/submit">Submit</a>
+      <a href="/about" class="hide-sm">About</a>
       <button class="toggle" onclick="toggleTheme()" aria-label="Toggle theme">&#9680; theme</button>
     </div>
   </nav>
@@ -106,17 +110,24 @@
       <span>&copy; 2026 ASCRI &middot; Operated by <a href="https://dissensus.ai">Dissensus</a></span>
       <span>
         <a href="/framework">Framework</a> &middot;
+        <a href="/scope">Scope</a> &middot;
         <a href="/programmes/">Programmes</a> &middot;
+        <a href="/library/">Library</a> &middot;
+        <a href="/notes/">Notes</a> &middot;
         <a href="https://dissensus.ai/research" target="_blank" rel="noopener">Publications &rarr;</a> &middot;
+        <a href="/submit">Submit</a> &middot;
         <a href="/people">People</a> &middot;
         <a href="/about">About</a> &middot;
         <a href="/contact">Contact</a> &middot;
+        <a href="https://www.linkedin.com/company/dissensus-ai/" target="_blank" rel="noopener">LinkedIn</a> &middot;
+        <a href="https://github.com/dissensus-ai" target="_blank" rel="noopener">GitHub</a> &middot;
         <a href="/feed.xml">RSS</a>
       </span>
     </div>
   </footer>
   <script>
 function toggleTheme(){var h=document.documentElement;if(h.getAttribute('data-theme')==='light'){h.removeAttribute('data-theme');localStorage.setItem('fz-theme','dark');}else{h.setAttribute('data-theme','light');localStorage.setItem('fz-theme','light');}}
+function toggleNav(btn){var m=document.getElementById('nav-menu');if(!m)return;var o=m.classList.toggle('is-open');btn.setAttribute('aria-expanded',o?'true':'false');}
 </script>
 </body>
 </html>

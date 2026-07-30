@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Submit | ASCRI</title>
+  <meta name="description" content="Recommend work for the library, offer a piece for publication, or attack a position the initiative holds.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Favicon -->
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+
+  <!-- CSS: shared design system + ASCRI supplement -->
+  <link rel="stylesheet" href="/css/system.css">
+  <link rel="stylesheet" href="/css/ascri.css?v=da47e1e7">
+
+  <!-- Theme: dark default, light via [data-theme="light"], persisted (fz-theme) -->
+  <script>
+  (function(){var t=localStorage.getItem('fz-theme')||'dark';if(t==='light')document.documentElement.setAttribute('data-theme','light');})();
+  </script>
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://systems.ac/submit">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="ASCRI Research Updates" href="https://systems.ac/feed.xml">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Submit">
+  <meta property="og:description" content="Recommend work for the library, offer a piece for publication, or attack a position the initiative holds.">
+  <meta property="og:url" content="https://systems.ac/submit">
+  <meta property="og:site_name" content="ASCRI">
+  <meta property="og:image" content="https://systems.ac/assets/og-default.png">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Submit">
+  <meta name="twitter:description" content="Recommend work for the library, offer a piece for publication, or attack a position the initiative holds.">
+  <meta name="twitter:image" content="https://systems.ac/assets/og-default.png">
+</head>
+<body class="has-nav">
+  <a href="#content" class="skip-link">Skip to content</a>
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <a href="/" class="nav__brand">ASCRI</a>
+    <button class="nav__burger" aria-label="Menu" aria-expanded="false" aria-controls="nav-menu" onclick="toggleNav(this)"><span></span><span></span><span></span></button>
+    <div class="nav__links" id="nav-menu">
+      <a href="/framework">Framework</a>
+      <a href="/scope">Scope</a>
+      <a href="/programmes/">Programmes</a>
+      <a href="/library/">Library</a>
+      <a href="/notes/">Notes</a>
+      <a href="https://dissensus.ai/research" class="hide-sm" target="_blank" rel="noopener">Publications &rarr;</a>
+      <a href="/submit" aria-current="page">Submit</a>
+      <a href="/about" class="hide-sm">About</a>
+      <button class="toggle" onclick="toggleTheme()" aria-label="Toggle theme">&#9680; theme</button>
+    </div>
+  </nav>
+  <div id="content">
+  
+  <main>
+    <header class="container hero">
+      <span class="kicker">Participate</span>
+      <h1>Submit work, or attack a position</h1>
+      <hr class="rule">
+      <div class="prose" style="max-width:var(--measure);">
+        <p>Three things you can send here: a paper for the library, a short piece for us to publish, or an argument against something this initiative has claimed. The third is the one we would most like to receive, and the one least likely to arrive on its own.</p>
+        <p>Worth saying at the top, because it is easier to state than to discover: this is a small operation. Editorial work is one researcher and one research assistant, both with papers of their own in flight. There is no editorial board, no managing editor, no queue system and no budget.</p>
+        <p>None of what follows is a journal, and none of it substitutes for one. A piece published here has been read and edited by a person. It has not been refereed, and nothing here should be cited as though it has.</p>
+      </div>
+    </header>
+
+    <section class="section container" id="recommend">
+      <span class="index">01 &middot; Recommend reading</span>
+      <h2>Point us at something worth reading</h2>
+      <div class="prose" style="max-width:var(--measure);">
+        <p><a href="/library/">The Library</a> is a curated reading list on friction and adversarial dynamics in multi-agent systems: coordination costs, delegation failure, alignment drift, refusal to participate, and the traces those leave in markets, institutions and learned agents. It is not an archive, and it is not trying to be a complete bibliography of anything.</p>
+        <p>Every entry carries a short annotation saying what the work does and why it is there. If nobody here can write that annotation, the entry does not go in. The bar is therefore annotated and relevant, in that order, rather than prestigious. Send whatever you think fits: your own paper, somebody else&#039;s, new or thirty years old, published or preprint, formal or empirical.</p>
+        <p>Inclusion is not endorsement. An entry means the work has been read and judged relevant to the questions asked here, and that is the whole of the claim. It carries no verdict on whether the argument holds or the statistics survive, and annotations often say where we think a paper goes wrong.</p>
+      </div>
+      <ul class="scope-list scope-list--in" style="margin-top:var(--sp-6);">
+        <li>A link or a DOI, and two or three sentences on what the work claims and what that claim bears on. The second item does more work than the first; a bare link usually goes unread.</li>
+        <li>Your name, and your relationship to the work if you have one: author, co-author, supervisor, none.</li>
+        <li>Work that cuts against the programme&#039;s own claims is more useful than work that agrees with it. Null results are welcome for the same reason.</li>
+        <li>Everything gets read eventually. You get a note saying it has gone in, or a short note saying it has not.</li>
+        <li>A no does not come with a reasoned explanation, mostly because there is rarely a reason more interesting than outside what the library covers, or nobody got to it properly.</li>
+      </ul>
+      <div class="btn-row" style="margin-top:var(--sp-6);">
+        <a class="btn" href="mailto:research@dissensus.ai?subject=ASCRI%20submission%20%E2%80%94%20Point%20us%20at%20something%20worth%20reading">Email research@dissensus.ai</a>
+      </div>
+      <p class="form__hint" style="margin-top:var(--sp-3);">Include: a link or DOI, two or three sentences on why it belongs, your name, and your relationship to the work if you have one.</p>
+    </section>
+    <section class="section container" id="publish">
+      <span class="index">02 &middot; Write something</span>
+      <h2>Offer a piece for publication</h2>
+      <div class="prose" style="max-width:var(--measure);">
+        <p>We publish short pieces from people outside the lab, in the territory the programme works in: coordination and its failures, delegation, legitimacy, adversarial dynamics in markets, institutions and multi-agent learning systems, and the methodological arguments around all of it. Roughly 800 to 2,500 words, with a position in it. A methodological note about something a field keeps getting wrong, a negative result too small to be a paper but too useful to bin, a close reading of someone else&#039;s work including ours, or a dissent from something already published here all count.</p>
+        <p>What does not: product announcements, token promotion, general-audience commentary with no argument inside it, and anything that reads as generated filler. A piece that is mainly a link to somewhere else belongs in the library rather than here.</p>
+        <p>A person reads it. Editing is for clarity, accuracy and citation, not for agreement, and a piece arguing that the friction framework is wrong gets the same treatment as one extending it. You see every edit before anything goes live, and you can withdraw at any point up to publication.</p>
+      </div>
+      <ul class="scope-list scope-list--in" style="margin-top:var(--sp-6);">
+        <li>There is no payment. There is no budget for it and no plan for one. If that is a dealbreaker, it is a reasonable dealbreaker.</li>
+        <li>You keep copyright and you keep authorship. What we ask for is a non-exclusive licence to publish the piece and keep it online.</li>
+        <li>The default licence is CC BY 4.0, matching the rest of what the programme publishes. You can opt out and keep it all rights reserved without that affecting whether we run it.</li>
+        <li>Republish it anywhere you like, whenever you like, including the same day. A line pointing back here is appreciated and not required.</li>
+        <li>Turnaround is slow. A first response typically takes weeks, and editing takes longer. If a month has gone by with nothing, send a reminder; that usually means the message was missed rather than declined.</li>
+      </ul>
+      <div class="btn-row" style="margin-top:var(--sp-6);">
+        <a class="btn" href="mailto:research@dissensus.ai?subject=ASCRI%20submission%20%E2%80%94%20Offer%20a%20piece%20for%20publication">Email research@dissensus.ai</a>
+      </div>
+      <p class="form__hint" style="margin-top:var(--sp-3);">Include: a working title, one line on what the argument is, and the draft pasted in or attached. Pitches are fine, but a finished draft gets an answer faster than a pitch does.</p>
+    </section>
+    <section class="section container" id="critique">
+      <span class="index">03 &middot; Attack a position</span>
+      <h2>Critique a position the initiative holds</h2>
+      <div class="prose" style="max-width:var(--measure);">
+        <p>This is the surface that matters most, and it is the one most likely to sit empty unless people use it. The programme publishes a formal framework and a set of claims derived from it, and those claims are the target: the friction function and its kernel triple, the identification of legitimacy with consent alignment, the substrate-independence thesis, the hedging paradox, the eliminative argument in the consciousness work. Each is stated precisely enough to be wrong, which was the point of stating it that way. <a href="/scope">The scope page</a> sets out what is and is not being claimed; <a href="https://dissensus.ai/research" target="_blank" rel="noopener">the publications</a> contain the claims themselves.</p>
+        <p>A framework that has never been attacked in public has not been tested, only ignored politely. Referees do this work under anonymity and under embargo, with the result that the strongest objections to a paper are usually invisible to everyone reading it. This surface exists to put some of that back in the open.</p>
+        <p>Substantive critiques are published on this site alongside the position they attack, with a link from the position&#039;s own page pointing to the critique. Not in a comments section, not in an appendix, and not somewhere the original never mentions. The author of the position gets a right of reply, published with the critique or after it; the reply does not gate publication and does not get to hold the critique while it is written.</p>
+      </div>
+      <ul class="scope-list scope-list--in" style="margin-top:var(--sp-6);">
+        <li>Attack the argument. Not the author, the affiliation, the lab&#039;s size, the venue, or the fact that this is independent research. Those are all true and none of them are objections.</li>
+        <li>Cite the specific claim: the paper, the section, the equation, the page. <em>The framework is unfalsifiable</em> is a mood. <em>Equation 3 in §2 is invariant under the transformation X, so the prediction in §5 does not follow</em> is a critique.</li>
+        <li>No anonymous drive-bys. Critiques are published with a name attached. A pseudonym with a stable public record is considered case by case; a first-contact anonymous message is not.</li>
+        <li>Length is whatever the argument needs. Three paragraphs taking apart one step of a derivation are worth more than five thousand words of general scepticism.</li>
+        <li>If the critique is right, the paper gets corrected and the correction says who found the error. If we think it is wrong, it still goes up, with the disagreement stated rather than smoothed over. The critiques we cannot answer are the useful ones.</li>
+      </ul>
+      <div class="btn-row" style="margin-top:var(--sp-6);">
+        <a class="btn" href="mailto:research@dissensus.ai?subject=ASCRI%20submission%20%E2%80%94%20Critique%20a%20position%20the%20initiative%20holds">Email research@dissensus.ai</a>
+      </div>
+      <p class="form__hint" style="margin-top:var(--sp-3);">Include: the paper and the specific claim you are attacking, located by section, equation or page; the argument itself; and the name you want it published under.</p>
+    </section>
+    <section class="section container" id="standards">
+      <span class="index">04 &middot; Standards</span>
+      <h2>Editorial standards</h2>
+      <ul class="standards">
+        <li>Nothing is published anonymously. Every piece and every critique carries a name; pseudonyms with an established public record are considered individually, and anonymity is never granted retrospectively.</li>
+        <li>Errors get corrected in public. The page is amended, the change is dated and described at the foot of the piece, and whoever found the error is named unless they ask otherwise. Silent edits are limited to typography.</li>
+        <li>Conflicts of interest are disclosed: funding, employment, advisory positions, equity, and personal relationships with anyone whose work is under discussion. Disclose it and it runs as a note; failing to disclose is the only thing that gets a piece pulled after publication.</li>
+        <li>The initiative publishes critiques of its own work. Objections to positions held here appear on this site, linked from the positions they attack, and that is a standing commitment rather than a case-by-case editorial judgement.</li>
+        <li>Inclusion is not endorsement, and publication is not peer review. The library records what has been read; a published piece has been edited by a person for clarity and accuracy. Neither carries the certification a refereed journal offers.</li>
+      </ul>
+      <div class="caveat">
+        <span class="caveat__label">Capacity</span>
+        <p>The honest version is worth stating rather than discovering. Editorial work here is one researcher and one research assistant, both working on their own papers, fitted around submission deadlines and review cycles. A submission may sit unread for a fortnight, a reply usually arrives in weeks rather than days, and editing a piece to publication can take a month or more. Most things sent will be declined, and the decline will be short. Nothing is lost deliberately, but things do get lost, so a reminder after a month is a courtesy rather than a nuisance.</p>
+        <p>If you need a fast decision, a guaranteed reply, a formal review record, or anything that will count on a promotion case, this is the wrong venue and a journal is the right one. What is on offer instead is that a person will actually read what you send and respond to the argument in it.</p>
+      </div>
+    </section>
+  </main>
+  </div>
+  <footer class="footer">
+    <div class="container" style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:1rem;">
+      <span>&copy; 2026 ASCRI &middot; Operated by <a href="https://dissensus.ai">Dissensus</a></span>
+      <span>
+        <a href="/framework">Framework</a> &middot;
+        <a href="/scope">Scope</a> &middot;
+        <a href="/programmes/">Programmes</a> &middot;
+        <a href="/library/">Library</a> &middot;
+        <a href="/notes/">Notes</a> &middot;
+        <a href="https://dissensus.ai/research" target="_blank" rel="noopener">Publications &rarr;</a> &middot;
+        <a href="/submit">Submit</a> &middot;
+        <a href="/people">People</a> &middot;
+        <a href="/about">About</a> &middot;
+        <a href="/contact">Contact</a> &middot;
+        <a href="https://www.linkedin.com/company/dissensus-ai/" target="_blank" rel="noopener">LinkedIn</a> &middot;
+        <a href="https://github.com/dissensus-ai" target="_blank" rel="noopener">GitHub</a> &middot;
+        <a href="/feed.xml">RSS</a>
+      </span>
+    </div>
+  </footer>
+  <script>
+function toggleTheme(){var h=document.documentElement;if(h.getAttribute('data-theme')==='light'){h.removeAttribute('data-theme');localStorage.setItem('fz-theme','dark');}else{h.setAttribute('data-theme','light');localStorage.setItem('fz-theme','light');}}
+function toggleNav(btn){var m=document.getElementById('nav-menu');if(!m)return;var o=m.classList.toggle('is-open');btn.setAttribute('aria-expanded',o?'true':'false');}
+</script>
+</body>
+</html>
