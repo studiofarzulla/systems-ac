@@ -273,7 +273,7 @@
 
 /* honest-capacity / caveat callout */
 .caveat { border-left: 3px solid var(--accent); background: var(--surface); border-radius: var(--radius);
-  padding: var(--sp-5) var(--sp-6); margin-top: var(--sp-6); }
+  padding: var(--sp-6); margin-top: var(--sp-6); }
 .caveat p { font-size: var(--fs-sm); color: var(--text-dim); max-width: var(--measure); }
 .caveat__label { font-family: var(--font-mono); font-size: var(--fs-mono); text-transform: uppercase;
   letter-spacing: 0.14em; color: var(--accent); display: block; margin-bottom: var(--sp-2); }

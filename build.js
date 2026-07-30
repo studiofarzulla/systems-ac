@@ -163,8 +163,15 @@ function canonicalPaperUrl(paper) {
 // (avoids redirect-to-404). Data-driven via redirectTo:'research'; hardcoded set is a safety net.
 const REDIRECT_TO_RESEARCH = new Set(['trident', 'preservation-principle']);
 const REDIRECT_SUBSUMED = { 'consciousness-nominalization': 'consciousness-monograph' };
+const NOTE_IDS = new Set(((notesData && notesData.notes) || []).map(n => n.id));
 function canonicalRedirectUrl(paper) {
-  if (paper.redirectTo === 'research' || REDIRECT_TO_RESEARCH.has(paper.id)) return CANON_RESEARCH;
+  const toResearch = paper.redirectTo === 'research' || REDIRECT_TO_RESEARCH.has(paper.id);
+  // A paper with no canonical home was being sent to the publications index, which does
+  // not list it — the reader landed on a page with no mention of what they asked for. If
+  // it now has a Notes entry, send them there instead. Subsumed papers are untouched:
+  // their content lives in the surviving paper, and that stays the destination.
+  if (toResearch && NOTE_IDS.has(paper.id)) return `${SITE_URL}/notes/${paper.id}`;
+  if (toResearch) return CANON_RESEARCH;
   return `${CANON_PAPERS}/${REDIRECT_SUBSUMED[paper.id] || paper.redirectId || paper.id}`;
 }
 
@@ -621,6 +628,13 @@ ${adjacent}
 // Library — annotated external work (other people's research)
 // ---------------------------------------------------------------------------
 
+// Crossref returns JATS markup inside titles (<i>, <sub>, <scp>…). Escaping it renders
+// the tags as literal text, so strip them here as well as in the data — a hand-added
+// entry pasted from a publisher page would otherwise reintroduce it.
+function stripTags(s) {
+  return String(s || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+}
+
 function renderLibraryEntry(e) {
   const ids = [];
   if (e.identifier) ids.push(escapeHtml(e.identifier));
@@ -634,11 +648,11 @@ function renderLibraryEntry(e) {
           <div class="entry__meta">
             <span>${escapeHtml(e.year || '')}</span>
             <span>&middot;</span>
-            <span>${escapeHtml(e.venue || '')}</span>
+            <span>${escapeHtml(stripTags(e.venue))}</span>
             ${e.topicLabel ? `<span class="tag">${escapeHtml(e.topicLabel)}</span>` : ''}
           </div>
-          <h3 class="entry__title"><a href="${escapeHtml(e.url)}" target="_blank" rel="noopener">${escapeHtml(e.title)}</a></h3>
-          <p class="entry__authors">${escapeHtml(e.authors || '')}</p>
+          <h3 class="entry__title"><a href="${escapeHtml(e.url)}" target="_blank" rel="noopener">${escapeHtml(stripTags(e.title))}</a></h3>
+          <p class="entry__authors">${escapeHtml(stripTags(e.authors))}</p>
           <div class="entry__note">${renderInline(escapeHtml(e.note || ''))}</div>${idHtml}
         </article>`;
 }
@@ -717,7 +731,7 @@ function buildNotesIndexPage() {
         <article class="note">
           <span class="note__kind">${escapeHtml(n.kind || 'Note')}</span>
           <h3><a href="/notes/${escapeHtml(n.id)}">${escapeHtml(n.title)}</a></h3>
-          <p>${escapeHtml(n.summary || '')}</p>
+          <p>${renderInline(escapeHtml(n.summary || ''))}</p>
           ${(n.caveats || []).length ? `<ul class="note__caveats">
             ${(n.caveats || []).slice(0, 2).map(c => `<li>${escapeHtml(c)}</li>`).join('\n            ')}
           </ul>` : ''}
@@ -806,7 +820,7 @@ function buildNotePage(n) {
       <span class="kicker">${escapeHtml(n.kind || 'Note')}</span>
       <h1>${escapeHtml(n.title)}</h1>
       <hr class="rule">
-      <p>${escapeHtml(n.summary || '')}</p>
+      <p>${renderInline(escapeHtml(n.summary || ''))}</p>
     </header>
     <section class="section container">
       <span class="index">01 &middot; Why it might be useful</span>
@@ -1143,6 +1157,14 @@ function build() {
   if (notesData) {
     const notesDir = path.join(PUBLIC, 'notes');
     ensureDir(notesDir);
+    // A note with no id would be written as undefined.html, added to the orphan
+    // allow-list so the prune protects it, and listed in the sitemap as
+    // /notes/undefined. Fail loudly instead — the id is the URL.
+    const bad = (notesData.notes || []).filter(n => !n.id || !/^[a-z0-9][a-z0-9-]*$/.test(n.id));
+    if (bad.length) {
+      throw new Error('notes.json: every note needs a kebab-case id (it becomes the URL). Offending: '
+        + JSON.stringify(bad.map(n => n.id ?? n.title ?? '(untitled)')));
+    }
     fs.writeFileSync(path.join(notesDir, 'index.html'), buildNotesIndexPage(), 'utf-8');
     const wanted = new Set(['index.html']);
     for (const n of notesData.notes || []) {

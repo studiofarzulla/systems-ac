@@ -65,7 +65,7 @@
       "sections": [
         {
           "heading": "What is in the repository",
-          "body": "246 theorems across fifteen paper modules plus a shared Common library, on Lean 4 v4.27.0 with Mathlib at the matching revision. The build was checked by running it rather than by reading the README: `lake build` returns exit 0 on 7,938 jobs, and a grep across all non-cache `.lean` files finds no `sorry`, no custom axioms and no `native_decide`. Those figures agree with the repository's own description.\n\nA sixteenth module on optimal friction dosing, fifteen further theorems, is committed on a local branch and not pushed, so the public repository and all current site copy describe the smaller version. The 246 figure goes stale the moment that branch lands."
+          "body": "246 theorems across fifteen paper modules plus a shared Common library, on Lean 4 v4.27.0 with Mathlib at the matching revision. The build was checked by running it rather than by reading the README: `lake build` returns exit 0 on 7,938 jobs, and a grep across all non-cache `.lean` files finds no `sorry`, no custom axioms and no `native_decide`. Those figures agree with the repository's own description.\n\nA sixteenth module on optimal friction dosing, twenty-three further theorems, is committed on a local branch and not pushed, so the public repository and all current site copy describe the smaller version. The 246 figure goes stale the moment that branch lands."
         },
         {
           "heading": "Depth is uneven, and the headline count flattens that",
@@ -186,7 +186,7 @@
       ],
       "caveats": [
         "No external peer review on either artefact. Both are preprint deposits; neither has been through a journal.",
-        "The deposited monograph is behind its own source, and the gap is substantive. An internal panel review returned a revise verdict, and the subsequent local rebuild reframes a network-epistemology result as running counter to the classic effect, explicitly withdraws a claim about intelligence and suicidality, and removes a cross-model validation section whose supporting appendix contained only Claude excerpts. A reader who fetches the concept DOI today still gets all three. Depositing the next version closes it.",
+        "No external peer review, and an internal panel returned a revise verdict. The deposited monograph is v5 (11 July 2026); check it against the local source before assuming any particular revision has landed.",
         "The standalone Zenodo record carries no related identifiers, so nothing on the record tells a reader it has been absorbed, and its own deposited description links to a lab URL that now returns 404.",
         "Version DOIs are circulating where concept DOIs belong across the local metadata files for both artefacts, and the monograph's citation file still carries a retired title and a DOI that is neither the concept nor the current version."
       ],
@@ -196,8 +196,7 @@
           "url": "https://doi.org/10.5281/zenodo.17917969"
         },
         {
-          "label": "Monograph latest deposited version 10.5281/zenodo.20739645 (v4, 18 June 2026)",
-          "url": "https://doi.org/10.5281/zenodo.20739645"
+          "label": "Monograph latest deposited version — the concept DOI resolves to v5"
         },
         {
           "label": "Standalone concept 10.5281/zenodo.18195914",

@@ -148,7 +148,7 @@
       "topic": "cooperative-ai"
     },
     {
-      "title": "Human-level play in the game of<i>Diplomacy</i>by combining language models with strategic reasoning",
+      "title": "Human-level play in the game of Diplomacy by combining language models with strategic reasoning",
       "authors": "Anton Bakhtin, Noam Brown, Emily Dinan, et al.",
       "year": "2022",
       "venue": "Science, 378(6624), 1067-1074",
@@ -209,7 +209,7 @@
     },
     {
       "title": "Goal Misgeneralization in Deep Reinforcement Learning",
-      "authors": "Lauro Langosco di Langosco, Jack Koch, Lee D. Sharkey, Jacob Pfau, David Krueger",
+      "authors": "Lauro Langosco, Jack Koch, Lee Sharkey, Jacob Pfau, Laurent Orseau, David Krueger",
       "year": "2022",
       "venue": "International Conference on Machine Learning (ICML), PMLR vol. 162, pp. 12004–12019",
       "identifier": "arXiv:2105.14111",
@@ -229,7 +229,7 @@
     },
     {
       "title": "Systemic Risk in DeFi: A Network-Based Fragility Analysis of TVL Dynamics",
-      "authors": "Shiyu Zhang, Zining Wang, Jin Zheng",
+      "authors": "Shiyu Zhang, Zining Wang, Jin Zheng, John Cartlidge",
       "year": "2026",
       "venue": "arXiv preprint",
       "identifier": "arXiv:2601.08540",

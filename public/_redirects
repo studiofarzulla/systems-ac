@@ -52,8 +52,8 @@
 /4/DP-2504.html https://dissensus.ai/papers/temporal-bitmap-interpretation 301
 /5/DP-2505 https://dissensus.ai/papers/semantic-first-vision 301
 /5/DP-2505.html https://dissensus.ai/papers/semantic-first-vision 301
-/4/DP-2506 https://dissensus.ai/research 301
-/4/DP-2506.html https://dissensus.ai/research 301
+/4/DP-2506 https://systems.ac/notes/preservation-principle 301
+/4/DP-2506.html https://systems.ac/notes/preservation-principle 301
 
 # Legacy slug URLs -> canonical paper pages
 /papers/axiom-of-consent https://dissensus.ai/papers/axiom-of-consent 301
@@ -102,8 +102,8 @@
 /papers/temporal-bitmap-interpretation.html https://dissensus.ai/papers/temporal-bitmap-interpretation 301
 /papers/semantic-first-vision https://dissensus.ai/papers/semantic-first-vision 301
 /papers/semantic-first-vision.html https://dissensus.ai/papers/semantic-first-vision 301
-/papers/preservation-principle https://dissensus.ai/research 301
-/papers/preservation-principle.html https://dissensus.ai/research 301
+/papers/preservation-principle https://systems.ac/notes/preservation-principle 301
+/papers/preservation-principle.html https://systems.ac/notes/preservation-principle 301
 
 # Programme slug aliases -> DOI-style programme pages (still hosted here)
 /programmes/consent-mechanics /1/ 301
