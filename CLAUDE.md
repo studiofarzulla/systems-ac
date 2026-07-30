@@ -26,9 +26,22 @@ localStorage) — note this is the *opposite* default from dissensus.ai, deliber
 dissensus.ai's is 12.2 KB and has moved ahead — self-hosted fonts, hamburger nav, light default.
 Do not blind-sync between them: syncing forward would flip this site's theme default.
 
-**Known drift to raise with MF:** this site loads Inter + IBM Plex Mono from the **Google Fonts
-CDN** (`getHeadHtml`), while the design system says self-hosted, no font CDN. That is both a
-brand inconsistency and an IP-leak-to-Google question for a UK entity.
+**Fonts (resolved 30 Jul 2026):** self-hosted woff2 in `public/assets/fonts/`, `@font-face`
+declared **in `ascri.css`, not `system.css`** — the site layer is the only file safe to touch
+without dragging in dissensus's diverged system.css. The Google Fonts CDN links are gone from
+both `getHeadHtml()` and the six hand-authored pages. No third-party font CDN; no visitor IPs
+to Google.
+
+Shipped weights = exactly what the CSS asks for: Inter 400/500/600/700 + 400 italic, IBM Plex
+Mono 400/500/600. Note `h1–h4` use `font-weight: 650`, which resolves to the **700** face — if
+you ever drop Inter 700, headings get lighter. Inter 300 was requested from the CDN but no rule
+ever used it; not shipped.
+
+⚠️ The CDN silently supplied **greek** and **latin-ext** subsets. The latin-only files do not,
+so `inter-greek-{400,500,600,700}` and `inter-latin-ext-400` are shipped with `unicode-range`
+guards — without them the notation (α σ ε η φ Λ Ψ) and names like "Tomáš Gavenčiak" drop to a
+system font mid-sentence. **Adding a new Inter weight means adding its greek subset too.**
+`→ ← ≥ ◐` were never in Google's Inter/Plex ranges either and still fall back — unchanged.
 
 **Colors:** burgundy `#800020` accent (brand constant), tokens come from `system.css`.
 

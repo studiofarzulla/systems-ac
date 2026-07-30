@@ -249,10 +249,9 @@ function getHeadHtml(meta) {
   <title>${title}</title>
   <meta name="description" content="${escapeHtml(description)}">
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <!-- Fonts: self-hosted woff2 subsets, @font-face declared in ascri.css.
+       No third-party font CDN — design-system rule, and it keeps visitor
+       IPs away from Google. -->
 
   <!-- Favicon -->
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">

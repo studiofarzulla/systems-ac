@@ -5,7 +5,37 @@
    the friction equation display, the notation table, programme + outbound
    paper cards, person cards, and a few layout helpers. Dark default, burgundy
    accent — everything reads from the shared tokens.
+
+   Fonts are declared here rather than in system.css because this site's
+   system.css is the older shared copy; dissensus.ai's has diverged forward and
+   the two must not be synced wholesale (it would flip our dark default).
+   Self-hosted woff2 latin subsets in assets/fonts — no third-party font CDN.
    ============================================================================ */
+
+/* ---- self-hosted fonts ----------------------------------------------------- */
+/* Weights are exactly what the site uses: Inter 400/500/600/700 (h1,h2 ask for
+   650, which CSS font-matching resolves to the 700 face) + 400 italic for the
+   *emphasis* the inline renderer emits; IBM Plex Mono 400/500/600 for labels.
+   Inter 300 was requested from the CDN but never used by any rule — dropped. */
+@font-face { font-family: "Inter"; font-style: normal; font-weight: 400; font-display: swap; src: url("../assets/fonts/inter-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "Inter"; font-style: italic; font-weight: 400; font-display: swap; src: url("../assets/fonts/inter-latin-400-italic.woff2") format("woff2"); }
+@font-face { font-family: "Inter"; font-style: normal; font-weight: 500; font-display: swap; src: url("../assets/fonts/inter-latin-500-normal.woff2") format("woff2"); }
+@font-face { font-family: "Inter"; font-style: normal; font-weight: 600; font-display: swap; src: url("../assets/fonts/inter-latin-600-normal.woff2") format("woff2"); }
+@font-face { font-family: "Inter"; font-style: normal; font-weight: 700; font-display: swap; src: url("../assets/fonts/inter-latin-700-normal.woff2") format("woff2"); }
+@font-face { font-family: "IBM Plex Mono"; font-style: normal; font-weight: 400; font-display: swap; src: url("../assets/fonts/ibm-plex-mono-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "IBM Plex Mono"; font-style: normal; font-weight: 500; font-display: swap; src: url("../assets/fonts/ibm-plex-mono-latin-500-normal.woff2") format("woff2"); }
+@font-face { font-family: "IBM Plex Mono"; font-style: normal; font-weight: 600; font-display: swap; src: url("../assets/fonts/ibm-plex-mono-latin-600-normal.woff2") format("woff2"); }
+
+/* Greek + latin-ext, declared after the latin faces so they win for the ranges
+   they claim. The CDN served these subsets implicitly; the latin-only files do
+   not carry them, and without these the notation (α σ ε η φ Λ Ψ) and names like
+   "Tomáš Gavenčiak" would drop to a system font mid-sentence. unicode-range
+   means a visitor only fetches them on a page that actually uses the glyphs. */
+@font-face { font-family: "Inter"; font-style: normal; font-weight: 400; font-display: swap; src: url("../assets/fonts/inter-greek-400-normal.woff2") format("woff2"); unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF; }
+@font-face { font-family: "Inter"; font-style: normal; font-weight: 500; font-display: swap; src: url("../assets/fonts/inter-greek-500-normal.woff2") format("woff2"); unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF; }
+@font-face { font-family: "Inter"; font-style: normal; font-weight: 600; font-display: swap; src: url("../assets/fonts/inter-greek-600-normal.woff2") format("woff2"); unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF; }
+@font-face { font-family: "Inter"; font-style: normal; font-weight: 700; font-display: swap; src: url("../assets/fonts/inter-greek-700-normal.woff2") format("woff2"); unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF; }
+@font-face { font-family: "Inter"; font-style: normal; font-weight: 400; font-display: swap; src: url("../assets/fonts/inter-latin-ext-400-normal.woff2") format("woff2"); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
 
 /* skip link (accessibility) */
 .skip-link { position: absolute; left: -9999px; top: auto; }
