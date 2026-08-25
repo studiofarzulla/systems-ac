@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FarzullaProofs — Lean 4 formalisations | ASCRI</title>
-  <meta name="description" content="FarzullaProofs is a Lean 4 library that restates selected results from the lab&#039;s papers as machine-checked theorems. The public repository holds 246 theorems across fifteen paper modules plus a shared library, compiling against Lean 4 v4.27.0 and Mathlib with no `sorry` placeholders, no custom axioms and no `native_decide`. Formalisation depth varies a great deal between modules: several map onto named propositions in the manuscripts, others formalise a simplified algebraic stand-in for the construct the paper is actually about.">
+  <meta name="description" content="FarzullaProofs is a Lean 4 library that restates the definitions and elementary algebra of the lab&#039;s papers as machine-checked theorems. Following an audit in August 2026 the public repository holds 190 theorems across ten paper modules plus a shared library, compiling against Lean 4 v4.27.0 and Mathlib with no `sorry` placeholders, no custom axioms and no `native_decide`. That audit found that the large majority of the proofs unfold a definition and close by `linarith`, `ring` or `simp`, archived nine modules whose theorems were standard facts about arithmetic dressed in domain vocabulary, and withdrew the self-assigned Bronze/Silver/Gold depth labels. It also found that the `AxiomOfConsent` module formalises a friction functional that was retracted on 30 July 2026; the theorems there remain valid about the formula, but their mapping to claims about coordination is withdrawn and marked in the source.">
 
   <!-- Fonts: self-hosted woff2 subsets, @font-face declared in ascri.css.
        No third-party font CDN — design-system rule, and it keeps visitor
@@ -31,7 +31,7 @@
   <!-- Open Graph -->
   <meta property="og:type" content="article">
   <meta property="og:title" content="FarzullaProofs — Lean 4 formalisations">
-  <meta property="og:description" content="FarzullaProofs is a Lean 4 library that restates selected results from the lab&#039;s papers as machine-checked theorems. The public repository holds 246 theorems across fifteen paper modules plus a shared library, compiling against Lean 4 v4.27.0 and Mathlib with no `sorry` placeholders, no custom axioms and no `native_decide`. Formalisation depth varies a great deal between modules: several map onto named propositions in the manuscripts, others formalise a simplified algebraic stand-in for the construct the paper is actually about.">
+  <meta property="og:description" content="FarzullaProofs is a Lean 4 library that restates the definitions and elementary algebra of the lab&#039;s papers as machine-checked theorems. Following an audit in August 2026 the public repository holds 190 theorems across ten paper modules plus a shared library, compiling against Lean 4 v4.27.0 and Mathlib with no `sorry` placeholders, no custom axioms and no `native_decide`. That audit found that the large majority of the proofs unfold a definition and close by `linarith`, `ring` or `simp`, archived nine modules whose theorems were standard facts about arithmetic dressed in domain vocabulary, and withdrew the self-assigned Bronze/Silver/Gold depth labels. It also found that the `AxiomOfConsent` module formalises a friction functional that was retracted on 30 July 2026; the theorems there remain valid about the formula, but their mapping to claims about coordination is withdrawn and marked in the source.">
   <meta property="og:url" content="https://systems.ac/notes/lean-formalisations">
   <meta property="og:site_name" content="ASCRI">
   <meta property="og:image" content="https://systems.ac/assets/og-default.png">
@@ -39,7 +39,7 @@
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="FarzullaProofs — Lean 4 formalisations">
-  <meta name="twitter:description" content="FarzullaProofs is a Lean 4 library that restates selected results from the lab&#039;s papers as machine-checked theorems. The public repository holds 246 theorems across fifteen paper modules plus a shared library, compiling against Lean 4 v4.27.0 and Mathlib with no `sorry` placeholders, no custom axioms and no `native_decide`. Formalisation depth varies a great deal between modules: several map onto named propositions in the manuscripts, others formalise a simplified algebraic stand-in for the construct the paper is actually about.">
+  <meta name="twitter:description" content="FarzullaProofs is a Lean 4 library that restates the definitions and elementary algebra of the lab&#039;s papers as machine-checked theorems. Following an audit in August 2026 the public repository holds 190 theorems across ten paper modules plus a shared library, compiling against Lean 4 v4.27.0 and Mathlib with no `sorry` placeholders, no custom axioms and no `native_decide`. That audit found that the large majority of the proofs unfold a definition and close by `linarith`, `ring` or `simp`, archived nine modules whose theorems were standard facts about arithmetic dressed in domain vocabulary, and withdrew the self-assigned Bronze/Silver/Gold depth labels. It also found that the `AxiomOfConsent` module formalises a friction functional that was retracted on 30 July 2026; the theorems there remain valid about the formula, but their mapping to claims about coordination is withdrawn and marked in the source.">
   <meta name="twitter:image" content="https://systems.ac/assets/og-default.png">
 </head>
 <body class="has-nav">
@@ -67,7 +67,7 @@
       <span class="kicker">Proof library</span>
       <h1>FarzullaProofs — Lean 4 formalisations</h1>
       <hr class="rule">
-      <p>FarzullaProofs is a Lean 4 library that restates selected results from the lab&#039;s papers as machine-checked theorems. The public repository holds 246 theorems across fifteen paper modules plus a shared library, compiling against Lean 4 v4.27.0 and Mathlib with no <code>sorry</code> placeholders, no custom axioms and no <code>native_decide</code>. Formalisation depth varies a great deal between modules: several map onto named propositions in the manuscripts, others formalise a simplified algebraic stand-in for the construct the paper is actually about.</p>
+      <p>FarzullaProofs is a Lean 4 library that restates the definitions and elementary algebra of the lab&#039;s papers as machine-checked theorems. Following an audit in August 2026 the public repository holds 190 theorems across ten paper modules plus a shared library, compiling against Lean 4 v4.27.0 and Mathlib with no <code>sorry</code> placeholders, no custom axioms and no <code>native_decide</code>. That audit found that the large majority of the proofs unfold a definition and close by <code>linarith</code>, <code>ring</code> or <code>simp</code>, archived nine modules whose theorems were standard facts about arithmetic dressed in domain vocabulary, and withdrew the self-assigned Bronze/Silver/Gold depth labels. It also found that the <code>AxiomOfConsent</code> module formalises a friction functional that was retracted on 30 July 2026; the theorems there remain valid about the formula, but their mapping to claims about coordination is withdrawn and marked in the source.</p>
     </header>
     <section class="section container">
       <span class="index">01 &middot; Why it might be useful</span>
@@ -78,8 +78,9 @@
       </div>
       <div class="prose" style="max-width:var(--measure);margin-top:var(--sp-8);">
       <h3>What is in the repository</h3>
-      <p>246 theorems across fifteen paper modules plus a shared Common library, on Lean 4 v4.27.0 with Mathlib at the matching revision. The build was checked by running it rather than by reading the README: <code>lake build</code> returns exit 0 on 7,938 jobs, and a grep across all non-cache <code>.lean</code> files finds no <code>sorry</code>, no custom axioms and no <code>native_decide</code>. Those figures agree with the repository&#039;s own description.</p>
-        <p>A sixteenth module on optimal friction dosing, twenty-three further theorems, is committed on a local branch and not pushed, so the public repository and all current site copy describe the smaller version. The 246 figure goes stale the moment that branch lands.</p>
+      <p>190 theorems across ten paper modules plus a shared Common library, on Lean 4 v4.27.0 with Mathlib at the matching revision. The build was checked by running it rather than by reading the README: <code>lake build</code> returns exit 0 on 7,917 jobs, and a grep across all non-cache <code>.lean</code> files finds no <code>sorry</code>, no custom axioms and no <code>native_decide</code>.</p>
+        <p>The earlier figure on this page was 246 theorems across fifteen modules, with the caveat that it would go stale the moment the unpushed optimal-friction-dosing branch landed. That branch landed on 25 August 2026, in the same push as an audit that cut rather than added: nine modules moved to <code>archive/</code>, where they are neither built nor claimed. The counts moved down, not up.</p>
+        <p>What the count does not tell you is depth, and the honest figure there is much smaller. Roughly two thirds of the proofs in the library have bodies of two lines or fewer, and the longest proof is nineteen lines. Treat the theorem count as a statement about coverage, not about difficulty.</p>
 
       <h3>Depth is uneven, and the headline count flattens that</h3>
       <p>Roughly six modules formalise named propositions from the manuscripts. The rest formalise simplified algebraic stand-ins. The module named for the 33k-word consciousness monograph defines qualia distance as the absolute difference of two reals and proves non-negativity, self-distance zero and symmetry, which are the standard properties of absolute value. The CBDC privacy module models privacy composition as additive epsilon accounting closed by <code>ring</code>. Neither formalises the argument of the paper it is named after.</p>
@@ -94,10 +95,11 @@
       <span class="index">02 &middot; Claims</span>
       <h2>What it argues</h2>
       <ul class="scope-list scope-list--in">
-        <li>246 theorems, zero <code>sorry</code>, zero custom axioms, zero <code>native_decide</code>, on Lean 4 v4.27.0 and Mathlib. Verified by running the build and grepping the source rather than by reading the README, and consistent with the repository&#039;s own description.</li>
-        <li>Formalisation depth is uneven and the tier labels no longer track it. About six modules formalise named propositions; the others formalise simplified algebraic stand-ins.</li>
+        <li>190 theorems, zero <code>sorry</code>, zero custom axioms, zero <code>native_decide</code>, on Lean 4 v4.27.0 and Mathlib. Verified by running the build and grepping the source rather than by reading the README.</li>
+        <li>Formalisation depth is uneven, and the tier labels that used to claim otherwise were withdrawn in the August 2026 audit. Roughly two thirds of the proofs have bodies of two lines or fewer and the longest is nineteen lines; a handful of modules formalise named propositions and the rest formalise simplified algebraic stand-ins. Read the count as coverage, not difficulty.</li>
         <li>Everything is elementary algebra over the reals, Finset and the complex numbers. No measure theory, no topology, no continuous dynamics.</li>
-        <li>A sixteenth module of fifteen theorems exists only on an unpushed local branch, so the public repository is the smaller version.</li>
+        <li>The optimal-friction-dosing module (23 theorems) landed publicly on 25 August 2026, in the same push as the audit; nine other modules left the library in that push and are now in <code>archive/</code>, neither built nor claimed.</li>
+        <li>The <code>AxiomOfConsent</code> module formalises a friction functional retracted on 30 July 2026. Its theorems remain valid about that formula; their mapping to claims about coordination is withdrawn and marked in the source, in the module PaperMap, and in the repository README.</li>
       </ul>
     </section>
     <section class="section container">
